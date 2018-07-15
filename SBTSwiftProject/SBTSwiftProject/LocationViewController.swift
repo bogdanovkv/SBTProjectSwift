@@ -10,6 +10,13 @@ import UIKit
 
 class LocationViewController: UIViewController {
 
+    let cityLabel: UILabel
+    
+    required init?(coder aDecoder: NSCoder) {
+        cityLabel = UILabel()
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.green
