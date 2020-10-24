@@ -9,7 +9,7 @@
 import UIKit
 
 final class LocationViewController: UIViewController {
-	let location = LocationRepository(networkService: NetworkService(sesion: .shared))
+
 	private lazy var locationView: LocationViewInput = LocationView()
 	private let interactor: LocationInteractorInput
 
@@ -39,6 +39,6 @@ extension LocationViewController: LocationInteractorOutput {
 	}
 
 	func didRecieveError() {
-
+		// TODO: alert
 	}
 }

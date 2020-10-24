@@ -12,8 +12,8 @@ protocol LocationUseCaseProtocol {
 	func getLocation(_ completion: @escaping (Result<LocationModel, Error>) -> Void)
 }
 
-class LocationUseCase: LocationUseCaseProtocol {
-	let repository: LocationRepositoryProtocol
+final class LocationUseCase: LocationUseCaseProtocol {
+	private let repository: LocationRepositoryProtocol
 
 	init(repository: LocationRepositoryProtocol) {
 		self.repository = repository

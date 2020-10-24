@@ -10,6 +10,7 @@
 struct DataLayerDependencies {
 
 	static func createLocationRepository() -> LocationRepositoryProtocol {
-		return LocationRepository(networkService: ServiceLayerDependecies.createNetworkService())
+		return LocationRepository(networkService: ServiceLayerDependecies.createNetworkService(),
+								  coreDataService: ServiceLayerDependecies.createCoreDataService())
 	}
 }

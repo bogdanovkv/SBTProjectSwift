@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1435090C2544AF6F0086DD64 /* CountryManaged+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143509082544AF6F0086DD64 /* CountryManaged+CoreDataClass.swift */; };
+		1435090D2544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143509092544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift */; };
+		1435090E2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1435090A2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift */; };
+		1435090F2544AF6F0086DD64 /* CityManaged+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1435090B2544AF6F0086DD64 /* CityManaged+CoreDataProperties.swift */; };
+		143509112544B8030086DD64 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143509102544B8030086DD64 /* CoreDataService.swift */; };
 		1438FF6F20F9FD29003CC7C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF6E20F9FD29003CC7C2 /* AppDelegate.swift */; };
 		1438FF7120F9FD29003CC7C2 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF7020F9FD29003CC7C2 /* LocationViewController.swift */; };
 		1438FF7720F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF7520F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld */; };
@@ -24,6 +29,7 @@
 		14AE5AF025448AFC00548B1D /* DataLayerDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AEF25448AFC00548B1D /* DataLayerDependencies.swift */; };
 		14AE5AF325449C4B00548B1D /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AF225449C4B00548B1D /* CityModel.swift */; };
 		14AE5AF525449EF700548B1D /* PrepareStorageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AF425449EF700548B1D /* PrepareStorageUseCase.swift */; };
+		14AE5AF72544A6BD00548B1D /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AF62544A6BD00548B1D /* CountryModel.swift */; };
 		14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7C2544241100134D82 /* NetworkService.swift */; };
 		14CD8B802544245E00134D82 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7F2544245E00134D82 /* NetworkRequest.swift */; };
 		14CD8B822544263C00134D82 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B812544263C00134D82 /* NetworkResponse.swift */; };
@@ -40,6 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		143509082544AF6F0086DD64 /* CountryManaged+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryManaged+CoreDataClass.swift"; sourceTree = "<group>"; };
+		143509092544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryManaged+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1435090A2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityManaged+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1435090B2544AF6F0086DD64 /* CityManaged+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityManaged+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		143509102544B8030086DD64 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		1438FF6B20F9FD29003CC7C2 /* SBTSwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SBTSwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1438FF6E20F9FD29003CC7C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1438FF7020F9FD29003CC7C2 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +71,7 @@
 		14AE5AEF25448AFC00548B1D /* DataLayerDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLayerDependencies.swift; sourceTree = "<group>"; };
 		14AE5AF225449C4B00548B1D /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		14AE5AF425449EF700548B1D /* PrepareStorageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareStorageUseCase.swift; sourceTree = "<group>"; };
+		14AE5AF62544A6BD00548B1D /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		14CD8B7C2544241100134D82 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		14CD8B7F2544245E00134D82 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		14CD8B812544263C00134D82 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
@@ -113,7 +125,6 @@
 				1451A331254422BB00ACFC6E /* Location */,
 				1438FF7820F9FD2B003CC7C2 /* Assets.xcassets */,
 				14D1A23220FB380000BD1DC1 /* Info.plist */,
-				1438FF7520F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld */,
 			);
 			path = SBTSwiftProject;
 			sourceTree = "<group>";
@@ -164,6 +175,7 @@
 				147D5A3B25442EEA00F90BA2 /* LocationRepository.swift */,
 				147D5A3E25442FF800F90BA2 /* LocationModel.swift */,
 				14AE5AF225449C4B00548B1D /* CityModel.swift */,
+				14AE5AF62544A6BD00548B1D /* CountryModel.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -185,10 +197,32 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		14AE5AF82544AD1E00548B1D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				14AE5AF92544AE0400548B1D /* Models */,
+				143509102544B8030086DD64 /* CoreDataService.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		14AE5AF92544AE0400548B1D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				143509082544AF6F0086DD64 /* CountryManaged+CoreDataClass.swift */,
+				143509092544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift */,
+				1435090A2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift */,
+				1435090B2544AF6F0086DD64 /* CityManaged+CoreDataProperties.swift */,
+				1438FF7520F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		14CD8B7E2544241B00134D82 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
 				1474CEE92544367E00C9615B /* ServiceLayerDependecies.swift */,
+				14AE5AF82544AD1E00548B1D /* CoreData */,
 				1474CEEB254436D200C9615B /* Network */,
 			);
 			path = ServiceLayer;
@@ -294,12 +328,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1435090E2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift in Sources */,
 				147D5A3F25442FF800F90BA2 /* LocationModel.swift in Sources */,
 				14AE5AEA2544801D00548B1D /* LocationView.swift in Sources */,
+				1435090D2544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift in Sources */,
+				14AE5AF72544A6BD00548B1D /* CountryModel.swift in Sources */,
 				1438FF7120F9FD29003CC7C2 /* LocationViewController.swift in Sources */,
 				1438FF7720F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld in Sources */,
 				14AE5AF325449C4B00548B1D /* CityModel.swift in Sources */,
 				1474CEEA2544367E00C9615B /* ServiceLayerDependecies.swift in Sources */,
+				1435090C2544AF6F0086DD64 /* CountryManaged+CoreDataClass.swift in Sources */,
 				147D5A3C25442EEA00F90BA2 /* LocationRepository.swift in Sources */,
 				14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */,
 				14AE5AE825447E4600548B1D /* LocationInteractor.swift in Sources */,
@@ -310,6 +348,8 @@
 				14AE5AF525449EF700548B1D /* PrepareStorageUseCase.swift in Sources */,
 				14AE5AF025448AFC00548B1D /* DataLayerDependencies.swift in Sources */,
 				14AE5AEE25448A1F00548B1D /* DomainLayerDependencies.swift in Sources */,
+				1435090F2544AF6F0086DD64 /* CityManaged+CoreDataProperties.swift in Sources */,
+				143509112544B8030086DD64 /* CoreDataService.swift in Sources */,
 				14CD8B822544263C00134D82 /* NetworkResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

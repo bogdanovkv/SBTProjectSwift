@@ -7,7 +7,11 @@
 //
 
 struct ServiceLayerDependecies {
+	private static let coreDataService: CoreDataServiceProtocol = CoreDataService()
 	static func createNetworkService() -> NetworkServiceProtocol {
 		return NetworkService(sesion: .shared)
+	}
+	static func createCoreDataService() -> CoreDataServiceProtocol {
+		return coreDataService
 	}
 }
