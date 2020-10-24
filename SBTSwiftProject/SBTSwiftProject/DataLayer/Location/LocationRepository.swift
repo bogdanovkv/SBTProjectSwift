@@ -15,7 +15,7 @@ protocol LocationRepositoryProtocol {
 final class LocationRepository: LocationRepositoryProtocol {
 	private let token = "fe17c550289588390f32bb8a4caf562f"
 	private enum Endoint: String {
-		case location = "http://www.travelpayouts.com/whereami"
+		case currentLocation = "http://www.travelpayouts.com/whereami"
 	}
 	
 	private enum RepositoryError: Error {
@@ -28,8 +28,9 @@ final class LocationRepository: LocationRepositoryProtocol {
 	init(networkService: NetworkServiceProtocol) {
 		self.networkService = networkService
 	}
+
 	func loadLocation(_ completion: @escaping (Result<LocationModel, Error>) -> Void) {
-		guard let url = URL(string: Endoint.location.rawValue) else {
+		guard let url = URL(string: Endoint.currentLocation.rawValue) else {
 			return completion(.failure(RepositoryError.urlError))
 		}
 		let request = NetworkRequest(url: url,
@@ -50,5 +51,4 @@ final class LocationRepository: LocationRepositoryProtocol {
 		}
 		networkService.perfom(request: request, onComplete)
 	}
-
 }

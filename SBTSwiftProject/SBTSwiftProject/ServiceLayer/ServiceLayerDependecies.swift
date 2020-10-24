@@ -7,5 +7,7 @@
 //
 
 struct ServiceLayerDependecies {
-	static var createNetworkService: NetworkServiceProtocol?
+	static func createNetworkService() -> NetworkServiceProtocol {
+		return NetworkService(sesion: .shared)
+	}
 }

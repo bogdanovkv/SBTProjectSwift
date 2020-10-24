@@ -16,6 +16,12 @@
 		147D5A3C25442EEA00F90BA2 /* LocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D5A3B25442EEA00F90BA2 /* LocationRepository.swift */; };
 		147D5A3F25442FF800F90BA2 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D5A3E25442FF800F90BA2 /* LocationModel.swift */; };
 		14AE5AE325443B7300548B1D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AE5AE225443B7300548B1D /* Launch Screen.storyboard */; };
+		14AE5AE525447A2700548B1D /* LocationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AE425447A2700548B1D /* LocationUseCase.swift */; };
+		14AE5AE825447E4600548B1D /* LocationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AE725447E4600548B1D /* LocationInteractor.swift */; };
+		14AE5AEA2544801D00548B1D /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AE92544801D00548B1D /* LocationView.swift */; };
+		14AE5AEC2544899800548B1D /* LocationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AEB2544899800548B1D /* LocationAssembly.swift */; };
+		14AE5AEE25448A1F00548B1D /* DomainLayerDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AED25448A1F00548B1D /* DomainLayerDependencies.swift */; };
+		14AE5AF025448AFC00548B1D /* DataLayerDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AEF25448AFC00548B1D /* DataLayerDependencies.swift */; };
 		14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7C2544241100134D82 /* NetworkService.swift */; };
 		14CD8B802544245E00134D82 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7F2544245E00134D82 /* NetworkRequest.swift */; };
 		14CD8B822544263C00134D82 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B812544263C00134D82 /* NetworkResponse.swift */; };
@@ -44,6 +50,12 @@
 		147D5A3B25442EEA00F90BA2 /* LocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepository.swift; sourceTree = "<group>"; };
 		147D5A3E25442FF800F90BA2 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		14AE5AE225443B7300548B1D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		14AE5AE425447A2700548B1D /* LocationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUseCase.swift; sourceTree = "<group>"; };
+		14AE5AE725447E4600548B1D /* LocationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInteractor.swift; sourceTree = "<group>"; };
+		14AE5AE92544801D00548B1D /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		14AE5AEB2544899800548B1D /* LocationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAssembly.swift; sourceTree = "<group>"; };
+		14AE5AED25448A1F00548B1D /* DomainLayerDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainLayerDependencies.swift; sourceTree = "<group>"; };
+		14AE5AEF25448AFC00548B1D /* DataLayerDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLayerDependencies.swift; sourceTree = "<group>"; };
 		14CD8B7C2544241100134D82 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		14CD8B7F2544245E00134D82 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		14CD8B812544263C00134D82 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
@@ -93,6 +105,7 @@
 				1438FF6E20F9FD29003CC7C2 /* AppDelegate.swift */,
 				14CD8B7E2544241B00134D82 /* ServiceLayer */,
 				147D5A3A25442EBE00F90BA2 /* DataLayer */,
+				14AE5AE625447A3000548B1D /* DomainLayer */,
 				1451A331254422BB00ACFC6E /* Location */,
 				1438FF7820F9FD2B003CC7C2 /* Assets.xcassets */,
 				14D1A23220FB380000BD1DC1 /* Info.plist */,
@@ -113,7 +126,11 @@
 		1451A331254422BB00ACFC6E /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				14AE5AE725447E4600548B1D /* LocationInteractor.swift */,
+				14AE5AEB2544899800548B1D /* LocationAssembly.swift */,
 				1438FF7020F9FD29003CC7C2 /* LocationViewController.swift */,
+				14AE5AE92544801D00548B1D /* LocationView.swift */,
+				14AE5AF12544962000548B1D /* Views */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -132,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				147D5A3D25442F4800F90BA2 /* Location */,
+				14AE5AEF25448AFC00548B1D /* DataLayerDependencies.swift */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -143,6 +161,22 @@
 				147D5A3E25442FF800F90BA2 /* LocationModel.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		14AE5AE625447A3000548B1D /* DomainLayer */ = {
+			isa = PBXGroup;
+			children = (
+				14AE5AE425447A2700548B1D /* LocationUseCase.swift */,
+				14AE5AED25448A1F00548B1D /* DomainLayerDependencies.swift */,
+			);
+			path = DomainLayer;
+			sourceTree = "<group>";
+		};
+		14AE5AF12544962000548B1D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		14CD8B7E2544241B00134D82 /* ServiceLayer */ = {
@@ -255,13 +289,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				147D5A3F25442FF800F90BA2 /* LocationModel.swift in Sources */,
+				14AE5AEA2544801D00548B1D /* LocationView.swift in Sources */,
 				1438FF7120F9FD29003CC7C2 /* LocationViewController.swift in Sources */,
 				1438FF7720F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld in Sources */,
 				1474CEEA2544367E00C9615B /* ServiceLayerDependecies.swift in Sources */,
 				147D5A3C25442EEA00F90BA2 /* LocationRepository.swift in Sources */,
 				14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */,
+				14AE5AE825447E4600548B1D /* LocationInteractor.swift in Sources */,
+				14AE5AE525447A2700548B1D /* LocationUseCase.swift in Sources */,
+				14AE5AEC2544899800548B1D /* LocationAssembly.swift in Sources */,
 				1438FF6F20F9FD29003CC7C2 /* AppDelegate.swift in Sources */,
 				14CD8B802544245E00134D82 /* NetworkRequest.swift in Sources */,
+				14AE5AF025448AFC00548B1D /* DataLayerDependencies.swift in Sources */,
+				14AE5AEE25448A1F00548B1D /* DomainLayerDependencies.swift in Sources */,
 				14CD8B822544263C00134D82 /* NetworkResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

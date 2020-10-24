@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let currentWindow = window
         {
-            currentWindow.rootViewController = LocationViewController();
+			currentWindow.rootViewController = LocationAssembly().createController()
             currentWindow.makeKeyAndVisible()
         }
         return true
