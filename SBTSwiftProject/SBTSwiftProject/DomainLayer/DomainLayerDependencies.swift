@@ -12,4 +12,8 @@ struct DomainLayerDependencies {
 	static func createLocationUseCase() -> LocationUseCaseProtocol {
 		return LocationUseCase(repository: DataLayerDependencies.createLocationRepository())
 	}
+
+	static func createPrepareStorageUseCase() -> PrepareStorageUseCaseProtocol {
+		return PrepareStorageUseCase(locationRepository: DataLayerDependencies.createLocationRepository())
+	}
 }

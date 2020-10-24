@@ -29,6 +29,7 @@ final class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		interactor.getLocation()
+		interactor.prepareStorage()
 	}
 }
 

@@ -22,5 +22,4 @@ struct LocationModel: Decodable {
 		country = try container.decode(String.self, forKey: .country)
 		city = try container.decode(String.self, forKey: .city)
 	}
-
 }

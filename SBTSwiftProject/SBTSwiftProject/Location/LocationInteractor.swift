@@ -10,6 +10,8 @@ import Foundation
 
 protocol LocationInteractorInput: AnyObject {
 	func getLocation()
+
+	func prepareStorage()
 }
 
 protocol LocationInteractorOutput: AnyObject {
@@ -22,9 +24,11 @@ final class LocationInteractor: LocationInteractorInput {
 	weak var ouptput: LocationInteractorOutput?
 
 	private let getLocationUseCase: LocationUseCaseProtocol
-
-	init(getLocationUseCase: LocationUseCaseProtocol) {
+	private let prepareStorageUseCase: PrepareStorageUseCaseProtocol
+	init(getLocationUseCase: LocationUseCaseProtocol,
+		 prepareStorageUseCase: PrepareStorageUseCaseProtocol) {
 		self.getLocationUseCase = getLocationUseCase
+		self.prepareStorageUseCase = prepareStorageUseCase
 	}
 
 	func getLocation() {
@@ -36,6 +40,12 @@ final class LocationInteractor: LocationInteractorInput {
 				}
 				self?.ouptput?.didUpdateLocation(location)
 			}
+		}
+	}
+
+	func prepareStorage() {
+		prepareStorageUseCase.prepareStorage { _ in
+
 		}
 	}
 }

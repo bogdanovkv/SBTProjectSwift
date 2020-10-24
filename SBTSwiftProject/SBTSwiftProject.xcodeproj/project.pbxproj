@@ -22,6 +22,8 @@
 		14AE5AEC2544899800548B1D /* LocationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AEB2544899800548B1D /* LocationAssembly.swift */; };
 		14AE5AEE25448A1F00548B1D /* DomainLayerDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AED25448A1F00548B1D /* DomainLayerDependencies.swift */; };
 		14AE5AF025448AFC00548B1D /* DataLayerDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AEF25448AFC00548B1D /* DataLayerDependencies.swift */; };
+		14AE5AF325449C4B00548B1D /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AF225449C4B00548B1D /* CityModel.swift */; };
+		14AE5AF525449EF700548B1D /* PrepareStorageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AF425449EF700548B1D /* PrepareStorageUseCase.swift */; };
 		14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7C2544241100134D82 /* NetworkService.swift */; };
 		14CD8B802544245E00134D82 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7F2544245E00134D82 /* NetworkRequest.swift */; };
 		14CD8B822544263C00134D82 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B812544263C00134D82 /* NetworkResponse.swift */; };
@@ -56,6 +58,8 @@
 		14AE5AEB2544899800548B1D /* LocationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAssembly.swift; sourceTree = "<group>"; };
 		14AE5AED25448A1F00548B1D /* DomainLayerDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainLayerDependencies.swift; sourceTree = "<group>"; };
 		14AE5AEF25448AFC00548B1D /* DataLayerDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLayerDependencies.swift; sourceTree = "<group>"; };
+		14AE5AF225449C4B00548B1D /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		14AE5AF425449EF700548B1D /* PrepareStorageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareStorageUseCase.swift; sourceTree = "<group>"; };
 		14CD8B7C2544241100134D82 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		14CD8B7F2544245E00134D82 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		14CD8B812544263C00134D82 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			children = (
 				147D5A3B25442EEA00F90BA2 /* LocationRepository.swift */,
 				147D5A3E25442FF800F90BA2 /* LocationModel.swift */,
+				14AE5AF225449C4B00548B1D /* CityModel.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				14AE5AE425447A2700548B1D /* LocationUseCase.swift */,
+				14AE5AF425449EF700548B1D /* PrepareStorageUseCase.swift */,
 				14AE5AED25448A1F00548B1D /* DomainLayerDependencies.swift */,
 			);
 			path = DomainLayer;
@@ -292,6 +298,7 @@
 				14AE5AEA2544801D00548B1D /* LocationView.swift in Sources */,
 				1438FF7120F9FD29003CC7C2 /* LocationViewController.swift in Sources */,
 				1438FF7720F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld in Sources */,
+				14AE5AF325449C4B00548B1D /* CityModel.swift in Sources */,
 				1474CEEA2544367E00C9615B /* ServiceLayerDependecies.swift in Sources */,
 				147D5A3C25442EEA00F90BA2 /* LocationRepository.swift in Sources */,
 				14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */,
@@ -300,6 +307,7 @@
 				14AE5AEC2544899800548B1D /* LocationAssembly.swift in Sources */,
 				1438FF6F20F9FD29003CC7C2 /* AppDelegate.swift in Sources */,
 				14CD8B802544245E00134D82 /* NetworkRequest.swift in Sources */,
+				14AE5AF525449EF700548B1D /* PrepareStorageUseCase.swift in Sources */,
 				14AE5AF025448AFC00548B1D /* DataLayerDependencies.swift in Sources */,
 				14AE5AEE25448A1F00548B1D /* DomainLayerDependencies.swift in Sources */,
 				14CD8B822544263C00134D82 /* NetworkResponse.swift in Sources */,
