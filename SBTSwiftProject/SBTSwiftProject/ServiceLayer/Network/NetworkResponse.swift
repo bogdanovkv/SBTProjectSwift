@@ -8,7 +8,12 @@
 
 import Foundation
 
+/// Ответ от сервиса работы с сетью
 struct NetworkResponse<Response: Decodable> {
+
+	/// Код HTTP
 	let httpCode: Int
+
+	/// Модель данных
 	let data: Response?
 }

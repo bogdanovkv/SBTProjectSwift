@@ -16,11 +16,23 @@ enum HTTPMethod: String {
 
 /// Модель запроса в сеть
 struct NetworkRequest {
+
+	/// Параметр запроса
 	struct Parameter {
+
+		/// Ключ
 		let key: String
+
+		/// Значение
 		let value: String
 	}
+
+	/// URL
 	let url: URL
+
+	/// HTTP метод
 	let methon: HTTPMethod
+
+	/// Параметры
 	let parameters: [Parameter]
 }

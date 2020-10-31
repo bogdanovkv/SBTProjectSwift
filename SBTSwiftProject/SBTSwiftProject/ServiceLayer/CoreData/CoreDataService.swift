@@ -9,10 +9,23 @@
 import CoreData
 
 protocol CoreDataServiceProtocol {
+
+	/// Извлекает модели из CoreData
+	/// - Parameter convertClosure: блок для преобразования managed модели в обычную
 	func fetch<Entity: NSManagedObject, Model>(convertClosure: (Entity) -> Model) -> [Model]
+
+	/// Добавить модели в CoreData
+	/// - Parameters:
+	///   - models: модели
+	///   - convertClosure: блок, в котором происходит установка свойст managed модели
+	///   - completion: блок, выполняющийся по завершению сохранения моделей
 	func insert<Model, Entity: NSManagedObject>(models: [Model],
 												convertClosure: @escaping (Model, Entity) -> Void,
 												completion: @escaping () -> Void)
+
+	/// Удаляет все сущности данного типа из CoreData
+	/// - Parameter type: тип
+	func deleteAll<Entity: NSManagedObject>(type: Entity.Type)
 }
 
 final class CoreDataService: CoreDataServiceProtocol {
@@ -47,14 +60,24 @@ final class CoreDataService: CoreDataServiceProtocol {
 	func insert<Model, Entity: NSManagedObject>(models: [Model],
 												convertClosure: @escaping (Model, Entity) -> Void,
 												completion: @escaping () -> Void) {
-		backgroundContext.perform { [weak self] in
-			guard let self = self else { return }
+		let context = backgroundContext
+		context.perform {
 			models.forEach { model in
 				let entity = Entity(context: self.backgroundContext)
 				convertClosure(model, entity)
 			}
-			try? self.backgroundContext.save()
+			try? context.save()
 			completion()
+		}
+	}
+
+	func deleteAll<Entity: NSManagedObject>(type: Entity.Type) {
+		let context = backgroundContext
+		context.perform {
+			let request = NSFetchRequest<Entity>()
+			let objects = try? request.execute()
+			objects?.forEach({ context.delete($0) })
+			try? self.backgroundContext.save()
 		}
 	}
 }

@@ -6,11 +6,21 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
+import Inject
 
-struct DataLayerDependencies {
+extension Inject {
+	static var dataLayer: Inject<DataLayerDependencies> {
+		return .init(factory: DataLayerDependencies.self)
+	}
+}
 
+struct DataLayerDependencies: InjectFactoryProtocol {
+	static var scope = "dataLayer"
 	static func createLocationRepository() -> LocationRepositoryProtocol {
-		return LocationRepository(networkService: ServiceLayerDependecies.createNetworkService(),
-								  coreDataService: ServiceLayerDependecies.createCoreDataService())
+		return LocationRepository()
+	}
+
+	static func createSettingsRepository() -> UserSettingsRepository {
+		return UserSettingsRepository()
 	}
 }

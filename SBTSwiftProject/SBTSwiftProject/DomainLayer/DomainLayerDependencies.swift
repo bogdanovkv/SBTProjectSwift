@@ -10,10 +10,13 @@ import UIKit
 
 struct DomainLayerDependencies {
 	static func createLocationUseCase() -> LocationUseCaseProtocol {
-		return LocationUseCase(repository: DataLayerDependencies.createLocationRepository())
+		return LocationUseCase()
 	}
 
 	static func createPrepareStorageUseCase() -> PrepareStorageUseCaseProtocol {
-		return PrepareStorageUseCase(locationRepository: DataLayerDependencies.createLocationRepository())
+		return PrepareStorageUseCase(settingsRepository: DataLayerDependencies.createSettingsRepository(),
+									 prepareAirportsUseCase: PrepareAirportsUseCase(),
+									 prepareCountriesUseCase: PrepareCountriesUseCase(),
+									 prepareCitiesUseCase: PrepareCitiesUseCase())
 	}
 }
