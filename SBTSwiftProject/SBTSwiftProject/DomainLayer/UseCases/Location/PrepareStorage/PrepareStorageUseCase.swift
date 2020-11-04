@@ -6,13 +6,17 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Foundation
+import Inject
 
 protocol PrepareStorageUseCaseProtocol {
 	func prepareStorage(_ copmletion: @escaping (Result<Void, Error>) -> Void)
 }
 
 class PrepareStorageUseCase: PrepareStorageUseCaseProtocol {
+
+	enum CaseError: Error {
+		case locationError
+	}
 
 	private let settingsRepository: UserSettingsRepositoryProtocol
 	private let prepareAirportsUseCase: UseCase<Void, Void>
@@ -21,12 +25,15 @@ class PrepareStorageUseCase: PrepareStorageUseCaseProtocol {
 	private var citiesLoaded: Bool
 	private var countriesLoaded: Bool
 	private var airportsLoad: Bool
+	private let locationRepository: LocationRepositoryProtocol
 
 	init(settingsRepository: UserSettingsRepositoryProtocol,
+		 locationRepository: LocationRepositoryProtocol,
 		 prepareAirportsUseCase: UseCase<Void, Void>,
 		 prepareCountriesUseCase: UseCase<Void, Void>,
 		 prepareCitiesUseCase: UseCase<Void, Void>) {
 		self.settingsRepository = settingsRepository
+		self.locationRepository = locationRepository
 		self.prepareCitiesUseCase = prepareCitiesUseCase
 		self.prepareCountriesUseCase = prepareCountriesUseCase
 		self.prepareAirportsUseCase = prepareAirportsUseCase
@@ -35,11 +42,24 @@ class PrepareStorageUseCase: PrepareStorageUseCaseProtocol {
 		airportsLoad = false
 	}
 
+	convenience init(prepareAirportsUseCase: UseCase<Void, Void>,
+					 prepareCountriesUseCase: UseCase<Void, Void>,
+					 prepareCitiesUseCase: UseCase<Void, Void>) {
+		let factory = Inject.dataLayer
+		self.init(settingsRepository: factory.create(closure: { $0.createSettingsRepository() },
+													 strategy: .new),
+				  locationRepository: factory.create(closure: { $0.createLocationRepository()},
+													 strategy: .scope(key: 0)),
+				  prepareAirportsUseCase: prepareAirportsUseCase,
+				  prepareCountriesUseCase: prepareCountriesUseCase,
+				  prepareCitiesUseCase: prepareCitiesUseCase)
+	}
+
 	func prepareStorage(_ copmletion: @escaping (Result<Void, Error>) -> Void) {
 		guard !settingsRepository.didIntializeStorage else {
 			return copmletion(.success(()))
 		}
-
+		locationRepository.clearLocations()
 		let group = DispatchGroup()
 
 		group.enter()
@@ -70,9 +90,10 @@ class PrepareStorageUseCase: PrepareStorageUseCaseProtocol {
 				return copmletion(.failure(AppError.nilSelf))
 			}
 			if [self.airportsLoad, self.citiesLoaded, self.countriesLoaded].allSatisfy({ $0 }) {
+				self.settingsRepository.didIntializeStorage = true
 				return copmletion(.success(()))
 			}
-			copmletion(.success(()))
+			copmletion(.failure(CaseError.locationError))
 		}))
 	}
 }

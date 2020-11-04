@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		14090F35254752A50028918F /* UserSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14090F34254752A50028918F /* UserSettingsRepository.swift */; };
+		142865CE25509648003D1930 /* SelectCountryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865CD25509648003D1930 /* SelectCountryAssembly.swift */; };
+		142865DD25509C4E003D1930 /* SelectCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865DA25509C4E003D1930 /* SelectCityViewController.swift */; };
+		142865DE25509C4E003D1930 /* SelectCityAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865DB25509C4E003D1930 /* SelectCityAssembly.swift */; };
+		142865DF25509C4E003D1930 /* SelectCityInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865DC25509C4E003D1930 /* SelectCityInteractor.swift */; };
+		142865E12551B1B3003D1930 /* GetCitiesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865E02551B1B3003D1930 /* GetCitiesUseCase.swift */; };
+		142865E32551DB30003D1930 /* TicketsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865E22551DB30003D1930 /* TicketsSearchViewController.swift */; };
+		142865E52551DBD9003D1930 /* TicketsSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865E42551DBD9003D1930 /* TicketsSearchInteractor.swift */; };
+		142865E82551E0BF003D1930 /* SearchTicketsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865E72551E0BF003D1930 /* SearchTicketsUseCase.swift */; };
+		142865EB2551E0EE003D1930 /* TicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865EA2551E0EE003D1930 /* TicketModel.swift */; };
+		142865ED2551E50C003D1930 /* TicketsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865EC2551E50C003D1930 /* TicketsRepository.swift */; };
 		1435090C2544AF6F0086DD64 /* CountryManaged+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143509082544AF6F0086DD64 /* CountryManaged+CoreDataClass.swift */; };
 		1435090D2544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143509092544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift */; };
 		1435090E2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1435090A2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift */; };
@@ -18,6 +28,7 @@
 		1438FF7720F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF7520F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld */; };
 		1438FF7920F9FD2B003CC7C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1438FF7820F9FD2B003CC7C2 /* Assets.xcassets */; };
 		1438FF8720F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF8620F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift */; };
+		146CB831254E9935008A2EBE /* Throwable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CB830254E9935008A2EBE /* Throwable.swift */; };
 		1474CEEA2544367E00C9615B /* ServiceLayerDependecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474CEE92544367E00C9615B /* ServiceLayerDependecies.swift */; };
 		147981A8254D9A3400110A9B /* PrepareCountriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147981A7254D9A3400110A9B /* PrepareCountriesUseCase.swift */; };
 		147981AA254D9A4100110A9B /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147981A9254D9A4100110A9B /* UseCase.swift */; };
@@ -46,6 +57,12 @@
 		14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7C2544241100134D82 /* NetworkService.swift */; };
 		14CD8B802544245E00134D82 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7F2544245E00134D82 /* NetworkRequest.swift */; };
 		14CD8B822544263C00134D82 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B812544263C00134D82 /* NetworkResponse.swift */; };
+		14D634C825506A1200FF7D37 /* AlertControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634C725506A1200FF7D37 /* AlertControllerAssembly.swift */; };
+		14D634CA25506ADC00FF7D37 /* LocationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634C925506ADC00FF7D37 /* LocationRouter.swift */; };
+		14D634CD2550756900FF7D37 /* SelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634CC2550756900FF7D37 /* SelectCountryViewController.swift */; };
+		14D634CF255075B300FF7D37 /* SelectCountryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634CE255075B300FF7D37 /* SelectCountryInteractor.swift */; };
+		14D634D22550762100FF7D37 /* GetCountriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634D12550762100FF7D37 /* GetCountriesUseCase.swift */; };
+		14F78D1A254DFF7D0043C6DA /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F78D19254DFF7D0043C6DA /* LocationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +91,16 @@
 
 /* Begin PBXFileReference section */
 		14090F34254752A50028918F /* UserSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsRepository.swift; sourceTree = "<group>"; };
+		142865CD25509648003D1930 /* SelectCountryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryAssembly.swift; sourceTree = "<group>"; };
+		142865DA25509C4E003D1930 /* SelectCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityViewController.swift; sourceTree = "<group>"; };
+		142865DB25509C4E003D1930 /* SelectCityAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityAssembly.swift; sourceTree = "<group>"; };
+		142865DC25509C4E003D1930 /* SelectCityInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityInteractor.swift; sourceTree = "<group>"; };
+		142865E02551B1B3003D1930 /* GetCitiesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCitiesUseCase.swift; sourceTree = "<group>"; };
+		142865E22551DB30003D1930 /* TicketsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsSearchViewController.swift; sourceTree = "<group>"; };
+		142865E42551DBD9003D1930 /* TicketsSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsSearchInteractor.swift; sourceTree = "<group>"; };
+		142865E72551E0BF003D1930 /* SearchTicketsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTicketsUseCase.swift; sourceTree = "<group>"; };
+		142865EA2551E0EE003D1930 /* TicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketModel.swift; sourceTree = "<group>"; };
+		142865EC2551E50C003D1930 /* TicketsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsRepository.swift; sourceTree = "<group>"; };
 		143509082544AF6F0086DD64 /* CountryManaged+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryManaged+CoreDataClass.swift"; sourceTree = "<group>"; };
 		143509092544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryManaged+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1435090A2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityManaged+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -87,6 +114,7 @@
 		1438FF8220F9FD2B003CC7C2 /* SBTSwiftProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBTSwiftProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1438FF8620F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTSwiftProjectTests.swift; sourceTree = "<group>"; };
 		1438FF8820F9FD2B003CC7C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		146CB830254E9935008A2EBE /* Throwable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throwable.swift; sourceTree = "<group>"; };
 		1474CEE92544367E00C9615B /* ServiceLayerDependecies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayerDependecies.swift; sourceTree = "<group>"; };
 		147981A7254D9A3400110A9B /* PrepareCountriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareCountriesUseCase.swift; sourceTree = "<group>"; };
 		147981A9254D9A4100110A9B /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
@@ -116,6 +144,12 @@
 		14CD8B7F2544245E00134D82 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		14CD8B812544263C00134D82 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		14D1A23220FB380000BD1DC1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14D634C725506A1200FF7D37 /* AlertControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerAssembly.swift; sourceTree = "<group>"; };
+		14D634C925506ADC00FF7D37 /* LocationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRouter.swift; sourceTree = "<group>"; };
+		14D634CC2550756900FF7D37 /* SelectCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryViewController.swift; sourceTree = "<group>"; };
+		14D634CE255075B300FF7D37 /* SelectCountryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryInteractor.swift; sourceTree = "<group>"; };
+		14D634D12550762100FF7D37 /* GetCountriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCountriesUseCase.swift; sourceTree = "<group>"; };
+		14F78D19254DFF7D0043C6DA /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,10 +183,37 @@
 			isa = PBXGroup;
 			children = (
 				147981A9254D9A4100110A9B /* UseCase.swift */,
-				14AE5AE425447A2700548B1D /* LocationUseCase.swift */,
+				142865E62551E098003D1930 /* Tickets */,
 				147981AD254D9C8800110A9B /* Location */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		142865D325509C1E003D1930 /* SelectCity */ = {
+			isa = PBXGroup;
+			children = (
+				142865DB25509C4E003D1930 /* SelectCityAssembly.swift */,
+				142865DA25509C4E003D1930 /* SelectCityViewController.swift */,
+				142865DC25509C4E003D1930 /* SelectCityInteractor.swift */,
+			);
+			path = SelectCity;
+			sourceTree = "<group>";
+		};
+		142865E62551E098003D1930 /* Tickets */ = {
+			isa = PBXGroup;
+			children = (
+				142865E72551E0BF003D1930 /* SearchTicketsUseCase.swift */,
+			);
+			path = Tickets;
+			sourceTree = "<group>";
+		};
+		142865E92551E0DD003D1930 /* Tickets */ = {
+			isa = PBXGroup;
+			children = (
+				142865EA2551E0EE003D1930 /* TicketModel.swift */,
+				142865EC2551E50C003D1930 /* TicketsRepository.swift */,
+			);
+			path = Tickets;
 			sourceTree = "<group>";
 		};
 		1438FF6220F9FD29003CC7C2 = {
@@ -201,14 +262,23 @@
 		1451A331254422BB00ACFC6E /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				14AE5AE725447E4600548B1D /* LocationInteractor.swift */,
 				14B4A5FA2545949A00BFC583 /* LocationDependencies.swift */,
+				14AE5AE725447E4600548B1D /* LocationInteractor.swift */,
 				14AE5AEB2544899800548B1D /* LocationAssembly.swift */,
 				1438FF7020F9FD29003CC7C2 /* LocationViewController.swift */,
+				14D634C925506ADC00FF7D37 /* LocationRouter.swift */,
+				14F78D19254DFF7D0043C6DA /* LocationViewModel.swift */,
 				14AE5AE92544801D00548B1D /* LocationView.swift */,
-				14AE5AF12544962000548B1D /* Views */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		146CB82F254E991F008A2EBE /* Decoding */ = {
+			isa = PBXGroup;
+			children = (
+				146CB830254E9935008A2EBE /* Throwable.swift */,
+			);
+			path = Decoding;
 			sourceTree = "<group>";
 		};
 		1474CEEB254436D200C9615B /* Network */ = {
@@ -224,10 +294,10 @@
 		147981AD254D9C8800110A9B /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				14AE5AF425449EF700548B1D /* PrepareStorageUseCase.swift */,
-				147981A7254D9A3400110A9B /* PrepareCountriesUseCase.swift */,
-				14B236CE254D9EA500BE822D /* PrepareCitiesUseCase.swift */,
-				14B236D0254DA9F700BE822D /* PrepareAirportsUseCase.swift */,
+				14AE5AE425447A2700548B1D /* LocationUseCase.swift */,
+				14D634D12550762100FF7D37 /* GetCountriesUseCase.swift */,
+				142865E02551B1B3003D1930 /* GetCitiesUseCase.swift */,
+				14D634D0255075D200FF7D37 /* PrepareStorage */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -236,6 +306,8 @@
 			isa = PBXGroup;
 			children = (
 				14AE5AEF25448AFC00548B1D /* DataLayerDependencies.swift */,
+				142865E92551E0DD003D1930 /* Tickets */,
+				146CB82F254E991F008A2EBE /* Decoding */,
 				14090F332547528B0028918F /* UserSettings */,
 				147D5A3D25442F4800F90BA2 /* Location */,
 			);
@@ -261,13 +333,6 @@
 				14090F36254D53380028918F /* UseCases */,
 			);
 			path = DomainLayer;
-			sourceTree = "<group>";
-		};
-		14AE5AF12544962000548B1D /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		14AE5AF82544AD1E00548B1D /* CoreData */ = {
@@ -305,6 +370,10 @@
 		14B4A5F92545945E00BFC583 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				14D634C62550695C00FF7D37 /* Alert */,
+				14F78D18254DFA090043C6DA /* TicketsSearch */,
+				14D634CB255074A500FF7D37 /* SelectCountry */,
+				142865D325509C1E003D1930 /* SelectCity */,
 				1451A331254422BB00ACFC6E /* Location */,
 			);
 			path = Presentation;
@@ -328,6 +397,44 @@
 				1474CEEB254436D200C9615B /* Network */,
 			);
 			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		14D634C62550695C00FF7D37 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				14D634C725506A1200FF7D37 /* AlertControllerAssembly.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		14D634CB255074A500FF7D37 /* SelectCountry */ = {
+			isa = PBXGroup;
+			children = (
+				142865CD25509648003D1930 /* SelectCountryAssembly.swift */,
+				14D634CC2550756900FF7D37 /* SelectCountryViewController.swift */,
+				14D634CE255075B300FF7D37 /* SelectCountryInteractor.swift */,
+			);
+			path = SelectCountry;
+			sourceTree = "<group>";
+		};
+		14D634D0255075D200FF7D37 /* PrepareStorage */ = {
+			isa = PBXGroup;
+			children = (
+				14AE5AF425449EF700548B1D /* PrepareStorageUseCase.swift */,
+				147981A7254D9A3400110A9B /* PrepareCountriesUseCase.swift */,
+				14B236CE254D9EA500BE822D /* PrepareCitiesUseCase.swift */,
+				14B236D0254DA9F700BE822D /* PrepareAirportsUseCase.swift */,
+			);
+			path = PrepareStorage;
+			sourceTree = "<group>";
+		};
+		14F78D18254DFA090043C6DA /* TicketsSearch */ = {
+			isa = PBXGroup;
+			children = (
+				142865E22551DB30003D1930 /* TicketsSearchViewController.swift */,
+				142865E42551DBD9003D1930 /* TicketsSearchInteractor.swift */,
+			);
+			path = TicketsSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,6 +538,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				142865E52551DBD9003D1930 /* TicketsSearchInteractor.swift in Sources */,
+				142865E32551DB30003D1930 /* TicketsSearchViewController.swift in Sources */,
 				1435090E2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift in Sources */,
 				147D5A3F25442FF800F90BA2 /* LocationModel.swift in Sources */,
 				14AE5AEA2544801D00548B1D /* LocationView.swift in Sources */,
@@ -438,23 +547,38 @@
 				147981AC254D9C1D00110A9B /* Errors.swift in Sources */,
 				1435090D2544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift in Sources */,
 				14AE5AF72544A6BD00548B1D /* CountryModel.swift in Sources */,
+				14D634CF255075B300FF7D37 /* SelectCountryInteractor.swift in Sources */,
 				1438FF7120F9FD29003CC7C2 /* LocationViewController.swift in Sources */,
+				142865DE25509C4E003D1930 /* SelectCityAssembly.swift in Sources */,
 				1438FF7720F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld in Sources */,
+				14D634CD2550756900FF7D37 /* SelectCountryViewController.swift in Sources */,
+				142865DD25509C4E003D1930 /* SelectCityViewController.swift in Sources */,
+				14D634D22550762100FF7D37 /* GetCountriesUseCase.swift in Sources */,
 				14090F35254752A50028918F /* UserSettingsRepository.swift in Sources */,
+				142865E82551E0BF003D1930 /* SearchTicketsUseCase.swift in Sources */,
+				146CB831254E9935008A2EBE /* Throwable.swift in Sources */,
 				14AE5AF325449C4B00548B1D /* CityModel.swift in Sources */,
+				142865E12551B1B3003D1930 /* GetCitiesUseCase.swift in Sources */,
 				1474CEEA2544367E00C9615B /* ServiceLayerDependecies.swift in Sources */,
 				1435090C2544AF6F0086DD64 /* CountryManaged+CoreDataClass.swift in Sources */,
 				147D5A3C25442EEA00F90BA2 /* LocationRepository.swift in Sources */,
 				14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */,
 				14AE5AE825447E4600548B1D /* LocationInteractor.swift in Sources */,
 				14B4A5FB2545949A00BFC583 /* LocationDependencies.swift in Sources */,
+				142865DF25509C4E003D1930 /* SelectCityInteractor.swift in Sources */,
+				14D634C825506A1200FF7D37 /* AlertControllerAssembly.swift in Sources */,
 				14AE5AE525447A2700548B1D /* LocationUseCase.swift in Sources */,
+				14F78D1A254DFF7D0043C6DA /* LocationViewModel.swift in Sources */,
+				14D634CA25506ADC00FF7D37 /* LocationRouter.swift in Sources */,
 				14B236D1254DA9F700BE822D /* PrepareAirportsUseCase.swift in Sources */,
 				14AE5AEC2544899800548B1D /* LocationAssembly.swift in Sources */,
 				1438FF6F20F9FD29003CC7C2 /* AppDelegate.swift in Sources */,
+				142865EB2551E0EE003D1930 /* TicketModel.swift in Sources */,
 				14CD8B802544245E00134D82 /* NetworkRequest.swift in Sources */,
 				14AE5AF525449EF700548B1D /* PrepareStorageUseCase.swift in Sources */,
+				142865CE25509648003D1930 /* SelectCountryAssembly.swift in Sources */,
 				14B236CF254D9EA500BE822D /* PrepareCitiesUseCase.swift in Sources */,
+				142865ED2551E50C003D1930 /* TicketsRepository.swift in Sources */,
 				14AE5AF025448AFC00548B1D /* DataLayerDependencies.swift in Sources */,
 				14AE5AEE25448A1F00548B1D /* DomainLayerDependencies.swift in Sources */,
 				1435090F2544AF6F0086DD64 /* CityManaged+CoreDataProperties.swift in Sources */,

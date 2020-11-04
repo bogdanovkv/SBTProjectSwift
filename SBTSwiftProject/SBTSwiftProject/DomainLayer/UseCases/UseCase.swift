@@ -15,3 +15,10 @@ class UseCase<Parameter, Response> {
 		fatalError("execute(parameter: completion:) is not implemented")
 	}
 }
+
+class UseCaseSync<Parameter, Response> {
+
+	func execute(parameter: Parameter) -> Response {
+		fatalError("execute(parameter: completion:) is not implemented")
+	}
+}

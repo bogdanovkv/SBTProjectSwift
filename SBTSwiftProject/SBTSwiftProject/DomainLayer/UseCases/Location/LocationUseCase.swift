@@ -10,6 +10,8 @@ import Inject
 
 protocol LocationUseCaseProtocol {
 	func getLocation(_ completion: @escaping (Result<LocationModel, Error>) -> Void)
+	func getCity(named: String) -> CityModel?
+	func getCountry(named: String) -> CountryModel?
 }
 
 final class LocationUseCase: LocationUseCaseProtocol {
@@ -25,8 +27,16 @@ final class LocationUseCase: LocationUseCaseProtocol {
 										strategy: .scope(key: 0))
 		self.init(repository: repository)
 	}
+
 	func getLocation(_ completion: @escaping (Result<LocationModel, Error>) -> Void) {
 		repository.loadLocation(completion)
 	}
 
+	func getCity(named: String) -> CityModel? {
+		return repository.getCity(with: named)
+	}
+
+	func getCountry(named: String) -> CountryModel? {
+		return repository.getCountry(with: named)
+	}
 }

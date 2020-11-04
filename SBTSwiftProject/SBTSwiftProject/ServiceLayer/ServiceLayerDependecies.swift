@@ -7,7 +7,7 @@
 //
 import Inject
 
-extension Inject {
+extension Inject where FactoryType == ServiceLayerDependecies {
 	static var serviceLayer: Inject<ServiceLayerDependecies> {
 			return .init(factory: ServiceLayerDependecies.self)
 	}

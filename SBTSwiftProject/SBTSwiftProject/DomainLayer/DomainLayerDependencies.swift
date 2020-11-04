@@ -6,17 +6,28 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import UIKit
+import Inject
 
-struct DomainLayerDependencies {
+extension Inject where FactoryType == DomainLayerDependencies {
+	static var domainLayer: Inject<DomainLayerDependencies> = .init(factory: DomainLayerDependencies.self)
+}
+
+struct DomainLayerDependencies: InjectFactoryProtocol {
+	static var scope = "domainLayer"
 	static func createLocationUseCase() -> LocationUseCaseProtocol {
 		return LocationUseCase()
 	}
 
 	static func createPrepareStorageUseCase() -> PrepareStorageUseCaseProtocol {
-		return PrepareStorageUseCase(settingsRepository: DataLayerDependencies.createSettingsRepository(),
-									 prepareAirportsUseCase: PrepareAirportsUseCase(),
+		return PrepareStorageUseCase(prepareAirportsUseCase: PrepareAirportsUseCase(),
 									 prepareCountriesUseCase: PrepareCountriesUseCase(),
 									 prepareCitiesUseCase: PrepareCitiesUseCase())
+	}
+
+	static func createGetCountriesUseCase() -> UseCaseSync<Void, [CountryModel]> {
+		return GetCountriesUseCase()
+	}
+	static func createGetCitiesUseCase() -> UseCaseSync<CountryModel, [CityModel]> {
+		return GetCitiesUseCase()
 	}
 }

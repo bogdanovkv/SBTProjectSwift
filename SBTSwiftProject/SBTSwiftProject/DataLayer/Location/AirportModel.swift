@@ -28,4 +28,15 @@ struct AirportModel: Decodable {
 		countryCode = try container.decode(String.self, forKey: .countryCode)
 		cityCode = try container.decode(String.self, forKey: .cityCode)
 	}
+
+
+	init(code: String,
+		 name: String,
+		 countryCode: String,
+		 cityCode: String) {
+		self.code = code
+		self.name = name
+		self.countryCode = countryCode
+		self.cityCode = cityCode
+	}
 }

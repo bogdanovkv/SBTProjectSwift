@@ -22,7 +22,7 @@ struct CityModel: Decodable {
 	let codeIATA: String
 	let countryCode: String
 	let name: String
-	let nameRu: String
+	let nameRu: String?
 
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -30,9 +30,16 @@ struct CityModel: Decodable {
 		countryCode = try container.decode(String.self, forKey: .countryCode)
 		name = try container.decode(String.self, forKey: .name)
 		let names = try container.decode([String: String].self, forKey: .names)
-		guard let ruName = names["ru"] else {
-			throw ParseErrors.cityNameRoError
-		}
-		nameRu = ruName
+		nameRu = names["ru"]
+	}
+
+	init(codeIATA: String,
+		 countryCode: String,
+		 name: String,
+		 nameRu: String?) {
+		self.codeIATA = codeIATA
+		self.countryCode = countryCode
+		self.name = name
+		self.nameRu = nameRu
 	}
 }

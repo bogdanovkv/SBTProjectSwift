@@ -12,7 +12,14 @@ protocol CoreDataServiceProtocol {
 
 	/// Извлекает модели из CoreData
 	/// - Parameter convertClosure: блок для преобразования managed модели в обычную
-	func fetch<Entity: NSManagedObject, Model>(convertClosure: (Entity) -> Model) -> [Model]
+	func fetch<Entity: NSManagedObject, Model>(convertClosure: (Entity) -> Model?) -> [Model]
+
+	/// Извлекает модели из CoreData
+	/// - Parameters:
+	///   - convertClosure: блок для преобразования managed модели в обычную
+	///   - predicate: предикат для выборки моделей
+	func fetch<Entity: NSManagedObject, Model>(convertClosure: (Entity) -> Model?,
+											   predicate: NSPredicate) -> [Model]
 
 	/// Добавить модели в CoreData
 	/// - Parameters:
@@ -48,13 +55,24 @@ final class CoreDataService: CoreDataServiceProtocol {
 		self.init(persistentCntainer: container)
 	}
 
-	func fetch<Entity: NSManagedObject, Model>(convertClosure: (Entity) -> Model) -> [Model] {
+	func fetch<Entity: NSManagedObject, Model>(convertClosure: (Entity) -> Model?) -> [Model] {
 		var result: [Entity] = []
 		viewContext.performAndWait {
-			let fetchRequest = NSFetchRequest<Entity>()
+			let fetchRequest = NSFetchRequest<Entity>(entityName: NSStringFromClass(Entity.self))
 			result = (try? fetchRequest.execute()) ?? []
 		}
-		return result.map(convertClosure)
+		return result.compactMap(convertClosure)
+	}
+
+	func fetch<Entity: NSManagedObject, Model>(convertClosure: (Entity) -> Model?,
+											   predicate: NSPredicate) -> [Model] {
+		var result: [Entity] = []
+		viewContext.performAndWait {
+			let fetchRequest = NSFetchRequest<Entity>(entityName: NSStringFromClass(Entity.self))
+			fetchRequest.predicate = predicate
+			result = (try? fetchRequest.execute()) ?? []
+		}
+		return result.compactMap(convertClosure)
 	}
 
 	func insert<Model, Entity: NSManagedObject>(models: [Model],

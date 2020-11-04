@@ -8,7 +8,7 @@
 
 import Inject
 
-extension Inject {
+extension Inject where FactoryType == DataLayerDependencies {
 	static var dataLayer: Inject<DataLayerDependencies> {
 		return .init(factory: DataLayerDependencies.self)
 	}
@@ -22,5 +22,9 @@ struct DataLayerDependencies: InjectFactoryProtocol {
 
 	static func createSettingsRepository() -> UserSettingsRepository {
 		return UserSettingsRepository()
+	}
+
+	static func createTicketsRepository() -> TicketsRepositoryProtocol {
+		return TicketsRepository()
 	}
 }

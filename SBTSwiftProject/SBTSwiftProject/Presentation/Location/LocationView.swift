@@ -16,6 +16,7 @@ protocol LocationViewOutput: AnyObject {
 }
 
 protocol LocationViewInput: UIView {
+	var output: LocationViewOutput? { get set }
 	func set(location: LocationModel)
 }
 
@@ -23,34 +24,51 @@ final class LocationView: UIView {
 
 	weak var output: LocationViewOutput?
 
-	private let cityLabel: UILabel
+	private let titleLabel: UILabel
 	private let countryLabel: UILabel
-	private let changeCityButton: UIButton
+	private let cityLabel: UILabel
 	private let changeCountryButton: UIButton
+	private let changeCityButton: UIButton
+	private let acceptButton: UIButton
 
 	init() {
-		cityLabel = .init(frame: .zero)
-		cityLabel.translatesAutoresizingMaskIntoConstraints = false
-		cityLabel.textColor = .black
-		cityLabel.layer.borderColor = UIColor.black.cgColor
-		cityLabel.layer.cornerRadius = 4
-		cityLabel.layer.borderWidth = 2
+		titleLabel = .init(frame: .zero)
+		titleLabel.text = "Выберите ваше местоположение"
+		titleLabel.translatesAutoresizingMaskIntoConstraints = false
+		titleLabel.textColor = .black
 
 		countryLabel = .init(frame: .zero)
 		countryLabel.translatesAutoresizingMaskIntoConstraints = false
-		countryLabel.layer.borderColor = UIColor.black.cgColor
-		countryLabel.layer.cornerRadius = 4
-		countryLabel.layer.borderWidth = 2
+		countryLabel.textColor = .black
 
-		changeCityButton = .init()
-		changeCityButton.translatesAutoresizingMaskIntoConstraints = false
-		changeCityButton.setTitle("Изменить город", for: .normal)
-		changeCityButton.setTitleColor(.black, for: .normal)
+		cityLabel = .init(frame: .zero)
+		cityLabel.translatesAutoresizingMaskIntoConstraints = false
 
 		changeCountryButton = .init()
 		changeCountryButton.translatesAutoresizingMaskIntoConstraints = false
 		changeCountryButton.setTitle("Изменить страну", for: .normal)
 		changeCountryButton.setTitleColor(.black, for: .normal)
+		changeCountryButton.layer.borderColor = UIColor.black.cgColor
+		changeCountryButton.layer.cornerRadius = 4
+		changeCountryButton.layer.borderWidth = 2
+
+		changeCityButton = .init()
+		changeCityButton.translatesAutoresizingMaskIntoConstraints = false
+		changeCityButton.setTitle("Изменить город", for: .normal)
+		changeCityButton.setTitleColor(.black, for: .normal)
+		changeCityButton.setTitleColor(.gray, for: .highlighted)
+		changeCityButton.layer.borderColor = UIColor.black.cgColor
+		changeCityButton.layer.cornerRadius = 4
+		changeCityButton.layer.borderWidth = 2
+
+		acceptButton = .init()
+		acceptButton.translatesAutoresizingMaskIntoConstraints = false
+		acceptButton.setTitle("Выбрать", for: .normal)
+		acceptButton.setTitleColor(.black, for: .normal)
+		acceptButton.setTitleColor(.gray, for: .highlighted)
+		acceptButton.layer.borderColor = UIColor.black.cgColor
+		acceptButton.layer.cornerRadius = 4
+		acceptButton.layer.borderWidth = 2
 
 		super.init(frame: .zero)
 		setupActions()
@@ -64,38 +82,51 @@ final class LocationView: UIView {
 	}
 
 	private func setupActions() {
-		changeCountryButton.addTarget(self, action: #selector(changeCountryButtonTapped), for: .touchUpInside)
 		changeCityButton.addTarget(self, action: #selector(changeCityButtonTapped), for: .touchUpInside)
+		changeCountryButton.addTarget(self, action: #selector(changeCountryButtonTapped), for: .touchUpInside)
+		acceptButton.addTarget(self, action: #selector(acceptButtonTapped), for: .touchUpInside)
 	}
 
 	private func setupSubviews() {
-		addSubview(cityLabel)
+		addSubview(titleLabel)
 		addSubview(countryLabel)
-		addSubview(changeCityButton)
+		addSubview(cityLabel)
 		addSubview(changeCountryButton)
+		addSubview(changeCityButton)
+		addSubview(acceptButton)
 	}
 
 	private func setupContraints() {
 		NSLayoutConstraint.activate([
-			cityLabel.bottomAnchor.constraint(equalTo: changeCityButton.topAnchor, constant: -4),
-			cityLabel.heightAnchor.constraint(equalToConstant: 25),
-			cityLabel.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor),
-			cityLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+			titleLabel.heightAnchor.constraint(equalToConstant: 25),
+			titleLabel.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor),
+			titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+			titleLabel.bottomAnchor.constraint(equalTo: countryLabel.topAnchor, constant: -4),
 
-			changeCityButton.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -4),
-			changeCityButton.heightAnchor.constraint(equalToConstant: 40),
-			changeCityButton.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor),
-			changeCityButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-
-			countryLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 4),
+			countryLabel.bottomAnchor.constraint(equalTo: changeCountryButton.topAnchor, constant: -4),
 			countryLabel.heightAnchor.constraint(equalToConstant: 25),
 			countryLabel.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor),
 			countryLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
 
-			changeCountryButton.topAnchor.constraint(equalTo: countryLabel.bottomAnchor, constant: 4),
+			changeCountryButton.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -4),
 			changeCountryButton.heightAnchor.constraint(equalToConstant: 40),
 			changeCountryButton.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor),
 			changeCountryButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+
+			cityLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 4),
+			cityLabel.heightAnchor.constraint(equalToConstant: 25),
+			cityLabel.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor),
+			cityLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+
+			changeCityButton.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 4),
+			changeCityButton.heightAnchor.constraint(equalToConstant: 40),
+			changeCityButton.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor),
+			changeCityButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+
+			acceptButton.topAnchor.constraint(equalTo: changeCityButton.bottomAnchor, constant: 40),
+			acceptButton.heightAnchor.constraint(equalToConstant: 40),
+			acceptButton.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor),
+			acceptButton.centerXAnchor.constraint(equalTo: centerXAnchor)
 		])
 	}
 

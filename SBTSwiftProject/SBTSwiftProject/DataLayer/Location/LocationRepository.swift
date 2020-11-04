@@ -8,15 +8,62 @@
 
 import Inject
 
+/// Репозиторий работы с локациями
 protocol LocationRepositoryProtocol {
+
+	/// Получает место где находится пользователь
+	/// - Parameter completion: блок, выполняющийся при получении локации
 	func loadLocation(_ completion: @escaping (Result<LocationModel, Error>) -> Void)
+
+	/// Загружает список городов
+	/// - Parameter completion: блок, выполняющийся при получении списка городов
 	func loadCities(_ completion: @escaping (Result<[CityModel], Error>) -> Void)
+
+	/// Загружает список стран
+	/// - Parameter completion: блок, выполняющийся при получении списка стран
 	func loadCountries(_ completion: @escaping (Result<[CountryModel], Error>) -> Void)
+
+	/// Загружает список аэропортов
+	/// - Parameter completion: блок, выполняющийся при получении списка стран
 	func loadAirports(_ completion: @escaping (Result<[AirportModel], Error>) -> Void)
+
+	/// Сохраняет страны
+	/// - Parameters:
+	///   - countries: страны
+	///   - completion: блок, выполняющийся по завершению сохранения
 	func save(countries: [CountryModel], completion: @escaping () -> Void)
+
+	/// Сохраняет города
+	/// - Parameters:
+	///   - countries: города
+	///   - completion: блок, выполняющийся по завершению сохранения
 	func save(cities: [CityModel], completion: @escaping () -> Void)
+
+	/// Сохраняет аэропорты
+	/// - Parameters:
+	///   - countries: аэропорты
+	///   - completion: блок, выполняющийся по завершению сохранения
 	func save(airports: [AirportModel], completion: @escaping () -> Void)
+
+	/// Получает город по имени
+	/// - Parameter name: имя
+	func getCity(with name: String) -> CityModel?
+
+	/// Получает страну по имени
+	/// - Parameter name: имя
+	func getCountry(with name: String) -> CountryModel?
+
+	/// Очищает данные по городам, странам и аэропортам
 	func clearLocations()
+
+	/// Получает все страны
+	func getCountries() -> [CountryModel]
+
+	/// Получает все города
+	func getCities(for country: CountryModel) -> [CityModel]
+
+	/// Получает все аэропорты
+	func getAirports() -> [AirportModel]
 }
 
 final class LocationRepository: LocationRepositoryProtocol {
@@ -83,8 +130,8 @@ final class LocationRepository: LocationRepositoryProtocol {
 			do {
 				let url = try result.get()
 				let data = try Data(contentsOf: url)
-				let models = try JSONDecoder().decode([CountryModel].self, from: data)
-				completion(.success(models))
+				let models = try JSONDecoder().decode([Throwable<CountryModel>].self, from: data)
+				completion(.success(models.compactMap({ $0.value })))
 			} catch {
 				completion(.failure(error))
 			}
@@ -102,8 +149,8 @@ final class LocationRepository: LocationRepositoryProtocol {
 			do {
 				let url = try result.get()
 				let data = try Data(contentsOf: url)
-				let models = try JSONDecoder().decode([AirportModel].self, from: data)
-				completion(.success(models))
+				let models = try JSONDecoder().decode([Throwable<AirportModel>].self, from: data)
+				completion(.success(models.compactMap({ $0.value })))
 			} catch {
 				completion(.failure(error))
 			}
@@ -162,8 +209,79 @@ final class LocationRepository: LocationRepositoryProtocol {
 		}
 	}
 
+	func getCity(with name: String) -> CityModel? {
+		let predicate = NSPredicate(format: "nameRu == %@ || name == %@",
+									argumentArray: [name, name])
+		let convertClosure: (CityManaged) -> CityModel? = { managedModel in
+			guard let codeIATA = managedModel.codeIATA,
+				let countryCode = managedModel.countryCode,
+				let name = managedModel.name,
+				let nameRu = managedModel.nameRu else { return nil }
+			return .init(codeIATA: codeIATA, countryCode: countryCode, name: name, nameRu: nameRu)
+		}
+		let cities = coreDataService.fetch(convertClosure: convertClosure,
+										   predicate: predicate)
+		return cities.first
+	}
+
+	func getCountry(with name: String) -> CountryModel? {
+		let predicate = NSPredicate(format: "nameRu == %@ || name == %@",
+									argumentArray: [name, name])
+		let convertClosure: (CountryManaged) -> CountryModel? = { managedModel in
+			guard let codeIATA = managedModel.codeIATA,
+				let name = managedModel.name else { return nil }
+			return .init(codeIATA: codeIATA, name: name, nameRu: managedModel.nameRu)
+		}
+		let cities = coreDataService.fetch(convertClosure: convertClosure,
+										   predicate: predicate)
+		return cities.first
+	}
+
+	func getCountries() -> [CountryModel] {
+		let convertClosure: (CountryManaged) -> CountryModel? = { managedModel in
+			guard let codeIATA = managedModel.codeIATA,
+				let name = managedModel.name else { return nil }
+			return .init(codeIATA: codeIATA, name: name, nameRu: managedModel.nameRu)
+		}
+		let countries = coreDataService.fetch(convertClosure: convertClosure)
+		return countries
+	}
+
+	func getCities(for country: CountryModel) -> [CityModel] {
+		let convertClosure: (CityManaged) -> CityModel? = { managedModel in
+			guard let codeIATA = managedModel.codeIATA,
+				let countryCode = managedModel.countryCode,
+				let name = managedModel.name,
+				let nameRu = managedModel.nameRu else { return nil }
+			return .init(codeIATA: codeIATA, countryCode: countryCode, name: name, nameRu: nameRu)
+		}
+		let predicate = NSPredicate(format: "countryCode == %@",
+									argumentArray: [country.codeIATA])
+
+		let cities = coreDataService.fetch(convertClosure: convertClosure,
+										   predicate: predicate)
+		return cities
+	}
+
+	func getAirports() -> [AirportModel] {
+		let convertClosure: (AirportManaged) -> AirportModel? = { managedModel in
+			guard let code = managedModel.code,
+				let countryCode = managedModel.countryCode,
+				let cityCode = managedModel.cityCode,
+				let name = managedModel.name else { return nil }
+			return .init(code: code,
+						 name: name,
+						 countryCode: countryCode,
+						 cityCode: cityCode)
+		}
+		let airpots = coreDataService.fetch(convertClosure: convertClosure)
+		return airpots
+	}
+
 	func clearLocations() {
-		
+		coreDataService.deleteAll(type: CityManaged.self)
+		coreDataService.deleteAll(type: CountryManaged.self)
+		coreDataService.deleteAll(type: AirportManaged.self)
 	}
 
 	private func createDefaultParams() -> [NetworkRequest.Parameter] {

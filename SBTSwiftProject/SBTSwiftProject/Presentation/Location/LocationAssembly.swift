@@ -13,7 +13,11 @@ struct LocationAssembly {
 	func createController() -> UIViewController {
 		let interactor = LocationInteractor(getLocationUseCase: DomainLayerDependencies.createLocationUseCase(),
 											prepareStorageUseCase: DomainLayerDependencies.createPrepareStorageUseCase())
-		let locationController = LocationViewController(interactor: interactor)
+		let router = LocationRouter(alertAssembly: AlertControllerAssembly(),
+									selectCountryAssembly: SelectCountryAssembly(),
+									selectCityAssembly: SelectCityAssembly())
+		let locationController = LocationViewController(interactor: interactor,
+														router: router)
 		interactor.ouptput = locationController
 		return locationController
 	}

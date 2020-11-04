@@ -9,7 +9,7 @@
 import Inject
 
 /// Репозиторий настроек пользователя
-protocol UserSettingsRepositoryProtocol {
+protocol UserSettingsRepositoryProtocol: AnyObject {
 
 	/// Было ли проинициализировано хранилище (страны, города, аэропорты)
 	var didIntializeStorage: Bool { get set }
