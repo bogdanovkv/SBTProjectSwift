@@ -92,7 +92,7 @@ final class CoreDataService: CoreDataServiceProtocol {
 	func deleteAll<Entity: NSManagedObject>(type: Entity.Type) {
 		let context = backgroundContext
 		context.perform {
-			let request = NSFetchRequest<Entity>()
+			let request = NSFetchRequest<Entity>(entityName: NSStringFromClass(Entity.self))
 			let objects = try? request.execute()
 			objects?.forEach({ context.delete($0) })
 			try? self.backgroundContext.save()

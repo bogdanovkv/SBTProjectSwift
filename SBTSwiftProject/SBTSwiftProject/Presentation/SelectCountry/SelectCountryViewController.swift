@@ -68,7 +68,8 @@ extension SelectCountryViewController: UITableViewDataSource {
 extension SelectCountryViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let model = models[indexPath.row]
-		output?.userSelect(country: model)
-		dismiss(animated: true, completion: nil)
+		dismiss(animated: true, completion: {
+			self.output?.userSelect(country: model)
+		})
 	}
 }

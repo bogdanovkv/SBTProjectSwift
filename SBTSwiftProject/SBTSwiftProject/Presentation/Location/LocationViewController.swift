@@ -99,10 +99,8 @@ extension LocationViewController: LocationViewOutput {
 	}
 
 	func acceptButtonTapped() {
-		let repo = TicketsRepository()
-		repo.loadTickets(fromCity: viewModel.city!, fromDate: Date(), toCity: CityModel(codeIATA: "LED", countryCode: "RU", name: "", nameRu: nil), returnDate: nil) { result in
-			print(repo)
-		}
+		present(TicketsSearchAssembly().createViewController(with: viewModel.city!, coutry: viewModel.country!),
+				animated: true, completion: nil)
 	}
 
 	func changeCountryButtonTapped() {

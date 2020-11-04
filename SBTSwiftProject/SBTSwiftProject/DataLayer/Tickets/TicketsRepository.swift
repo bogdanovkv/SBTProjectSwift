@@ -83,7 +83,17 @@ final class TicketsRepository: TicketsRepositoryProtocol {
 		let onComplete: (Result<NetworkResponse<Resonse>, Error>) -> Void = { result in
 			do {
 				let result = try result.get()
-				completion(.success([]))
+				var models: [TicketModel] = []
+				guard let response = result.data else {
+					return completion(.success([]))
+				}
+				let dictionary = response.data
+				dictionary.forEach { _, dict in
+					dict.forEach { _, model in
+						models.append(model)
+					}
+				}
+				completion(.success(models))
 			} catch {
 				completion(.failure(error))
 			}

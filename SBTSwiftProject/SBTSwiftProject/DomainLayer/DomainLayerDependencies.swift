@@ -27,7 +27,12 @@ struct DomainLayerDependencies: InjectFactoryProtocol {
 	static func createGetCountriesUseCase() -> UseCaseSync<Void, [CountryModel]> {
 		return GetCountriesUseCase()
 	}
+
 	static func createGetCitiesUseCase() -> UseCaseSync<CountryModel, [CityModel]> {
 		return GetCitiesUseCase()
+	}
+
+	static func createSearchTicketsUseCase() -> UseCase<TicketsSearchModel, [Ticket]> {
+		return SearchTicketsUseCase()
 	}
 }

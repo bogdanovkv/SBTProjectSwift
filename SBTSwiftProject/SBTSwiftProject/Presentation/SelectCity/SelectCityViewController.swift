@@ -70,7 +70,8 @@ extension SelectCityViewController: UITableViewDataSource {
 extension SelectCityViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let model = models[indexPath.row]
-		output?.userSelect(city: model)
-		dismiss(animated: true, completion: nil)
+		dismiss(animated: true, completion: {
+			self.output?.userSelect(city: model)
+		})
 	}
 }

@@ -12,7 +12,7 @@ protocol SelectCityAssemblyProtocol {
 	func createController(country: CountryModel) -> UIViewController & SelectCityViewControllerInput
 }
 
-class SelectCityAssembly: SelectCityAssemblyProtocol {
+final class SelectCityAssembly: SelectCityAssemblyProtocol {
 
 	func createController(country: CountryModel) -> UIViewController & SelectCityViewControllerInput {
 		let interactor = SelectCityInteractor()
