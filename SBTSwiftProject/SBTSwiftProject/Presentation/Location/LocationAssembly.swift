@@ -8,14 +8,20 @@
 
 import UIKit
 
-struct LocationAssembly {
+/// Сборщик экрана выбора местоположения пользоателя
+final class LocationAssembly {
 
+	/// Создает контроллер
+	/// - Returns: контроллер
 	func createController() -> UIViewController {
 		let interactor = LocationInteractor(getLocationUseCase: DomainLayerDependencies.createLocationUseCase(),
 											prepareStorageUseCase: DomainLayerDependencies.createPrepareStorageUseCase())
+		let tabBarAssembly = TabBarAssembly(ticketsSearchAssembly: TicketsSearchAssembly(),
+											settingsAssembly: SettingsAssembly())
 		let router = LocationRouter(alertAssembly: AlertControllerAssembly(),
 									selectCountryAssembly: SelectCountryAssembly(),
-									selectCityAssembly: SelectCityAssembly())
+									selectCityAssembly: SelectCityAssembly(),
+									tabBarAssembly: tabBarAssembly)
 		let locationController = LocationViewController(interactor: interactor,
 														router: router)
 		interactor.ouptput = locationController

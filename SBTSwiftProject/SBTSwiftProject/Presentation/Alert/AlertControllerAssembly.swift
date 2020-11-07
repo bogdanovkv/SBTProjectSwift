@@ -7,7 +7,16 @@
 //
 
 import UIKit
+
+/// Сборщик системных алертов
 protocol AlertControllerAssemblyProtocol {
+
+	/// Создает алерт контроллер
+	/// - Parameters:
+	///   - title: заголовок
+	///   - message: сообщение
+	///   - preferredStyle: стиль
+	///   - actions: действия
 	func createController(title: String?,
 						  message: String?,
 						  preferredStyle: UIAlertController.Style,

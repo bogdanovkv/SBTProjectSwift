@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Протокол интерактор экрана выбора метоположения
 protocol LocationInteractorInput: AnyObject {
 
 	/// Получить местоположение пользователя.
@@ -17,6 +18,7 @@ protocol LocationInteractorInput: AnyObject {
 	func prepareStorage()
 }
 
+/// Интерактор экрана выбора метоположения
 protocol LocationInteractorOutput: AnyObject {
 
 	///  Не удалось получить локацию пользователя
@@ -37,6 +39,7 @@ protocol LocationInteractorOutput: AnyObject {
 	func didRecieve(country: CountryModel)
 }
 
+/// Интерактор экрана выбора метоположения
 final class LocationInteractor: LocationInteractorInput {
 
 	weak var ouptput: LocationInteractorOutput?

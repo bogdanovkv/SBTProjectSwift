@@ -10,6 +10,10 @@ import UIKit
 
 /// Модель данных для экрана выбора местоположения
 final class LocationViewModel {
+
+	/// Страна
 	var country: CountryModel?
+
+	/// Город
 	var city: CityModel?
 }

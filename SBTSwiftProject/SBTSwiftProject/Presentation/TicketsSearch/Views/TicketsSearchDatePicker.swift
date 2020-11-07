@@ -8,12 +8,15 @@
 
 import UIKit
 
+/// Пикер для выбора даты
 final class TicketsSearchDatePicker: UIView {
 
 	private let okButton: UIButton
 	private let picker: UIDatePicker
 	private let action: (Date) -> Void
 
+	/// Инициализатор
+	/// - Parameter action: блок, куда будет передана дата при выборе
 	init(action: @escaping (Date) -> Void) {
 		okButton = .init()
 		okButton.translatesAutoresizingMaskIntoConstraints = false

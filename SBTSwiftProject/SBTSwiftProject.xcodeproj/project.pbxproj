@@ -41,7 +41,7 @@
 		1478A0AC2552FD5E00C3633C /* TicketsSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478A0AB2552FD5E00C3633C /* TicketsSearchRouter.swift */; };
 		147981A8254D9A3400110A9B /* PrepareCountriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147981A7254D9A3400110A9B /* PrepareCountriesUseCase.swift */; };
 		147981AA254D9A4100110A9B /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147981A9254D9A4100110A9B /* UseCase.swift */; };
-		147981AC254D9C1D00110A9B /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147981AB254D9C1D00110A9B /* Errors.swift */; };
+		147981AC254D9C1D00110A9B /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147981AB254D9C1D00110A9B /* AppErrors.swift */; };
 		147D5A3C25442EEA00F90BA2 /* LocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D5A3B25442EEA00F90BA2 /* LocationRepository.swift */; };
 		147D5A3F25442FF800F90BA2 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D5A3E25442FF800F90BA2 /* LocationModel.swift */; };
 		14AE5AE325443B7300548B1D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AE5AE225443B7300548B1D /* Launch Screen.storyboard */; };
@@ -61,7 +61,6 @@
 		14B236D7254DB88A00BE822D /* AirportManaged+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B236D5254DB88A00BE822D /* AirportManaged+CoreDataProperties.swift */; };
 		14B4A5F62545934000BFC583 /* Inject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B4A5F52545933F00BFC583 /* Inject.framework */; };
 		14B4A5F72545934000BFC583 /* Inject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14B4A5F52545933F00BFC583 /* Inject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		14B4A5FB2545949A00BFC583 /* LocationDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4A5FA2545949A00BFC583 /* LocationDependencies.swift */; };
 		14B4A5FD2547508D00BFC583 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4A5FC2547508D00BFC583 /* UserSettings.swift */; };
 		14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7C2544241100134D82 /* NetworkService.swift */; };
 		14CD8B802544245E00134D82 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7F2544245E00134D82 /* NetworkRequest.swift */; };
@@ -71,6 +70,9 @@
 		14D634CD2550756900FF7D37 /* SelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634CC2550756900FF7D37 /* SelectCountryViewController.swift */; };
 		14D634CF255075B300FF7D37 /* SelectCountryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634CE255075B300FF7D37 /* SelectCountryInteractor.swift */; };
 		14D634D22550762100FF7D37 /* GetCountriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634D12550762100FF7D37 /* GetCountriesUseCase.swift */; };
+		14ECFD522555B55A00FBFC62 /* TabBarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECFD512555B55A00FBFC62 /* TabBarAssembly.swift */; };
+		14ECFD572556913E00FBFC62 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECFD562556913E00FBFC62 /* SettingsViewController.swift */; };
+		14ECFD5A2556918900FBFC62 /* SettingsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECFD592556918900FBFC62 /* SettingsAssembly.swift */; };
 		14F78D1A254DFF7D0043C6DA /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F78D19254DFF7D0043C6DA /* LocationViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -136,7 +138,7 @@
 		1478A0AB2552FD5E00C3633C /* TicketsSearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsSearchRouter.swift; sourceTree = "<group>"; };
 		147981A7254D9A3400110A9B /* PrepareCountriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareCountriesUseCase.swift; sourceTree = "<group>"; };
 		147981A9254D9A4100110A9B /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
-		147981AB254D9C1D00110A9B /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		147981AB254D9C1D00110A9B /* AppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
 		147D5A3B25442EEA00F90BA2 /* LocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepository.swift; sourceTree = "<group>"; };
 		147D5A3E25442FF800F90BA2 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		14AE5AE225443B7300548B1D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -156,7 +158,6 @@
 		14B236D5254DB88A00BE822D /* AirportManaged+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AirportManaged+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		14B4A5F12545923C00BFC583 /* Inject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Inject.framework; path = ../Carthage/Build/iOS/Inject.framework; sourceTree = "<group>"; };
 		14B4A5F52545933F00BFC583 /* Inject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Inject.framework; path = Carthage/Build/iOS/Inject.framework; sourceTree = "<group>"; };
-		14B4A5FA2545949A00BFC583 /* LocationDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDependencies.swift; sourceTree = "<group>"; };
 		14B4A5FC2547508D00BFC583 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		14CD8B7C2544241100134D82 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		14CD8B7F2544245E00134D82 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
@@ -167,6 +168,9 @@
 		14D634CC2550756900FF7D37 /* SelectCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryViewController.swift; sourceTree = "<group>"; };
 		14D634CE255075B300FF7D37 /* SelectCountryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryInteractor.swift; sourceTree = "<group>"; };
 		14D634D12550762100FF7D37 /* GetCountriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCountriesUseCase.swift; sourceTree = "<group>"; };
+		14ECFD512555B55A00FBFC62 /* TabBarAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarAssembly.swift; sourceTree = "<group>"; };
+		14ECFD562556913E00FBFC62 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		14ECFD592556918900FBFC62 /* SettingsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAssembly.swift; sourceTree = "<group>"; };
 		14F78D19254DFF7D0043C6DA /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -290,7 +294,6 @@
 		1451A331254422BB00ACFC6E /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				14B4A5FA2545949A00BFC583 /* LocationDependencies.swift */,
 				14AE5AE725447E4600548B1D /* LocationInteractor.swift */,
 				14AE5AEB2544899800548B1D /* LocationAssembly.swift */,
 				1438FF7020F9FD29003CC7C2 /* LocationViewController.swift */,
@@ -416,10 +419,12 @@
 			isa = PBXGroup;
 			children = (
 				14D634C62550695C00FF7D37 /* Alert */,
+				14ECFD502555B53200FBFC62 /* TabBar */,
+				1451A331254422BB00ACFC6E /* Location */,
 				14F78D18254DFA090043C6DA /* TicketsSearch */,
 				14D634CB255074A500FF7D37 /* SelectCountry */,
 				142865D325509C1E003D1930 /* SelectCity */,
-				1451A331254422BB00ACFC6E /* Location */,
+				14ECFD542555DEF300FBFC62 /* Settings */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -436,7 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				1474CEE92544367E00C9615B /* ServiceLayerDependecies.swift */,
-				147981AB254D9C1D00110A9B /* Errors.swift */,
+				147981AB254D9C1D00110A9B /* AppErrors.swift */,
 				14B4A5FE254751F300BFC583 /* UserSettings */,
 				14AE5AF82544AD1E00548B1D /* CoreData */,
 				1474CEEB254436D200C9615B /* Network */,
@@ -471,6 +476,23 @@
 				14B236D0254DA9F700BE822D /* PrepareAirportsUseCase.swift */,
 			);
 			path = PrepareStorage;
+			sourceTree = "<group>";
+		};
+		14ECFD502555B53200FBFC62 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				14ECFD512555B55A00FBFC62 /* TabBarAssembly.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		14ECFD542555DEF300FBFC62 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				14ECFD592556918900FBFC62 /* SettingsAssembly.swift */,
+				14ECFD562556913E00FBFC62 /* SettingsViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		14F78D18254DFA090043C6DA /* TicketsSearch */ = {
@@ -596,7 +618,7 @@
 				14AE5AEA2544801D00548B1D /* LocationView.swift in Sources */,
 				14B236D7254DB88A00BE822D /* AirportManaged+CoreDataProperties.swift in Sources */,
 				1478A0902552BEA100C3633C /* TicketsSearchView.swift in Sources */,
-				147981AC254D9C1D00110A9B /* Errors.swift in Sources */,
+				147981AC254D9C1D00110A9B /* AppErrors.swift in Sources */,
 				1435090D2544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift in Sources */,
 				14AE5AF72544A6BD00548B1D /* CountryModel.swift in Sources */,
 				14D634CF255075B300FF7D37 /* SelectCountryInteractor.swift in Sources */,
@@ -608,6 +630,7 @@
 				1478A0942552BF1C00C3633C /* TicketHeaderView.swift in Sources */,
 				14D634CD2550756900FF7D37 /* SelectCountryViewController.swift in Sources */,
 				142865DD25509C4E003D1930 /* SelectCityViewController.swift in Sources */,
+				14ECFD522555B55A00FBFC62 /* TabBarAssembly.swift in Sources */,
 				14D634D22550762100FF7D37 /* GetCountriesUseCase.swift in Sources */,
 				1478A0982552CF9500C3633C /* TicketsSearchAssembly.swift in Sources */,
 				14090F35254752A50028918F /* UserSettingsRepository.swift in Sources */,
@@ -621,7 +644,6 @@
 				14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */,
 				14AE5AE825447E4600548B1D /* LocationInteractor.swift in Sources */,
 				1478A0A12552F12600C3633C /* TicketsSearchViewModel.swift in Sources */,
-				14B4A5FB2545949A00BFC583 /* LocationDependencies.swift in Sources */,
 				142865DF25509C4E003D1930 /* SelectCityInteractor.swift in Sources */,
 				14D634C825506A1200FF7D37 /* AlertControllerAssembly.swift in Sources */,
 				14AE5AE525447A2700548B1D /* LocationUseCase.swift in Sources */,
@@ -639,6 +661,8 @@
 				142865ED2551E50C003D1930 /* TicketsRepository.swift in Sources */,
 				1478A09E2552D9A900C3633C /* TicketsSearchDatePicker.swift in Sources */,
 				14AE5AF025448AFC00548B1D /* DataLayerDependencies.swift in Sources */,
+				14ECFD572556913E00FBFC62 /* SettingsViewController.swift in Sources */,
+				14ECFD5A2556918900FBFC62 /* SettingsAssembly.swift in Sources */,
 				14AE5AEE25448A1F00548B1D /* DomainLayerDependencies.swift in Sources */,
 				1435090F2544AF6F0086DD64 /* CityManaged+CoreDataProperties.swift in Sources */,
 				147981A8254D9A3400110A9B /* PrepareCountriesUseCase.swift in Sources */,

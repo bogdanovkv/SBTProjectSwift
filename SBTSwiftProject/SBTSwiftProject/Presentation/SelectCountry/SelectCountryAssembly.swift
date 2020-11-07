@@ -8,11 +8,13 @@
 
 import UIKit
 
+/// Протокол сборщика экрана выбора страны
 protocol SelectCountryAssemblyProtocol {
 	func createController() -> UIViewController & SelectCountryViewControllerInput
 }
 
-class SelectCountryAssembly: SelectCountryAssemblyProtocol {
+/// Сборщик экрана выбора страны
+final class SelectCountryAssembly: SelectCountryAssemblyProtocol {
 
 	func createController() -> UIViewController & SelectCountryViewControllerInput {
 		let interactor = SelectCountryInteractor()

@@ -11,12 +11,22 @@ import UIKit
 /// Шапка экрана поиска билетов для ввода запроса
 final class TicketHeaderView: UIView {
 
+	/// Лебйл для отображения города отправления
 	let departureCityLabel: UILabel
+
+	/// Лебйл для отображения даты отвравления
 	let departureDateLabel: UILabel
+
+	/// Лейбл для отобраения города назначения
 	let destinationCityLabel: UILabel
+
+	/// Лейбл для отображения даты возврата назад
 	let returnDateLabel: UILabel
+
+	/// Кнопка поиска
 	let searchButton: UIButton
 
+	/// Инициализатор
 	init() {
 		departureCityLabel = .init()
 		departureCityLabel.translatesAutoresizingMaskIntoConstraints = false

@@ -10,7 +10,13 @@ import Inject
 
 /// Ouptut интерактора поиска билетов
 protocol TicketsSearchInteractorOutput: AnyObject {
+
+	/// Получены билеты
+	/// - Parameter tickets: билеты
 	func didRecieve(tickets: [Ticket])
+
+	/// Получена ошибка во время поиска по билетам
+	/// - Parameter error: ошибка
 	func didRecieve(error: Error)
 }
 
@@ -29,8 +35,10 @@ protocol TicketsSearchInteractorInput {
 					   returnDate: Date?)
 }
 
+/// Интерактор поиска по билетам
 final class TicketsSearchInteractor: TicketsSearchInteractorInput {
 
+	/// Обработчик событий от интерактора
 	weak var output: TicketsSearchInteractorOutput?
 
 	private let searchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]>
@@ -41,6 +49,7 @@ final class TicketsSearchInteractor: TicketsSearchInteractorInput {
 		self.searchTicketsUseCase = searchTicketsUseCase
 	}
 
+	/// Инициализатор с DI
 	convenience init() {
 		self.init(searchTicketsUseCase: Inject.domainLayer.create(closure: { $0.createSearchTicketsUseCase() },
 																  strategy: .new))

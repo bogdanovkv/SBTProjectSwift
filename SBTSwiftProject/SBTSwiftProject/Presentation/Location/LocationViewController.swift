@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Протокол контроллера выбора местоположения
 protocol LocationViewControllerInput: LocationViewController {
 	/// Повторяет запрос на получени данных по странам города и аэропортам
 	func retryPrepareStorage()
@@ -16,6 +17,7 @@ protocol LocationViewControllerInput: LocationViewController {
 	func retryGetLoaction()
 }
 
+/// Контроллер выбора местоположения
 final class LocationViewController: UIViewController, LocationViewControllerInput {
 
 	private lazy var locationView: LocationViewInput = LocationView()
@@ -23,6 +25,10 @@ final class LocationViewController: UIViewController, LocationViewControllerInpu
 	private let viewModel: LocationViewModel
 	private let router: LocationRouterProtocol
 
+	/// Инициализатор
+	/// - Parameters:
+	///   - interactor: интерактор
+	///   - router: роутер
 	init(interactor: LocationInteractorInput,
 		 router: LocationRouterProtocol) {
 		self.interactor = interactor
@@ -54,6 +60,13 @@ final class LocationViewController: UIViewController, LocationViewControllerInpu
 	}
 
 	private func updateView() {
+		if viewModel.country == nil {
+			locationView.showCityErrorState()
+			locationView.showCountryErrorState()
+		} else if viewModel.city == nil {
+			locationView.showCityErrorState()
+		}
+
 		locationView.set(location: .init(country: viewModel.country?.nameRu ?? "",
 										 city: viewModel.city?.nameRu ?? ""))
 	}
@@ -81,14 +94,11 @@ extension LocationViewController: LocationInteractorOutput {
 		viewModel.country = country
 		updateView()
 	}
-
-	func didUpdateLocation(_ location: LocationModel) {
-
-	}
 }
 
 extension LocationViewController: LocationViewOutput {
 	func repeatButtonTapped() {
+		// TODO: добавить кнопку повторить
 	}
 
 	func changeCityButtonTapped() {
@@ -99,8 +109,11 @@ extension LocationViewController: LocationViewOutput {
 	}
 
 	func acceptButtonTapped() {
-		present(TicketsSearchAssembly().createViewController(with: viewModel.city!, coutry: viewModel.country!),
-				animated: true, completion: nil)
+		guard let city = viewModel.city, let country = viewModel.country else {
+			updateView()
+			return
+		}
+		router.openTabBarViewController(with: city, country: country, on: self)
 	}
 
 	func changeCountryButtonTapped() {

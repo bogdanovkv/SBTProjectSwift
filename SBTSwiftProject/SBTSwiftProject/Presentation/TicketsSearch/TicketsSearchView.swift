@@ -29,8 +29,10 @@ protocol TicketsSearchViewOutput: AnyObject {
 	func userChangeReturnDate(date: Date)
 }
 
+/// Протокол вью экрана поиска по билетам
 protocol TicketsSearchViewInput: AnyObject {
 
+	/// Обработчик событий от View
 	var output: TicketsSearchViewOutput? { get set }
 
 	/// Устанавливает имя города отправления
@@ -67,6 +69,7 @@ protocol TicketsSearchViewInput: AnyObject {
 	func reload()
 }
 
+/// Вью экрана поиска по билетам
 final class TicketsSearchView: UIView, TicketsSearchViewInput {
 
 	weak var output: TicketsSearchViewOutput?
@@ -75,6 +78,7 @@ final class TicketsSearchView: UIView, TicketsSearchViewInput {
 	private let tableView: UITableView
 	private var picker: TicketsSearchDatePicker?
 
+	/// Инициализатор
 	init() {
 		headerView = .init()
 		headerView.translatesAutoresizingMaskIntoConstraints = false
@@ -91,7 +95,7 @@ final class TicketsSearchView: UIView, TicketsSearchViewInput {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	func setupActions() {
+	private func setupActions() {
 		let departureCityRecognaizer = UITapGestureRecognizer(target: self,
 															  action: #selector(departureCityLabelTapped))
 		headerView.departureCityLabel.addGestureRecognizer(departureCityRecognaizer)
@@ -132,6 +136,8 @@ final class TicketsSearchView: UIView, TicketsSearchViewInput {
 			tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
 		])
 	}
+
+	// MARK: - TicketsSearchViewInput
 
 	func set(departureName: String) {
 		headerView.departureCityLabel.text = departureName

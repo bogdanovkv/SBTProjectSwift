@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Вью модель для экрана поиска билетов
 final class TicketsSearchViewModel {
 	var departureCountry: CountryModel?
 	var departureCity: CityModel?
@@ -15,4 +16,5 @@ final class TicketsSearchViewModel {
 	var desntinationCity: CityModel?
 	var desntinationCountry: CountryModel?
 	var returnDate: Date?
+	var tickets: [Ticket] = []
 }

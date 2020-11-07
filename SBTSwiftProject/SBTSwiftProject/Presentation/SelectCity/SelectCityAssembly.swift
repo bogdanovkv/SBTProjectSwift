@@ -8,10 +8,15 @@
 
 import UIKit
 
+/// Сборщик экрана выбра города
 protocol SelectCityAssemblyProtocol {
+
+	/// Создает контроллер
+	/// - Parameter country: страна
 	func createController(country: CountryModel) -> UIViewController & SelectCityViewControllerInput
 }
 
+/// Сборщик экрана города
 final class SelectCityAssembly: SelectCityAssemblyProtocol {
 
 	func createController(country: CountryModel) -> UIViewController & SelectCityViewControllerInput {

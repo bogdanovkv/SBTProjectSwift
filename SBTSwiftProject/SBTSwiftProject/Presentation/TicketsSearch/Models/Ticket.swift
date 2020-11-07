@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Модель билета
 struct Ticket {
 
 	/// Код авиалинии

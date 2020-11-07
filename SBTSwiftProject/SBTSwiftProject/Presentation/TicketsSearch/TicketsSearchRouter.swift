@@ -8,15 +8,27 @@
 
 import UIKit
 
+/// Роутер экрана поиска билетов
 protocol TicketsSearchRouterProtocol {
+
+	/// Показывает экран смены города на контроллера
+	/// - Parameters:
+	///   - viewController: контроллер на котором будет показан экран
+	///   - country: страна
+	///   - completion: блок, который выполнится при завершении выбора города
 	func showChangeCityViewController(on viewController: UIViewController,
 									  country: CountryModel,
 									  completion: @escaping (CityModel) -> Void)
 
+	/// Показывает экран смены страны
+	/// - Parameters:
+	///   - viewController: контроллер на котором будет показан экран
+	///   - completion: блок, который выполнится при завершении выбора страны
 	func showChangeCountryViewController(on viewController: UIViewController,
 										 completion: @escaping (CountryModel) -> Void)
 }
 
+/// Роутер экрана поиска билетов
 final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 	private let selectCountryAssembly: SelectCountryAssemblyProtocol
 	private let selectCityAssembly: SelectCityAssemblyProtocol

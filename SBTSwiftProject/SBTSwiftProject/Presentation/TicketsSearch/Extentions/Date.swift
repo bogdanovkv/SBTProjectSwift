@@ -8,7 +8,11 @@
 
 import UIKit
 
+/// Расширение Date
 extension Date {
+
+	/// Конвертирует даты в строку в формате dd-MM-yyyy
+	/// - Returns: строка с датой
 	func format_DD_MM_YYYY() -> String {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "dd-MM-yyyy"

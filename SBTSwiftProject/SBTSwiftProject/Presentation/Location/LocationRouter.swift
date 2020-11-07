@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Протокол роутера экрана выбора местоположения
 protocol LocationRouterProtocol {
 
 	/// Показывает алерт об ошибке получения стран, городов и аэропортов
@@ -26,19 +27,36 @@ protocol LocationRouterProtocol {
 	/// - Parameter controller: контроллер
 	func showSelectCityController(with country: CountryModel,
 								  on controller: UIViewController & SelectCityViewControllerOutput)
+
+	/// Открывает таб бар с поиском билетов, сохраненными билетами и настройками
+	/// - Parameters:
+	///   - city: город
+	///   - country: страна
+	///   - controller: контроллер на который покажется таб бар
+	func openTabBarViewController(with city: CityModel, country: CountryModel, on controller: UIViewController)
 }
 
+/// Роутер экрана выбора местоположения
 final class LocationRouter: LocationRouterProtocol {
 	private let alertAssembly: AlertControllerAssemblyProtocol
 	private let selectCountryAssembly: SelectCountryAssemblyProtocol
 	private let selectCityAssembly: SelectCityAssemblyProtocol
+	private let tabBarAssembly: TabBarAssemblyProtocol
 
+	/// Инициализатор
+	/// - Parameters:
+	///   - alertAssembly: сборщик алертов
+	///   - selectCountryAssembly: сборщик экрана выбора страны
+	///   - selectCityAssembly: сборщик экрана выбора города
+	///   - tabBarAssembly: сборщик таб бара
 	init(alertAssembly: AlertControllerAssemblyProtocol,
 		 selectCountryAssembly: SelectCountryAssemblyProtocol,
-		 selectCityAssembly: SelectCityAssemblyProtocol) {
+		 selectCityAssembly: SelectCityAssemblyProtocol,
+		 tabBarAssembly: TabBarAssemblyProtocol) {
 		self.alertAssembly = alertAssembly
 		self.selectCountryAssembly = selectCountryAssembly
 		self.selectCityAssembly = selectCityAssembly
+		self.tabBarAssembly = tabBarAssembly
 	}
 
 	func showStorageErrorAlert(on controller: UIViewController & LocationViewControllerInput) {
@@ -57,10 +75,10 @@ final class LocationRouter: LocationRouterProtocol {
 	func showLocationErrorAlert(on controller: UIViewController & LocationViewControllerInput) {
 		let manualAction = UIAlertAction(title: "Выбрать вручную", style: .cancel, handler: { [weak controller] _ in
 			controller?.presentedViewController?.dismiss(animated: true, completion: nil)
-			controller?.retryGetLoaction()
 		})
 		let repeatAction = UIAlertAction(title: "Повторить", style: .default, handler: { [weak controller] _ in
 			controller?.presentedViewController?.dismiss(animated: true, completion: nil)
+			controller?.retryGetLoaction()
 		})
 		let alert = alertAssembly.createController(title: "Не удалось получить данные :(",
 												   message: "Не удалось получить ваше местоположение, повторите попытку или выберите его самостоятельно.",
@@ -80,5 +98,11 @@ final class LocationRouter: LocationRouterProtocol {
 		let selectCountryController = selectCityAssembly.createController(country: country)
 		selectCountryController.output = controller
 		controller.present(selectCountryController, animated: true, completion: nil)
+	}
+
+	func openTabBarViewController(with city: CityModel, country: CountryModel, on controller: UIViewController) {
+		let tabBarController = tabBarAssembly.createController(with: city, coutry: country)
+		tabBarController.modalPresentationStyle = .fullScreen
+		controller.present(tabBarController, animated: true, completion: nil)
 	}
 }

@@ -8,13 +8,17 @@
 
 import Inject
 
+/// Протокол интерактора экрана выбора страны
 protocol SelectCountryInteractorInput {
 	func getCountries() -> [CountryModel]
 }
 
+/// Интерактор экрана выбора страны
 final class SelectCountryInteractor: SelectCountryInteractorInput {
 	private let useCase: UseCaseSync<Void, [CountryModel]>
 
+	/// Инициализатор
+	/// - Parameter useCase: useCase
 	init(useCase: UseCaseSync<Void, [CountryModel]>) {
 		self.useCase = useCase
 	}

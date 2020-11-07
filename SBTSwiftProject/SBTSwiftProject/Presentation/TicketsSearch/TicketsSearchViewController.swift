@@ -8,16 +8,22 @@
 
 import UIKit
 
+/// Контроллер поиска билетов
 final class TicketsSearchViewController: UIViewController {
 
 	private let viewModel: TicketsSearchViewModel
 	private let router: TicketsSearchRouterProtocol
 	private let interactor: TicketsSearchInteractorInput
-	private var tickets: [Ticket]
 	private lazy var ticketsView: TicketsSearchViewInput &  UIView = {
 		return TicketsSearchView()
 	}()
 
+	/// Инициализатор
+	/// - Parameters:
+	///   - departureCity: город отправления
+	///   - departureCountry: страна отправления
+	///   - interactor: интерактор
+	///   - router: роутер
 	init(departureCity: CityModel,
 		 departureCountry: CountryModel,
 		 interactor: TicketsSearchInteractorInput,
@@ -28,9 +34,10 @@ final class TicketsSearchViewController: UIViewController {
 		viewModel.departureDate = Date()
 		self.router = router
 		self.interactor = interactor
-		tickets = []
 		super.init(nibName: nil, bundle: nil)
 		modalPresentationStyle = .fullScreen
+		title = "Поиск"
+		tabBarItem = .init(tabBarSystemItem: .search, tag: 0)
 	}
 
 	required init?(coder: NSCoder) {
@@ -128,7 +135,7 @@ extension TicketsSearchViewController: TicketsSearchViewOutput {
 
 extension TicketsSearchViewController: TicketsSearchInteractorOutput {
 	func didRecieve(tickets: [Ticket]) {
-		self.tickets = tickets
+		self.viewModel.tickets = tickets
 		updateView()
 	}
 
@@ -143,13 +150,13 @@ extension TicketsSearchViewController: UITableViewDelegate {
 
 extension TicketsSearchViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return tickets.count
+		return viewModel.tickets.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-		let model = tickets[indexPath.row]
+		let model = viewModel.tickets[indexPath.row]
 		cell.textLabel?.text = "\(model.airlineCode) \(model.cost)"
 		return cell
 	}

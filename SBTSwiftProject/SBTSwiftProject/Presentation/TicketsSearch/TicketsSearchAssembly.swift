@@ -8,11 +8,18 @@
 
 import UIKit
 
+/// Протокол сборщика экрана поиска билетов
 protocol TicketsSearchAssemblyProtocol {
+
+	/// Создает контроллер
+	/// - Parameters:
+	///   - city: город пользователя
+	///   - coutry: страна пользователя
 	func createViewController(with city: CityModel, coutry: CountryModel) -> UIViewController
 }
 
-class TicketsSearchAssembly: TicketsSearchAssemblyProtocol {
+/// Сборщик экрана поиска билетов
+final class TicketsSearchAssembly: TicketsSearchAssemblyProtocol {
 	func createViewController(with city: CityModel, coutry: CountryModel) -> UIViewController {
 		let interactor = TicketsSearchInteractor()
 		let router = TicketsSearchRouter(selectCountryAssembly: SelectCountryAssembly(),

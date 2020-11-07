@@ -8,14 +8,22 @@
 
 import UIKit
 
+/// Протокол контроллера выбора страны
 protocol SelectCountryViewControllerInput: AnyObject {
+
+	/// Обработчик событий от экрана выбора страны
 	var output: SelectCountryViewControllerOutput? { get set }
 }
 
+/// Протокол обработчика событий от экрана выбора страны
 protocol SelectCountryViewControllerOutput: AnyObject {
+
+	/// Пользователь выбрал страну
+	/// - Parameter country: страна
 	func userSelect(country: CountryModel)
 }
 
+/// Контроллер выбора страны
 final class SelectCountryViewController: UIViewController, SelectCountryViewControllerInput {
 
 	weak var output: SelectCountryViewControllerOutput?
@@ -27,6 +35,8 @@ final class SelectCountryViewController: UIViewController, SelectCountryViewCont
 
 	private var models: [CountryModel]
 
+	/// Инициализатор
+	/// - Parameter interactor: интерактор
 	init(interactor: SelectCountryInteractorInput) {
 		self.interactor = interactor
 		models = []
