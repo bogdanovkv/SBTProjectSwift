@@ -23,7 +23,8 @@ final class TicketsSearchAssembly: TicketsSearchAssemblyProtocol {
 	func createViewController(with city: CityModel, coutry: CountryModel) -> UIViewController {
 		let interactor = TicketsSearchInteractor()
 		let router = TicketsSearchRouter(selectCountryAssembly: SelectCountryAssembly(),
-										 selectCityAssembly: SelectCityAssembly())
+										 selectCityAssembly: SelectCityAssembly(),
+										 alertsControllerAssembly: AlertControllerAssembly())
 		let controller = TicketsSearchViewController(departureCity: city,
 													 departureCountry: coutry,
 													 interactor: interactor,

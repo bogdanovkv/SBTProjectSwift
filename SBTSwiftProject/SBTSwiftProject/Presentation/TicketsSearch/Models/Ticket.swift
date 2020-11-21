@@ -11,6 +11,12 @@ import UIKit
 /// Модель билета
 struct Ticket {
 
+	/// Город отправления
+	let fromCity: CityModel
+
+	/// Город назначения
+	let toCity: CityModel
+
 	/// Код авиалинии
 	let airlineCode: String
 

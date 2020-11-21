@@ -83,6 +83,8 @@ final class TicketsSearchView: UIView, TicketsSearchViewInput {
 		headerView = .init()
 		headerView.translatesAutoresizingMaskIntoConstraints = false
 		tableView = .init(frame: .zero, style: .plain)
+		tableView.estimatedRowHeight = 80
+		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		super.init(frame: .zero)
 		backgroundColor = .white

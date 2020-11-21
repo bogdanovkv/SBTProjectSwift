@@ -38,7 +38,9 @@ final class SearchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]> {
 						  let expiredDate = dateFormatter.date(from: model.expires) else {
 						return nil
 					}
-					return .init(airlineCode: model.airlineCode,
+					return .init(fromCity: parameter.fromCity,
+								 toCity: parameter.toCity,
+								 airlineCode: model.airlineCode,
 								 departureDate: departureDate,
 								 arrivalDate: arrivalDate,
 								 cost: model.cost,

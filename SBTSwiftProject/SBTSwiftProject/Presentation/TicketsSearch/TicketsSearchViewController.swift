@@ -46,7 +46,7 @@ final class TicketsSearchViewController: UIViewController {
 
 	override func loadView() {
 		view = ticketsView
-		ticketsView.register(cellClass: UITableViewCell.self, for: "Cell")
+		ticketsView.register(cellClass: TicketTableViewCell.self, for: TicketTableViewCell.reuseIdentifier)
 		ticketsView.output = self
 	}
 
@@ -58,8 +58,12 @@ final class TicketsSearchViewController: UIViewController {
 	}
 
 	private func updateView() {
-		ticketsView.set(returnDate: viewModel.returnDate?.format_DD_MM_YYYY() ?? "")
-		ticketsView.set(departureDate: viewModel.departureDate?.format_DD_MM_YYYY() ?? "")
+		if let returnDate = viewModel.returnDate {
+			ticketsView.set(returnDate: returnDate.format_DD_MM_YYYY())
+		}
+		if let departureDate = viewModel.departureDate {
+			ticketsView.set(departureDate: departureDate.format_DD_MM_YYYY())
+		}
 		if let city = viewModel.departureCity {
 			ticketsView.set(departureName:  city.nameRu ?? city.name)
 		}
@@ -135,6 +139,9 @@ extension TicketsSearchViewController: TicketsSearchViewOutput {
 
 extension TicketsSearchViewController: TicketsSearchInteractorOutput {
 	func didRecieve(tickets: [Ticket]) {
+		if tickets.isEmpty {
+			router.showNoTicketsFoundAlert(on: self)
+		}
 		self.viewModel.tickets = tickets
 		updateView()
 	}
@@ -154,12 +161,13 @@ extension TicketsSearchViewController: UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
+		let cell = tableView.dequeueReusableCell(withIdentifier: TicketTableViewCell.reuseIdentifier,
+												 for: indexPath)
+		guard let ticketCell = cell as? TicketTableViewCell else {
+			return cell
+		}
 		let model = viewModel.tickets[indexPath.row]
-		cell.textLabel?.text = "\(model.airlineCode) \(model.cost)"
-		return cell
+		ticketCell.configure(with: model)
+		return ticketCell
 	}
-
-
 }

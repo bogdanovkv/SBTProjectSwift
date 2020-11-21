@@ -29,20 +29,31 @@ final class TicketHeaderView: UIView {
 	/// Инициализатор
 	init() {
 		departureCityLabel = .init()
+		departureCityLabel.text = "Откуда"
 		departureCityLabel.translatesAutoresizingMaskIntoConstraints = false
 		departureCityLabel.textColor = .black
+		departureCityLabel.backgroundColor = .init(red: 231/255, green: 231/255, blue: 233/255, alpha: 1)
 
 		departureDateLabel = .init()
 		departureDateLabel.translatesAutoresizingMaskIntoConstraints = false
 		departureDateLabel.textColor = .black
+		departureDateLabel.text = "Дата вылета"
+		departureDateLabel.backgroundColor = .init(red: 231/255, green: 231/255, blue: 233/255, alpha: 1)
 
 		destinationCityLabel = .init()
 		destinationCityLabel.translatesAutoresizingMaskIntoConstraints = false
 		destinationCityLabel.textColor = .black
+		destinationCityLabel.text = "Куда"
+		destinationCityLabel.textAlignment = .right
+		destinationCityLabel.backgroundColor = .init(red: 231/255, green: 231/255, blue: 233/255, alpha: 1)
 
 		returnDateLabel = .init()
 		returnDateLabel.translatesAutoresizingMaskIntoConstraints = false
 		returnDateLabel.textColor = .black
+		returnDateLabel.text = "Дата вылета обратно"
+		returnDateLabel.textAlignment = .right
+		returnDateLabel.backgroundColor = .init(red: 231/255, green: 231/255, blue: 233/255, alpha: 1)
+
 
 		searchButton = .init()
 		searchButton.translatesAutoresizingMaskIntoConstraints = false

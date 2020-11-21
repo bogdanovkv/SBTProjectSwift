@@ -6,7 +6,7 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol NetworkServiceProtocol {
 	func perfom<Model: Decodable>(request: NetworkRequest,

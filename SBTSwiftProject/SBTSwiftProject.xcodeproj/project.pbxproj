@@ -73,6 +73,7 @@
 		14ECFD522555B55A00FBFC62 /* TabBarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECFD512555B55A00FBFC62 /* TabBarAssembly.swift */; };
 		14ECFD572556913E00FBFC62 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECFD562556913E00FBFC62 /* SettingsViewController.swift */; };
 		14ECFD5A2556918900FBFC62 /* SettingsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECFD592556918900FBFC62 /* SettingsAssembly.swift */; };
+		14ECFD612556A58100FBFC62 /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECFD602556A58100FBFC62 /* TicketTableViewCell.swift */; };
 		14F78D1A254DFF7D0043C6DA /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F78D19254DFF7D0043C6DA /* LocationViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +172,7 @@
 		14ECFD512555B55A00FBFC62 /* TabBarAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarAssembly.swift; sourceTree = "<group>"; };
 		14ECFD562556913E00FBFC62 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		14ECFD592556918900FBFC62 /* SettingsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAssembly.swift; sourceTree = "<group>"; };
+		14ECFD602556A58100FBFC62 /* TicketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketTableViewCell.swift; sourceTree = "<group>"; };
 		14F78D19254DFF7D0043C6DA /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -327,6 +329,7 @@
 			children = (
 				1478A0932552BF1C00C3633C /* TicketHeaderView.swift */,
 				1478A09D2552D9A900C3633C /* TicketsSearchDatePicker.swift */,
+				14ECFD5F2556A56200FBFC62 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -421,10 +424,10 @@
 				14D634C62550695C00FF7D37 /* Alert */,
 				14ECFD502555B53200FBFC62 /* TabBar */,
 				1451A331254422BB00ACFC6E /* Location */,
-				14F78D18254DFA090043C6DA /* TicketsSearch */,
 				14D634CB255074A500FF7D37 /* SelectCountry */,
 				142865D325509C1E003D1930 /* SelectCity */,
 				14ECFD542555DEF300FBFC62 /* Settings */,
+				14F78D18254DFA090043C6DA /* TicketsSearch */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -493,6 +496,14 @@
 				14ECFD562556913E00FBFC62 /* SettingsViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		14ECFD5F2556A56200FBFC62 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				14ECFD602556A58100FBFC62 /* TicketTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		14F78D18254DFA090043C6DA /* TicketsSearch */ = {
@@ -653,6 +664,7 @@
 				14AE5AEC2544899800548B1D /* LocationAssembly.swift in Sources */,
 				1438FF6F20F9FD29003CC7C2 /* AppDelegate.swift in Sources */,
 				142865EB2551E0EE003D1930 /* TicketModel.swift in Sources */,
+				14ECFD612556A58100FBFC62 /* TicketTableViewCell.swift in Sources */,
 				14CD8B802544245E00134D82 /* NetworkRequest.swift in Sources */,
 				142865F025529907003D1930 /* TicketsSearchModel.swift in Sources */,
 				14AE5AF525449EF700548B1D /* PrepareStorageUseCase.swift in Sources */,

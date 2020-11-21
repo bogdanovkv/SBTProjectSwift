@@ -12,7 +12,7 @@ protocol PrepareStorageUseCaseProtocol {
 	func prepareStorage(_ copmletion: @escaping (Result<Void, Error>) -> Void)
 }
 
-class PrepareStorageUseCase: PrepareStorageUseCaseProtocol {
+ final class PrepareStorageUseCase: PrepareStorageUseCaseProtocol {
 
 	enum CaseError: Error {
 		case locationError
@@ -93,6 +93,7 @@ class PrepareStorageUseCase: PrepareStorageUseCaseProtocol {
 				self.settingsRepository.didIntializeStorage = true
 				return copmletion(.success(()))
 			}
+			self.locationRepository.clearLocations()
 			copmletion(.failure(CaseError.locationError))
 		}))
 	}
