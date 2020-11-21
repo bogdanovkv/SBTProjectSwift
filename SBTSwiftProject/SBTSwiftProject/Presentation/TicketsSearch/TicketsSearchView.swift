@@ -67,6 +67,12 @@ protocol TicketsSearchViewInput: AnyObject {
 
 	/// Перезагружает табличку
 	func reload()
+
+	/// Показать лоадер
+	func showLoader()
+
+	/// Убрать лоадер
+	func removeLoader()
 }
 
 /// Вью экрана поиска по билетам
@@ -77,6 +83,7 @@ final class TicketsSearchView: UIView, TicketsSearchViewInput {
 	private let headerView: TicketHeaderView
 	private let tableView: UITableView
 	private var picker: TicketsSearchDatePicker?
+	private var loader: UIActivityIndicatorView?
 
 	/// Инициализатор
 	init() {
@@ -171,6 +178,25 @@ final class TicketsSearchView: UIView, TicketsSearchViewInput {
 
 	func reload() {
 		tableView.reloadData()
+	}
+
+	func showLoader() {
+		guard loader == nil else { return }
+		let loader = UIActivityIndicatorView(activityIndicatorStyle: .large)
+		addSubview(loader)
+		loader.frame = frame
+		loader.backgroundColor = .init(red: 0, green: 0, blue: 0, alpha: 0.25)
+		loader.startAnimating()
+		self.loader = loader
+	}
+
+	func removeLoader() {
+		guard let loader = loader else {
+			return
+		}
+		loader.stopAnimating()
+		loader.removeFromSuperview()
+		self.loader = nil
 	}
 
 	// MARK: - Private

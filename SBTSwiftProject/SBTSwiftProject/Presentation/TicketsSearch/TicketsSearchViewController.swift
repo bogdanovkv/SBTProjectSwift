@@ -78,8 +78,10 @@ extension TicketsSearchViewController: TicketsSearchViewOutput {
 
 	func userStartSearch() {
 		guard let fromCity = viewModel.departureCity, let toCity = viewModel.desntinationCity else {
+			// TODO: - показать ошибку что не выбраны города
 			return
 		}
+		ticketsView.showLoader()
 		interactor.searchTickets(fromCity: fromCity,
 								 fromDate: viewModel.departureDate,
 								 toCity: toCity,
@@ -139,6 +141,7 @@ extension TicketsSearchViewController: TicketsSearchViewOutput {
 
 extension TicketsSearchViewController: TicketsSearchInteractorOutput {
 	func didRecieve(tickets: [Ticket]) {
+		ticketsView.removeLoader()
 		if tickets.isEmpty {
 			router.showNoTicketsFoundAlert(on: self)
 		}
