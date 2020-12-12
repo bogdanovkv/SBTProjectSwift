@@ -24,6 +24,7 @@ final class TicketsSearchAssembly: TicketsSearchAssemblyProtocol {
 		let interactor = TicketsSearchInteractor()
 		let router = TicketsSearchRouter(selectCountryAssembly: SelectCountryAssembly(),
 										 selectCityAssembly: SelectCityAssembly(),
+										 ticketAssembly: TiketViewControllerAssembly(),
 										 alertsControllerAssembly: AlertControllerAssembly())
 		let controller = TicketsSearchViewController(departureCity: city,
 													 departureCountry: coutry,

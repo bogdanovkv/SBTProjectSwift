@@ -89,7 +89,6 @@ final class TicketTableViewCell: UITableViewCell {
 			airlineCompanyLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
 			airlineCompanyLabel.rightAnchor.constraint(equalTo: priceLabel.leftAnchor, constant: -8),
 			airlineCompanyLabel.widthAnchor.constraint(equalTo: priceLabel.widthAnchor),
-//			airlineCompanyLabel.heightAnchor.constraint(equalToConstant: 22),
 			airlineCompanyLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
 
 			priceLabel.topAnchor.constraint(equalTo: returnDateLabel.bottomAnchor, constant: 4),

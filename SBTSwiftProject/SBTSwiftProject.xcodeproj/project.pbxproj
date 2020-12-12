@@ -30,6 +30,10 @@
 		1438FF7720F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF7520F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld */; };
 		1438FF7920F9FD2B003CC7C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1438FF7820F9FD2B003CC7C2 /* Assets.xcassets */; };
 		1438FF8720F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF8620F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift */; };
+		145191042569604800A5593E /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145191032569604800A5593E /* TicketViewController.swift */; };
+		145191082569608A00A5593E /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145191072569608A00A5593E /* TicketView.swift */; };
+		1451910B2569684D00A5593E /* TiketViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451910A2569684D00A5593E /* TiketViewControllerAssembly.swift */; };
+		1451911125697E8500A5593E /* TicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451911025697E8500A5593E /* TicketViewModel.swift */; };
 		146CB831254E9935008A2EBE /* Throwable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CB830254E9935008A2EBE /* Throwable.swift */; };
 		1474CEEA2544367E00C9615B /* ServiceLayerDependecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474CEE92544367E00C9615B /* ServiceLayerDependecies.swift */; };
 		1478A0902552BEA100C3633C /* TicketsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478A08F2552BEA100C3633C /* TicketsSearchView.swift */; };
@@ -128,6 +132,10 @@
 		1438FF8220F9FD2B003CC7C2 /* SBTSwiftProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBTSwiftProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1438FF8620F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTSwiftProjectTests.swift; sourceTree = "<group>"; };
 		1438FF8820F9FD2B003CC7C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		145191032569604800A5593E /* TicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
+		145191072569608A00A5593E /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
+		1451910A2569684D00A5593E /* TiketViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiketViewControllerAssembly.swift; sourceTree = "<group>"; };
+		1451911025697E8500A5593E /* TicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewModel.swift; sourceTree = "<group>"; };
 		146CB830254E9935008A2EBE /* Throwable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throwable.swift; sourceTree = "<group>"; };
 		1474CEE92544367E00C9615B /* ServiceLayerDependecies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayerDependecies.swift; sourceTree = "<group>"; };
 		1478A08F2552BEA100C3633C /* TicketsSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsSearchView.swift; sourceTree = "<group>"; };
@@ -293,6 +301,25 @@
 			path = SBTSwiftProjectTests;
 			sourceTree = "<group>";
 		};
+		145191022569601A00A5593E /* Ticket */ = {
+			isa = PBXGroup;
+			children = (
+				1451910A2569684D00A5593E /* TiketViewControllerAssembly.swift */,
+				145191032569604800A5593E /* TicketViewController.swift */,
+				145191072569608A00A5593E /* TicketView.swift */,
+				1451910F25697E7100A5593E /* Models */,
+			);
+			path = Ticket;
+			sourceTree = "<group>";
+		};
+		1451910F25697E7100A5593E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1451911025697E8500A5593E /* TicketViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1451A331254422BB00ACFC6E /* Location */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,12 +449,13 @@
 			isa = PBXGroup;
 			children = (
 				14D634C62550695C00FF7D37 /* Alert */,
-				14ECFD502555B53200FBFC62 /* TabBar */,
-				1451A331254422BB00ACFC6E /* Location */,
 				14D634CB255074A500FF7D37 /* SelectCountry */,
 				142865D325509C1E003D1930 /* SelectCity */,
 				14ECFD542555DEF300FBFC62 /* Settings */,
+				14ECFD502555B53200FBFC62 /* TabBar */,
+				145191022569601A00A5593E /* Ticket */,
 				14F78D18254DFA090043C6DA /* TicketsSearch */,
+				1451A331254422BB00ACFC6E /* Location */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -622,7 +650,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1451910B2569684D00A5593E /* TiketViewControllerAssembly.swift in Sources */,
 				142865E52551DBD9003D1930 /* TicketsSearchInteractor.swift in Sources */,
+				145191082569608A00A5593E /* TicketView.swift in Sources */,
 				142865E32551DB30003D1930 /* TicketsSearchViewController.swift in Sources */,
 				1435090E2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift in Sources */,
 				147D5A3F25442FF800F90BA2 /* LocationModel.swift in Sources */,
@@ -646,6 +676,8 @@
 				1478A0982552CF9500C3633C /* TicketsSearchAssembly.swift in Sources */,
 				14090F35254752A50028918F /* UserSettingsRepository.swift in Sources */,
 				142865E82551E0BF003D1930 /* SearchTicketsUseCase.swift in Sources */,
+				145191042569604800A5593E /* TicketViewController.swift in Sources */,
+				1451911125697E8500A5593E /* TicketViewModel.swift in Sources */,
 				146CB831254E9935008A2EBE /* Throwable.swift in Sources */,
 				14AE5AF325449C4B00548B1D /* CityModel.swift in Sources */,
 				142865E12551B1B3003D1930 /* GetCitiesUseCase.swift in Sources */,

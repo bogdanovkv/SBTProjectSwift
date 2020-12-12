@@ -30,14 +30,27 @@ protocol TicketsSearchRouterProtocol {
 	/// Показывает алерт с информацией что билетов не нашлось
 	/// - Parameter viewController: контроллер на котором показывается алерт
 	func showNoTicketsFoundAlert(on viewController: UIViewController)
+
+	/// Показывает контроллер с и
+	/// - Parameters:
+	///   - viewController: контроллер на котором показывается экран
+	///   - ticket: билет
+	///   - fromLocation: откуда
+	///   - toLocation: куда
+	func showTicketInformationController(on viewController: UIViewController,
+										 ticket: Ticket,
+										 fromLocation: (city: CityModel, country: CountryModel),
+										 toLocation: (city: CityModel, country: CountryModel))
 }
 
 /// Роутер экрана поиска билетов
 final class TicketsSearchRouter: TicketsSearchRouterProtocol {
+
 	private let selectCountryAssembly: SelectCountryAssemblyProtocol
 	private let selectCityAssembly: SelectCityAssemblyProtocol
 	private var changeCityAction: ((CityModel) -> Void)?
 	private var changeCountryAction: ((CountryModel) -> Void)?
+	private let ticketAssembly: TiketAssemblyProtocol
 	private let alertsControllerAssembly: AlertControllerAssemblyProtocol
 
 	/// Инициализатор
@@ -46,9 +59,11 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 	///   - selectCityAssembly: сборщик экрана выбора города
 	init(selectCountryAssembly: SelectCountryAssemblyProtocol,
 		 selectCityAssembly: SelectCityAssemblyProtocol,
+		 ticketAssembly: TiketAssemblyProtocol,
 		 alertsControllerAssembly: AlertControllerAssemblyProtocol) {
 		self.selectCityAssembly = selectCityAssembly
 		self.selectCountryAssembly = selectCountryAssembly
+		self.ticketAssembly = ticketAssembly
 		self.alertsControllerAssembly = alertsControllerAssembly
 	}
 
@@ -79,6 +94,16 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 																				viewController?.presentedViewController?.dismiss(animated: true, completion: nil)
 																			  })])
 		viewController.present(alert, animated: true, completion: nil)
+	}
+
+	func showTicketInformationController(on viewController: UIViewController,
+										 ticket: Ticket,
+										 fromLocation: (city: CityModel, country: CountryModel),
+										 toLocation: (city: CityModel, country: CountryModel)) {
+		let ticketController = ticketAssembly.createViewCotroller(with: ticket,
+																  departureLocation: (country: fromLocation.country, city: fromLocation.city),
+																  destinationLocation: (country: toLocation.country, city: toLocation.city))
+		viewController.present(ticketController, animated: true, completion: nil)
 	}
 }
 

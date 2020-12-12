@@ -35,6 +35,7 @@ struct TicketModel: Decodable {
 	/// Номер рейса
 	let flightNumber: Int
 
+	/// Действует до
 	let expires: String
 
 	init(from decoder: Decoder) throws {

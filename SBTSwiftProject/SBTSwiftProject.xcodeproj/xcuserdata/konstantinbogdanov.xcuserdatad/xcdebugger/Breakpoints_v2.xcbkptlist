@@ -39,8 +39,8 @@
             filePath = "SBTSwiftProject/Presentation/Location/LocationInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "prepareStorage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -66,105 +66,9 @@
             filePath = "SBTSwiftProject/DataLayer/Tickets/TicketModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "init(from:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "81133EC5-3D15-4519-925F-AEC51100B4E6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBTSwiftProject/Presentation/TicketsSearch/TicketsSearchView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
-            landmarkName = "returnDateLabelTapped()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "81133EC5-3D15-4519-925F-AEC51100B4E6 - 1ec983e5c47fd8e5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SBTSwiftProject.TicketsSearchView.(returnDateLabelTapped in _96DD2D5DB7CFA96B00227694A3B7456D)() -&gt; ()"
-                  moduleName = "SBTSwiftProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/konstantinbogdanov/SBTProjectSwift/SBTSwiftProject/SBTSwiftProject/Presentation/TicketsSearch/TicketsSearchView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "187"
-                  endingLineNumber = "187"
-                  offsetFromSymbolStart = "55">
-               </Location>
-               <Location
-                  uuid = "81133EC5-3D15-4519-925F-AEC51100B4E6 - 3b8875709968251f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Foundation.Date) -&gt; () in SBTSwiftProject.TicketsSearchView.(returnDateLabelTapped in _96DD2D5DB7CFA96B00227694A3B7456D)() -&gt; ()"
-                  moduleName = "SBTSwiftProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/konstantinbogdanov/SBTProjectSwift/SBTSwiftProject/SBTSwiftProject/Presentation/TicketsSearch/TicketsSearchView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "187"
-                  endingLineNumber = "187"
-                  offsetFromSymbolStart = "115">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DC7C34D3-5728-41D0-B323-F9BCD3218189"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBTSwiftProject/Presentation/TicketsSearch/TicketsSearchView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
-            landmarkName = "searchButtonTapped()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "97E22467-6EF8-481C-880F-9AF3F1D54103"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBTSwiftProject/Presentation/TicketsSearch/TicketsSearchView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
-            landmarkName = "showPicker(with:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7C4B6D0B-C582-43D2-A90C-4AA7E910D564"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBTSwiftProject/Presentation/TicketsSearch/TicketsSearchView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
-            landmarkName = "departureDateLabelTapped()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -178,8 +82,8 @@
             filePath = "SBTSwiftProject/Presentation/TicketsSearch/TicketsSearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "userSelectChangeDepartureLocation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -194,8 +98,8 @@
             filePath = "SBTSwiftProject/Presentation/TicketsSearch/TicketsSearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "userSelectChangeDepartureCity()"
             landmarkType = "7">
          </BreakpointContent>
@@ -210,73 +114,9 @@
             filePath = "SBTSwiftProject/Presentation/TicketsSearch/TicketsSearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "userSelectChangeDepartureCity()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "208F5FAF-D784-47C3-A26E-02EA978A59C9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBTSwiftProject/Presentation/TicketsSearch/TicketsSearchInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "searchTickets(fromCity:fromDate:toCity:returnDate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "08F0C96D-1BFB-4F3A-B667-449DEBC8318F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBTSwiftProject/Presentation/TicketsSearch/TicketsSearchViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EDBD6C5C-E17F-4CCC-8398-74AA2B13A18D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBTSwiftProject/Presentation/TicketsSearch/TicketsSearchViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E3D60E74-0A6F-47EB-854E-10563A6DF470"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBTSwiftProject/Presentation/TicketsSearch/TicketsSearchViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "didRecieve(tickets:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

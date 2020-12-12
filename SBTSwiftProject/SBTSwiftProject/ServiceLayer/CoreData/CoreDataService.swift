@@ -56,12 +56,13 @@ final class CoreDataService: CoreDataServiceProtocol {
 	}
 
 	func fetch<Entity: NSManagedObject, Model>(convertClosure: (Entity) -> Model?) -> [Model] {
-		var result: [Entity] = []
+		var result: [Model] = []
 		viewContext.performAndWait {
 			let fetchRequest = NSFetchRequest<Entity>(entityName: NSStringFromClass(Entity.self))
-			result = (try? fetchRequest.execute()) ?? []
+			let moResult = (try? fetchRequest.execute()) ?? []
+			result = moResult.compactMap(convertClosure)
 		}
-		return result.compactMap(convertClosure)
+		return result
 	}
 
 	func fetch<Entity: NSManagedObject, Model>(convertClosure: (Entity) -> Model?,
