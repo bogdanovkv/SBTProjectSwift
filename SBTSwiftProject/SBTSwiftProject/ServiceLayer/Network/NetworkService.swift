@@ -77,7 +77,8 @@ final class NetworkService: NSObject, NetworkServiceProtocol {
 
 	func download(request: NetworkRequest,
 				  _ completion: @escaping (Result<URL, Error>) -> Void) {
-		guard var urlComponents = URLComponents(url: request.url, resolvingAgainstBaseURL: false) else {
+		guard var urlComponents = URLComponents(url: request.url,
+												resolvingAgainstBaseURL: false) else {
 			return completion(.failure(ServiceError.invalidUrl))
 		}
 		urlComponents.queryItems = request.parameters.map({ URLQueryItem(name: $0.key, value: $0.value) })
@@ -95,8 +96,6 @@ final class NetworkService: NSObject, NetworkServiceProtocol {
 		}
 		task.resume()
 	}
-
-
 }
 
 extension NetworkService: URLSessionDownloadDelegate {

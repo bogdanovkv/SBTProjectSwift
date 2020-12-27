@@ -251,9 +251,11 @@ final class LocationRepository: LocationRepositoryProtocol {
 		let convertClosure: (CityManaged) -> CityModel? = { managedModel in
 			guard let codeIATA = managedModel.codeIATA,
 				let countryCode = managedModel.countryCode,
-				let name = managedModel.name,
-				let nameRu = managedModel.nameRu else { return nil }
-			return .init(codeIATA: codeIATA, countryCode: countryCode, name: name, nameRu: nameRu)
+				let name = managedModel.name else { return nil }
+			return .init(codeIATA: codeIATA,
+						 countryCode: countryCode,
+						 name: name,
+						 nameRu: managedModel.nameRu)
 		}
 		let predicate = NSPredicate(format: "countryCode == %@",
 									argumentArray: [country.codeIATA])

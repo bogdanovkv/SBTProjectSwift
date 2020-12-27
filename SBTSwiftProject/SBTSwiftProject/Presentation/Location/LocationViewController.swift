@@ -48,14 +48,17 @@ final class LocationViewController: UIViewController, LocationViewControllerInpu
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		locationView.showLoader()
 		interactor.prepareStorage()
 	}
 
 	func retryPrepareStorage() {
+		locationView.showLoader()
 		interactor.prepareStorage()
 	}
 
 	func retryGetLoaction() {
+		locationView.showLoader()
 		interactor.getLocation()
 	}
 
@@ -67,13 +70,30 @@ final class LocationViewController: UIViewController, LocationViewControllerInpu
 			locationView.showCityErrorState()
 		}
 
-		locationView.set(location: .init(country: viewModel.country?.nameRu ?? "",
-										 city: viewModel.city?.nameRu ?? ""))
+		guard let country = viewModel.country else {
+			locationView.set(location: .init(country: "",
+											 city: ""))
+			locationView.showCityErrorState()
+			locationView.showCountryErrorState()
+			return
+		}
+
+		guard let city = viewModel.city else {
+			locationView.set(location: .init(country: country.nameRu ?? country.name,
+											 city: ""))
+			locationView.showCityErrorState()
+			locationView.showCountryErrorState()
+			return
+		}
+
+		locationView.set(location: .init(country: country.nameRu ?? country.name,
+										 city: city.nameRu ?? city.name))
 	}
 }
 
 extension LocationViewController: LocationInteractorOutput {
 	func didRecieveLocationError() {
+		locationView.hideLoader()
 		router.showLocationErrorAlert(on: self)
 	}
 
@@ -82,17 +102,20 @@ extension LocationViewController: LocationInteractorOutput {
 	}
 
 	func didRecievePrepareStorageError() {
+		locationView.hideLoader()
 		router.showStorageErrorAlert(on: self)
 	}
 
 	func didRecieve(city: CityModel) {
 		viewModel.city = city
 		updateView()
+		locationView.hideLoader()
 	}
 
 	func didRecieve(country: CountryModel) {
 		viewModel.country = country
 		updateView()
+		locationView.hideLoader()
 	}
 }
 

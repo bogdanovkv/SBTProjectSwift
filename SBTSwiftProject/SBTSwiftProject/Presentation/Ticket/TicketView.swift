@@ -8,6 +8,17 @@
 
 import UIKit
 
+/// Обработчик событий от вью отображения билетов
+protocol TicketViewOutput: AnyObject {
+
+	/// Пользователь выбрал выход с экрана
+	func userSelectBack()
+
+	/// Пользователь выбрал сохранить билет
+	func userSelectSaveTicket()
+
+}
+
 /// Вью для отображения информации о билете
 final class TicketView: UIView {
 
@@ -57,14 +68,42 @@ final class TicketView: UIView {
 
 		saveButton = .init()
 		saveButton.translatesAutoresizingMaskIntoConstraints = false
+		saveButton.backgroundColor = .gray
+		saveButton.layer.cornerRadius = 8
+		saveButton.setTitle("Сохранить", for: .normal)
+		saveButton.setTitleColor(.black, for: .normal)
+		saveButton.setTitleColor(.white, for: .highlighted)
 
 		super.init(frame: .zero)
+		backgroundColor = .blue
 		setupView()
 		setupConstraints()
 	}
 
 	required init?(coder: NSCoder) {
 		fatalError()
+	}
+
+	/// Конфигурирует вью с моделью билета
+	/// - Parameter ticket: билет
+	func configure(with ticket: TicketViewModel) {
+		let destinationCityName = (ticket.destinationCity.nameRu ?? ticket.destinationCity.name)
+		let destinationCountryName = (ticket.destinationCountry.nameRu ?? ticket.destinationCountry.name)
+		destinationCityLabel.text = "Страна назначения: " + destinationCityName
+		destinationCountryLabel.text = "Город назначения: " + destinationCountryName
+		destinationDateLabel.text = ticket.ticket.arrivalDate.format_DD_MM_YYYY()
+
+		let departureCityName = (ticket.destinationCity.nameRu ?? ticket.destinationCity.name)
+		let dapartureCountryName = (ticket.destinationCountry.nameRu ?? ticket.destinationCountry.name)
+		departureCountryLabel.text = "Страна отправления: " + dapartureCountryName
+		departureCityLabel.text = "Город отправления: " + departureCityName
+		departureDateLabel.text = ticket.ticket.departureDate.format_DD_MM_YYYY()
+
+		airlineCodeLabel.text = "Код авиалинии " + ticket.ticket.airlineCode
+		flightNumberLabel.text = "Рейс №\(ticket.ticket.flightNumber)"
+
+		expiredDateLable.text = "Истекает " + ticket.ticket.expires.format_DD_MM_YYYY()
+		costLabel.text = "Цена: \(ticket.ticket.cost)р."
 	}
 
 	private func setupView() {
@@ -114,6 +153,30 @@ final class TicketView: UIView {
 			destinationDateLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
 			destinationDateLabel.heightAnchor.constraint(equalToConstant: labelHeiht),
 
+			airlineCodeLabel.topAnchor.constraint(equalTo: destinationDateLabel.bottomAnchor, constant: 8),
+			airlineCodeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+			airlineCodeLabel.heightAnchor.constraint(equalToConstant: labelHeiht),
+			airlineCodeLabel.widthAnchor.constraint(equalTo: costLabel.widthAnchor),
+			airlineCodeLabel.rightAnchor.constraint(equalTo: costLabel.leftAnchor, constant: -4),
+
+			costLabel.topAnchor.constraint(equalTo: destinationDateLabel.bottomAnchor, constant: 8),
+			costLabel.heightAnchor.constraint(equalToConstant: labelHeiht),
+			costLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+
+			expiredDateLable.topAnchor.constraint(equalTo: airlineCodeLabel.bottomAnchor, constant: 8),
+			expiredDateLable.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+			expiredDateLable.heightAnchor.constraint(equalToConstant: labelHeiht),
+			expiredDateLable.widthAnchor.constraint(equalTo: flightNumberLabel.widthAnchor),
+			expiredDateLable.rightAnchor.constraint(equalTo: flightNumberLabel.leftAnchor, constant: -4),
+
+			flightNumberLabel.topAnchor.constraint(equalTo: costLabel.bottomAnchor, constant: 8),
+			flightNumberLabel.heightAnchor.constraint(equalToConstant: labelHeiht),
+			flightNumberLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+
+			saveButton.topAnchor.constraint(equalTo: expiredDateLable.bottomAnchor, constant: 8),
+			saveButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+			saveButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+			saveButton.heightAnchor.constraint(equalToConstant: labelHeiht * 2),
 		])
 	}
 }

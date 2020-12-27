@@ -8,6 +8,7 @@
 
 import CoreData
 
+/// Сервис работы с CoreData
 protocol CoreDataServiceProtocol {
 
 	/// Извлекает модели из CoreData
@@ -35,6 +36,7 @@ protocol CoreDataServiceProtocol {
 	func deleteAll<Entity: NSManagedObject>(type: Entity.Type)
 }
 
+/// Сервис работы с CoreData
 final class CoreDataService: CoreDataServiceProtocol {
 	private let persistentCntainer: NSPersistentContainer
 	private var viewContext: NSManagedObjectContext {
@@ -59,21 +61,22 @@ final class CoreDataService: CoreDataServiceProtocol {
 		var result: [Model] = []
 		viewContext.performAndWait {
 			let fetchRequest = NSFetchRequest<Entity>(entityName: NSStringFromClass(Entity.self))
-			let moResult = (try? fetchRequest.execute()) ?? []
-			result = moResult.compactMap(convertClosure)
+			let managedResult = (try? fetchRequest.execute()) ?? []
+			result = managedResult.compactMap(convertClosure)
 		}
 		return result
 	}
 
 	func fetch<Entity: NSManagedObject, Model>(convertClosure: (Entity) -> Model?,
 											   predicate: NSPredicate) -> [Model] {
-		var result: [Entity] = []
+		var result: [Model] = []
 		viewContext.performAndWait {
 			let fetchRequest = NSFetchRequest<Entity>(entityName: NSStringFromClass(Entity.self))
 			fetchRequest.predicate = predicate
-			result = (try? fetchRequest.execute()) ?? []
+			let managedResult = (try? fetchRequest.execute()) ?? []
+			result = managedResult.compactMap(convertClosure)
 		}
-		return result.compactMap(convertClosure)
+		return result
 	}
 
 	func insert<Model, Entity: NSManagedObject>(models: [Model],
@@ -96,7 +99,7 @@ final class CoreDataService: CoreDataServiceProtocol {
 			let request = NSFetchRequest<Entity>(entityName: NSStringFromClass(Entity.self))
 			let objects = try? request.execute()
 			objects?.forEach({ context.delete($0) })
-			try? self.backgroundContext.save()
+			try? context.save()
 		}
 	}
 }

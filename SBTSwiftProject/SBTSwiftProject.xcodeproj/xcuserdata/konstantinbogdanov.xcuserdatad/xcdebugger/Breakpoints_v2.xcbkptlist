@@ -120,5 +120,181 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "067BFE23-9A07-4F6C-ADC0-43A1FC801EE0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SBTSwiftProject/Presentation/Location/LocationInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "getCity(wint:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2BBA1859-37B1-4EEB-A519-D720C9DF68ED"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SBTSwiftProject/Presentation/Location/LocationInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "getCountry(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B5031164-3DA2-496C-9AFE-EAB63F8A2612"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SBTSwiftProject/ServiceLayer/CoreData/CoreDataService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "fetch(convertClosure:predicate:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B5031164-3DA2-496C-9AFE-EAB63F8A2612 - 7459dbaad312d13f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SBTSwiftProject.CoreDataService.fetch&lt;A, B where A: __C.NSManagedObject&gt;(convertClosure: (A) -&gt; Swift.Optional&lt;B&gt;, predicate: __C.NSPredicate) -&gt; Swift.Array&lt;B&gt;"
+                  moduleName = "SBTSwiftProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konstantinbogdanov/SBTProjectSwift/SBTSwiftProject/SBTSwiftProject/ServiceLayer/CoreData/CoreDataService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "268">
+               </Location>
+               <Location
+                  uuid = "B5031164-3DA2-496C-9AFE-EAB63F8A2612 - 1532326ffd69ac33"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in SBTSwiftProject.CoreDataService.fetch&lt;A, B where A: __C.NSManagedObject&gt;(convertClosure: (A) -&gt; Swift.Optional&lt;B&gt;, predicate: __C.NSPredicate) -&gt; Swift.Array&lt;B&gt;"
+                  moduleName = "SBTSwiftProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konstantinbogdanov/SBTProjectSwift/SBTSwiftProject/SBTSwiftProject/ServiceLayer/CoreData/CoreDataService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "207">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "322DBDE5-4E86-428E-822B-8C781E02FDE8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SBTSwiftProject/DomainLayer/UseCases/Location/PrepareStorage/PrepareCitiesUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "execute(parameter:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96017FDE-48C8-4DEB-9937-2409C948AEAE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SBTSwiftProject/ServiceLayer/CoreData/CoreDataService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "insert(models:convertClosure:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "96017FDE-48C8-4DEB-9937-2409C948AEAE - 7031c95e824a4cc9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in SBTSwiftProject.CoreDataService.insert&lt;A, B where B: __C.NSManagedObject&gt;(models: Swift.Array&lt;A&gt;, convertClosure: (A, B) -&gt; (), completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "SBTSwiftProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konstantinbogdanov/SBTProjectSwift/SBTSwiftProject/SBTSwiftProject/ServiceLayer/CoreData/CoreDataService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "101">
+               </Location>
+               <Location
+                  uuid = "96017FDE-48C8-4DEB-9937-2409C948AEAE - fa54a928da46fd91"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (A) -&gt; () in closure #1 () -&gt; () in SBTSwiftProject.CoreDataService.insert&lt;A, B where B: __C.NSManagedObject&gt;(models: Swift.Array&lt;A&gt;, convertClosure: (A, B) -&gt; (), completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "SBTSwiftProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konstantinbogdanov/SBTProjectSwift/SBTSwiftProject/SBTSwiftProject/ServiceLayer/CoreData/CoreDataService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "65">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3ECECF79-AD04-4C69-9E51-19093A15924A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SBTSwiftProject/ServiceLayer/CoreData/CoreDataService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "insert(models:convertClosure:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "523E9D2A-730D-4759-AD15-E1522EB52BFF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SBTSwiftProject/DomainLayer/UseCases/Location/GetCitiesUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "execute(parameter:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

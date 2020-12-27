@@ -23,7 +23,9 @@ final class TicketViewController: UIViewController {
 	}
 
 	override func loadView() {
-		view = TicketView()
+		let view = TicketView()
+		view.configure(with: viewModel)
+		self.view = view
 	}
 
 	override func viewDidLoad() {

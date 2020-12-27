@@ -103,6 +103,7 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 		let ticketController = ticketAssembly.createViewCotroller(with: ticket,
 																  departureLocation: (country: fromLocation.country, city: fromLocation.city),
 																  destinationLocation: (country: toLocation.country, city: toLocation.city))
+		ticketController.modalPresentationStyle = .fullScreen
 		viewController.present(ticketController, animated: true, completion: nil)
 	}
 }
