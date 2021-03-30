@@ -47,7 +47,7 @@ final class NetworkService: NSObject, NetworkServiceProtocol {
 		guard let url = urlComponents.url else {
 			return completion(.failure(ServiceError.invalidUrl))
 		}
-		
+
 		var urlRequest = URLRequest(url: url)
 		urlRequest.httpMethod = request.methon.rawValue
 

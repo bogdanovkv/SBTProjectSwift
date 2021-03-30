@@ -46,6 +46,7 @@ final class LocationInteractor: LocationInteractorInput {
 
 	private let getLocationUseCase: LocationUseCaseProtocol
 	private let prepareStorageUseCase: PrepareStorageUseCaseProtocol
+
 	init(getLocationUseCase: LocationUseCaseProtocol,
 		 prepareStorageUseCase: PrepareStorageUseCaseProtocol) {
 		self.getLocationUseCase = getLocationUseCase

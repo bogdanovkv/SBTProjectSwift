@@ -19,6 +19,7 @@ protocol SettingsAssemblyProtocol {
 final class SettingsAssembly: SettingsAssemblyProtocol {
 
 	func createViewController() -> UIViewController {
-		return SettingsViewController()
+		let navigationController = UINavigationController(rootViewController: SettingsViewController())
+		return navigationController
 	}
 }

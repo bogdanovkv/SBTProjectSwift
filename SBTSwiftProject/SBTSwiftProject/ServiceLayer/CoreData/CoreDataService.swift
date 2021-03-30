@@ -36,6 +36,12 @@ protocol CoreDataServiceProtocol {
 	func deleteAll<Entity: NSManagedObject>(type: Entity.Type)
 }
 
+protocol Container {
+	var name: String { get }
+}
+
+extension NSPersistentContainer: Container {}
+
 /// Сервис работы с CoreData
 final class CoreDataService: CoreDataServiceProtocol {
 	private let persistentCntainer: NSPersistentContainer

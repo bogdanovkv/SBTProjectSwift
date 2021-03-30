@@ -11,6 +11,8 @@ import UIKit
 /// Контроллер настроек
 final class SettingsViewController: UIViewController {
 
+	private lazy var settingsView = SettingsView()
+
 	init() {
 		super.init(nibName: nil, bundle: nil)
 		title = "Настройки"
@@ -19,6 +21,10 @@ final class SettingsViewController: UIViewController {
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+	override func loadView() {
+		view = settingsView
 	}
 
     override func viewDidLoad() {

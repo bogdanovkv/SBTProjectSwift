@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			currentWindow.rootViewController = LocationAssembly().createController()
             currentWindow.makeKeyAndVisible()
         }
+
         return true
     }
 
@@ -94,4 +95,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

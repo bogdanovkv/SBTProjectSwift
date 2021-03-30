@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		14090F35254752A50028918F /* UserSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14090F34254752A50028918F /* UserSettingsRepository.swift */; };
+		141563C025F621B000B96C6A /* LocationUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141563BF25F621B000B96C6A /* LocationUseCaseTests.swift */; };
 		142865CE25509648003D1930 /* SelectCountryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865CD25509648003D1930 /* SelectCountryAssembly.swift */; };
 		142865DD25509C4E003D1930 /* SelectCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865DA25509C4E003D1930 /* SelectCityViewController.swift */; };
 		142865DE25509C4E003D1930 /* SelectCityAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865DB25509C4E003D1930 /* SelectCityAssembly.swift */; };
@@ -48,6 +49,7 @@
 		147981AC254D9C1D00110A9B /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147981AB254D9C1D00110A9B /* AppErrors.swift */; };
 		147D5A3C25442EEA00F90BA2 /* LocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D5A3B25442EEA00F90BA2 /* LocationRepository.swift */; };
 		147D5A3F25442FF800F90BA2 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D5A3E25442FF800F90BA2 /* LocationModel.swift */; };
+		1485DD5C2599197B009FFF7C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1485DD5B2599197B009FFF7C /* SettingsView.swift */; };
 		14AE5AE325443B7300548B1D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AE5AE225443B7300548B1D /* Launch Screen.storyboard */; };
 		14AE5AE525447A2700548B1D /* LocationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AE425447A2700548B1D /* LocationUseCase.swift */; };
 		14AE5AE825447E4600548B1D /* LocationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AE725447E4600548B1D /* LocationInteractor.swift */; };
@@ -66,14 +68,17 @@
 		14B4A5F62545934000BFC583 /* Inject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B4A5F52545933F00BFC583 /* Inject.framework */; };
 		14B4A5F72545934000BFC583 /* Inject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14B4A5F52545933F00BFC583 /* Inject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14B4A5FD2547508D00BFC583 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4A5FC2547508D00BFC583 /* UserSettings.swift */; };
+		14C60EBA25F62443007455BF /* LocationRepositorySpy_one.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C60EB925F62443007455BF /* LocationRepositorySpy_one.swift */; };
 		14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7C2544241100134D82 /* NetworkService.swift */; };
 		14CD8B802544245E00134D82 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7F2544245E00134D82 /* NetworkRequest.swift */; };
 		14CD8B822544263C00134D82 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B812544263C00134D82 /* NetworkResponse.swift */; };
+		14CDC80F25E25E6D003CA021 /* GetCitiesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC80E25E25E6D003CA021 /* GetCitiesUseCaseTests.swift */; };
 		14D634C825506A1200FF7D37 /* AlertControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634C725506A1200FF7D37 /* AlertControllerAssembly.swift */; };
 		14D634CA25506ADC00FF7D37 /* LocationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634C925506ADC00FF7D37 /* LocationRouter.swift */; };
 		14D634CD2550756900FF7D37 /* SelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634CC2550756900FF7D37 /* SelectCountryViewController.swift */; };
 		14D634CF255075B300FF7D37 /* SelectCountryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634CE255075B300FF7D37 /* SelectCountryInteractor.swift */; };
 		14D634D22550762100FF7D37 /* GetCountriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634D12550762100FF7D37 /* GetCountriesUseCase.swift */; };
+		14E2521625E25FF80073C50C /* LocationRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2521525E25FF80073C50C /* LocationRepositorySpy.swift */; };
 		14ECFD522555B55A00FBFC62 /* TabBarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECFD512555B55A00FBFC62 /* TabBarAssembly.swift */; };
 		14ECFD572556913E00FBFC62 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECFD562556913E00FBFC62 /* SettingsViewController.swift */; };
 		14ECFD5A2556918900FBFC62 /* SettingsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECFD592556918900FBFC62 /* SettingsAssembly.swift */; };
@@ -107,6 +112,7 @@
 
 /* Begin PBXFileReference section */
 		14090F34254752A50028918F /* UserSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsRepository.swift; sourceTree = "<group>"; };
+		141563BF25F621B000B96C6A /* LocationUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUseCaseTests.swift; sourceTree = "<group>"; };
 		142865CD25509648003D1930 /* SelectCountryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryAssembly.swift; sourceTree = "<group>"; };
 		142865DA25509C4E003D1930 /* SelectCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityViewController.swift; sourceTree = "<group>"; };
 		142865DB25509C4E003D1930 /* SelectCityAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityAssembly.swift; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 		147981AB254D9C1D00110A9B /* AppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
 		147D5A3B25442EEA00F90BA2 /* LocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepository.swift; sourceTree = "<group>"; };
 		147D5A3E25442FF800F90BA2 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		1485DD5B2599197B009FFF7C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		14AE5AE225443B7300548B1D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		14AE5AE425447A2700548B1D /* LocationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUseCase.swift; sourceTree = "<group>"; };
 		14AE5AE725447E4600548B1D /* LocationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInteractor.swift; sourceTree = "<group>"; };
@@ -168,15 +175,18 @@
 		14B4A5F12545923C00BFC583 /* Inject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Inject.framework; path = ../Carthage/Build/iOS/Inject.framework; sourceTree = "<group>"; };
 		14B4A5F52545933F00BFC583 /* Inject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Inject.framework; path = Carthage/Build/iOS/Inject.framework; sourceTree = "<group>"; };
 		14B4A5FC2547508D00BFC583 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		14C60EB925F62443007455BF /* LocationRepositorySpy_one.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepositorySpy_one.swift; sourceTree = "<group>"; };
 		14CD8B7C2544241100134D82 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		14CD8B7F2544245E00134D82 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		14CD8B812544263C00134D82 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		14CDC80E25E25E6D003CA021 /* GetCitiesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCitiesUseCaseTests.swift; sourceTree = "<group>"; };
 		14D1A23220FB380000BD1DC1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14D634C725506A1200FF7D37 /* AlertControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerAssembly.swift; sourceTree = "<group>"; };
 		14D634C925506ADC00FF7D37 /* LocationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRouter.swift; sourceTree = "<group>"; };
 		14D634CC2550756900FF7D37 /* SelectCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryViewController.swift; sourceTree = "<group>"; };
 		14D634CE255075B300FF7D37 /* SelectCountryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryInteractor.swift; sourceTree = "<group>"; };
 		14D634D12550762100FF7D37 /* GetCountriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCountriesUseCase.swift; sourceTree = "<group>"; };
+		14E2521525E25FF80073C50C /* LocationRepositorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepositorySpy.swift; sourceTree = "<group>"; };
 		14ECFD512555B55A00FBFC62 /* TabBarAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarAssembly.swift; sourceTree = "<group>"; };
 		14ECFD562556913E00FBFC62 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		14ECFD592556918900FBFC62 /* SettingsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAssembly.swift; sourceTree = "<group>"; };
@@ -219,6 +229,15 @@
 				147981AD254D9C8800110A9B /* Location */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		141563C225F6225500B96C6A /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				141563BF25F621B000B96C6A /* LocationUseCaseTests.swift */,
+				14C60EB825F623DE007455BF /* Mock */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		142865D325509C1E003D1930 /* SelectCity */ = {
@@ -296,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				1438FF8620F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift */,
+				14CDC81125E25E71003CA021 /* Domain */,
 				1438FF8820F9FD2B003CC7C2 /* Info.plist */,
 			);
 			path = SBTSwiftProjectTests;
@@ -468,6 +488,14 @@
 			path = UserSettings;
 			sourceTree = "<group>";
 		};
+		14C60EB825F623DE007455BF /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				14C60EB925F62443007455BF /* LocationRepositorySpy_one.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		14CD8B7E2544241B00134D82 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +506,16 @@
 				1474CEEB254436D200C9615B /* Network */,
 			);
 			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		14CDC81125E25E71003CA021 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				141563C225F6225500B96C6A /* Location */,
+				14CDC80E25E25E6D003CA021 /* GetCitiesUseCaseTests.swift */,
+				14E2521525E25FF80073C50C /* LocationRepositorySpy.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		14D634C62550695C00FF7D37 /* Alert */ = {
@@ -509,6 +547,13 @@
 			path = PrepareStorage;
 			sourceTree = "<group>";
 		};
+		14D8688625A8DF450080948B /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		14ECFD502555B53200FBFC62 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +567,8 @@
 			children = (
 				14ECFD592556918900FBFC62 /* SettingsAssembly.swift */,
 				14ECFD562556913E00FBFC62 /* SettingsViewController.swift */,
+				1485DD5B2599197B009FFF7C /* SettingsView.swift */,
+				14D8688625A8DF450080948B /* views */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -655,6 +702,7 @@
 				145191082569608A00A5593E /* TicketView.swift in Sources */,
 				142865E32551DB30003D1930 /* TicketsSearchViewController.swift in Sources */,
 				1435090E2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift in Sources */,
+				1485DD5C2599197B009FFF7C /* SettingsView.swift in Sources */,
 				147D5A3F25442FF800F90BA2 /* LocationModel.swift in Sources */,
 				14AE5AEA2544801D00548B1D /* LocationView.swift in Sources */,
 				14B236D7254DB88A00BE822D /* AirportManaged+CoreDataProperties.swift in Sources */,
@@ -725,6 +773,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1438FF8720F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift in Sources */,
+				14CDC80F25E25E6D003CA021 /* GetCitiesUseCaseTests.swift in Sources */,
+				14C60EBA25F62443007455BF /* LocationRepositorySpy_one.swift in Sources */,
+				141563C025F621B000B96C6A /* LocationUseCaseTests.swift in Sources */,
+				14E2521625E25FF80073C50C /* LocationRepositorySpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
