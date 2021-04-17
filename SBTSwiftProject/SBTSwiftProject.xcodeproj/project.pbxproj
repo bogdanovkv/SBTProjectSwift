@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,20 +21,16 @@
 		142865ED2551E50C003D1930 /* TicketsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865EC2551E50C003D1930 /* TicketsRepository.swift */; };
 		142865F025529907003D1930 /* TicketsSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865EF25529907003D1930 /* TicketsSearchModel.swift */; };
 		142865F225529A50003D1930 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865F125529A50003D1930 /* Ticket.swift */; };
-		1435090C2544AF6F0086DD64 /* CountryManaged+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143509082544AF6F0086DD64 /* CountryManaged+CoreDataClass.swift */; };
-		1435090D2544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143509092544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift */; };
-		1435090E2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1435090A2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift */; };
-		1435090F2544AF6F0086DD64 /* CityManaged+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1435090B2544AF6F0086DD64 /* CityManaged+CoreDataProperties.swift */; };
-		143509112544B8030086DD64 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143509102544B8030086DD64 /* CoreDataService.swift */; };
+		14321DB62622EEB30030116C /* DatabaseAbstraction in Frameworks */ = {isa = PBXBuildFile; productRef = 14321DB52622EEB30030116C /* DatabaseAbstraction */; };
 		1438FF6F20F9FD29003CC7C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF6E20F9FD29003CC7C2 /* AppDelegate.swift */; };
 		1438FF7120F9FD29003CC7C2 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF7020F9FD29003CC7C2 /* LocationViewController.swift */; };
-		1438FF7720F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF7520F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld */; };
 		1438FF7920F9FD2B003CC7C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1438FF7820F9FD2B003CC7C2 /* Assets.xcassets */; };
 		1438FF8720F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF8620F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift */; };
 		145191042569604800A5593E /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145191032569604800A5593E /* TicketViewController.swift */; };
 		145191082569608A00A5593E /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145191072569608A00A5593E /* TicketView.swift */; };
 		1451910B2569684D00A5593E /* TiketViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451910A2569684D00A5593E /* TiketViewControllerAssembly.swift */; };
 		1451911125697E8500A5593E /* TicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451911025697E8500A5593E /* TicketViewModel.swift */; };
+		146B7D17262B231B005B7FD4 /* CoreDataService in Frameworks */ = {isa = PBXBuildFile; productRef = 146B7D16262B231B005B7FD4 /* CoreDataService */; };
 		146CB831254E9935008A2EBE /* Throwable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CB830254E9935008A2EBE /* Throwable.swift */; };
 		1474CEEA2544367E00C9615B /* ServiceLayerDependecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474CEE92544367E00C9615B /* ServiceLayerDependecies.swift */; };
 		1478A0902552BEA100C3633C /* TicketsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478A08F2552BEA100C3633C /* TicketsSearchView.swift */; };
@@ -63,8 +59,6 @@
 		14B236CF254D9EA500BE822D /* PrepareCitiesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B236CE254D9EA500BE822D /* PrepareCitiesUseCase.swift */; };
 		14B236D1254DA9F700BE822D /* PrepareAirportsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B236D0254DA9F700BE822D /* PrepareAirportsUseCase.swift */; };
 		14B236D3254DACF600BE822D /* AirportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B236D2254DACF600BE822D /* AirportModel.swift */; };
-		14B236D6254DB88A00BE822D /* AirportManaged+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B236D4254DB88A00BE822D /* AirportManaged+CoreDataClass.swift */; };
-		14B236D7254DB88A00BE822D /* AirportManaged+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B236D5254DB88A00BE822D /* AirportManaged+CoreDataProperties.swift */; };
 		14B4A5F62545934000BFC583 /* Inject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B4A5F52545933F00BFC583 /* Inject.framework */; };
 		14B4A5F72545934000BFC583 /* Inject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14B4A5F52545933F00BFC583 /* Inject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14B4A5FD2547508D00BFC583 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4A5FC2547508D00BFC583 /* UserSettings.swift */; };
@@ -125,15 +119,9 @@
 		142865EC2551E50C003D1930 /* TicketsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsRepository.swift; sourceTree = "<group>"; };
 		142865EF25529907003D1930 /* TicketsSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsSearchModel.swift; sourceTree = "<group>"; };
 		142865F125529A50003D1930 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
-		143509082544AF6F0086DD64 /* CountryManaged+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryManaged+CoreDataClass.swift"; sourceTree = "<group>"; };
-		143509092544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryManaged+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		1435090A2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityManaged+CoreDataClass.swift"; sourceTree = "<group>"; };
-		1435090B2544AF6F0086DD64 /* CityManaged+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityManaged+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		143509102544B8030086DD64 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		1438FF6B20F9FD29003CC7C2 /* SBTSwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SBTSwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1438FF6E20F9FD29003CC7C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1438FF7020F9FD29003CC7C2 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
-		1438FF7620F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SBTSwiftProject.xcdatamodel; sourceTree = "<group>"; };
 		1438FF7820F9FD2B003CC7C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1438FF8220F9FD2B003CC7C2 /* SBTSwiftProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBTSwiftProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1438FF8620F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTSwiftProjectTests.swift; sourceTree = "<group>"; };
@@ -170,8 +158,6 @@
 		14B236CE254D9EA500BE822D /* PrepareCitiesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareCitiesUseCase.swift; sourceTree = "<group>"; };
 		14B236D0254DA9F700BE822D /* PrepareAirportsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareAirportsUseCase.swift; sourceTree = "<group>"; };
 		14B236D2254DACF600BE822D /* AirportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportModel.swift; sourceTree = "<group>"; };
-		14B236D4254DB88A00BE822D /* AirportManaged+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AirportManaged+CoreDataClass.swift"; sourceTree = "<group>"; };
-		14B236D5254DB88A00BE822D /* AirportManaged+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AirportManaged+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		14B4A5F12545923C00BFC583 /* Inject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Inject.framework; path = ../Carthage/Build/iOS/Inject.framework; sourceTree = "<group>"; };
 		14B4A5F52545933F00BFC583 /* Inject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Inject.framework; path = Carthage/Build/iOS/Inject.framework; sourceTree = "<group>"; };
 		14B4A5FC2547508D00BFC583 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -199,7 +185,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14321DB62622EEB30030116C /* DatabaseAbstraction in Frameworks */,
 				14B4A5F62545934000BFC583 /* Inject.framework in Frameworks */,
+				146B7D17262B231B005B7FD4 /* CoreDataService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,29 +421,6 @@
 			path = DomainLayer;
 			sourceTree = "<group>";
 		};
-		14AE5AF82544AD1E00548B1D /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				14AE5AF92544AE0400548B1D /* Models */,
-				143509102544B8030086DD64 /* CoreDataService.swift */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		14AE5AF92544AE0400548B1D /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				14B236D4254DB88A00BE822D /* AirportManaged+CoreDataClass.swift */,
-				14B236D5254DB88A00BE822D /* AirportManaged+CoreDataProperties.swift */,
-				143509082544AF6F0086DD64 /* CountryManaged+CoreDataClass.swift */,
-				143509092544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift */,
-				1435090A2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift */,
-				1435090B2544AF6F0086DD64 /* CityManaged+CoreDataProperties.swift */,
-				1438FF7520F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		14B4A5F02545923C00BFC583 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,7 +467,6 @@
 				1474CEE92544367E00C9615B /* ServiceLayerDependecies.swift */,
 				147981AB254D9C1D00110A9B /* AppErrors.swift */,
 				14B4A5FE254751F300BFC583 /* UserSettings */,
-				14AE5AF82544AD1E00548B1D /* CoreData */,
 				1474CEEB254436D200C9615B /* Network */,
 			);
 			path = ServiceLayer;
@@ -613,6 +577,10 @@
 			dependencies = (
 			);
 			name = SBTSwiftProject;
+			packageProductDependencies = (
+				14321DB52622EEB30030116C /* DatabaseAbstraction */,
+				146B7D16262B231B005B7FD4 /* CoreDataService */,
+			);
 			productName = SBTSwiftProject;
 			productReference = 1438FF6B20F9FD29003CC7C2 /* SBTSwiftProject.app */;
 			productType = "com.apple.product-type.application";
@@ -663,6 +631,10 @@
 				Base,
 			);
 			mainGroup = 1438FF6220F9FD29003CC7C2;
+			packageReferences = (
+				14321DB42622EEB30030116C /* XCRemoteSwiftPackageReference "DatabaseAbstraction" */,
+				146B7D15262B231B005B7FD4 /* XCRemoteSwiftPackageReference "CoreDataService" */,
+			);
 			productRefGroup = 1438FF6C20F9FD29003CC7C2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -701,21 +673,17 @@
 				142865E52551DBD9003D1930 /* TicketsSearchInteractor.swift in Sources */,
 				145191082569608A00A5593E /* TicketView.swift in Sources */,
 				142865E32551DB30003D1930 /* TicketsSearchViewController.swift in Sources */,
-				1435090E2544AF6F0086DD64 /* CityManaged+CoreDataClass.swift in Sources */,
 				1485DD5C2599197B009FFF7C /* SettingsView.swift in Sources */,
 				147D5A3F25442FF800F90BA2 /* LocationModel.swift in Sources */,
 				14AE5AEA2544801D00548B1D /* LocationView.swift in Sources */,
-				14B236D7254DB88A00BE822D /* AirportManaged+CoreDataProperties.swift in Sources */,
 				1478A0902552BEA100C3633C /* TicketsSearchView.swift in Sources */,
 				147981AC254D9C1D00110A9B /* AppErrors.swift in Sources */,
-				1435090D2544AF6F0086DD64 /* CountryManaged+CoreDataProperties.swift in Sources */,
 				14AE5AF72544A6BD00548B1D /* CountryModel.swift in Sources */,
 				14D634CF255075B300FF7D37 /* SelectCountryInteractor.swift in Sources */,
 				142865F225529A50003D1930 /* Ticket.swift in Sources */,
 				1438FF7120F9FD29003CC7C2 /* LocationViewController.swift in Sources */,
 				142865DE25509C4E003D1930 /* SelectCityAssembly.swift in Sources */,
 				1478A0AC2552FD5E00C3633C /* TicketsSearchRouter.swift in Sources */,
-				1438FF7720F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld in Sources */,
 				1478A0942552BF1C00C3633C /* TicketHeaderView.swift in Sources */,
 				14D634CD2550756900FF7D37 /* SelectCountryViewController.swift in Sources */,
 				142865DD25509C4E003D1930 /* SelectCityViewController.swift in Sources */,
@@ -730,7 +698,6 @@
 				14AE5AF325449C4B00548B1D /* CityModel.swift in Sources */,
 				142865E12551B1B3003D1930 /* GetCitiesUseCase.swift in Sources */,
 				1474CEEA2544367E00C9615B /* ServiceLayerDependecies.swift in Sources */,
-				1435090C2544AF6F0086DD64 /* CountryManaged+CoreDataClass.swift in Sources */,
 				147D5A3C25442EEA00F90BA2 /* LocationRepository.swift in Sources */,
 				14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */,
 				14AE5AE825447E4600548B1D /* LocationInteractor.swift in Sources */,
@@ -756,15 +723,12 @@
 				14ECFD572556913E00FBFC62 /* SettingsViewController.swift in Sources */,
 				14ECFD5A2556918900FBFC62 /* SettingsAssembly.swift in Sources */,
 				14AE5AEE25448A1F00548B1D /* DomainLayerDependencies.swift in Sources */,
-				1435090F2544AF6F0086DD64 /* CityManaged+CoreDataProperties.swift in Sources */,
 				147981A8254D9A3400110A9B /* PrepareCountriesUseCase.swift in Sources */,
 				1478A0A52552F30B00C3633C /* Date.swift in Sources */,
-				143509112544B8030086DD64 /* CoreDataService.swift in Sources */,
 				147981AA254D9A4100110A9B /* UseCase.swift in Sources */,
 				14B4A5FD2547508D00BFC583 /* UserSettings.swift in Sources */,
 				14CD8B822544263C00134D82 /* NetworkResponse.swift in Sources */,
 				14B236D3254DACF600BE822D /* AirportModel.swift in Sources */,
-				14B236D6254DB88A00BE822D /* AirportManaged+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1023,18 +987,37 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCVersionGroup section */
-		1438FF7520F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				1438FF7620F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodel */,
-			);
-			currentVersion = 1438FF7620F9FD29003CC7C2 /* SBTSwiftProject.xcdatamodel */;
-			path = SBTSwiftProject.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
+/* Begin XCRemoteSwiftPackageReference section */
+		14321DB42622EEB30030116C /* XCRemoteSwiftPackageReference "DatabaseAbstraction" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bogdanovkv/DatabaseAbstraction";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
 		};
-/* End XCVersionGroup section */
+		146B7D15262B231B005B7FD4 /* XCRemoteSwiftPackageReference "CoreDataService" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bogdanovkv/CoreDataService.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		14321DB52622EEB30030116C /* DatabaseAbstraction */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14321DB42622EEB30030116C /* XCRemoteSwiftPackageReference "DatabaseAbstraction" */;
+			productName = DatabaseAbstraction;
+		};
+		146B7D16262B231B005B7FD4 /* CoreDataService */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 146B7D15262B231B005B7FD4 /* XCRemoteSwiftPackageReference "CoreDataService" */;
+			productName = CoreDataService;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1438FF6320F9FD29003CC7C2 /* Project object */;
 }

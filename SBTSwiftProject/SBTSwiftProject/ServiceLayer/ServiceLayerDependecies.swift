@@ -6,6 +6,8 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 import Inject
+import DatabaseAbstraction
+import CoreDataService
 
 extension Inject where FactoryType == ServiceLayerDependecies {
 	static var serviceLayer: Inject<ServiceLayerDependecies> {
@@ -15,12 +17,15 @@ extension Inject where FactoryType == ServiceLayerDependecies {
 
 struct ServiceLayerDependecies: InjectFactoryProtocol {
 	static var scope = "ServiceLayer"
+
+	private static let coreDataAssembly = CoreDataServiceAssembly()
 	static func createNetworkService() -> NetworkServiceProtocol {
 		return NetworkService()
 	}
 
-	static func createCoreDataService() -> CoreDataServiceProtocol {
-		return CoreDataService()
+	static func createCoreDataService() -> DatabaseServiceProtocol {
+		let service = coreDataAssembly.createCoreDataService()
+		return service
 	}
 
 	static func createUserSettings() -> UserSettingsProtocol {

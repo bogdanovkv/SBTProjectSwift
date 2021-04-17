@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CoreDataService",
+        "repositoryURL": "https://github.com/bogdanovkv/CoreDataService.git",
+        "state": {
+          "branch": null,
+          "revision": "d4d18e67da720bc7011dc99a70b33183360a8bcd",
+          "version": "1.0.6"
+        }
+      },
+      {
+        "package": "DatabaseAbstraction",
+        "repositoryURL": "https://github.com/bogdanovkv/DatabaseAbstraction",
+        "state": {
+          "branch": null,
+          "revision": "45d3f3955c672c4166e430200e515ed3e902ceb8",
+          "version": "1.0.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

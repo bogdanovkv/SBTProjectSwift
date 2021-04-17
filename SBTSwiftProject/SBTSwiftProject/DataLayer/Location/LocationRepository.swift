@@ -7,6 +7,7 @@
 //
 
 import Inject
+import DatabaseAbstraction
 
 /// Репозиторий работы с локациями
 protocol LocationRepositoryProtocol {
@@ -81,10 +82,10 @@ final class LocationRepository: LocationRepositoryProtocol {
 	}
 	
 	private let networkService: NetworkServiceProtocol
-	private let coreDataService: CoreDataServiceProtocol
+	private let coreDataService: DatabaseServiceProtocol
 
 	init(networkService: NetworkServiceProtocol,
-		 coreDataService: CoreDataServiceProtocol) {
+		 coreDataService: DatabaseServiceProtocol) {
 		self.networkService = networkService
 		self.coreDataService = coreDataService
 	}
@@ -93,10 +94,10 @@ final class LocationRepository: LocationRepositoryProtocol {
 		let factory = Inject<ServiceLayerDependecies>.serviceLayer
 		let networkService: NetworkServiceProtocol = factory.create(closure: { $0.createNetworkService() },
 											strategy: .scope(key: 0))
-		let coreDataService: CoreDataServiceProtocol = factory.create(closure: { $0.createCoreDataService() },
+		let databaseService: DatabaseServiceProtocol = factory.create(closure: { $0.createCoreDataService() },
 											 strategy: .scope(key: 0))
 		self.init(networkService: networkService,
-				  coreDataService: coreDataService)
+				  coreDataService: databaseService)
 	}
 
 	func loadLocation(_ completion: @escaping (Result<LocationModel, Error>) -> Void) {
@@ -159,39 +160,43 @@ final class LocationRepository: LocationRepositoryProtocol {
 
 	func save(countries: [CountryModel], completion: @escaping () -> Void) {
 
-		let convertClosure: (CountryModel, CountryManaged) -> Void = { model, managedModel in
-			managedModel.name = model.name
-			managedModel.codeIATA = model.codeIATA
-			managedModel.nameRu = model.nameRu
+		let convertClosure: (CountryModel, StoredObjectProtocol) -> Void = { model, databaseModel in
+			databaseModel.setValue(model.name, forKey: "name")
+			databaseModel.setValue(model.codeIATA, forKey: "codeIATA")
+			if let nameRu = model.nameRu {
+				databaseModel.setValue(nameRu, forKey: "nameRu")
+			}
 		}
 
-		coreDataService.insert(models: countries,
+		coreDataService.insert(storeId: "CountryManaged", models: countries,
 							   convertClosure: convertClosure,
 							   completion: completion)
 	}
 
 	func save(cities: [CityModel], completion: @escaping () -> Void) {
 
-		let convertClosure: (CityModel, CityManaged) -> Void = { model, managedModel in
-			managedModel.name = model.name
-			managedModel.codeIATA = model.codeIATA
-			managedModel.nameRu = model.nameRu
-			managedModel.countryCode = model.countryCode
+		let convertClosure: (CityModel, StoredObjectProtocol) -> Void = { model, databaseModel in
+			databaseModel.setValue(model.name, forKey: "name")
+			databaseModel.setValue(model.codeIATA, forKey: "codeIATA")
+			databaseModel.setValue(model.countryCode, forKey: "countryCode")
+			if let nameRu = model.nameRu {
+				databaseModel.setValue(nameRu, forKey: "nameRu")
+			}
 		}
 
-		coreDataService.insert(models: cities, convertClosure: convertClosure, completion: completion)
+		coreDataService.insert(storeId: "CityManaged", models: cities, convertClosure: convertClosure, completion: completion)
 	}
 
 	func save(airports: [AirportModel], completion: @escaping () -> Void) {
 
-		let convertClosure: (AirportModel, AirportManaged) -> Void = { model, managedModel in
-			managedModel.name = model.name
-			managedModel.countryCode = model.countryCode
-			managedModel.cityCode = model.cityCode
-			managedModel.countryCode = model.countryCode
+		let convertClosure: (AirportModel, StoredObjectProtocol) -> Void = { model, databaseModel in
+			databaseModel.setValue(model.name, forKey: "name")
+			databaseModel.setValue(model.code, forKey: "code")
+			databaseModel.setValue(model.countryCode, forKey: "countryCode")
+			databaseModel.setValue(model.cityCode, forKey: "cityCode")
 		}
 
-		coreDataService.insert(models: airports, convertClosure: convertClosure, completion: completion)
+		coreDataService.insert(storeId: "AirportManaged", models: airports, convertClosure: convertClosure, completion: completion)
 	}
 
 	private func createCompletion<Model: Decodable>(completion: @escaping (Result<Model, Error>) -> Void)
@@ -210,80 +215,86 @@ final class LocationRepository: LocationRepositoryProtocol {
 	}
 
 	func getCity(with name: String) -> CityModel? {
-		let predicate = NSPredicate(format: "nameRu == %@ || name == %@",
-									argumentArray: [name, name])
-		let convertClosure: (CityManaged) -> CityModel? = { managedModel in
-			guard let codeIATA = managedModel.codeIATA,
-				let countryCode = managedModel.countryCode,
-				let name = managedModel.name,
-				let nameRu = managedModel.nameRu else { return nil }
-			return .init(codeIATA: codeIATA, countryCode: countryCode, name: name, nameRu: nameRu)
+		let convertClosure: (StoredObjectProtocol) -> CityModel? = { databaseModel in
+			guard let codeIATA: String = databaseModel.value(forKey: "codeIATA"),
+				let countryCode: String = databaseModel.value(forKey: "countryCode"),
+				let name: String = databaseModel.value(forKey: "name") else { return nil }
+			return .init(codeIATA: codeIATA, countryCode: countryCode, name: name, nameRu: databaseModel.value(forKey: "nameRu"))
 		}
-		let cities = coreDataService.fetch(convertClosure: convertClosure,
-										   predicate: predicate)
+		let cities = coreDataService.fetch(storeId: "CityManaged", convertClosure: convertClosure,
+										   predicate: ["name": name])
 		return cities.first
 	}
 
 	func getCountry(with name: String) -> CountryModel? {
-		let predicate = NSPredicate(format: "nameRu == %@ || name == %@",
-									argumentArray: [name, name])
-		let convertClosure: (CountryManaged) -> CountryModel? = { managedModel in
-			guard let codeIATA = managedModel.codeIATA,
-				let name = managedModel.name else { return nil }
-			return .init(codeIATA: codeIATA, name: name, nameRu: managedModel.nameRu)
+		let convertClosure: (StoredObjectProtocol) -> CountryModel? = { databaseModel in
+			guard let codeIATA: String = databaseModel.value(forKey: "codeIATA"),
+				let name: String = databaseModel.value(forKey: "name") else { return nil }
+			return .init(codeIATA: codeIATA, name: name, nameRu: databaseModel.value(forKey: "nameRu"))
 		}
-		let cities = coreDataService.fetch(convertClosure: convertClosure,
-										   predicate: predicate)
+		let cities = coreDataService.fetch(storeId: "CountryManaged", convertClosure: convertClosure,
+										   predicate: ["name": name])
 		return cities.first
 	}
 
 	func getCountries() -> [CountryModel] {
-		let convertClosure: (CountryManaged) -> CountryModel? = { managedModel in
-			guard let codeIATA = managedModel.codeIATA,
-				let name = managedModel.name else { return nil }
-			return .init(codeIATA: codeIATA, name: name, nameRu: managedModel.nameRu)
+		let convertClosure: (StoredObjectProtocol) -> CountryModel? = { databaseModel in
+			guard let codeIATA: String = databaseModel.value(forKey: "codeIATA"),
+				  let name: String = databaseModel.value(forKey: "name") else { return nil }
+			return .init(codeIATA: codeIATA, name: name, nameRu: databaseModel.value(forKey: "nameRu"))
 		}
-		let countries = coreDataService.fetch(convertClosure: convertClosure)
+		let countries = coreDataService.fetch(storeId: "CountryManaged", convertClosure: convertClosure)
 		return countries
 	}
 
 	func getCities(for country: CountryModel) -> [CityModel] {
-		let convertClosure: (CityManaged) -> CityModel? = { managedModel in
-			guard let codeIATA = managedModel.codeIATA,
-				let countryCode = managedModel.countryCode,
-				let name = managedModel.name else { return nil }
+		let convertClosure: (StoredObjectProtocol) -> CityModel? = { databaseModel in
+			guard let codeIATA: String = databaseModel.value(forKey: "codeIATA"),
+				let countryCode: String = databaseModel.value(forKey: "countryCode"),
+				let name: String = databaseModel.value(forKey: "name") else { return nil }
 			return .init(codeIATA: codeIATA,
 						 countryCode: countryCode,
 						 name: name,
-						 nameRu: managedModel.nameRu)
+						 nameRu: databaseModel.value(forKey: "nameRu"))
 		}
-		let predicate = NSPredicate(format: "countryCode == %@",
-									argumentArray: [country.codeIATA])
 
-		let cities = coreDataService.fetch(convertClosure: convertClosure,
-										   predicate: predicate)
+		let cities = coreDataService.fetch(storeId: "CityManaged", convertClosure: convertClosure,
+										   predicate: ["countryCode": country.codeIATA])
 		return cities
 	}
 
 	func getAirports() -> [AirportModel] {
-		let convertClosure: (AirportManaged) -> AirportModel? = { managedModel in
-			guard let code = managedModel.code,
-				let countryCode = managedModel.countryCode,
-				let cityCode = managedModel.cityCode,
-				let name = managedModel.name else { return nil }
+		let convertClosure: (StoredObjectProtocol) -> AirportModel? = { databaseModel in
+			guard let code: String = databaseModel.value(forKey: "code"),
+				let countryCode: String = databaseModel.value(forKey: "countryCode"),
+				let cityCode: String = databaseModel.value(forKey: "cityCode"),
+				let name: String = databaseModel.value(forKey: "name") else { return nil }
 			return .init(code: code,
 						 name: name,
 						 countryCode: countryCode,
 						 cityCode: cityCode)
 		}
-		let airpots = coreDataService.fetch(convertClosure: convertClosure)
+		let airpots = coreDataService.fetch(storeId: "AirportManaged", convertClosure: convertClosure)
 		return airpots
 	}
 
 	func clearLocations() {
-		coreDataService.deleteAll(type: CityManaged.self)
-		coreDataService.deleteAll(type: CountryManaged.self)
-		coreDataService.deleteAll(type: AirportManaged.self)
+		let group = DispatchGroup()
+		group.enter()
+		group.enter()
+		group.enter()
+		coreDataService.deleteAll(storeId: "CityManaged") {
+			group.leave()
+		}
+		coreDataService.deleteAll(storeId: "CountryManaged") {
+			group.leave()
+
+		}
+		coreDataService.deleteAll(storeId: "AirportManaged") {
+			group.leave()
+
+		}
+		group.wait()
 	}
 
 	private func createDefaultParams() -> [NetworkRequest.Parameter] {
