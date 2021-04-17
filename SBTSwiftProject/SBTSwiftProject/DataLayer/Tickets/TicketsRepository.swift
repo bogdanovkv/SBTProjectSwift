@@ -7,6 +7,7 @@
 //
 
 import Inject
+import NetworkAbstraction
 
 protocol TicketsRepositoryProtocol {
 
@@ -77,7 +78,7 @@ final class TicketsRepository: TicketsRepositoryProtocol {
 		}
 
 		let request = NetworkRequest(url: url,
-									 methon: .GET,
+									 method: .GET,
 									 parameters: parameters)
 
 		let onComplete: (Result<NetworkResponse<Resonse>, Error>) -> Void = { result in

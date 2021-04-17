@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		14090F35254752A50028918F /* UserSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14090F34254752A50028918F /* UserSettingsRepository.swift */; };
 		141563C025F621B000B96C6A /* LocationUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141563BF25F621B000B96C6A /* LocationUseCaseTests.swift */; };
+		141C37A7262B5FC000250A8F /* NetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = 141C37A6262B5FC000250A8F /* NetworkService */; };
 		142865CE25509648003D1930 /* SelectCountryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865CD25509648003D1930 /* SelectCountryAssembly.swift */; };
 		142865DD25509C4E003D1930 /* SelectCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865DA25509C4E003D1930 /* SelectCityViewController.swift */; };
 		142865DE25509C4E003D1930 /* SelectCityAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865DB25509C4E003D1930 /* SelectCityAssembly.swift */; };
@@ -63,9 +64,6 @@
 		14B4A5F72545934000BFC583 /* Inject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14B4A5F52545933F00BFC583 /* Inject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14B4A5FD2547508D00BFC583 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4A5FC2547508D00BFC583 /* UserSettings.swift */; };
 		14C60EBA25F62443007455BF /* LocationRepositorySpy_one.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C60EB925F62443007455BF /* LocationRepositorySpy_one.swift */; };
-		14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7C2544241100134D82 /* NetworkService.swift */; };
-		14CD8B802544245E00134D82 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7F2544245E00134D82 /* NetworkRequest.swift */; };
-		14CD8B822544263C00134D82 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B812544263C00134D82 /* NetworkResponse.swift */; };
 		14CDC80F25E25E6D003CA021 /* GetCitiesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC80E25E25E6D003CA021 /* GetCitiesUseCaseTests.swift */; };
 		14D634C825506A1200FF7D37 /* AlertControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634C725506A1200FF7D37 /* AlertControllerAssembly.swift */; };
 		14D634CA25506ADC00FF7D37 /* LocationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634C925506ADC00FF7D37 /* LocationRouter.swift */; };
@@ -162,9 +160,6 @@
 		14B4A5F52545933F00BFC583 /* Inject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Inject.framework; path = Carthage/Build/iOS/Inject.framework; sourceTree = "<group>"; };
 		14B4A5FC2547508D00BFC583 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		14C60EB925F62443007455BF /* LocationRepositorySpy_one.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepositorySpy_one.swift; sourceTree = "<group>"; };
-		14CD8B7C2544241100134D82 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		14CD8B7F2544245E00134D82 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
-		14CD8B812544263C00134D82 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		14CDC80E25E25E6D003CA021 /* GetCitiesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCitiesUseCaseTests.swift; sourceTree = "<group>"; };
 		14D1A23220FB380000BD1DC1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14D634C725506A1200FF7D37 /* AlertControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerAssembly.swift; sourceTree = "<group>"; };
@@ -186,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14321DB62622EEB30030116C /* DatabaseAbstraction in Frameworks */,
+				141C37A7262B5FC000250A8F /* NetworkService in Frameworks */,
 				14B4A5F62545934000BFC583 /* Inject.framework in Frameworks */,
 				146B7D17262B231B005B7FD4 /* CoreDataService in Frameworks */,
 			);
@@ -349,16 +345,6 @@
 			path = Decoding;
 			sourceTree = "<group>";
 		};
-		1474CEEB254436D200C9615B /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				14CD8B7C2544241100134D82 /* NetworkService.swift */,
-				14CD8B812544263C00134D82 /* NetworkResponse.swift */,
-				14CD8B7F2544245E00134D82 /* NetworkRequest.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		1478A0922552BEAF00C3633C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,7 +453,6 @@
 				1474CEE92544367E00C9615B /* ServiceLayerDependecies.swift */,
 				147981AB254D9C1D00110A9B /* AppErrors.swift */,
 				14B4A5FE254751F300BFC583 /* UserSettings */,
-				1474CEEB254436D200C9615B /* Network */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -580,6 +565,7 @@
 			packageProductDependencies = (
 				14321DB52622EEB30030116C /* DatabaseAbstraction */,
 				146B7D16262B231B005B7FD4 /* CoreDataService */,
+				141C37A6262B5FC000250A8F /* NetworkService */,
 			);
 			productName = SBTSwiftProject;
 			productReference = 1438FF6B20F9FD29003CC7C2 /* SBTSwiftProject.app */;
@@ -634,6 +620,7 @@
 			packageReferences = (
 				14321DB42622EEB30030116C /* XCRemoteSwiftPackageReference "DatabaseAbstraction" */,
 				146B7D15262B231B005B7FD4 /* XCRemoteSwiftPackageReference "CoreDataService" */,
+				141C37A5262B5FC000250A8F /* XCRemoteSwiftPackageReference "NetworkService" */,
 			);
 			productRefGroup = 1438FF6C20F9FD29003CC7C2 /* Products */;
 			projectDirPath = "";
@@ -699,7 +686,6 @@
 				142865E12551B1B3003D1930 /* GetCitiesUseCase.swift in Sources */,
 				1474CEEA2544367E00C9615B /* ServiceLayerDependecies.swift in Sources */,
 				147D5A3C25442EEA00F90BA2 /* LocationRepository.swift in Sources */,
-				14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */,
 				14AE5AE825447E4600548B1D /* LocationInteractor.swift in Sources */,
 				1478A0A12552F12600C3633C /* TicketsSearchViewModel.swift in Sources */,
 				142865DF25509C4E003D1930 /* SelectCityInteractor.swift in Sources */,
@@ -712,7 +698,6 @@
 				1438FF6F20F9FD29003CC7C2 /* AppDelegate.swift in Sources */,
 				142865EB2551E0EE003D1930 /* TicketModel.swift in Sources */,
 				14ECFD612556A58100FBFC62 /* TicketTableViewCell.swift in Sources */,
-				14CD8B802544245E00134D82 /* NetworkRequest.swift in Sources */,
 				142865F025529907003D1930 /* TicketsSearchModel.swift in Sources */,
 				14AE5AF525449EF700548B1D /* PrepareStorageUseCase.swift in Sources */,
 				142865CE25509648003D1930 /* SelectCountryAssembly.swift in Sources */,
@@ -727,7 +712,6 @@
 				1478A0A52552F30B00C3633C /* Date.swift in Sources */,
 				147981AA254D9A4100110A9B /* UseCase.swift in Sources */,
 				14B4A5FD2547508D00BFC583 /* UserSettings.swift in Sources */,
-				14CD8B822544263C00134D82 /* NetworkResponse.swift in Sources */,
 				14B236D3254DACF600BE822D /* AirportModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -988,6 +972,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		141C37A5262B5FC000250A8F /* XCRemoteSwiftPackageReference "NetworkService" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bogdanovkv/NetworkService.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		14321DB42622EEB30030116C /* XCRemoteSwiftPackageReference "DatabaseAbstraction" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bogdanovkv/DatabaseAbstraction";
@@ -1007,6 +999,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		141C37A6262B5FC000250A8F /* NetworkService */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 141C37A5262B5FC000250A8F /* XCRemoteSwiftPackageReference "NetworkService" */;
+			productName = NetworkService;
+		};
 		14321DB52622EEB30030116C /* DatabaseAbstraction */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 14321DB42622EEB30030116C /* XCRemoteSwiftPackageReference "DatabaseAbstraction" */;

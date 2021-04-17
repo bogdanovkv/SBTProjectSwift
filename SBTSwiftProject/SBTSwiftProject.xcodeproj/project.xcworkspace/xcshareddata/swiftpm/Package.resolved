@@ -18,6 +18,24 @@
           "revision": "45d3f3955c672c4166e430200e515ed3e902ceb8",
           "version": "1.0.3"
         }
+      },
+      {
+        "package": "NetworkAbstraction",
+        "repositoryURL": "https://github.com/bogdanovkv/NetworkAbstration.git",
+        "state": {
+          "branch": null,
+          "revision": "bc9248116fae94cccc4e95e643a8ea6f027b14af",
+          "version": "1.0.3"
+        }
+      },
+      {
+        "package": "NetworkService",
+        "repositoryURL": "https://github.com/bogdanovkv/NetworkService.git",
+        "state": {
+          "branch": null,
+          "revision": "b6ef324b2a8e61045ea38f280c725298155cc728",
+          "version": "1.0.1"
+        }
       }
     ]
   },

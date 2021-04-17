@@ -8,6 +8,7 @@
 
 import Inject
 import DatabaseAbstraction
+import NetworkAbstraction
 
 /// Репозиторий работы с локациями
 protocol LocationRepositoryProtocol {
@@ -105,7 +106,7 @@ final class LocationRepository: LocationRepositoryProtocol {
 			return completion(.failure(RepositoryError.urlError))
 		}
 		let request = NetworkRequest(url: url,
-									 methon: .GET,
+									 method: .GET,
 									 parameters: createDefaultParams())
 		networkService.perfom(request: request, createCompletion(completion: completion))
 	}
@@ -115,7 +116,7 @@ final class LocationRepository: LocationRepositoryProtocol {
 			return completion(.failure(RepositoryError.urlError))
 		}
 		let request = NetworkRequest(url: url,
-									 methon: .GET,
+									 method: .GET,
 									 parameters: [])
 		networkService.perfom(request: request, createCompletion(completion: completion))
 	}
@@ -125,7 +126,7 @@ final class LocationRepository: LocationRepositoryProtocol {
 			return completion(.failure(RepositoryError.urlError))
 		}
 		let request = NetworkRequest(url: url,
-									 methon: .GET,
+									 method: .GET,
 									 parameters: [])
 		networkService.download(request: request) { result in
 			do {
@@ -144,7 +145,7 @@ final class LocationRepository: LocationRepositoryProtocol {
 			return completion(.failure(RepositoryError.urlError))
 		}
 		let request = NetworkRequest(url: url,
-									 methon: .GET,
+									 method: .GET,
 									 parameters: [])
 		networkService.download(request: request) { result in
 			do {

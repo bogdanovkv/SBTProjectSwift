@@ -8,6 +8,8 @@
 import Inject
 import DatabaseAbstraction
 import CoreDataService
+import NetworkService
+import NetworkAbstraction
 
 extension Inject where FactoryType == ServiceLayerDependecies {
 	static var serviceLayer: Inject<ServiceLayerDependecies> {
