@@ -7,6 +7,7 @@
 //
 
 import Inject
+import UserSettingsAbstration
 
 /// Репозиторий настроек пользователя
 protocol UserSettingsRepositoryProtocol: AnyObject {
@@ -17,13 +18,13 @@ protocol UserSettingsRepositoryProtocol: AnyObject {
 
 /// Репозиторий настроек пользователя
 final class UserSettingsRepository: UserSettingsRepositoryProtocol {
-	private let userSettings: UserSettingsProtocol
+	private let userSettings: UserSettingsServiceProtocol
 
 	private enum Settings: String {
 		case didInitializeStorage
 	}
 
-	init(userSettings: UserSettingsProtocol) {
+	init(userSettings: UserSettingsServiceProtocol) {
 		self.userSettings = userSettings
 	}
 

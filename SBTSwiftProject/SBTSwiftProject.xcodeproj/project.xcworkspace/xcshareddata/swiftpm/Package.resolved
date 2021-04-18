@@ -36,6 +36,24 @@
           "revision": "b6ef324b2a8e61045ea38f280c725298155cc728",
           "version": "1.0.1"
         }
+      },
+      {
+        "package": "UserSettingsAbstration",
+        "repositoryURL": "https://github.com/bogdanovkv/UserSettingsAbstration.git",
+        "state": {
+          "branch": null,
+          "revision": "e1a3e7d1596c7efef9d0e47bc29a8d9c41ce69b6",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "UserSettingsService",
+        "repositoryURL": "https://github.com/bogdanovkv/UserSettingsService.git",
+        "state": {
+          "branch": null,
+          "revision": "a19c6efea9d7bedc2b98f7c1f05fa06bbd0ffa55",
+          "version": "1.0.0"
+        }
       }
     ]
   },

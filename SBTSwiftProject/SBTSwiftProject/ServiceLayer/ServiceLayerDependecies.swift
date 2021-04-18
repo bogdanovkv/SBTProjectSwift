@@ -5,11 +5,14 @@
 //  Created by Константин Богданов on 24.10.2020.
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
+
 import Inject
 import DatabaseAbstraction
 import CoreDataService
-import NetworkService
 import NetworkAbstraction
+import NetworkService
+import UserSettingsAbstration
+import UserSettingsService
 
 extension Inject where FactoryType == ServiceLayerDependecies {
 	static var serviceLayer: Inject<ServiceLayerDependecies> {
@@ -30,7 +33,7 @@ struct ServiceLayerDependecies: InjectFactoryProtocol {
 		return service
 	}
 
-	static func createUserSettings() -> UserSettingsProtocol {
-		return UserSettings(userDefaults: .standard)
+	static func createUserSettings() -> UserSettingsServiceProtocol {
+		return UserSettingsService(userDefaults: UserDefaults.standard)
 	}
 }
