@@ -11,6 +11,8 @@ import TicketsRepositoryAbstraction
 import TicketsRepository
 import LocationRepositoryAbstraction
 import LocationRepository
+import UserSettingsRepositoryAbstraction
+import UserSettingsRepository
 
 extension Inject where FactoryType == DataLayerDependencies {
 	static var dataLayer: Inject<DataLayerDependencies> {
@@ -30,7 +32,9 @@ struct DataLayerDependencies: InjectFactoryProtocol {
 	}
 
 	static func createSettingsRepository() -> UserSettingsRepository {
-		return UserSettingsRepository()
+		let userSettingsService = Inject.serviceLayer.create(closure: { $0.createUserSettings() },
+															 strategy: .new)
+		return UserSettingsRepository(userSettings: userSettingsService)
 	}
 
 	static func createTicketsRepository() -> TicketsRepositoryProtocol {

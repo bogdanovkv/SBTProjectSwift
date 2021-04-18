@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14090F35254752A50028918F /* UserSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14090F34254752A50028918F /* UserSettingsRepository.swift */; };
 		141563C025F621B000B96C6A /* LocationUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141563BF25F621B000B96C6A /* LocationUseCaseTests.swift */; };
 		141C37A7262B5FC000250A8F /* NetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = 141C37A6262B5FC000250A8F /* NetworkService */; };
 		1425EF1A262B730C00B532B7 /* UserSettingsAbstration in Frameworks */ = {isa = PBXBuildFile; productRef = 1425EF19262B730C00B532B7 /* UserSettingsAbstration */; };
@@ -68,6 +67,8 @@
 		14D634CF255075B300FF7D37 /* SelectCountryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634CE255075B300FF7D37 /* SelectCountryInteractor.swift */; };
 		14D634D22550762100FF7D37 /* GetCountriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634D12550762100FF7D37 /* GetCountriesUseCase.swift */; };
 		14E2521625E25FF80073C50C /* LocationRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2521525E25FF80073C50C /* LocationRepositorySpy.swift */; };
+		14E6B4EF262CA47800D1A2B1 /* UserSettingsRepositoryAbstraction in Frameworks */ = {isa = PBXBuildFile; productRef = 14E6B4EE262CA47800D1A2B1 /* UserSettingsRepositoryAbstraction */; };
+		14E6B4F3262CA49600D1A2B1 /* UserSettingsRepository in Frameworks */ = {isa = PBXBuildFile; productRef = 14E6B4F2262CA49600D1A2B1 /* UserSettingsRepository */; };
 		14ECFD522555B55A00FBFC62 /* TabBarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECFD512555B55A00FBFC62 /* TabBarAssembly.swift */; };
 		14ECFD572556913E00FBFC62 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECFD562556913E00FBFC62 /* SettingsViewController.swift */; };
 		14ECFD5A2556918900FBFC62 /* SettingsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECFD592556918900FBFC62 /* SettingsAssembly.swift */; };
@@ -100,7 +101,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		14090F34254752A50028918F /* UserSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsRepository.swift; sourceTree = "<group>"; };
 		141563BF25F621B000B96C6A /* LocationUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUseCaseTests.swift; sourceTree = "<group>"; };
 		142865CD25509648003D1930 /* SelectCountryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryAssembly.swift; sourceTree = "<group>"; };
 		142865DA25509C4E003D1930 /* SelectCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityViewController.swift; sourceTree = "<group>"; };
@@ -172,11 +172,13 @@
 				1425EF1E262B733B00B532B7 /* UserSettingsService in Frameworks */,
 				145CB581262C98100050A21F /* LocationRepositoryAbstraction in Frameworks */,
 				14321DB62622EEB30030116C /* DatabaseAbstraction in Frameworks */,
+				14E6B4EF262CA47800D1A2B1 /* UserSettingsRepositoryAbstraction in Frameworks */,
 				145CB575262C4BC00050A21F /* TicketsRepositoryAbstraction in Frameworks */,
 				145CB585262C98510050A21F /* LocationRepository in Frameworks */,
 				141C37A7262B5FC000250A8F /* NetworkService in Frameworks */,
 				14B4A5F62545934000BFC583 /* Inject.framework in Frameworks */,
 				1425EF1A262B730C00B532B7 /* UserSettingsAbstration in Frameworks */,
+				14E6B4F3262CA49600D1A2B1 /* UserSettingsRepository in Frameworks */,
 				146B7D17262B231B005B7FD4 /* CoreDataService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,14 +193,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14090F332547528B0028918F /* UserSettings */ = {
-			isa = PBXGroup;
-			children = (
-				14090F34254752A50028918F /* UserSettingsRepository.swift */,
-			);
-			path = UserSettings;
-			sourceTree = "<group>";
-		};
 		14090F36254D53380028918F /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,7 +349,6 @@
 			isa = PBXGroup;
 			children = (
 				14AE5AEF25448AFC00548B1D /* DataLayerDependencies.swift */,
-				14090F332547528B0028918F /* UserSettings */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -525,6 +518,8 @@
 				145CB578262C4BD20050A21F /* TicketsRepository */,
 				145CB580262C98100050A21F /* LocationRepositoryAbstraction */,
 				145CB584262C98510050A21F /* LocationRepository */,
+				14E6B4EE262CA47800D1A2B1 /* UserSettingsRepositoryAbstraction */,
+				14E6B4F2262CA49600D1A2B1 /* UserSettingsRepository */,
 			);
 			productName = SBTSwiftProject;
 			productReference = 1438FF6B20F9FD29003CC7C2 /* SBTSwiftProject.app */;
@@ -586,6 +581,8 @@
 				145CB577262C4BD20050A21F /* XCRemoteSwiftPackageReference "TicketsRepository" */,
 				145CB57F262C98100050A21F /* XCRemoteSwiftPackageReference "LocationRepositoryAbstraction" */,
 				145CB583262C98510050A21F /* XCRemoteSwiftPackageReference "LocationRepository" */,
+				14E6B4ED262CA47800D1A2B1 /* XCRemoteSwiftPackageReference "UserSettingsRepositoryAbstraction" */,
+				14E6B4F1262CA49600D1A2B1 /* XCRemoteSwiftPackageReference "UserSettingsRepository" */,
 			);
 			productRefGroup = 1438FF6C20F9FD29003CC7C2 /* Products */;
 			projectDirPath = "";
@@ -640,7 +637,6 @@
 				14ECFD522555B55A00FBFC62 /* TabBarAssembly.swift in Sources */,
 				14D634D22550762100FF7D37 /* GetCountriesUseCase.swift in Sources */,
 				1478A0982552CF9500C3633C /* TicketsSearchAssembly.swift in Sources */,
-				14090F35254752A50028918F /* UserSettingsRepository.swift in Sources */,
 				142865E82551E0BF003D1930 /* SearchTicketsUseCase.swift in Sources */,
 				145191042569604800A5593E /* TicketViewController.swift in Sources */,
 				1451911125697E8500A5593E /* TicketViewModel.swift in Sources */,
@@ -1000,6 +996,22 @@
 				minimumVersion = 1.0.1;
 			};
 		};
+		14E6B4ED262CA47800D1A2B1 /* XCRemoteSwiftPackageReference "UserSettingsRepositoryAbstraction" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bogdanovkv/UserSettingsRepositoryAbstraction.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		14E6B4F1262CA49600D1A2B1 /* XCRemoteSwiftPackageReference "UserSettingsRepository" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bogdanovkv/UserSettingsRepository.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1047,6 +1059,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 146B7D15262B231B005B7FD4 /* XCRemoteSwiftPackageReference "CoreDataService" */;
 			productName = CoreDataService;
+		};
+		14E6B4EE262CA47800D1A2B1 /* UserSettingsRepositoryAbstraction */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14E6B4ED262CA47800D1A2B1 /* XCRemoteSwiftPackageReference "UserSettingsRepositoryAbstraction" */;
+			productName = UserSettingsRepositoryAbstraction;
+		};
+		14E6B4F2262CA49600D1A2B1 /* UserSettingsRepository */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14E6B4F1262CA49600D1A2B1 /* XCRemoteSwiftPackageReference "UserSettingsRepository" */;
+			productName = UserSettingsRepository;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

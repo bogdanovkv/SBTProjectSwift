@@ -8,6 +8,7 @@
 
 import Inject
 import LocationRepositoryAbstraction
+import UserSettingsRepositoryAbstraction
 
 protocol PrepareStorageUseCaseProtocol {
 	func prepareStorage(_ copmletion: @escaping (Result<Void, Error>) -> Void)
@@ -19,7 +20,7 @@ protocol PrepareStorageUseCaseProtocol {
 		case locationError
 	}
 
-	private let settingsRepository: UserSettingsRepositoryProtocol
+	private var settingsRepository: UserSettingsRepositoryProtocol
 	private let prepareAirportsUseCase: UseCase<Void, Void>
 	private let prepareCountriesUseCase: UseCase<Void, Void>
 	private let prepareCitiesUseCase: UseCase<Void, Void>
