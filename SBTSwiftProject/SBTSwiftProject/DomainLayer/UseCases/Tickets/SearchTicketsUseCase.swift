@@ -7,6 +7,7 @@
 //
 
 import Inject
+import TicketsRepositoryAbstraction
 
 /// Кейс поиска билетов
 final class SearchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]> {
@@ -24,9 +25,9 @@ final class SearchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]> {
 	}
 
 	override func execute(parameter: TicketsSearchModel, _ completion: @escaping (Result<[Ticket], Error>) -> Void) {
-		ticketsRepository.loadTickets(fromCity: parameter.fromCity,
+		ticketsRepository.loadTickets(fromCityCodeIATA: parameter.fromCity.codeIATA,
 									  fromDate: parameter.fromDate,
-									  toCity: parameter.toCity,
+									  toCityCodeIATA: parameter.toCity.codeIATA,
 									  returnDate: parameter.returnDate) { result in
 			do {
 				let models = try result.get()

@@ -38,6 +38,24 @@
         }
       },
       {
+        "package": "TicketsRepository",
+        "repositoryURL": "https://github.com/bogdanovkv/TicketsRepository.git",
+        "state": {
+          "branch": null,
+          "revision": "d04ea811976d7f76295d4042bc7a7d135074c25e",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "TicketsRepositoryAbstraction",
+        "repositoryURL": "https://github.com/bogdanovkv/TicketsRepositoryAbstraction.git",
+        "state": {
+          "branch": null,
+          "revision": "e9f55dabebba79c8c810974595f10a25733d0440",
+          "version": "1.0.3"
+        }
+      },
+      {
         "package": "UserSettingsAbstration",
         "repositoryURL": "https://github.com/bogdanovkv/UserSettingsAbstration.git",
         "state": {

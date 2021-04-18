@@ -43,22 +43,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "26A5FB8D-969E-4D87-A3F9-E9E6E003D6AA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBTSwiftProject/DomainLayer/UseCases/Location/PrepareStorage/PrepareStorageUseCase.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "prepareStorage(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "39BE2EBC-0D73-4778-8F19-E75AA75B28E4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -69,6 +53,38 @@
             startingLineNumber = "165"
             endingLineNumber = "165"
             landmarkName = "save(countries:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A2E91E67-95C6-44CA-BB2A-5FBE96296045"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/SBTSwiftProject-bmkaizznvrwnimebgmgemkfwcnei/SourcePackages/checkouts/TicketsRepository/Sources/TicketsRepository/TicketsRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "loadTickets(fromCityCodeIATA:fromDate:toCityCodeIATA:returnDate:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8FE7E474-799F-4741-B81B-3F321C942F41"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/SBTSwiftProject-bmkaizznvrwnimebgmgemkfwcnei/SourcePackages/checkouts/TicketsRepository/Sources/TicketsRepository/TicketsRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "loadTickets(fromCityCodeIATA:fromDate:toCityCodeIATA:returnDate:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

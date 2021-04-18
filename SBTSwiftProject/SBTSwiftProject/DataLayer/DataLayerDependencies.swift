@@ -7,6 +7,8 @@
 //
 
 import Inject
+import TicketsRepositoryAbstraction
+import TicketsRepository
 
 extension Inject where FactoryType == DataLayerDependencies {
 	static var dataLayer: Inject<DataLayerDependencies> {
@@ -25,6 +27,8 @@ struct DataLayerDependencies: InjectFactoryProtocol {
 	}
 
 	static func createTicketsRepository() -> TicketsRepositoryProtocol {
-		return TicketsRepository()
+		let service = Inject.serviceLayer.create(closure: { $0.createNetworkService() },
+															 strategy: .new)
+		return TicketsRepository(networkService: service)
 	}
 }
