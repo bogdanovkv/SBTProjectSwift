@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocationRepositoryAbstraction
 
 protocol SelectCityViewControllerInput: AnyObject {
 	var output: SelectCityViewControllerOutput? { get set }

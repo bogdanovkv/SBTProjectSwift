@@ -20,6 +20,24 @@
         }
       },
       {
+        "package": "LocationRepository",
+        "repositoryURL": "https://github.com/bogdanovkv/LocationRepository.git",
+        "state": {
+          "branch": null,
+          "revision": "fc59e521acf3053acf56440a0e69a751cb1ed53c",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "LocationRepositoryAbstraction",
+        "repositoryURL": "https://github.com/bogdanovkv/LocationRepositoryAbstraction.git",
+        "state": {
+          "branch": null,
+          "revision": "41efc928102634738e9faf02391f65d1efed9fc2",
+          "version": "1.0.2"
+        }
+      },
+      {
         "package": "NetworkAbstraction",
         "repositoryURL": "https://github.com/bogdanovkv/NetworkAbstration.git",
         "state": {

@@ -9,6 +9,8 @@
 import Inject
 import TicketsRepositoryAbstraction
 import TicketsRepository
+import LocationRepositoryAbstraction
+import LocationRepository
 
 extension Inject where FactoryType == DataLayerDependencies {
 	static var dataLayer: Inject<DataLayerDependencies> {
@@ -19,7 +21,12 @@ extension Inject where FactoryType == DataLayerDependencies {
 struct DataLayerDependencies: InjectFactoryProtocol {
 	static var scope = "dataLayer"
 	static func createLocationRepository() -> LocationRepositoryProtocol {
-		return LocationRepository()
+		let networkService = Inject.serviceLayer.create(closure: { $0.createNetworkService() },
+															 strategy: .new)
+		let coreDataService = Inject.serviceLayer.create(closure: { $0.createCoreDataService() },
+														strategy: .single)
+		return LocationRepository(networkService: networkService,
+								  coreDataService: coreDataService)
 	}
 
 	static func createSettingsRepository() -> UserSettingsRepository {

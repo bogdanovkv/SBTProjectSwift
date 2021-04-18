@@ -7,6 +7,7 @@
 //
 
 import Inject
+import LocationRepositoryAbstraction
 
 final class PrepareCountriesUseCase: UseCase<Void, Void> {
 	private let locationRepository: LocationRepositoryProtocol

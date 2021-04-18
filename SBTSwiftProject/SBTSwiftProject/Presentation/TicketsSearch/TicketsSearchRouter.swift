@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocationRepositoryAbstraction
 
 /// Роутер экрана поиска билетов
 protocol TicketsSearchRouterProtocol {

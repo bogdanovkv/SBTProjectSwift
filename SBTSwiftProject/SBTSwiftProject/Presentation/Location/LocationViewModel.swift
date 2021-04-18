@@ -6,7 +6,7 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import UIKit
+import LocationRepositoryAbstraction
 
 /// Модель данных для экрана выбора местоположения
 final class LocationViewModel {

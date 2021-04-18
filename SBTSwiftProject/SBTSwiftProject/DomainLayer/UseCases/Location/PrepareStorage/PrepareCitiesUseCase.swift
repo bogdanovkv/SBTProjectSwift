@@ -7,6 +7,7 @@
 //
 
 import Inject
+import LocationRepositoryAbstraction
 
 final class PrepareCitiesUseCase: UseCase<Void, Void> {
 

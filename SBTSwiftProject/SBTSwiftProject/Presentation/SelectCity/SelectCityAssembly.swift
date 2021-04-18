@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocationRepositoryAbstraction
 
 /// Сборщик экрана выбра города
 protocol SelectCityAssemblyProtocol {

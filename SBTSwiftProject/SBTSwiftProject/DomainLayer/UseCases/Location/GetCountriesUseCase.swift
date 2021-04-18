@@ -7,6 +7,7 @@
 //
 
 import Inject
+import LocationRepositoryAbstraction
 
 final class GetCountriesUseCase: UseCaseSync<Void, [CountryModel]> {
 	private let repository: LocationRepositoryProtocol

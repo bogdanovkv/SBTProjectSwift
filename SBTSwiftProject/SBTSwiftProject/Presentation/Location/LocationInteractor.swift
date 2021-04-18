@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import LocationRepositoryAbstraction
 
 /// Протокол интерактор экрана выбора метоположения
 protocol LocationInteractorInput: AnyObject {

@@ -7,6 +7,7 @@
 //
 
 import Inject
+import LocationRepositoryAbstraction
 
 /// Ouptut интерактора поиска билетов
 protocol TicketsSearchInteractorOutput: AnyObject {

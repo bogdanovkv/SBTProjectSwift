@@ -7,6 +7,7 @@
 //
 
 import Inject
+import LocationRepositoryAbstraction
 
 extension Inject where FactoryType == DomainLayerDependencies {
 	static var domainLayer: Inject<DomainLayerDependencies> = .init(factory: DomainLayerDependencies.self)

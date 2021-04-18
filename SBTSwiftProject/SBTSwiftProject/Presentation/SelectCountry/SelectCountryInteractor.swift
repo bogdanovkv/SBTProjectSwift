@@ -7,6 +7,7 @@
 //
 
 import Inject
+import LocationRepositoryAbstraction
 
 /// Протокол интерактора экрана выбора страны
 protocol SelectCountryInteractorInput {

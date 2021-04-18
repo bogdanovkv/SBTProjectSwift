@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocationRepositoryAbstraction
 
 protocol TiketAssemblyProtocol {
 	func createViewCotroller(with tiket: Ticket,

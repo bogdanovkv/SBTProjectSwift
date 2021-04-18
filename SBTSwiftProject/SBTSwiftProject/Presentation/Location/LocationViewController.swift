@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocationRepositoryAbstraction
 
 /// Протокол контроллера выбора местоположения
 protocol LocationViewControllerInput: LocationViewController {

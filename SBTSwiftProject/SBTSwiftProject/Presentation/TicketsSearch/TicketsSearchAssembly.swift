@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocationRepositoryAbstraction
 
 /// Протокол сборщика экрана поиска билетов
 protocol TicketsSearchAssemblyProtocol {

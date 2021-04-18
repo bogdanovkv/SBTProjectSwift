@@ -7,6 +7,7 @@
 //
 
 import Inject
+import LocationRepositoryAbstraction
 
 protocol LocationUseCaseProtocol {
 	func getLocation(_ completion: @escaping (Result<LocationModel, Error>) -> Void)

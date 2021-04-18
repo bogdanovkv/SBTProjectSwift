@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocationRepositoryAbstraction
 
 /// Контроллер поиска билетов
 final class TicketsSearchViewController: UIViewController {

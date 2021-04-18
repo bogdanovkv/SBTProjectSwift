@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import LocationRepositoryAbstraction
 final class TicketViewModel {
 
 	let ticket: Ticket

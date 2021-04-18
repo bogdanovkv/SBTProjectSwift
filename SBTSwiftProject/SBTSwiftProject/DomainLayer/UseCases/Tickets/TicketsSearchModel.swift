@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import LocationRepositoryAbstraction
 
 /// Модель для поиска билетов
 struct TicketsSearchModel {

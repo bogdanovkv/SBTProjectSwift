@@ -7,6 +7,7 @@
 //
 
 import Inject
+import LocationRepositoryAbstraction
 
 protocol SelectCityInteractorInput {
 	func getCities(for country: CountryModel) -> [CityModel]

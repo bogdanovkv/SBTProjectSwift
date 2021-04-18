@@ -7,6 +7,7 @@
 //
 
 import Inject
+import LocationRepositoryAbstraction
 
 protocol PrepareStorageUseCaseProtocol {
 	func prepareStorage(_ copmletion: @escaping (Result<Void, Error>) -> Void)
