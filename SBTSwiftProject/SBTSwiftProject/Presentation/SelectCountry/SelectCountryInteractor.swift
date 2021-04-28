@@ -8,19 +8,21 @@
 
 import Inject
 import LocationRepositoryAbstraction
+import DomainAbstraction
+import LocationDomainAbstraction
 
 /// Протокол интерактора экрана выбора страны
 protocol SelectCountryInteractorInput {
-	func getCountries() -> [CountryModel]
+	func getCountries() -> [Country]
 }
 
 /// Интерактор экрана выбора страны
 final class SelectCountryInteractor: SelectCountryInteractorInput {
-	private let useCase: UseCaseSync<Void, [CountryModel]>
+	private let useCase: UseCaseSync<Void, [Country]>
 
 	/// Инициализатор
 	/// - Parameter useCase: useCase
-	init(useCase: UseCaseSync<Void, [CountryModel]>) {
+	init(useCase: UseCaseSync<Void, [Country]>) {
 		self.useCase = useCase
 	}
 
@@ -29,7 +31,7 @@ final class SelectCountryInteractor: SelectCountryInteractorInput {
 													 strategy: .new))
 	}
 
-	func getCountries() -> [CountryModel] {
+	func getCountries() -> [Country] {
 		let countries = useCase.execute(parameter: ())
 		return countries.sorted { first, second in
 			guard let firstName = first.nameRu, let secondName = second.nameRu else {

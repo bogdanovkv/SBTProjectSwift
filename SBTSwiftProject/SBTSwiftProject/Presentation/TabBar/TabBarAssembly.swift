@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LocationRepositoryAbstraction
+import LocationDomainAbstraction
 
 /// Протокол сборщика ТабБара
 protocol TabBarAssemblyProtocol {
@@ -16,7 +16,8 @@ protocol TabBarAssemblyProtocol {
 	/// - Parameters:
 	///   - city: модель города
 	///   - coutry: модель страны
-	func createController(with city: CityModel, coutry: CountryModel) -> UIViewController
+	func createController(with city: City,
+						  coutry: Country) -> UIViewController
 }
 
 
@@ -36,7 +37,7 @@ final class TabBarAssembly: TabBarAssemblyProtocol {
 		self.settingsAssembly = settingsAssembly
 	}
 
-	func createController(with city: CityModel, coutry: CountryModel) -> UIViewController {
+	func createController(with city: City, coutry: Country) -> UIViewController {
 
 		let tabBarController = UITabBarController()
 		let ticketsSearchViewController = ticketsSearchAssembly.createViewController(with: city,

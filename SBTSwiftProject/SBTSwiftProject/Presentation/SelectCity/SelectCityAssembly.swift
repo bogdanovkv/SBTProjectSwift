@@ -7,20 +7,20 @@
 //
 
 import UIKit
-import LocationRepositoryAbstraction
+import LocationDomainAbstraction
 
 /// Сборщик экрана выбра города
 protocol SelectCityAssemblyProtocol {
 
 	/// Создает контроллер
 	/// - Parameter country: страна
-	func createController(country: CountryModel) -> UIViewController & SelectCityViewControllerInput
+	func createController(country: Country) -> UIViewController & SelectCityViewControllerInput
 }
 
 /// Сборщик экрана города
 final class SelectCityAssembly: SelectCityAssemblyProtocol {
 
-	func createController(country: CountryModel) -> UIViewController & SelectCityViewControllerInput {
+	func createController(country: Country) -> UIViewController & SelectCityViewControllerInput {
 		let interactor = SelectCityInteractor()
 		let controller = SelectCityViewController(interactor: interactor, country: country)
 		return controller

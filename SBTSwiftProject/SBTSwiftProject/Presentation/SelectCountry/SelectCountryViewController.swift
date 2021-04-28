@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LocationRepositoryAbstraction
+import LocationDomainAbstraction
 
 /// Протокол контроллера выбора страны
 protocol SelectCountryViewControllerInput: AnyObject {
@@ -21,7 +21,7 @@ protocol SelectCountryViewControllerOutput: AnyObject {
 
 	/// Пользователь выбрал страну
 	/// - Parameter country: страна
-	func userSelect(country: CountryModel)
+	func userSelect(country: Country)
 }
 
 /// Контроллер выбора страны
@@ -34,7 +34,7 @@ final class SelectCountryViewController: UIViewController, SelectCountryViewCont
 		return UITableView(frame: .zero, style: .plain)
 	}()
 
-	private var models: [CountryModel]
+	private var models: [Country]
 
 	/// Инициализатор
 	/// - Parameter interactor: интерактор

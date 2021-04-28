@@ -6,14 +6,14 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import LocationRepositoryAbstraction
+import LocationDomainAbstraction
 
 /// Модель данных для экрана выбора местоположения
 final class LocationViewModel {
 
 	/// Страна
-	var country: CountryModel?
+	var country: Country?
 
 	/// Город
-	var city: CityModel?
+	var city: City?
 }

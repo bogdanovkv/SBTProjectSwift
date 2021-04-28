@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import LocationRepositoryAbstraction
+import LocationDomainAbstraction
+import TicketsDomainAbstraction
 
 /// Роутер экрана поиска билетов
 protocol TicketsSearchRouterProtocol {
@@ -18,15 +19,15 @@ protocol TicketsSearchRouterProtocol {
 	///   - country: страна
 	///   - completion: блок, который выполнится при завершении выбора города
 	func showChangeCityViewController(on viewController: UIViewController,
-									  country: CountryModel,
-									  completion: @escaping (CityModel) -> Void)
+									  country: Country,
+									  completion: @escaping (City) -> Void)
 
 	/// Показывает экран смены страны
 	/// - Parameters:
 	///   - viewController: контроллер на котором будет показан экран
 	///   - completion: блок, который выполнится при завершении выбора страны
 	func showChangeCountryViewController(on viewController: UIViewController,
-										 completion: @escaping (CountryModel) -> Void)
+										 completion: @escaping (Country) -> Void)
 
 	/// Показывает алерт с информацией что билетов не нашлось
 	/// - Parameter viewController: контроллер на котором показывается алерт
@@ -40,8 +41,8 @@ protocol TicketsSearchRouterProtocol {
 	///   - toLocation: куда
 	func showTicketInformationController(on viewController: UIViewController,
 										 ticket: Ticket,
-										 fromLocation: (city: CityModel, country: CountryModel),
-										 toLocation: (city: CityModel, country: CountryModel))
+										 fromLocation: (city: City, country: Country),
+										 toLocation: (city: City, country: Country))
 }
 
 /// Роутер экрана поиска билетов
@@ -49,8 +50,8 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 
 	private let selectCountryAssembly: SelectCountryAssemblyProtocol
 	private let selectCityAssembly: SelectCityAssemblyProtocol
-	private var changeCityAction: ((CityModel) -> Void)?
-	private var changeCountryAction: ((CountryModel) -> Void)?
+	private var changeCityAction: ((City) -> Void)?
+	private var changeCountryAction: ((Country) -> Void)?
 	private let ticketAssembly: TiketAssemblyProtocol
 	private let alertsControllerAssembly: AlertControllerAssemblyProtocol
 
@@ -69,8 +70,8 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 	}
 
 	func showChangeCityViewController(on viewController: UIViewController,
-									  country: CountryModel,
-									  completion: @escaping (CityModel) -> Void) {
+									  country: Country,
+									  completion: @escaping (City) -> Void) {
 		let controller = selectCityAssembly.createController(country: country)
 		changeCityAction = completion
 		controller.output = self
@@ -78,7 +79,7 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 	}
 
 	func showChangeCountryViewController(on viewController: UIViewController,
-										 completion: @escaping (CountryModel) -> Void) {
+										 completion: @escaping (Country) -> Void) {
 		let controller = selectCountryAssembly.createController()
 		changeCountryAction = completion
 		controller.output = self
@@ -99,8 +100,8 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 
 	func showTicketInformationController(on viewController: UIViewController,
 										 ticket: Ticket,
-										 fromLocation: (city: CityModel, country: CountryModel),
-										 toLocation: (city: CityModel, country: CountryModel)) {
+										 fromLocation: (city: City, country: Country),
+										 toLocation: (city: City, country: Country)) {
 		let ticketController = ticketAssembly.createViewCotroller(with: ticket,
 																  departureLocation: (country: fromLocation.country, city: fromLocation.city),
 																  destinationLocation: (country: toLocation.country, city: toLocation.city))
@@ -110,14 +111,14 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 }
 
 extension TicketsSearchRouter: SelectCityViewControllerOutput {
-	func userSelect(city: CityModel) {
+	func userSelect(city: City) {
 		changeCityAction?(city)
 		changeCityAction = nil
 	}
 }
 
 extension TicketsSearchRouter: SelectCountryViewControllerOutput {
-	func userSelect(country: CountryModel) {
+	func userSelect(country: Country) {
 		changeCountryAction?(country)
 		changeCountryAction = nil
 	}

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TicketsDomainAbstraction
 
 /// Ячейка для отображения билета
 final class TicketTableViewCell: UITableViewCell {
@@ -105,8 +106,9 @@ final class TicketTableViewCell: UITableViewCell {
 	/// Утанавливает модель в ячейку
 	/// - Parameter model: модель
 	func configure(with model: Ticket) {
-		departureLabel.text = model.fromCity.nameRu ?? model.fromCity.name
-		destinationLabel.text = model.toCity.nameRu ?? model.toCity.name
+		// TODO: Добавить названия городов
+		departureLabel.text = model.fromCityCode
+		destinationLabel.text = model.toCityCode
 		departureDateLabel.text = model.departureDate.format_DD_MM_YYYY()
 		returnDateLabel.text = model.arrivalDate.format_DD_MM_YYYY()
 		priceLabel.text = "\(model.cost) р."

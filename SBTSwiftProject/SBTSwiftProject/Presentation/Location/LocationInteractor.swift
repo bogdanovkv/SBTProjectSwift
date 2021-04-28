@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import LocationRepositoryAbstraction
+import LocationDomainAbstraction
+import DomainAbstraction
 
 /// Протокол интерактор экрана выбора метоположения
 protocol LocationInteractorInput: AnyObject {
@@ -33,11 +34,11 @@ protocol LocationInteractorOutput: AnyObject {
 
 	/// Получен город
 	/// - Parameter city: город
-	func didRecieve(city: CityModel)
+	func didRecieve(city: City)
 
 	/// Получена страна
 	/// - Parameter country: страна
-	func didRecieve(country: CountryModel)
+	func didRecieve(country: Country)
 }
 
 /// Интерактор экрана выбора метоположения
@@ -45,17 +46,29 @@ final class LocationInteractor: LocationInteractorInput {
 
 	weak var ouptput: LocationInteractorOutput?
 
-	private let getLocationUseCase: LocationUseCaseProtocol
-	private let prepareStorageUseCase: PrepareStorageUseCaseProtocol
+	private let getLocationUseCase: UseCase<Void, Location>
+	private let prepareStorageUseCase: UseCase<Void, Void>
+	private let getCountryUseCase: UseCaseSync<String, Country?>
+	private let getCityUseCase: UseCaseSync<String, City?>
 
-	init(getLocationUseCase: LocationUseCaseProtocol,
-		 prepareStorageUseCase: PrepareStorageUseCaseProtocol) {
+	/// Инициализатор
+	/// - Parameters:
+	///   - getLocationUseCase: кейс получения местоположения
+	///   - getCountryUseCase: кейс получения страны
+	///   - getCityUseCase: кейст получения города
+	///   - prepareStorageUseCase: кейс подготовки хранилища
+	init(getLocationUseCase: UseCase<Void, Location>,
+		 getCountryUseCase: UseCaseSync<String, Country?>,
+		 getCityUseCase: UseCaseSync<String, City?>,
+		 prepareStorageUseCase: UseCase<Void, Void>) {
 		self.getLocationUseCase = getLocationUseCase
+		self.getCountryUseCase = getCountryUseCase
+		self.getCityUseCase = getCityUseCase
 		self.prepareStorageUseCase = prepareStorageUseCase
 	}
 
 	func getLocation() {
-		getLocationUseCase.getLocation { [weak self] result in
+		getLocationUseCase.execute(parameter: ()) { [weak self] result in
 			guard let location = try? result.get() else {
 				DispatchQueue.main.async {
 					self?.ouptput?.didRecieveLocationError()
@@ -68,7 +81,7 @@ final class LocationInteractor: LocationInteractorInput {
 	}
 
 	func prepareStorage() {
-		prepareStorageUseCase.prepareStorage { [weak self] result in
+		prepareStorageUseCase.execute(parameter: ()) { [weak self] result in
 			do {
 				_ = try result.get()
 				DispatchQueue.main.async {
@@ -83,7 +96,7 @@ final class LocationInteractor: LocationInteractorInput {
 	}
 
 	func getCity(wint name: String) {
-		if let city = getLocationUseCase.getCity(named: name) {
+		if let city = getCityUseCase.execute(parameter: name) {
 			DispatchQueue.main.async { [weak self] in
 				self?.ouptput?.didRecieve(city: city)
 			}
@@ -95,7 +108,7 @@ final class LocationInteractor: LocationInteractorInput {
 	}
 
 	func getCountry(with name: String) {
-		if let country = getLocationUseCase.getCountry(named: name) {
+		if let country = getCountryUseCase.execute(parameter: name) {
 			DispatchQueue.main.async { [weak self] in
 				self?.ouptput?.didRecieve(country: country)
 			}

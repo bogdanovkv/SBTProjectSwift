@@ -7,16 +7,17 @@
 //
 
 import Inject
-import LocationRepositoryAbstraction
+import DomainAbstraction
+import LocationDomainAbstraction
 
 protocol SelectCityInteractorInput {
-	func getCities(for country: CountryModel) -> [CityModel]
+	func getCities(for country: Country) -> [City]
 }
 
 final class SelectCityInteractor: SelectCityInteractorInput {
-	private let useCase: UseCaseSync<CountryModel, [CityModel]>
+	private let useCase: UseCaseSync<Country, [City]>
 
-	init(useCase: UseCaseSync<CountryModel, [CityModel]>) {
+	init(useCase: UseCaseSync<Country, [City]>) {
 		self.useCase = useCase
 	}
 
@@ -25,7 +26,7 @@ final class SelectCityInteractor: SelectCityInteractorInput {
 													 strategy: .new))
 	}
 
-	func getCities(for country: CountryModel) -> [CityModel] {
+	func getCities(for country: Country) -> [City] {
 		let cities = useCase.execute(parameter: country)
 		return cities.sorted(by: { first, second in
 			guard let firstName = first.nameRu, let secondName = second.nameRu else {

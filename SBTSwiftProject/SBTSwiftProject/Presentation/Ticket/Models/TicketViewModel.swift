@@ -7,20 +7,22 @@
 //
 
 import UIKit
-import LocationRepositoryAbstraction
+import LocationDomainAbstraction
+import TicketsDomainAbstraction
+
 final class TicketViewModel {
 
 	let ticket: Ticket
-	let departureCity: CityModel
-	let departureCountry: CountryModel
-	let destinationCity: CityModel
-	let destinationCountry: CountryModel
+	let departureCity: City
+	let departureCountry: Country
+	let destinationCity: City
+	let destinationCountry: Country
 
 	init(ticket: Ticket,
-		 departureCity: CityModel,
-		 departureCountry: CountryModel,
-		 destinationCity: CityModel,
-		 destinationCountry: CountryModel) {
+		 departureCity: City,
+		 departureCountry: Country,
+		 destinationCity: City,
+		 destinationCountry: Country) {
 		self.ticket = ticket
 		self.departureCity = departureCity
 		self.departureCountry = departureCountry

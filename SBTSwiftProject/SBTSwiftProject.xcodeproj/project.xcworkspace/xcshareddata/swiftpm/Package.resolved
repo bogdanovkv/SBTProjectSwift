@@ -20,6 +20,33 @@
         }
       },
       {
+        "package": "DomainAbstraction",
+        "repositoryURL": "https://github.com/bogdanovkv/DomainAbstraction.git",
+        "state": {
+          "branch": null,
+          "revision": "d2bc3edb8398b7ac0a056ea0db44808afa91cc58",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "LocationDomainAbstraction",
+        "repositoryURL": "https://github.com/bogdanovkv/LocationDomainAbstraction.git",
+        "state": {
+          "branch": null,
+          "revision": "89fe836913ccfce86eb0179385556921b882f51f",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "LocationDomainLogic",
+        "repositoryURL": "https://github.com/bogdanovkv/LocationDomainLogic.git",
+        "state": {
+          "branch": null,
+          "revision": "db039e41e8a43cfe01fdb995f617e818584ea3eb",
+          "version": "1.0.2"
+        }
+      },
+      {
         "package": "LocationRepository",
         "repositoryURL": "https://github.com/bogdanovkv/LocationRepository.git",
         "state": {
@@ -53,6 +80,24 @@
           "branch": null,
           "revision": "b6ef324b2a8e61045ea38f280c725298155cc728",
           "version": "1.0.1"
+        }
+      },
+      {
+        "package": "TicketsDomainAbstraction",
+        "repositoryURL": "https://github.com/bogdanovkv/TicketsDomainAbstraction.git",
+        "state": {
+          "branch": null,
+          "revision": "429d0f43ab3d742637e82d0f27b9ef4e24417182",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "TicketsDomainLogic",
+        "repositoryURL": "https://github.com/bogdanovkv/TicketsDomainLogic.git",
+        "state": {
+          "branch": null,
+          "revision": "6f330e54e90a1067b41fb85bc29ef9c0ee89cfd4",
+          "version": "1.0.2"
         }
       },
       {

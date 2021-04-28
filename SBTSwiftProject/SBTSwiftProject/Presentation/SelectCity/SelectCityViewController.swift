@@ -7,29 +7,29 @@
 //
 
 import UIKit
-import LocationRepositoryAbstraction
+import LocationDomainAbstraction
 
 protocol SelectCityViewControllerInput: AnyObject {
 	var output: SelectCityViewControllerOutput? { get set }
 }
 
 protocol SelectCityViewControllerOutput: AnyObject {
-	func userSelect(city: CityModel)
+	func userSelect(city: City)
 }
 
 final class SelectCityViewController: UIViewController, SelectCityViewControllerInput {
 
 	weak var output: SelectCityViewControllerOutput?
-	private let country: CountryModel
+	private let country: Country
 	private let interactor: SelectCityInteractorInput
 	private lazy var tableView: UITableView = {
 		return UITableView(frame: .zero, style: .plain)
 	}()
 
-	private var models: [CityModel]
+	private var models: [City]
 
 	init(interactor: SelectCityInteractorInput,
-		 country: CountryModel) {
+		 country: Country) {
 		self.interactor = interactor
 		self.country = country
 		models = []

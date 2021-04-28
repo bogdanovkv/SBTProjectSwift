@@ -7,14 +7,16 @@
 //
 import Foundation
 import LocationRepositoryAbstraction
+import TicketsDomainAbstraction
+import LocationDomainAbstraction
 
 /// Вью модель для экрана поиска билетов
 final class TicketsSearchViewModel {
-	var departureCountry: CountryModel?
-	var departureCity: CityModel?
+	var departureCountry: Country?
+	var departureCity: City?
 	var departureDate: Date?
-	var desntinationCity: CityModel?
-	var desntinationCountry: CountryModel?
+	var desntinationCity: City?
+	var desntinationCountry: Country?
 	var returnDate: Date?
 	var tickets: [Ticket] = []
 }

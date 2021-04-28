@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LocationRepositoryAbstraction
+import LocationDomainAbstraction
 
 /// Протокол контроллера выбора местоположения
 protocol LocationViewControllerInput: LocationViewController {
@@ -107,13 +107,13 @@ extension LocationViewController: LocationInteractorOutput {
 		router.showStorageErrorAlert(on: self)
 	}
 
-	func didRecieve(city: CityModel) {
+	func didRecieve(city: City) {
 		viewModel.city = city
 		updateView()
 		locationView.hideLoader()
 	}
 
-	func didRecieve(country: CountryModel) {
+	func didRecieve(country: Country) {
 		viewModel.country = country
 		updateView()
 		locationView.hideLoader()
@@ -146,7 +146,7 @@ extension LocationViewController: LocationViewOutput {
 }
 
 extension LocationViewController: SelectCountryViewControllerOutput {
-	func userSelect(country: CountryModel) {
+	func userSelect(country: Country) {
 		viewModel.country = country
 		viewModel.city = nil
 		updateView()
@@ -154,7 +154,7 @@ extension LocationViewController: SelectCountryViewControllerOutput {
 }
 
 extension LocationViewController: SelectCityViewControllerOutput {
-	func userSelect(city: CityModel) {
+	func userSelect(city: City) {
 		viewModel.city = city
 		updateView()
 	}

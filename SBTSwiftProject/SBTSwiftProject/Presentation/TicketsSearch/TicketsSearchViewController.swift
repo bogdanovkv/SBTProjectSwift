@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import LocationRepositoryAbstraction
+import LocationDomainAbstraction
+import TicketsDomainAbstraction
 
 /// Контроллер поиска билетов
 final class TicketsSearchViewController: UIViewController {
@@ -25,8 +26,8 @@ final class TicketsSearchViewController: UIViewController {
 	///   - departureCountry: страна отправления
 	///   - interactor: интерактор
 	///   - router: роутер
-	init(departureCity: CityModel,
-		 departureCountry: CountryModel,
+	init(departureCity: City,
+		 departureCountry: Country,
 		 interactor: TicketsSearchInteractorInput,
 		 router: TicketsSearchRouterProtocol) {
 		viewModel = .init()

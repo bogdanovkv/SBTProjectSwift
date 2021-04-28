@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LocationRepositoryAbstraction
+import LocationDomainAbstraction
 
 /// Протокол роутера экрана выбора местоположения
 protocol LocationRouterProtocol {
@@ -26,7 +26,7 @@ protocol LocationRouterProtocol {
 
 	/// Показывает экран выбора города на переданном контроллере
 	/// - Parameter controller: контроллер
-	func showSelectCityController(with country: CountryModel,
+	func showSelectCityController(with country: Country,
 								  on controller: UIViewController & SelectCityViewControllerOutput)
 
 	/// Открывает таб бар с поиском билетов, сохраненными билетами и настройками
@@ -34,7 +34,9 @@ protocol LocationRouterProtocol {
 	///   - city: город
 	///   - country: страна
 	///   - controller: контроллер на который покажется таб бар
-	func openTabBarViewController(with city: CityModel, country: CountryModel, on controller: UIViewController)
+	func openTabBarViewController(with city: City,
+								  country: Country,
+								  on controller: UIViewController)
 }
 
 /// Роутер экрана выбора местоположения
@@ -94,14 +96,14 @@ final class LocationRouter: LocationRouterProtocol {
 		controller.present(selectCountryController, animated: true, completion: nil)
 	}
 
-	func showSelectCityController(with country: CountryModel,
+	func showSelectCityController(with country: Country,
 								  on controller: UIViewController & SelectCityViewControllerOutput) {
 		let selectCountryController = selectCityAssembly.createController(country: country)
 		selectCountryController.output = controller
 		controller.present(selectCountryController, animated: true, completion: nil)
 	}
 
-	func openTabBarViewController(with city: CityModel, country: CountryModel, on controller: UIViewController) {
+	func openTabBarViewController(with city: City, country: Country, on controller: UIViewController) {
 		let tabBarController = tabBarAssembly.createController(with: city, coutry: country)
 		tabBarController.modalPresentationStyle = .fullScreen
 		controller.present(tabBarController, animated: true, completion: nil)

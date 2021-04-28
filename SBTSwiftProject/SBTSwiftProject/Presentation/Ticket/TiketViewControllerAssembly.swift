@@ -7,18 +7,19 @@
 //
 
 import UIKit
-import LocationRepositoryAbstraction
+import LocationDomainAbstraction
+import TicketsDomainAbstraction
 
 protocol TiketAssemblyProtocol {
 	func createViewCotroller(with tiket: Ticket,
-							 departureLocation:(country: CountryModel, city: CityModel),
-							 destinationLocation:(country: CountryModel, city: CityModel)) -> UIViewController
+							 departureLocation:(country: Country, city: City),
+							 destinationLocation:(country: Country, city: City)) -> UIViewController
 }
 
 final class TiketViewControllerAssembly: TiketAssemblyProtocol {
 	func createViewCotroller(with tiket: Ticket,
-							 departureLocation:(country: CountryModel, city: CityModel),
-							 destinationLocation:(country: CountryModel, city: CityModel)) -> UIViewController {
+							 departureLocation:(country: Country, city: City),
+							 destinationLocation:(country: Country, city: City)) -> UIViewController {
 		let controller = TicketViewController(viewModel: .init(ticket: tiket,
 															   departureCity: departureLocation.city,
 															   departureCountry: departureLocation.country,

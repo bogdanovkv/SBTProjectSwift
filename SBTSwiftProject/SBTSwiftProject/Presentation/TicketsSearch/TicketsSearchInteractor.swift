@@ -8,6 +8,9 @@
 
 import Inject
 import LocationRepositoryAbstraction
+import DomainAbstraction
+import TicketsDomainAbstraction
+import LocationDomainAbstraction
 
 /// Ouptut интерактора поиска билетов
 protocol TicketsSearchInteractorOutput: AnyObject {
@@ -30,9 +33,9 @@ protocol TicketsSearchInteractorInput {
 	///   - fromDate: дата отправления
 	///   - toCity: город прибытия
 	///   - returnDate: дата возврата назад
-	func searchTickets(fromCity: CityModel,
+	func searchTickets(fromCity: City,
 					   fromDate: Date?,
-					   toCity: CityModel,
+					   toCity: City,
 					   returnDate: Date?)
 }
 
@@ -52,17 +55,18 @@ final class TicketsSearchInteractor: TicketsSearchInteractorInput {
 
 	/// Инициализатор с DI
 	convenience init() {
+		
 		self.init(searchTicketsUseCase: Inject.domainLayer.create(closure: { $0.createSearchTicketsUseCase() },
 																  strategy: .new))
 	}
 
-	func searchTickets(fromCity: CityModel,
+	func searchTickets(fromCity: City,
 					   fromDate: Date?,
-					   toCity: CityModel,
+					   toCity: City,
 					   returnDate: Date?) {
-		searchTicketsUseCase.execute(parameter: .init(fromCity: fromCity,
+		searchTicketsUseCase.execute(parameter: .init(fromCityCodeIATA: fromCity.codeIATA,
 													  fromDate: fromDate,
-													  toCity: toCity,
+													  toCityCodeIATA: toCity.codeIATA,
 													  returnDate: returnDate)) { [weak self] result in
 			do {
 				let result = try result.get()

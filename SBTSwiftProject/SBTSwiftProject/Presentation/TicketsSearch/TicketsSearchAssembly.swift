@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LocationRepositoryAbstraction
+import LocationDomainAbstraction
 
 /// Протокол сборщика экрана поиска билетов
 protocol TicketsSearchAssemblyProtocol {
@@ -16,12 +16,12 @@ protocol TicketsSearchAssemblyProtocol {
 	/// - Parameters:
 	///   - city: город пользователя
 	///   - coutry: страна пользователя
-	func createViewController(with city: CityModel, coutry: CountryModel) -> UIViewController
+	func createViewController(with city: City, coutry: Country) -> UIViewController
 }
 
 /// Сборщик экрана поиска билетов
 final class TicketsSearchAssembly: TicketsSearchAssemblyProtocol {
-	func createViewController(with city: CityModel, coutry: CountryModel) -> UIViewController {
+	func createViewController(with city: City, coutry: Country) -> UIViewController {
 		let interactor = TicketsSearchInteractor()
 		let router = TicketsSearchRouter(selectCountryAssembly: SelectCountryAssembly(),
 										 selectCityAssembly: SelectCityAssembly(),
