@@ -7,7 +7,6 @@
 //
 
 import Inject
-import LocationRepositoryAbstraction
 import DomainAbstraction
 import TicketsDomainAbstraction
 import LocationDomainAbstraction
@@ -22,6 +21,10 @@ protocol TicketsSearchInteractorOutput: AnyObject {
 	/// Получена ошибка во время поиска по билетам
 	/// - Parameter error: ошибка
 	func didRecieve(error: Error)
+
+	/// Поучена страна
+	/// - Parameter country: страна
+	func didRecieve(country: Country)
 }
 
 /// Протокол интерактора поиска билетов
@@ -37,6 +40,14 @@ protocol TicketsSearchInteractorInput {
 					   fromDate: Date?,
 					   toCity: City,
 					   returnDate: Date?)
+
+	/// Получает страну по коду
+	/// - Parameter name: название
+	func getCountry(with codeIATA: String) -> Country?
+
+	/// Получает город по коду
+	/// - Parameter codeIATA: код города
+	func getCity(with codeIATA: String) -> City?
 }
 
 /// Интерактор поиска по билетам
@@ -46,17 +57,27 @@ final class TicketsSearchInteractor: TicketsSearchInteractorInput {
 	weak var output: TicketsSearchInteractorOutput?
 
 	private let searchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]>
+	private let getCountryByCodeUseCase: UseCaseSync<String, Country?>
+	private let getCityByCodeUseCase: UseCaseSync<String, City?>
 
 	/// Инициализатор
 	/// - Parameter searchTicketsUseCase: кейс поиска билетов
-	init(searchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]> ) {
+	init(searchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]>,
+		 getCountryByCodeUseCase: UseCaseSync<String, Country?>,
+		 getCityByCodeUseCase: UseCaseSync<String, City?>) {
 		self.searchTicketsUseCase = searchTicketsUseCase
+		self.getCountryByCodeUseCase = getCountryByCodeUseCase
+		self.getCityByCodeUseCase = getCityByCodeUseCase
 	}
 
 	/// Инициализатор с DI
 	convenience init() {
 		
 		self.init(searchTicketsUseCase: Inject.domainLayer.create(closure: { $0.createSearchTicketsUseCase() },
+																  strategy: .new),
+				  getCountryByCodeUseCase: Inject.domainLayer.create(closure: { $0.createGetCountryByCodeUseCase() },
+																	 strategy: .new),
+				  getCityByCodeUseCase: Inject.domainLayer.create(closure: { $0.createGetCityByCodeUseCase() },
 																  strategy: .new))
 	}
 
@@ -79,5 +100,13 @@ final class TicketsSearchInteractor: TicketsSearchInteractorInput {
 				}
 			}
 		}
+	}
+
+	func getCountry(with codeIATA: String) -> Country? {
+		return getCountryByCodeUseCase.execute(parameter: codeIATA)
+	}
+
+	func getCity(with codeIATA: String) -> City? {
+		return getCityByCodeUseCase.execute(parameter: codeIATA)
 	}
 }

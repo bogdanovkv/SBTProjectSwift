@@ -15,8 +15,8 @@ final class LocationAssembly {
 	/// - Returns: контроллер
 	func createController() -> UIViewController {
 		let interactor = LocationInteractor(getLocationUseCase: DomainLayerDependencies.createLocationUseCase(),
-											getCountryUseCase: DomainLayerDependencies.createGetCountryUseCase(),
-											getCityUseCase: DomainLayerDependencies.createGetCityUseCase(),
+											getCountryUseCase: DomainLayerDependencies.createGetCountryByNameUseCase(),
+											getCityUseCase: DomainLayerDependencies.createGetCityByNameUseCase(),
 											prepareStorageUseCase: DomainLayerDependencies.createPrepareStorageUseCase())
 		let tabBarAssembly = TabBarAssembly(ticketsSearchAssembly: TicketsSearchAssembly(),
 											settingsAssembly: SettingsAssembly())

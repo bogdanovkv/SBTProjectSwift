@@ -30,35 +30,51 @@ struct DomainLayerDependencies: InjectFactoryProtocol {
 	}
 
 	static func createPrepareStorageUseCase() -> UseCase<Void, Void> {
-		let locationRepository = DataLayerDependencies.createLocationRepository()
+		let citiesRepository = DataLayerDependencies.createCitiesRepository()
+		let countriesRepository = DataLayerDependencies.createCountriesRepository()
+		let airportsRepository = DataLayerDependencies.createAirportsRepository()
 		let settingsRepository = DataLayerDependencies.createSettingsRepository()
 		let assembly = LocationLogicAsembly()
-		return assembly.createPrepareStorageUseCase(locationRepository: locationRepository,
+		return assembly.createPrepareStorageUseCase(citiesRepository: citiesRepository,
+													countriesRepository: countriesRepository,
+													airportsRepository: airportsRepository,
 													settingsRepository: settingsRepository)
 	}
 
 	static func createGetCountriesUseCase() -> UseCaseSync<Void, [Country]> {
-		let repository = DataLayerDependencies.createLocationRepository()
+		let repository = DataLayerDependencies.createCountriesRepository()
 		let assembly = LocationLogicAsembly()
-		return assembly.createGetCcountriesUseCase(locationRepository: repository)
+		return assembly.createGetCountriesUseCase(countriesRepository: repository)
 	}
 
-	static func createGetCitiesUseCase() -> UseCaseSync<Country, [City]> {
-		let repository = DataLayerDependencies.createLocationRepository()
+	static func createGetCitiesByCountryCodeUseCase() -> UseCaseSync<String, [City]> {
+		let repository = DataLayerDependencies.createCitiesRepository()
 		let assembly = LocationLogicAsembly()
-		return assembly.createGetCitiesUseCase(locationRepository: repository)
+		return assembly.createGetCitiesByCountryCodeSyncUseCase(citiesRepository: repository)
 	}
 
-	static func createGetCityUseCase() -> UseCaseSync<String, City?> {
-		let repository = DataLayerDependencies.createLocationRepository()
+	static func createGetCityByNameUseCase() -> UseCaseSync<String, City?> {
+		let repository = DataLayerDependencies.createCitiesRepository()
 		let assembly = LocationLogicAsembly()
-		return assembly.createGetCitySyncUseCase(locationRepository: repository)
+		return assembly.createGetCitySyncUseCase(citiesRepository: repository)
 	}
 
-	static func createGetCountryUseCase() -> UseCaseSync<String, Country?> {
-		let repository = DataLayerDependencies.createLocationRepository()
+	static func createGetCityByCodeUseCase() -> UseCaseSync<String, City?> {
+		let repository = DataLayerDependencies.createCitiesRepository()
 		let assembly = LocationLogicAsembly()
-		return assembly.createGetCountrySyncUseCase(locationRepository: repository)
+		return assembly.createGetCityByCodeSyncUseCase(citiesRepository: repository)
+	}
+
+	static func createGetCountryByNameUseCase() -> UseCaseSync<String, Country?> {
+		let repository = DataLayerDependencies.createCountriesRepository()
+		let assembly = LocationLogicAsembly()
+		return assembly.createGetCountryByNameSyncUseCase(countriesRepository: repository)
+	}
+
+	static func createGetCountryByCodeUseCase() -> UseCaseSync<String, Country?> {
+		let repository = DataLayerDependencies.createCountriesRepository()
+		let assembly = LocationLogicAsembly()
+		return assembly.createGetCountryByCodeSyncUseCase(countriesRepository: repository)
 	}
 
 	static func createSearchTicketsUseCase() -> UseCase<TicketsSearchModel, [Ticket]> {

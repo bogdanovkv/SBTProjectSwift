@@ -15,19 +15,19 @@ protocol SelectCityInteractorInput {
 }
 
 final class SelectCityInteractor: SelectCityInteractorInput {
-	private let useCase: UseCaseSync<Country, [City]>
+	private let useCase: UseCaseSync<String, [City]>
 
-	init(useCase: UseCaseSync<Country, [City]>) {
+	init(useCase: UseCaseSync<String, [City]>) {
 		self.useCase = useCase
 	}
 
 	convenience init() {
-		self.init(useCase: Inject.domainLayer.create(closure: { $0.createGetCitiesUseCase() },
+		self.init(useCase: Inject.domainLayer.create(closure: { $0.createGetCitiesByCountryCodeUseCase() },
 													 strategy: .new))
 	}
 
 	func getCities(for country: Country) -> [City] {
-		let cities = useCase.execute(parameter: country)
+		let cities = useCase.execute(parameter: country.codeIATA)
 		return cities.sorted(by: { first, second in
 			guard let firstName = first.nameRu, let secondName = second.nameRu else {
 				return first.name < second.name

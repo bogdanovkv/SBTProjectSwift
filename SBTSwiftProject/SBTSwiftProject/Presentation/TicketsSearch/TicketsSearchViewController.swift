@@ -91,10 +91,15 @@ extension TicketsSearchViewController: TicketsSearchViewOutput {
 	}
 
 	func userSelectChangeDepartureLocation() {
-		router.showChangeCountryViewController(on: self) { [weak self] country in
-			self?.viewModel.departureCountry = country
-			self?.updateView()
-			self?.userSelectChangeDepartureCity()
+		router.showChangeCountryViewController(on: self) { [weak self] countryCode in
+			guard let self = self else { return }
+			guard let country = self.interactor.getCountry(with: countryCode) else {
+				self.router.showSomethingWentWrongAlert(on: self)
+				return
+			}
+			self.viewModel.departureCountry = country
+			self.updateView()
+			self.userSelectChangeDepartureCity()
 		}
 	}
 
@@ -104,17 +109,27 @@ extension TicketsSearchViewController: TicketsSearchViewOutput {
 		}
 		router.showChangeCityViewController(on: self,
 											country: country,
-											completion: { [weak self] city in
-												self?.viewModel.departureCity = city
-												self?.updateView()
+											completion: { [weak self] cityCode in
+												guard let self = self else { return }
+												guard let city = self.interactor.getCity(with: cityCode) else {
+													self.router.showSomethingWentWrongAlert(on: self)
+													return
+												}
+												self.viewModel.departureCity = city
+												self.updateView()
 											})
 	}
 
 	func userSelectChangeDestinationLocation() {
-		router.showChangeCountryViewController(on: self) { [weak self] country in
-			self?.viewModel.desntinationCountry = country
-			self?.updateView()
-			self?.userSelectChangeDestinationCity()
+		router.showChangeCountryViewController(on: self) { [weak self] countryCode in
+			guard let self = self else { return }
+			guard let country = self.interactor.getCountry(with: countryCode) else {
+				self.router.showSomethingWentWrongAlert(on: self)
+				return
+			}
+			self.viewModel.desntinationCountry = country
+			self.updateView()
+			self.userSelectChangeDestinationCity()
 		}
 	}
 
@@ -124,9 +139,14 @@ extension TicketsSearchViewController: TicketsSearchViewOutput {
 		}
 		router.showChangeCityViewController(on: self,
 											country: country,
-											completion: { [weak self] city in
-												self?.viewModel.desntinationCity = city
-												self?.updateView()
+											completion: { [weak self] cityCode in
+												guard let self = self else { return }
+												guard let city = self.interactor.getCity(with: cityCode) else {
+													self.router.showSomethingWentWrongAlert(on: self)
+													return
+												}
+												self.viewModel.desntinationCity = city
+												self.updateView()
 											})
 	}
 
@@ -142,6 +162,21 @@ extension TicketsSearchViewController: TicketsSearchViewOutput {
 }
 
 extension TicketsSearchViewController: TicketsSearchInteractorOutput {
+	func didRecieveError() {
+		router.showSomethingWentWrongAlert(on: self)
+	}
+
+	func didRecieve(country: Country) {
+		updateView()
+		userSelectChangeDestinationCity()
+	}
+
+	func didRecieve(city: City) {
+		// TODO: Implement
+//		viewModel.city = city
+		updateView()
+	}
+
 	func didRecieve(tickets: [Ticket]) {
 		ticketsView.removeLoader()
 		if tickets.isEmpty {

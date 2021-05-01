@@ -28,6 +28,7 @@
 		1438FF7920F9FD2B003CC7C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1438FF7820F9FD2B003CC7C2 /* Assets.xcassets */; };
 		1438FF8720F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF8620F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift */; };
 		143AE7492639D98800D49F03 /* TicketsSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143AE7482639D98800D49F03 /* TicketsSearchViewModel.swift */; };
+		143AE750263A9AA100D49F03 /* FlowCoordnator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143AE74F263A9AA100D49F03 /* FlowCoordnator.swift */; };
 		145191042569604800A5593E /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145191032569604800A5593E /* TicketViewController.swift */; };
 		145191082569608A00A5593E /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145191072569608A00A5593E /* TicketView.swift */; };
 		1451910B2569684D00A5593E /* TiketViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451910A2569684D00A5593E /* TiketViewControllerAssembly.swift */; };
@@ -110,6 +111,7 @@
 		1438FF8620F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTSwiftProjectTests.swift; sourceTree = "<group>"; };
 		1438FF8820F9FD2B003CC7C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		143AE7482639D98800D49F03 /* TicketsSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsSearchViewModel.swift; sourceTree = "<group>"; };
+		143AE74F263A9AA100D49F03 /* FlowCoordnator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordnator.swift; sourceTree = "<group>"; };
 		145191032569604800A5593E /* TicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
 		145191072569608A00A5593E /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		1451910A2569684D00A5593E /* TiketViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiketViewControllerAssembly.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				147D5A3A25442EBE00F90BA2 /* DataLayer */,
 				14AE5AE625447A3000548B1D /* DomainLayer */,
 				14B4A5F92545945E00BFC583 /* Presentation */,
+				143AE74E263A9A8100D49F03 /* CoordinationLayer */,
 				1438FF7820F9FD2B003CC7C2 /* Assets.xcassets */,
 				14D1A23220FB380000BD1DC1 /* Info.plist */,
 			);
@@ -250,6 +253,14 @@
 				143AE7482639D98800D49F03 /* TicketsSearchViewModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		143AE74E263A9A8100D49F03 /* CoordinationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				143AE74F263A9AA100D49F03 /* FlowCoordnator.swift */,
+			);
+			path = CoordinationLayer;
 			sourceTree = "<group>";
 		};
 		145191022569601A00A5593E /* Ticket */ = {
@@ -595,6 +606,7 @@
 				1474CEEA2544367E00C9615B /* ServiceLayerDependecies.swift in Sources */,
 				14AE5AE825447E4600548B1D /* LocationInteractor.swift in Sources */,
 				142865DF25509C4E003D1930 /* SelectCityInteractor.swift in Sources */,
+				143AE750263A9AA100D49F03 /* FlowCoordnator.swift in Sources */,
 				14D634C825506A1200FF7D37 /* AlertControllerAssembly.swift in Sources */,
 				14F78D1A254DFF7D0043C6DA /* LocationViewModel.swift in Sources */,
 				14D634CA25506ADC00FF7D37 /* LocationRouter.swift in Sources */,

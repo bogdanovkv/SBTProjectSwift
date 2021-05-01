@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/bogdanovkv/LocationDomainLogic.git",
         "state": {
           "branch": null,
-          "revision": "db039e41e8a43cfe01fdb995f617e818584ea3eb",
-          "version": "1.0.2"
+          "revision": "8352194b0912fd040040d15202d56c09545a98ed",
+          "version": "1.1.0"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/bogdanovkv/LocationRepository.git",
         "state": {
           "branch": null,
-          "revision": "fc59e521acf3053acf56440a0e69a751cb1ed53c",
-          "version": "1.0.1"
+          "revision": "30fdc1214e1ba60b1a56887b6d60c21eb0ace0a7",
+          "version": "1.1.1"
         }
       },
       {
@@ -60,8 +60,8 @@
         "repositoryURL": "https://github.com/bogdanovkv/LocationRepositoryAbstraction.git",
         "state": {
           "branch": null,
-          "revision": "41efc928102634738e9faf02391f65d1efed9fc2",
-          "version": "1.0.2"
+          "revision": "cc0a88275cef876adb1b80f7c0fb8453de252e64",
+          "version": "1.1.0"
         }
       },
       {

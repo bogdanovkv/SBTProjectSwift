@@ -13,6 +13,9 @@ import TicketsDomainAbstraction
 /// Роутер экрана поиска билетов
 protocol TicketsSearchRouterProtocol {
 
+	/// Показывает алерт "Что-то пошло не так"
+	func showSomethingWentWrongAlert(on viewController: UIViewController)
+
 	/// Показывает экран смены города на контроллера
 	/// - Parameters:
 	///   - viewController: контроллер на котором будет показан экран
@@ -20,14 +23,14 @@ protocol TicketsSearchRouterProtocol {
 	///   - completion: блок, который выполнится при завершении выбора города
 	func showChangeCityViewController(on viewController: UIViewController,
 									  country: Country,
-									  completion: @escaping (City) -> Void)
+									  completion: @escaping (String) -> Void)
 
 	/// Показывает экран смены страны
 	/// - Parameters:
 	///   - viewController: контроллер на котором будет показан экран
 	///   - completion: блок, который выполнится при завершении выбора страны
 	func showChangeCountryViewController(on viewController: UIViewController,
-										 completion: @escaping (Country) -> Void)
+										 completion: @escaping (String) -> Void)
 
 	/// Показывает алерт с информацией что билетов не нашлось
 	/// - Parameter viewController: контроллер на котором показывается алерт
@@ -50,8 +53,8 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 
 	private let selectCountryAssembly: SelectCountryAssemblyProtocol
 	private let selectCityAssembly: SelectCityAssemblyProtocol
-	private var changeCityAction: ((City) -> Void)?
-	private var changeCountryAction: ((Country) -> Void)?
+	private var changeCityAction: ((String) -> Void)?
+	private var changeCountryAction: ((String) -> Void)?
 	private let ticketAssembly: TiketAssemblyProtocol
 	private let alertsControllerAssembly: AlertControllerAssemblyProtocol
 
@@ -71,7 +74,7 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 
 	func showChangeCityViewController(on viewController: UIViewController,
 									  country: Country,
-									  completion: @escaping (City) -> Void) {
+									  completion: @escaping (String) -> Void) {
 		let controller = selectCityAssembly.createController(country: country)
 		changeCityAction = completion
 		controller.output = self
@@ -79,7 +82,7 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 	}
 
 	func showChangeCountryViewController(on viewController: UIViewController,
-										 completion: @escaping (Country) -> Void) {
+										 completion: @escaping (String) -> Void) {
 		let controller = selectCountryAssembly.createController()
 		changeCountryAction = completion
 		controller.output = self
@@ -108,18 +111,29 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 		ticketController.modalPresentationStyle = .fullScreen
 		viewController.present(ticketController, animated: true, completion: nil)
 	}
+
+	func showSomethingWentWrongAlert(on viewController: UIViewController) {
+		let alert = alertsControllerAssembly.createController(title: "Что-то пошло не так...",
+															  message: "Всякое бывает",
+															  preferredStyle: .alert,
+															  actions: [.init(title: "Закрыть",
+																			  style: .cancel,
+																			  handler: { [weak viewController] _ in
+																				viewController?.presentedViewController?.dismiss(animated: true, completion: nil)
+																			  })])
+		viewController.present(alert, animated: true, completion: nil)	}
 }
 
 extension TicketsSearchRouter: SelectCityViewControllerOutput {
-	func userSelect(city: City) {
-		changeCityAction?(city)
+	func userSelectCity(with code: String) {
+		changeCityAction?(code)
 		changeCityAction = nil
 	}
 }
 
 extension TicketsSearchRouter: SelectCountryViewControllerOutput {
-	func userSelect(country: Country) {
-		changeCountryAction?(country)
+	func userSelectCountry(with code: String) {
+		changeCountryAction?(code)
 		changeCountryAction = nil
 	}
 }

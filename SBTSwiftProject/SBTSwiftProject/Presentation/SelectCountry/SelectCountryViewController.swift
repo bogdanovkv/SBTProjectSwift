@@ -20,8 +20,8 @@ protocol SelectCountryViewControllerInput: AnyObject {
 protocol SelectCountryViewControllerOutput: AnyObject {
 
 	/// Пользователь выбрал страну
-	/// - Parameter country: страна
-	func userSelect(country: Country)
+	/// - Parameter code: код страны
+	func userSelectCountry(with code: String)
 }
 
 /// Контроллер выбора страны
@@ -80,7 +80,7 @@ extension SelectCountryViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let model = models[indexPath.row]
 		dismiss(animated: true, completion: {
-			self.output?.userSelect(country: model)
+			self.output?.userSelectCountry(with: model.codeIATA)
 		})
 	}
 }

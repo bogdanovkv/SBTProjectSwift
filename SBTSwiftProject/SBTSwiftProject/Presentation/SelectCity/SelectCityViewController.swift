@@ -14,7 +14,7 @@ protocol SelectCityViewControllerInput: AnyObject {
 }
 
 protocol SelectCityViewControllerOutput: AnyObject {
-	func userSelect(city: City)
+	func userSelectCity(with code: String)
 }
 
 final class SelectCityViewController: UIViewController, SelectCityViewControllerInput {
@@ -72,7 +72,7 @@ extension SelectCityViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let model = models[indexPath.row]
 		dismiss(animated: true, completion: {
-			self.output?.userSelect(city: model)
+			self.output?.userSelectCity(with: model.codeIATA)
 		})
 	}
 }

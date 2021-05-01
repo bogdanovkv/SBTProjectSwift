@@ -146,6 +146,10 @@ extension LocationViewController: LocationViewOutput {
 }
 
 extension LocationViewController: SelectCountryViewControllerOutput {
+	func userSelectCountry(with code: String) {
+// TODO: - implement
+	}
+
 	func userSelect(country: Country) {
 		viewModel.country = country
 		viewModel.city = nil
@@ -154,8 +158,10 @@ extension LocationViewController: SelectCountryViewControllerOutput {
 }
 
 extension LocationViewController: SelectCityViewControllerOutput {
-	func userSelect(city: City) {
-		viewModel.city = city
+
+	func userSelectCity(with code: String) {
+		// TODO: - implement
+//		viewModel.city = city
 		updateView()
 	}
 }
