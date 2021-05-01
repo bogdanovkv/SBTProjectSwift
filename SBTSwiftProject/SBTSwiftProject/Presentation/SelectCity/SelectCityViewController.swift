@@ -20,7 +20,7 @@ protocol SelectCityViewControllerOutput: AnyObject {
 final class SelectCityViewController: UIViewController, SelectCityViewControllerInput {
 
 	weak var output: SelectCityViewControllerOutput?
-	private let country: Country
+	private let countryCode: String
 	private let interactor: SelectCityInteractorInput
 	private lazy var tableView: UITableView = {
 		return UITableView(frame: .zero, style: .plain)
@@ -29,9 +29,9 @@ final class SelectCityViewController: UIViewController, SelectCityViewController
 	private var models: [City]
 
 	init(interactor: SelectCityInteractorInput,
-		 country: Country) {
+		 countryCode: String) {
 		self.interactor = interactor
-		self.country = country
+		self.countryCode = countryCode
 		models = []
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -49,7 +49,7 @@ final class SelectCityViewController: UIViewController, SelectCityViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		models = interactor.getCities(for: country)
+		models = interactor.getCities(for: countryCode)
 		tableView.reloadData()
     }
 }
@@ -63,7 +63,7 @@ extension SelectCityViewController: UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 		let ruName = models[indexPath.row].nameRu
 		let name = models[indexPath.row].name
-		cell.textLabel?.text = "\(ruName ?? "---")" + " " + "(\(name))"
+		cell.textLabel?.text = ruName ?? name
 		return cell
 	}
 }

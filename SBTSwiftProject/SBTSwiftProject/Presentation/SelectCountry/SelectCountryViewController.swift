@@ -71,7 +71,7 @@ extension SelectCountryViewController: UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 		let ruName = models[indexPath.row].nameRu
 		let name = models[indexPath.row].name
-		cell.textLabel?.text = "\(ruName ?? "---")" + " " + "(\(name))"
+		cell.textLabel?.text = ruName ?? name
 		return cell
 	}
 }

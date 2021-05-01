@@ -127,7 +127,7 @@ extension LocationViewController: LocationViewOutput {
 
 	func changeCityButtonTapped() {
 		if let country = viewModel.country {
-			router.showSelectCityController(with: country, on: self)
+			router.showSelectCityController(with: country.codeIATA, on: self)
 			return
 		}
 	}

@@ -10,23 +10,16 @@ import UIKit
 import LocationDomainAbstraction
 import TicketsDomainAbstraction
 
+/// Модель для view экрана отображения информации о билете
 final class TicketViewModel {
 
-	let ticket: Ticket
-	let departureCity: City
-	let departureCountry: Country
-	let destinationCity: City
-	let destinationCountry: Country
+	let ticket: TicketPresentationModel
+	var departureCity: City?
+	var departureCountry: Country?
+	var destinationCity: City?
+	var destinationCountry: Country?
 
-	init(ticket: Ticket,
-		 departureCity: City,
-		 departureCountry: Country,
-		 destinationCity: City,
-		 destinationCountry: Country) {
+	init(ticket: TicketPresentationModel) {
 		self.ticket = ticket
-		self.departureCity = departureCity
-		self.departureCountry = departureCountry
-		self.destinationCity = destinationCity
-		self.destinationCountry = destinationCountry
 	}
 }

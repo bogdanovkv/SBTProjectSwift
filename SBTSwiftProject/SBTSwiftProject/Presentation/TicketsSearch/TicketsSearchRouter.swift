@@ -43,9 +43,7 @@ protocol TicketsSearchRouterProtocol {
 	///   - fromLocation: откуда
 	///   - toLocation: куда
 	func showTicketInformationController(on viewController: UIViewController,
-										 ticket: Ticket,
-										 fromLocation: (city: City, country: Country),
-										 toLocation: (city: City, country: Country))
+										 ticket: Ticket)
 }
 
 /// Роутер экрана поиска билетов
@@ -75,7 +73,7 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 	func showChangeCityViewController(on viewController: UIViewController,
 									  country: Country,
 									  completion: @escaping (String) -> Void) {
-		let controller = selectCityAssembly.createController(country: country)
+		let controller = selectCityAssembly.createController(countryCode: country.codeIATA)
 		changeCityAction = completion
 		controller.output = self
 		viewController.present(controller, animated: true, completion: nil)
@@ -102,12 +100,15 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 	}
 
 	func showTicketInformationController(on viewController: UIViewController,
-										 ticket: Ticket,
-										 fromLocation: (city: City, country: Country),
-										 toLocation: (city: City, country: Country)) {
-		let ticketController = ticketAssembly.createViewCotroller(with: ticket,
-																  departureLocation: (country: fromLocation.country, city: fromLocation.city),
-																  destinationLocation: (country: toLocation.country, city: toLocation.city))
+										 ticket: Ticket) {
+		let ticketController = ticketAssembly.createViewCotroller(for: .init(fromCityCode: ticket.fromCityCode,
+																			 toCityCode: ticket.toCityCode,
+																			 airlineCode: ticket.airlineCode,
+																			 departureDate: ticket.departureDate,
+																			 arrivalDate: ticket.arrivalDate,
+																			 cost: ticket.cost,
+																			 flightNumber: ticket.flightNumber,
+																			 expires: ticket.expires))
 		ticketController.modalPresentationStyle = .fullScreen
 		viewController.present(ticketController, animated: true, completion: nil)
 	}

@@ -26,7 +26,7 @@ protocol LocationRouterProtocol {
 
 	/// Показывает экран выбора города на переданном контроллере
 	/// - Parameter controller: контроллер
-	func showSelectCityController(with country: Country,
+	func showSelectCityController(with countryCode: String,
 								  on controller: UIViewController & SelectCityViewControllerOutput)
 
 	/// Открывает таб бар с поиском билетов, сохраненными билетами и настройками
@@ -96,9 +96,9 @@ final class LocationRouter: LocationRouterProtocol {
 		controller.present(selectCountryController, animated: true, completion: nil)
 	}
 
-	func showSelectCityController(with country: Country,
+	func showSelectCityController(with countryCode: String,
 								  on controller: UIViewController & SelectCityViewControllerOutput) {
-		let selectCountryController = selectCityAssembly.createController(country: country)
+		let selectCountryController = selectCityAssembly.createController(countryCode: countryCode)
 		selectCountryController.output = controller
 		controller.present(selectCountryController, animated: true, completion: nil)
 	}

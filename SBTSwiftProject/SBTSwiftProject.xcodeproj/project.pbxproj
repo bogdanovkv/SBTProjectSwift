@@ -29,6 +29,9 @@
 		1438FF8720F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF8620F9FD2B003CC7C2 /* SBTSwiftProjectTests.swift */; };
 		143AE7492639D98800D49F03 /* TicketsSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143AE7482639D98800D49F03 /* TicketsSearchViewModel.swift */; };
 		143AE750263A9AA100D49F03 /* FlowCoordnator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143AE74F263A9AA100D49F03 /* FlowCoordnator.swift */; };
+		143BA912263D9CE2002011EC /* TiketAssemblyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143BA911263D9CE2002011EC /* TiketAssemblyProtocol.swift */; };
+		143BA916263D9D24002011EC /* TicketPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143BA915263D9D24002011EC /* TicketPresentationModel.swift */; };
+		143BA91A263DA05E002011EC /* TicketInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143BA919263DA05E002011EC /* TicketInteractor.swift */; };
 		145191042569604800A5593E /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145191032569604800A5593E /* TicketViewController.swift */; };
 		145191082569608A00A5593E /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145191072569608A00A5593E /* TicketView.swift */; };
 		1451910B2569684D00A5593E /* TiketViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451910A2569684D00A5593E /* TiketViewControllerAssembly.swift */; };
@@ -112,6 +115,9 @@
 		1438FF8820F9FD2B003CC7C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		143AE7482639D98800D49F03 /* TicketsSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsSearchViewModel.swift; sourceTree = "<group>"; };
 		143AE74F263A9AA100D49F03 /* FlowCoordnator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordnator.swift; sourceTree = "<group>"; };
+		143BA911263D9CE2002011EC /* TiketAssemblyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiketAssemblyProtocol.swift; sourceTree = "<group>"; };
+		143BA915263D9D24002011EC /* TicketPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketPresentationModel.swift; sourceTree = "<group>"; };
+		143BA919263DA05E002011EC /* TicketInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketInteractor.swift; sourceTree = "<group>"; };
 		145191032569604800A5593E /* TicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
 		145191072569608A00A5593E /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		1451910A2569684D00A5593E /* TiketViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiketViewControllerAssembly.swift; sourceTree = "<group>"; };
@@ -263,13 +269,24 @@
 			path = CoordinationLayer;
 			sourceTree = "<group>";
 		};
+		143BA910263D9CC0002011EC /* Abstractions */ = {
+			isa = PBXGroup;
+			children = (
+				143BA911263D9CE2002011EC /* TiketAssemblyProtocol.swift */,
+				143BA915263D9D24002011EC /* TicketPresentationModel.swift */,
+			);
+			path = Abstractions;
+			sourceTree = "<group>";
+		};
 		145191022569601A00A5593E /* Ticket */ = {
 			isa = PBXGroup;
 			children = (
+				143BA910263D9CC0002011EC /* Abstractions */,
+				1451910F25697E7100A5593E /* Models */,
 				1451910A2569684D00A5593E /* TiketViewControllerAssembly.swift */,
 				145191032569604800A5593E /* TicketViewController.swift */,
+				143BA919263DA05E002011EC /* TicketInteractor.swift */,
 				145191072569608A00A5593E /* TicketView.swift */,
-				1451910F25697E7100A5593E /* Models */,
 			);
 			path = Ticket;
 			sourceTree = "<group>";
@@ -585,12 +602,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1451910B2569684D00A5593E /* TiketViewControllerAssembly.swift in Sources */,
+				143BA912263D9CE2002011EC /* TiketAssemblyProtocol.swift in Sources */,
 				142865E52551DBD9003D1930 /* TicketsSearchInteractor.swift in Sources */,
 				145191082569608A00A5593E /* TicketView.swift in Sources */,
 				142865E32551DB30003D1930 /* TicketsSearchViewController.swift in Sources */,
 				1485DD5C2599197B009FFF7C /* SettingsView.swift in Sources */,
 				14AE5AEA2544801D00548B1D /* LocationView.swift in Sources */,
 				1478A0902552BEA100C3633C /* TicketsSearchView.swift in Sources */,
+				143BA91A263DA05E002011EC /* TicketInteractor.swift in Sources */,
 				147981AC254D9C1D00110A9B /* AppErrors.swift in Sources */,
 				14D634CF255075B300FF7D37 /* SelectCountryInteractor.swift in Sources */,
 				1438FF7120F9FD29003CC7C2 /* LocationViewController.swift in Sources */,
@@ -615,6 +634,7 @@
 				14ECFD612556A58100FBFC62 /* TicketTableViewCell.swift in Sources */,
 				143AE7492639D98800D49F03 /* TicketsSearchViewModel.swift in Sources */,
 				142865CE25509648003D1930 /* SelectCountryAssembly.swift in Sources */,
+				143BA916263D9D24002011EC /* TicketPresentationModel.swift in Sources */,
 				1478A09E2552D9A900C3633C /* TicketsSearchDatePicker.swift in Sources */,
 				14AE5AF025448AFC00548B1D /* DataLayerDependencies.swift in Sources */,
 				14ECFD572556913E00FBFC62 /* SettingsViewController.swift in Sources */,

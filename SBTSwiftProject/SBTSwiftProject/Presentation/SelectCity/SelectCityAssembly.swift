@@ -14,15 +14,15 @@ protocol SelectCityAssemblyProtocol {
 
 	/// Создает контроллер
 	/// - Parameter country: страна
-	func createController(country: Country) -> UIViewController & SelectCityViewControllerInput
+	func createController(countryCode: String) -> UIViewController & SelectCityViewControllerInput
 }
 
 /// Сборщик экрана города
 final class SelectCityAssembly: SelectCityAssemblyProtocol {
 
-	func createController(country: Country) -> UIViewController & SelectCityViewControllerInput {
+	func createController(countryCode: String) -> UIViewController & SelectCityViewControllerInput {
 		let interactor = SelectCityInteractor()
-		let controller = SelectCityViewController(interactor: interactor, country: country)
+		let controller = SelectCityViewController(interactor: interactor, countryCode: countryCode)
 		return controller
 	}
 }

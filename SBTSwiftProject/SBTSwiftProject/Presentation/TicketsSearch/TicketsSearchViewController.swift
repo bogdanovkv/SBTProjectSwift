@@ -195,18 +195,9 @@ extension TicketsSearchViewController: UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		guard let departureCity = viewModel.departureCity,
-			  let departureCountry = viewModel.departureCountry,
-			  let destinationCity = viewModel.desntinationCity,
-			  let destinationCountry = viewModel.desntinationCountry else {
-			return
-		}
-	
 		let model = viewModel.tickets[indexPath.row]
 		router.showTicketInformationController(on: self,
-											   ticket: model,
-											   fromLocation: (city: departureCity, country: destinationCountry),
-											   toLocation: (city: destinationCity, country: departureCountry))
+											   ticket: model)
 
 	}
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocationDomainAbstraction
 
 /// Обработчик событий от вью отображения билетов
 protocol TicketViewOutput: AnyObject {
@@ -19,8 +20,18 @@ protocol TicketViewOutput: AnyObject {
 
 }
 
+protocol TicketViewInput {
+	/// Конфигурирует вью с моделью билета
+	/// - Parameter ticket: билет
+	func configure(with ticket: TicketViewModel,
+				   destinationCity: City,
+				   destinationCountry: Country,
+				   departureCity: City,
+				   departureCountry: Country)
+}
+
 /// Вью для отображения информации о билете
-final class TicketView: UIView {
+final class TicketView: UIView, TicketViewInput {
 
 	private let departureCountryLabel: UILabel
 	private let departureCityLabel: UILabel
@@ -84,17 +95,19 @@ final class TicketView: UIView {
 		fatalError()
 	}
 
-	/// Конфигурирует вью с моделью билета
-	/// - Parameter ticket: билет
-	func configure(with ticket: TicketViewModel) {
-		let destinationCityName = (ticket.destinationCity.nameRu ?? ticket.destinationCity.name)
-		let destinationCountryName = (ticket.destinationCountry.nameRu ?? ticket.destinationCountry.name)
+	func configure(with ticket: TicketViewModel,
+				   destinationCity: City,
+				   destinationCountry: Country,
+				   departureCity: City,
+				   departureCountry: Country) {
+		let destinationCityName = (destinationCity.nameRu ?? destinationCity.name)
+		let destinationCountryName = (destinationCountry.nameRu ?? destinationCountry.name)
 		destinationCityLabel.text = "Страна назначения: " + destinationCityName
 		destinationCountryLabel.text = "Город назначения: " + destinationCountryName
 		destinationDateLabel.text = ticket.ticket.arrivalDate.format_DD_MM_YYYY()
 
-		let departureCityName = (ticket.destinationCity.nameRu ?? ticket.destinationCity.name)
-		let dapartureCountryName = (ticket.destinationCountry.nameRu ?? ticket.destinationCountry.name)
+		let departureCityName = (destinationCity.nameRu ?? destinationCity.name)
+		let dapartureCountryName = (destinationCountry.nameRu ?? destinationCountry.name)
 		departureCountryLabel.text = "Страна отправления: " + dapartureCountryName
 		departureCityLabel.text = "Город отправления: " + departureCityName
 		departureDateLabel.text = ticket.ticket.departureDate.format_DD_MM_YYYY()
