@@ -137,7 +137,7 @@ extension LocationViewController: LocationViewOutput {
 			updateView()
 			return
 		}
-		router.openTabBarViewController(with: city, country: country, on: self)
+		router.openTabBarViewController(with: city.codeIATA, countryCode: country.codeIATA, on: self)
 	}
 
 	func changeCountryButtonTapped() {

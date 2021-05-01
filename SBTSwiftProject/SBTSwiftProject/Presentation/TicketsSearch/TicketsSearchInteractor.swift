@@ -21,10 +21,6 @@ protocol TicketsSearchInteractorOutput: AnyObject {
 	/// Получена ошибка во время поиска по билетам
 	/// - Parameter error: ошибка
 	func didRecieve(error: Error)
-
-	/// Поучена страна
-	/// - Parameter country: страна
-	func didRecieve(country: Country)
 }
 
 /// Протокол интерактора поиска билетов

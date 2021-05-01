@@ -16,24 +16,26 @@ final class TicketsSearchViewController: UIViewController {
 	private let viewModel: TicketsSearchViewModel
 	private let router: TicketsSearchRouterProtocol
 	private let interactor: TicketsSearchInteractorInput
+	private let departureCityCode: String
+	private let departureCountryCode: String
 	private lazy var ticketsView: TicketsSearchViewInput &  UIView = {
 		return TicketsSearchView()
 	}()
 
 	/// Инициализатор
 	/// - Parameters:
-	///   - departureCity: город отправления
-	///   - departureCountry: страна отправления
+	///   - departureCityCode: город отправления
+	///   - departureCountryCode: страна отправления
 	///   - interactor: интерактор
 	///   - router: роутер
-	init(departureCity: City,
-		 departureCountry: Country,
+	init(departureCityCode: String,
+		 departureCountryCode: String,
 		 interactor: TicketsSearchInteractorInput,
 		 router: TicketsSearchRouterProtocol) {
 		viewModel = .init()
-		viewModel.departureCity = departureCity
-		viewModel.departureCountry = departureCountry
 		viewModel.departureDate = Date()
+		self.departureCityCode = departureCityCode
+		self.departureCountryCode = departureCountryCode
 		self.router = router
 		self.interactor = interactor
 		super.init(nibName: nil, bundle: nil)
@@ -56,6 +58,8 @@ final class TicketsSearchViewController: UIViewController {
 		super.viewDidLoad()
 		ticketsView.set(tableDataSource: self)
 		ticketsView.set(tableDelegate: self)
+		viewModel.departureCity = interactor.getCity(with: departureCityCode)
+		viewModel.departureCountry = interactor.getCountry(with: departureCountryCode)
 		updateView()
 	}
 
@@ -164,17 +168,6 @@ extension TicketsSearchViewController: TicketsSearchViewOutput {
 extension TicketsSearchViewController: TicketsSearchInteractorOutput {
 	func didRecieveError() {
 		router.showSomethingWentWrongAlert(on: self)
-	}
-
-	func didRecieve(country: Country) {
-		updateView()
-		userSelectChangeDestinationCity()
-	}
-
-	func didRecieve(city: City) {
-		// TODO: Implement
-//		viewModel.city = city
-		updateView()
 	}
 
 	func didRecieve(tickets: [Ticket]) {

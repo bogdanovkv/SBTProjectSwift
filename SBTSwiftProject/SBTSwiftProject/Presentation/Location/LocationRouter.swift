@@ -31,12 +31,10 @@ protocol LocationRouterProtocol {
 
 	/// Открывает таб бар с поиском билетов, сохраненными билетами и настройками
 	/// - Parameters:
-	///   - city: город
-	///   - country: страна
+	///   - cityCode: город
+	///   - countryCode: страна
 	///   - controller: контроллер на который покажется таб бар
-	func openTabBarViewController(with city: City,
-								  country: Country,
-								  on controller: UIViewController)
+	func openTabBarViewController(with cityCode: String, countryCode: String, on controller: UIViewController)
 }
 
 /// Роутер экрана выбора местоположения
@@ -103,8 +101,8 @@ final class LocationRouter: LocationRouterProtocol {
 		controller.present(selectCountryController, animated: true, completion: nil)
 	}
 
-	func openTabBarViewController(with city: City, country: Country, on controller: UIViewController) {
-		let tabBarController = tabBarAssembly.createController(with: city, coutry: country)
+	func openTabBarViewController(with cityCode: String, countryCode: String, on controller: UIViewController) {
+		let tabBarController = tabBarAssembly.createController(with: cityCode, coutryCode: countryCode)
 		tabBarController.modalPresentationStyle = .fullScreen
 		controller.present(tabBarController, animated: true, completion: nil)
 	}

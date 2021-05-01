@@ -16,8 +16,8 @@ protocol TabBarAssemblyProtocol {
 	/// - Parameters:
 	///   - city: модель города
 	///   - coutry: модель страны
-	func createController(with city: City,
-						  coutry: Country) -> UIViewController
+	func createController(with cityCode: String,
+						  coutryCode: String) -> UIViewController
 }
 
 
@@ -37,11 +37,11 @@ final class TabBarAssembly: TabBarAssemblyProtocol {
 		self.settingsAssembly = settingsAssembly
 	}
 
-	func createController(with city: City, coutry: Country) -> UIViewController {
+	func createController(with cityCode: String, coutryCode: String) -> UIViewController {
 
 		let tabBarController = UITabBarController()
-		let ticketsSearchViewController = ticketsSearchAssembly.createViewController(with: city,
-																					 coutry: coutry)
+		let ticketsSearchViewController = ticketsSearchAssembly.createViewController(with: cityCode,
+																					 coutryCode: coutryCode)
 		let settingsViewController = settingsAssembly.createViewController()
 		tabBarController.setViewControllers([ticketsSearchViewController, settingsViewController],
 											animated: true)

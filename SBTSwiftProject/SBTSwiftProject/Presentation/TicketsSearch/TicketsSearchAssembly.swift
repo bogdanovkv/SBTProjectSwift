@@ -16,19 +16,19 @@ protocol TicketsSearchAssemblyProtocol {
 	/// - Parameters:
 	///   - city: город пользователя
 	///   - coutry: страна пользователя
-	func createViewController(with city: City, coutry: Country) -> UIViewController
+	func createViewController(with cityCode: String, coutryCode: String) -> UIViewController
 }
 
 /// Сборщик экрана поиска билетов
 final class TicketsSearchAssembly: TicketsSearchAssemblyProtocol {
-	func createViewController(with city: City, coutry: Country) -> UIViewController {
+	func createViewController(with cityCode: String, coutryCode: String) -> UIViewController {
 		let interactor = TicketsSearchInteractor()
 		let router = TicketsSearchRouter(selectCountryAssembly: SelectCountryAssembly(),
 										 selectCityAssembly: SelectCityAssembly(),
 										 ticketAssembly: TiketViewControllerAssembly(),
 										 alertsControllerAssembly: AlertControllerAssembly())
-		let controller = TicketsSearchViewController(departureCity: city,
-													 departureCountry: coutry,
+		let controller = TicketsSearchViewController(departureCityCode: cityCode,
+													 departureCountryCode: coutryCode,
 													 interactor: interactor,
 													 router: router)
 		interactor.output = controller
