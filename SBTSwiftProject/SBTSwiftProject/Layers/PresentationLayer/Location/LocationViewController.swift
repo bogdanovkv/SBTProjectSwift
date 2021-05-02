@@ -9,31 +9,60 @@
 import UIKit
 import LocationDomainAbstraction
 
+protocol LocationModuleOutput {
+
+	/// Экрану не удалось подготовить хранилище
+	func moduleDidRecievePrepareStorageError()
+
+	/// Получена ошибка при определении местоположения
+	func moduleDidRecieveLocationError()
+
+	/// Показывает экран выбора города на переданном контроллере
+	/// - Parameter controller: контроллер
+	func userSelectChangeCity(for countryCode: String)
+
+	/// Показывает экран выбора страны на переданном контроллере
+	/// - Parameter controller: контроллер
+	func userSelectChangeCountry()
+
+	/// Пользователь выбрал местоположение
+	func userSelectLocation(with cityCode: String, countryCode: String)
+}
+
 /// Протокол контроллера выбора местоположения
-protocol LocationViewControllerInput: LocationViewController {
+protocol LocationModuleInput {
+	var moduleOutput: LocationModuleOutput? { get set }
+
 	/// Повторяет запрос на получени данных по странам города и аэропортам
 	func retryPrepareStorage()
+
+	/// Обновлен город
+	/// - Parameter code: код города
+	func didUpdateCity(with code: String)
+
+	/// Обновлена страна
+	/// - Parameter code: код страны
+	func didUpdateCountry(with code: String)
 
 	/// Повторяет запрос на получение локации пользователя
 	func retryGetLoaction()
 }
 
 /// Контроллер выбора местоположения
-final class LocationViewController: UIViewController, LocationViewControllerInput {
+final class LocationViewController: UIViewController, LocationModuleInput {
+
+	var moduleOutput: LocationModuleOutput?
 
 	private lazy var locationView: LocationViewInput = LocationView()
 	private let interactor: LocationInteractorInput
 	private let viewModel: LocationViewModel
-	private let router: LocationRouterProtocol
 
 	/// Инициализатор
 	/// - Parameters:
 	///   - interactor: интерактор
 	///   - router: роутер
-	init(interactor: LocationInteractorInput,
-		 router: LocationRouterProtocol) {
+	init(interactor: LocationInteractorInput) {
 		self.interactor = interactor
-		self.router = router
 		viewModel = .init()
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -51,6 +80,26 @@ final class LocationViewController: UIViewController, LocationViewControllerInpu
         super.viewDidLoad()
 		locationView.showLoader()
 		interactor.prepareStorage()
+	}
+
+	// MARK: - LocationModuleInput
+	func didUpdateCity(with code: String) {
+		guard let city = interactor.getCity(code: code) else {
+			// TODO: Alert
+			return
+		}
+		viewModel.city = city
+		updateView()
+	}
+
+	func didUpdateCountry(with code: String) {
+		guard let country = interactor.getCountry(code: code) else {
+			// TODO: Alert
+			return
+		}
+		viewModel.country = country
+		viewModel.city = nil
+		updateView()
 	}
 
 	func retryPrepareStorage() {
@@ -95,7 +144,7 @@ final class LocationViewController: UIViewController, LocationViewControllerInpu
 extension LocationViewController: LocationInteractorOutput {
 	func didRecieveLocationError() {
 		locationView.hideLoader()
-		router.showLocationErrorAlert(on: self)
+		moduleOutput?.moduleDidRecieveLocationError()
 	}
 
 	func didPrepareStorage() {
@@ -104,7 +153,7 @@ extension LocationViewController: LocationInteractorOutput {
 
 	func didRecievePrepareStorageError() {
 		locationView.hideLoader()
-		router.showStorageErrorAlert(on: self)
+		moduleOutput?.moduleDidRecievePrepareStorageError()
 	}
 
 	func didRecieve(city: City) {
@@ -127,7 +176,7 @@ extension LocationViewController: LocationViewOutput {
 
 	func changeCityButtonTapped() {
 		if let country = viewModel.country {
-			router.showSelectCityController(with: country.codeIATA, on: self)
+			moduleOutput?.userSelectChangeCity(for: country.codeIATA)
 			return
 		}
 	}
@@ -137,31 +186,10 @@ extension LocationViewController: LocationViewOutput {
 			updateView()
 			return
 		}
-		router.openTabBarViewController(with: city.codeIATA, countryCode: country.codeIATA, on: self)
+		moduleOutput?.userSelectLocation(with: city.codeIATA, countryCode: country.codeIATA)
 	}
 
 	func changeCountryButtonTapped() {
-		router.showSelectCountryController(on: self)
-	}
-}
-
-extension LocationViewController: SelectCountryViewControllerOutput {
-	func userSelectCountry(with code: String) {
-// TODO: - implement
-	}
-
-	func userSelect(country: Country) {
-		viewModel.country = country
-		viewModel.city = nil
-		updateView()
-	}
-}
-
-extension LocationViewController: SelectCityViewControllerOutput {
-
-	func userSelectCity(with code: String) {
-		// TODO: - implement
-//		viewModel.city = city
-		updateView()
+		moduleOutput?.userSelectChangeCountry()
 	}
 }

@@ -125,14 +125,14 @@ final class TicketsSearchRouter: TicketsSearchRouterProtocol {
 		viewController.present(alert, animated: true, completion: nil)	}
 }
 
-extension TicketsSearchRouter: SelectCityViewControllerOutput {
+extension TicketsSearchRouter: SelectCityModuleOutput {
 	func userSelectCity(with code: String) {
 		changeCityAction?(code)
 		changeCityAction = nil
 	}
 }
 
-extension TicketsSearchRouter: SelectCountryViewControllerOutput {
+extension TicketsSearchRouter: SelectCountryModuleOutput {
 	func userSelectCountry(with code: String) {
 		changeCountryAction?(code)
 		changeCountryAction = nil

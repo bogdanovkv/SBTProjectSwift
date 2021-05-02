@@ -8,8 +8,17 @@
 
 import UIKit
 
+protocol SettingsModuleInput {
+	var moduleOutput: SettingsModuleOuput? { get set }
+}
+
+protocol SettingsModuleOuput {
+
+}
+
 /// Контроллер настроек
-final class SettingsViewController: UIViewController {
+final class SettingsViewController: UIViewController, SettingsModuleInput {
+	var moduleOutput: SettingsModuleOuput?
 
 	private lazy var settingsView = SettingsView()
 

@@ -9,17 +9,17 @@
 import UIKit
 import LocationDomainAbstraction
 
-protocol SelectCityViewControllerInput: AnyObject {
-	var output: SelectCityViewControllerOutput? { get set }
+protocol SelectCityModuleInput: AnyObject {
+	var output: SelectCityModuleOutput? { get set }
 }
 
-protocol SelectCityViewControllerOutput: AnyObject {
+protocol SelectCityModuleOutput: AnyObject {
 	func userSelectCity(with code: String)
 }
 
-final class SelectCityViewController: UIViewController, SelectCityViewControllerInput {
+final class SelectCityViewController: UIViewController, SelectCityModuleInput {
 
-	weak var output: SelectCityViewControllerOutput?
+	weak var output: SelectCityModuleOutput?
 	private let countryCode: String
 	private let interactor: SelectCityInteractorInput
 	private lazy var tableView: UITableView = {

@@ -18,6 +18,14 @@ protocol LocationInteractorInput: AnyObject {
 
 	/// Подготовить хранилище
 	func prepareStorage()
+
+	/// Получат город по коду
+	/// - Parameter code: код города
+	func getCity(code: String) -> City?
+
+	/// Получает страну по коду
+	/// - Parameter code: код
+	func getCountry(code: String) -> Country?
 }
 
 /// Интерактор экрана выбора метоположения
@@ -50,6 +58,8 @@ final class LocationInteractor: LocationInteractorInput {
 	private let prepareStorageUseCase: UseCase<Void, Void>
 	private let getCountryUseCase: UseCaseSync<String, Country?>
 	private let getCityUseCase: UseCaseSync<String, City?>
+	private let getCityByCodeUseCase: UseCaseSync<String, City?>
+	private let getCountryByCodeUseCase: UseCaseSync<String, Country?>
 
 	/// Инициализатор
 	/// - Parameters:
@@ -60,11 +70,15 @@ final class LocationInteractor: LocationInteractorInput {
 	init(getLocationUseCase: UseCase<Void, Location>,
 		 getCountryUseCase: UseCaseSync<String, Country?>,
 		 getCityUseCase: UseCaseSync<String, City?>,
-		 prepareStorageUseCase: UseCase<Void, Void>) {
+		 prepareStorageUseCase: UseCase<Void, Void>,
+		 getCityByCodeUseCase: UseCaseSync<String, City?>,
+		 getCountryByCodeUseCase: UseCaseSync<String, Country?>) {
 		self.getLocationUseCase = getLocationUseCase
 		self.getCountryUseCase = getCountryUseCase
 		self.getCityUseCase = getCityUseCase
 		self.prepareStorageUseCase = prepareStorageUseCase
+		self.getCityByCodeUseCase = getCityByCodeUseCase
+		self.getCountryByCodeUseCase = getCountryByCodeUseCase
 	}
 
 	func getLocation() {
@@ -117,5 +131,13 @@ final class LocationInteractor: LocationInteractorInput {
 		DispatchQueue.main.async { [weak self] in
 			self?.ouptput?.didRecieveLocationError()
 		}
+	}
+
+	func getCity(code: String) -> City? {
+		return getCityByCodeUseCase.execute(parameter: code)
+	}
+
+	func getCountry(code: String) -> Country? {
+		return getCountryByCodeUseCase.execute(parameter: code)
 	}
 }

@@ -12,14 +12,13 @@ import UIKit
 protocol SettingsAssemblyProtocol {
 
 	/// Создает экран настроек
-	func createViewController() -> UIViewController
+	func createViewController() -> UIViewController & SettingsModuleInput
 }
 
 /// Сборщик экрана настроек
 final class SettingsAssembly: SettingsAssemblyProtocol {
 
-	func createViewController() -> UIViewController {
-		let navigationController = UINavigationController(rootViewController: SettingsViewController())
-		return navigationController
+	func createViewController() -> UIViewController & SettingsModuleInput {
+		return SettingsViewController()
 	}
 }

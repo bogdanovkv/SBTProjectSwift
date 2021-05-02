@@ -9,17 +9,28 @@
 import UIKit
 
 protocol FlowCoordnator {
+	associatedtype InputParameter
 	associatedtype FlowResult
 
 	var finishFlow: ((FlowResult) -> Void)? { get set }
 
-	func start()
+	func start(parameter: InputParameter)
 }
 
-class Coordinator<FlowResult>: FlowCoordnator {
+class Coordinator<Input, Result>: FlowCoordnator {
+
+	typealias InputParameter = Input
+	typealias FlowResult = Result
+
 	var finishFlow: ((FlowResult) -> Void)?
 
-	func start() {
+	func start(parameter: Input) {
 		assert(false, "Should be overrided by subclass")
+	}
+}
+
+extension FlowCoordnator where InputParameter == Void {
+	func start() {
+		start(parameter: ())
 	}
 }

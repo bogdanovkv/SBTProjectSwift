@@ -9,23 +9,23 @@
 import UIKit
 
 /// Сборщик экрана выбора местоположения пользоателя
-final class LocationAssembly {
-
+protocol LocationAssemblyProtocol {
 	/// Создает контроллер
 	/// - Returns: контроллер
-	func createController() -> UIViewController {
+	func createController() -> UIViewController & LocationModuleInput
+}
+
+/// Сборщик экрана выбора местоположения пользоателя
+final class LocationAssembly {
+
+	func createController() -> UIViewController & LocationModuleInput {
 		let interactor = LocationInteractor(getLocationUseCase: DomainLayerDependencies.createLocationUseCase(),
 											getCountryUseCase: DomainLayerDependencies.createGetCountryByNameUseCase(),
 											getCityUseCase: DomainLayerDependencies.createGetCityByNameUseCase(),
-											prepareStorageUseCase: DomainLayerDependencies.createPrepareStorageUseCase())
-		let tabBarAssembly = TabBarAssembly(ticketsSearchAssembly: TicketsSearchAssembly(),
-											settingsAssembly: SettingsAssembly())
-		let router = LocationRouter(alertAssembly: AlertControllerAssembly(),
-									selectCountryAssembly: SelectCountryAssembly(),
-									selectCityAssembly: SelectCityAssembly(),
-									tabBarAssembly: tabBarAssembly)
-		let locationController = LocationViewController(interactor: interactor,
-														router: router)
+											prepareStorageUseCase: DomainLayerDependencies.createPrepareStorageUseCase(),
+											getCityByCodeUseCase: DomainLayerDependencies.createGetCityByCodeUseCase(),
+											getCountryByCodeUseCase: DomainLayerDependencies.createGetCountryByCodeUseCase())
+		let locationController = LocationViewController(interactor: interactor)
 		interactor.ouptput = locationController
 		return locationController
 	}

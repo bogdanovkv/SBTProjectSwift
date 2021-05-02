@@ -10,14 +10,14 @@ import UIKit
 import LocationDomainAbstraction
 
 /// Протокол контроллера выбора страны
-protocol SelectCountryViewControllerInput: AnyObject {
+protocol SelectCountryModuleInput: AnyObject {
 
 	/// Обработчик событий от экрана выбора страны
-	var output: SelectCountryViewControllerOutput? { get set }
+	var output: SelectCountryModuleOutput? { get set }
 }
 
 /// Протокол обработчика событий от экрана выбора страны
-protocol SelectCountryViewControllerOutput: AnyObject {
+protocol SelectCountryModuleOutput: AnyObject {
 
 	/// Пользователь выбрал страну
 	/// - Parameter code: код страны
@@ -25,9 +25,9 @@ protocol SelectCountryViewControllerOutput: AnyObject {
 }
 
 /// Контроллер выбора страны
-final class SelectCountryViewController: UIViewController, SelectCountryViewControllerInput {
+final class SelectCountryViewController: UIViewController, SelectCountryModuleInput {
 
-	weak var output: SelectCountryViewControllerOutput?
+	weak var output: SelectCountryModuleOutput?
 
 	private let interactor: SelectCountryInteractorInput
 	private lazy var tableView: UITableView = {

@@ -10,8 +10,17 @@ import UIKit
 import LocationDomainAbstraction
 import TicketsDomainAbstraction
 
+protocol TicketsSearchModuleOutput {
+
+}
+
+protocol TicketsSearchModuleInput {
+	var moduleOutput: TicketsSearchModuleOutput? { get set }
+}
+
 /// Контроллер поиска билетов
-final class TicketsSearchViewController: UIViewController {
+final class TicketsSearchViewController: UIViewController, TicketsSearchModuleInput {
+	var moduleOutput: TicketsSearchModuleOutput?
 
 	private let viewModel: TicketsSearchViewModel
 	private let router: TicketsSearchRouterProtocol

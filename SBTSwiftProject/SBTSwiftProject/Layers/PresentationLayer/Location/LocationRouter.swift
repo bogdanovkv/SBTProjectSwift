@@ -14,20 +14,20 @@ protocol LocationRouterProtocol {
 
 	/// Показывает алерт об ошибке получения стран, городов и аэропортов
 	/// - Parameter controller: контроллер на котором будет показан алерт
-	func showStorageErrorAlert(on controller: UIViewController & LocationViewControllerInput)
+	func showStorageErrorAlert(on controller: UIViewController & LocationModuleInput)
 
 	/// Показывает алерт
 	/// - Parameter controller: алерт на котором будет показан алерт
-	func showLocationErrorAlert(on controller: UIViewController & LocationViewControllerInput)
+	func showLocationErrorAlert(on controller: UIViewController & LocationModuleInput)
 
 	/// Показывает экран выбора страны на переданном контроллере
 	/// - Parameter controller: контроллер
-	func showSelectCountryController(on controller: UIViewController & SelectCountryViewControllerOutput)
+	func showSelectCountryController(on controller: UIViewController & SelectCountryModuleOutput)
 
 	/// Показывает экран выбора города на переданном контроллере
 	/// - Parameter controller: контроллер
 	func showSelectCityController(with countryCode: String,
-								  on controller: UIViewController & SelectCityViewControllerOutput)
+								  on controller: UIViewController & SelectCityModuleOutput)
 
 	/// Открывает таб бар с поиском билетов, сохраненными билетами и настройками
 	/// - Parameters:
@@ -60,7 +60,7 @@ final class LocationRouter: LocationRouterProtocol {
 		self.tabBarAssembly = tabBarAssembly
 	}
 
-	func showStorageErrorAlert(on controller: UIViewController & LocationViewControllerInput) {
+	func showStorageErrorAlert(on controller: UIViewController & LocationModuleInput) {
 
 		let action = UIAlertAction(title: "Повторить", style: .default, handler: { [weak controller] _ in
 			controller?.presentedViewController?.dismiss(animated: true, completion: nil)
@@ -73,7 +73,7 @@ final class LocationRouter: LocationRouterProtocol {
 		controller.present(alert, animated: true, completion: nil)
 	}
 
-	func showLocationErrorAlert(on controller: UIViewController & LocationViewControllerInput) {
+	func showLocationErrorAlert(on controller: UIViewController & LocationModuleInput) {
 		let manualAction = UIAlertAction(title: "Выбрать вручную", style: .cancel, handler: { [weak controller] _ in
 			controller?.presentedViewController?.dismiss(animated: true, completion: nil)
 		})
@@ -88,14 +88,14 @@ final class LocationRouter: LocationRouterProtocol {
 		controller.present(alert, animated: true, completion: nil)
 	}
 
-	func showSelectCountryController(on controller: UIViewController & SelectCountryViewControllerOutput) {
+	func showSelectCountryController(on controller: UIViewController & SelectCountryModuleOutput) {
 		let selectCountryController = selectCountryAssembly.createController()
 		selectCountryController.output = controller
 		controller.present(selectCountryController, animated: true, completion: nil)
 	}
 
 	func showSelectCityController(with countryCode: String,
-								  on controller: UIViewController & SelectCityViewControllerOutput) {
+								  on controller: UIViewController & SelectCityModuleOutput) {
 		let selectCountryController = selectCityAssembly.createController(countryCode: countryCode)
 		selectCountryController.output = controller
 		controller.present(selectCountryController, animated: true, completion: nil)
