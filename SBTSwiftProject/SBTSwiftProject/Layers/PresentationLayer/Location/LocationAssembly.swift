@@ -6,6 +6,8 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
+import DomainAbstraction
+import LocationDomainAbstraction
 import UIKit
 
 /// Сборщик экрана выбора местоположения пользоателя
@@ -16,15 +18,42 @@ protocol LocationAssemblyProtocol {
 }
 
 /// Сборщик экрана выбора местоположения пользоателя
-final class LocationAssembly {
+final class LocationAssembly: LocationAssemblyProtocol {
+
+	private let getLocationUseCase: UseCase<Void, Location>
+	private let prepareStorageUseCase: UseCase<Void, Void>
+	private let getCountryUseCase: UseCaseSync<String, Country?>
+	private let getCityUseCase: UseCaseSync<String, City?>
+	private let getCityByCodeUseCase: UseCaseSync<String, City?>
+	private let getCountryByCodeUseCase: UseCaseSync<String, Country?>
+
+	/// Инициализатор
+	/// - Parameters:
+	///   - getLocationUseCase: кейс получения местоположения
+	///   - getCountryUseCase: кейс получения страны
+	///   - getCityUseCase: кейст получения города
+	///   - prepareStorageUseCase: кейс подготовки хранилища
+	init(getLocationUseCase: UseCase<Void, Location>,
+		 getCountryUseCase: UseCaseSync<String, Country?>,
+		 getCityUseCase: UseCaseSync<String, City?>,
+		 prepareStorageUseCase: UseCase<Void, Void>,
+		 getCityByCodeUseCase: UseCaseSync<String, City?>,
+		 getCountryByCodeUseCase: UseCaseSync<String, Country?>) {
+		self.getLocationUseCase = getLocationUseCase
+		self.getCountryUseCase = getCountryUseCase
+		self.getCityUseCase = getCityUseCase
+		self.prepareStorageUseCase = prepareStorageUseCase
+		self.getCityByCodeUseCase = getCityByCodeUseCase
+		self.getCountryByCodeUseCase = getCountryByCodeUseCase
+	}
 
 	func createController() -> UIViewController & LocationModuleInput {
-		let interactor = LocationInteractor(getLocationUseCase: DomainLayerDependencies.createLocationUseCase(),
-											getCountryUseCase: DomainLayerDependencies.createGetCountryByNameUseCase(),
-											getCityUseCase: DomainLayerDependencies.createGetCityByNameUseCase(),
-											prepareStorageUseCase: DomainLayerDependencies.createPrepareStorageUseCase(),
-											getCityByCodeUseCase: DomainLayerDependencies.createGetCityByCodeUseCase(),
-											getCountryByCodeUseCase: DomainLayerDependencies.createGetCountryByCodeUseCase())
+		let interactor = LocationInteractor(getLocationUseCase: getLocationUseCase,
+											getCountryUseCase: getCountryUseCase,
+											getCityUseCase: getCityUseCase,
+											prepareStorageUseCase: prepareStorageUseCase,
+											getCityByCodeUseCase: getCityByCodeUseCase,
+											getCountryByCodeUseCase: getCountryByCodeUseCase)
 		let locationController = LocationViewController(interactor: interactor)
 		interactor.ouptput = locationController
 		return locationController

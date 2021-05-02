@@ -8,6 +8,8 @@
 
 import UIKit
 import LocationDomainAbstraction
+import DomainAbstraction
+import TicketsDomainAbstraction
 
 /// Протокол сборщика экрана поиска билетов
 protocol TicketsSearchAssemblyProtocol {
@@ -21,16 +23,27 @@ protocol TicketsSearchAssemblyProtocol {
 
 /// Сборщик экрана поиска билетов
 final class TicketsSearchAssembly: TicketsSearchAssemblyProtocol {
+	private let searchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]>
+	private let getCountryByCodeUseCase: UseCaseSync<String, Country?>
+	private let getCityByCodeUseCase: UseCaseSync<String, City?>
+
+	/// Инициализатор
+	/// - Parameter searchTicketsUseCase: кейс поиска билетов
+	init(searchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]>,
+		 getCountryByCodeUseCase: UseCaseSync<String, Country?>,
+		 getCityByCodeUseCase: UseCaseSync<String, City?>) {
+		self.searchTicketsUseCase = searchTicketsUseCase
+		self.getCountryByCodeUseCase = getCountryByCodeUseCase
+		self.getCityByCodeUseCase = getCityByCodeUseCase
+	}
+
 	func createViewController(with cityCode: String, coutryCode: String) -> UIViewController & TicketsSearchModuleInput {
-		let interactor = TicketsSearchInteractor()
-		let router = TicketsSearchRouter(selectCountryAssembly: SelectCountryAssembly(),
-										 selectCityAssembly: SelectCityAssembly(),
-										 ticketAssembly: TiketViewControllerAssembly(),
-										 alertsControllerAssembly: AlertControllerAssembly())
+		let interactor = TicketsSearchInteractor(searchTicketsUseCase: searchTicketsUseCase,
+												 getCountryByCodeUseCase: getCountryByCodeUseCase,
+												 getCityByCodeUseCase: getCityByCodeUseCase)
 		let controller = TicketsSearchViewController(departureCityCode: cityCode,
 													 departureCountryCode: coutryCode,
-													 interactor: interactor,
-													 router: router)
+													 interactor: interactor)
 		interactor.output = controller
 		return controller
 	}

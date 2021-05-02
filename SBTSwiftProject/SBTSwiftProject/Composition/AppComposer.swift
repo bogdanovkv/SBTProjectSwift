@@ -8,10 +8,19 @@
 
 import UIKit
 
-final class AppComposer: Coordinator<Void, Void> {
+/// Сборщик главного координатора приложени
+final class AppComposer {
 
-	func createCoordinator(in rootController: UIViewController) -> Coordinator<Void, Void> {
-		return Coordinator<Void, Void>()
+	/// Создает координатор
+	/// - Parameter rootController: корневой контроллер
+	/// - Returns: координатор
+	func composeCoordinator(in rootController: UINavigationController) -> Coordinator<Void, Void> {
+		let serviceLayerComposer = ServiceLayerComposer()
+		let dataLayerComposer = DataLayerComposer(serviceLayerComposer: serviceLayerComposer)
+		let domainLayerComposer = DomainLayerComposer(dataLayerComposer: dataLayerComposer)
+		let presentationLayerComposer = PresentationLayerComposer(domainLayerComposer: domainLayerComposer)
+		let coordinationLayerComposer = CoordinationLayerComposer(presentationComposer: presentationLayerComposer,
+																  rootController: rootController)
+		return coordinationLayerComposer.composeLocationCoordinator()
 	}
-
 }

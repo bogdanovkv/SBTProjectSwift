@@ -9,6 +9,6 @@
 import UIKit
 
 /// Сборщик экрана отобраения билета
-protocol TiketAssemblyProtocol {
+protocol TicketAssemblyProtocol {
 	func createViewCotroller(for tiket: TicketPresentationModel) -> UIViewController & TicketModuleInput
 }

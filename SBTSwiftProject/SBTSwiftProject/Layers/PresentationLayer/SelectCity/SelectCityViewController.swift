@@ -10,7 +10,7 @@ import UIKit
 import LocationDomainAbstraction
 
 protocol SelectCityModuleInput: AnyObject {
-	var output: SelectCityModuleOutput? { get set }
+	var moduleOutput: SelectCityModuleOutput? { get set }
 }
 
 protocol SelectCityModuleOutput: AnyObject {
@@ -19,7 +19,7 @@ protocol SelectCityModuleOutput: AnyObject {
 
 final class SelectCityViewController: UIViewController, SelectCityModuleInput {
 
-	weak var output: SelectCityModuleOutput?
+	weak var moduleOutput: SelectCityModuleOutput?
 	private let countryCode: String
 	private let interactor: SelectCityInteractorInput
 	private lazy var tableView: UITableView = {
@@ -52,6 +52,11 @@ final class SelectCityViewController: UIViewController, SelectCityModuleInput {
 		models = interactor.getCities(for: countryCode)
 		tableView.reloadData()
     }
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		navigationController?.setNavigationBarHidden(true, animated: animated)
+	}
 }
 
 extension SelectCityViewController: UITableViewDataSource {
@@ -71,8 +76,6 @@ extension SelectCityViewController: UITableViewDataSource {
 extension SelectCityViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let model = models[indexPath.row]
-		dismiss(animated: true, completion: {
-			self.output?.userSelectCity(with: model.codeIATA)
-		})
+		self.moduleOutput?.userSelectCity(with: model.codeIATA)
 	}
 }

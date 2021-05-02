@@ -13,7 +13,7 @@ import LocationDomainAbstraction
 protocol SelectCountryModuleInput: AnyObject {
 
 	/// Обработчик событий от экрана выбора страны
-	var output: SelectCountryModuleOutput? { get set }
+	var moduleOutput: SelectCountryModuleOutput? { get set }
 }
 
 /// Протокол обработчика событий от экрана выбора страны
@@ -27,7 +27,7 @@ protocol SelectCountryModuleOutput: AnyObject {
 /// Контроллер выбора страны
 final class SelectCountryViewController: UIViewController, SelectCountryModuleInput {
 
-	weak var output: SelectCountryModuleOutput?
+	weak var moduleOutput: SelectCountryModuleOutput?
 
 	private let interactor: SelectCountryInteractorInput
 	private lazy var tableView: UITableView = {
@@ -60,6 +60,11 @@ final class SelectCountryViewController: UIViewController, SelectCountryModuleIn
 		models = interactor.getCountries()
 		tableView.reloadData()
     }
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		navigationController?.setNavigationBarHidden(true, animated: animated)
+	}
 }
 
 extension SelectCountryViewController: UITableViewDataSource {
@@ -79,8 +84,6 @@ extension SelectCountryViewController: UITableViewDataSource {
 extension SelectCountryViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let model = models[indexPath.row]
-		dismiss(animated: true, completion: {
-			self.output?.userSelectCountry(with: model.codeIATA)
-		})
+		self.moduleOutput?.userSelectCountry(with: model.codeIATA)
 	}
 }

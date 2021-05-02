@@ -20,6 +20,8 @@ protocol RouterProtocol {
 
 	func present(_ viewController: UIViewController)
 
+	func present(_ viewController: UIViewController, animated: Bool)
+
 	func dismiss(_ completion: (() -> Void)?)
 }
 
@@ -49,6 +51,10 @@ final class Router: RouterProtocol {
 
 	func present(_ viewController: UIViewController) {
 		navigationController?.present(viewController, animated: true, completion: nil)
+	}
+
+	func present(_ viewController: UIViewController, animated: Bool) {
+		navigationController?.present(viewController, animated: animated, completion: nil)
 	}
 
 	func dismiss(_ completion: (() -> Void)?) {

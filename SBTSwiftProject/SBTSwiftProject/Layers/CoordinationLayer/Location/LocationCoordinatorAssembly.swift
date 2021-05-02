@@ -13,7 +13,7 @@ final class LocationCoordinatorAssembly {
 	func createCoordinator(locationModuleAssembly: LocationAssemblyProtocol,
 						   router: RouterProtocol,
 						   alertsAssembly: AlertControllerAssemblyProtocol,
-						   selectCityCoordinatorAssembly: @escaping (String) -> Coordinator<Void, Result<String, Error>>,
+						   selectCityCoordinatorAssembly: @escaping () -> Coordinator<String, Result<String, Error>>,
 						   selectCountryCoordinatorAssembly: @escaping () -> Coordinator<Void, Result<String, Error>>,
 						   tabBarCoordinatorAssembly: @escaping () -> Coordinator<(cityCode: String, countryCode: String), Void>) -> Coordinator<Void, Void> {
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import LocationDomainAbstraction
+import DomainAbstraction
 
 /// Сборщик экрана выбра города
 protocol SelectCityAssemblyProtocol {
@@ -20,8 +21,14 @@ protocol SelectCityAssemblyProtocol {
 /// Сборщик экрана города
 final class SelectCityAssembly: SelectCityAssemblyProtocol {
 
+	private let getCitiesByCountryCodeUseCase: UseCaseSync<String, [City]>
+
+	init(getCitiesByCountryCodeUseCase: UseCaseSync<String, [City]>) {
+		self.getCitiesByCountryCodeUseCase = getCitiesByCountryCodeUseCase
+	}
+
 	func createController(countryCode: String) -> UIViewController & SelectCityModuleInput {
-		let interactor = SelectCityInteractor()
+		let interactor = SelectCityInteractor(getCitiesByCountryCodeUseCase: getCitiesByCountryCodeUseCase)
 		let controller = SelectCityViewController(interactor: interactor, countryCode: countryCode)
 		return controller
 	}

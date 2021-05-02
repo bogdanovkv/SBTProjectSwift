@@ -12,10 +12,31 @@ import TicketsDomainAbstraction
 
 protocol TicketsSearchModuleOutput {
 
+	func userSelectChangeDepartureLocation()
+
+	func userSelectChangeDestinationLocation()
+
+	func userSelectChangeDestinationCity(for code: String)
+
+	func userSelectChangeDepartureCity(for code: String)
+
+	func userSelectTicket(_ ticket: TicketPresentationModel)
+
+	func somethingWentWrong()
+
+	func noTicketsWereFound()
 }
 
 protocol TicketsSearchModuleInput {
 	var moduleOutput: TicketsSearchModuleOutput? { get set }
+
+	func changeDesinationCity(with code: String)
+
+	func changeDepartureCity(with code: String)
+
+	func changeDestinationCountry(with code: String)
+
+	func changeDepartureCountry(with code: String)
 }
 
 /// Контроллер поиска билетов
@@ -23,7 +44,6 @@ final class TicketsSearchViewController: UIViewController, TicketsSearchModuleIn
 	var moduleOutput: TicketsSearchModuleOutput?
 
 	private let viewModel: TicketsSearchViewModel
-	private let router: TicketsSearchRouterProtocol
 	private let interactor: TicketsSearchInteractorInput
 	private let departureCityCode: String
 	private let departureCountryCode: String
@@ -39,13 +59,11 @@ final class TicketsSearchViewController: UIViewController, TicketsSearchModuleIn
 	///   - router: роутер
 	init(departureCityCode: String,
 		 departureCountryCode: String,
-		 interactor: TicketsSearchInteractorInput,
-		 router: TicketsSearchRouterProtocol) {
+		 interactor: TicketsSearchInteractorInput) {
 		viewModel = .init()
 		viewModel.departureDate = Date()
 		self.departureCityCode = departureCityCode
 		self.departureCountryCode = departureCountryCode
-		self.router = router
 		self.interactor = interactor
 		super.init(nibName: nil, bundle: nil)
 		modalPresentationStyle = .fullScreen
@@ -70,6 +88,49 @@ final class TicketsSearchViewController: UIViewController, TicketsSearchModuleIn
 		viewModel.departureCity = interactor.getCity(with: departureCityCode)
 		viewModel.departureCountry = interactor.getCountry(with: departureCountryCode)
 		updateView()
+	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		navigationController?.setNavigationBarHidden(true, animated: animated)
+	}
+
+	// MARK
+	func changeDesinationCity(with code: String) {
+		guard let city = self.interactor.getCity(with: code) else {
+			moduleOutput?.somethingWentWrong()
+			return
+		}
+		self.viewModel.desntinationCity = city
+		self.updateView()
+	}
+
+	func changeDepartureCity(with code: String) {
+		guard let city = self.interactor.getCity(with: code) else {
+			moduleOutput?.somethingWentWrong()
+			return
+		}
+		self.viewModel.departureCity = city
+		self.updateView()	}
+
+	func changeDestinationCountry(with code: String) {
+		guard let country = self.interactor.getCountry(with: code) else {
+			moduleOutput?.somethingWentWrong()
+			return
+		}
+		self.viewModel.desntinationCountry = country
+		self.updateView()
+		self.userSelectChangeDestinationCity()
+	}
+
+	func changeDepartureCountry(with code: String) {
+		guard let country = self.interactor.getCountry(with: code) else {
+			moduleOutput?.somethingWentWrong()
+			return
+		}
+		self.viewModel.departureCountry = country
+		self.updateView()
+		self.userSelectChangeDepartureCity()
 	}
 
 	private func updateView() {
@@ -104,63 +165,25 @@ extension TicketsSearchViewController: TicketsSearchViewOutput {
 	}
 
 	func userSelectChangeDepartureLocation() {
-		router.showChangeCountryViewController(on: self) { [weak self] countryCode in
-			guard let self = self else { return }
-			guard let country = self.interactor.getCountry(with: countryCode) else {
-				self.router.showSomethingWentWrongAlert(on: self)
-				return
-			}
-			self.viewModel.departureCountry = country
-			self.updateView()
-			self.userSelectChangeDepartureCity()
-		}
+		moduleOutput?.userSelectChangeDepartureLocation()
 	}
 
 	private func userSelectChangeDepartureCity() {
 		guard let country = viewModel.departureCountry else {
 			return
 		}
-		router.showChangeCityViewController(on: self,
-											country: country,
-											completion: { [weak self] cityCode in
-												guard let self = self else { return }
-												guard let city = self.interactor.getCity(with: cityCode) else {
-													self.router.showSomethingWentWrongAlert(on: self)
-													return
-												}
-												self.viewModel.departureCity = city
-												self.updateView()
-											})
+		moduleOutput?.userSelectChangeDepartureCity(for: country.codeIATA)
 	}
 
 	func userSelectChangeDestinationLocation() {
-		router.showChangeCountryViewController(on: self) { [weak self] countryCode in
-			guard let self = self else { return }
-			guard let country = self.interactor.getCountry(with: countryCode) else {
-				self.router.showSomethingWentWrongAlert(on: self)
-				return
-			}
-			self.viewModel.desntinationCountry = country
-			self.updateView()
-			self.userSelectChangeDestinationCity()
-		}
+		moduleOutput?.userSelectChangeDestinationLocation()
 	}
 
 	private func userSelectChangeDestinationCity() {
 		guard let country = viewModel.desntinationCountry else {
 			return
 		}
-		router.showChangeCityViewController(on: self,
-											country: country,
-											completion: { [weak self] cityCode in
-												guard let self = self else { return }
-												guard let city = self.interactor.getCity(with: cityCode) else {
-													self.router.showSomethingWentWrongAlert(on: self)
-													return
-												}
-												self.viewModel.desntinationCity = city
-												self.updateView()
-											})
+		moduleOutput?.userSelectChangeDestinationCity(for: country.codeIATA)
 	}
 
 	func userChangeDepartureDate(date: Date) {
@@ -176,13 +199,13 @@ extension TicketsSearchViewController: TicketsSearchViewOutput {
 
 extension TicketsSearchViewController: TicketsSearchInteractorOutput {
 	func didRecieveError() {
-		router.showSomethingWentWrongAlert(on: self)
+		moduleOutput?.somethingWentWrong()
 	}
 
 	func didRecieve(tickets: [Ticket]) {
 		ticketsView.removeLoader()
 		if tickets.isEmpty {
-			router.showNoTicketsFoundAlert(on: self)
+			moduleOutput?.noTicketsWereFound()
 		}
 		viewModel.tickets = tickets
 		updateView()
@@ -198,9 +221,14 @@ extension TicketsSearchViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		let model = viewModel.tickets[indexPath.row]
-		router.showTicketInformationController(on: self,
-											   ticket: model)
-
+		moduleOutput?.userSelectTicket(.init(fromCityCode: model.fromCityCode,
+											 toCityCode: model.toCityCode,
+											 airlineCode: model.airlineCode,
+											 departureDate: model.departureDate,
+											 arrivalDate: model.arrivalDate,
+											 cost: model.cost,
+											 flightNumber: model.flightNumber,
+											 expires: model.expires))
 	}
 
 }

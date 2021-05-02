@@ -21,7 +21,7 @@ protocol SelectCityCoordinatorAssemblyProtocol {
 /// Сборщик координатора экрана выбора города
 final class SelectCityCoordinatorAssembly {
 
-	func createCoordinator(router: RouterProtocol, selectCityAssembly: SelectCityAssemblyProtocol) -> Coordinator<String, String> {
+	func createCoordinator(router: RouterProtocol, selectCityAssembly: SelectCityAssemblyProtocol) -> Coordinator<String, Result<String, Error>> {
 		return SelectCityCoordinator(router: router,
 									 selectCityAssembly: selectCityAssembly)
 	}

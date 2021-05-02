@@ -7,15 +7,21 @@
 //
 
 import UIKit
-import Inject
 import LocationDomainAbstraction
+import DomainAbstraction
 import TicketsDomainAbstraction
 
+final class TicketAssembly: TicketAssemblyProtocol {
+	private let getCityByCodeUseCase: UseCaseSync<String, City?>
+	private let getCountryByCodeUseCase: UseCaseSync<String, Country?>
 
-final class TiketViewControllerAssembly: TiketAssemblyProtocol {
+	init(getCityByCodeUseCase: UseCaseSync<String, City?>,
+		 getCountryByCodeUseCase: UseCaseSync<String, Country?>) {
+		self.getCityByCodeUseCase = getCityByCodeUseCase
+		self.getCountryByCodeUseCase = getCountryByCodeUseCase
+	}
+
 	func createViewCotroller(for tiket: TicketPresentationModel) -> UIViewController & TicketModuleInput {
-		let getCityByCodeUseCase = Inject.domainLayer.create(closure: { $0.createGetCityByCodeUseCase() }, strategy: .new)
-		let getCountryByCodeUseCase = Inject.domainLayer.create(closure: { $0.createGetCountryByCodeUseCase() }, strategy: .new)
 		let interactor = TicketInteractor(getCityByCodeUseCase: getCityByCodeUseCase,
 										  getCountryByCodeUseCase: getCountryByCodeUseCase)
 		let controller = TicketViewController(viewModel: .init(ticket: tiket),

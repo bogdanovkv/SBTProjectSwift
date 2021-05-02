@@ -6,7 +6,6 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Inject
 import DomainAbstraction
 import LocationDomainAbstraction
 
@@ -20,12 +19,7 @@ final class SelectCityInteractor: SelectCityInteractorInput {
 	init(getCitiesByCountryCodeUseCase: UseCaseSync<String, [City]>) {
 		self.getCitiesByCountryCodeUseCase = getCitiesByCountryCodeUseCase
 	}
-	
-	convenience init() {
-		self.init(getCitiesByCountryCodeUseCase: Inject.domainLayer.create(closure: { $0.createGetCitiesByCountryCodeUseCase() },
-																		   strategy: .new))
-	}
-	
+
 	func getCities(for countryCode: String) -> [City] {
 		let cities = getCitiesByCountryCodeUseCase.execute(parameter: countryCode)
 		return cities.sorted(by: { first, second in

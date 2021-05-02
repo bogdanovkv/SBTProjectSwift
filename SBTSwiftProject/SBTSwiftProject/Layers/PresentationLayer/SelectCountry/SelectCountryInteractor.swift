@@ -6,7 +6,6 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Inject
 import LocationRepositoryAbstraction
 import DomainAbstraction
 import LocationDomainAbstraction
@@ -24,11 +23,6 @@ final class SelectCountryInteractor: SelectCountryInteractorInput {
 	/// - Parameter useCase: useCase
 	init(useCase: UseCaseSync<Void, [Country]>) {
 		self.useCase = useCase
-	}
-
-	convenience init() {
-		self.init(useCase: Inject.domainLayer.create(closure: { $0.createGetCountriesUseCase() },
-													 strategy: .new))
 	}
 
 	func getCountries() -> [Country] {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SelectCountryCoordinator: Coordinator<Void, String> {
+final class SelectCountryCoordinator: Coordinator<Void, Result<String, Error>> {
 	private let selectCountryAssembly: SelectCountryAssemblyProtocol
 	private let router: RouterProtocol
 	private var module: SelectCountryModuleInput?
@@ -26,7 +26,7 @@ final class SelectCountryCoordinator: Coordinator<Void, String> {
 	override func start(parameter: Void) {
 		let module = selectCountryAssembly.createController()
 		self.module = module
-		module.output = self
+		module.moduleOutput = self
 		router.present(module)
 	}
 }
@@ -34,7 +34,7 @@ final class SelectCountryCoordinator: Coordinator<Void, String> {
 extension SelectCountryCoordinator: SelectCountryModuleOutput {
 	func userSelectCountry(with code: String) {
 		router.dismiss { [weak self] in
-			self?.finishFlow?(code)
+			self?.finishFlow?(.success(code))
 		}
 	}
 }

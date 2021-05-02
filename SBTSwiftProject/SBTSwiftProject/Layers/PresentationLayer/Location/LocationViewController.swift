@@ -82,6 +82,11 @@ final class LocationViewController: UIViewController, LocationModuleInput {
 		interactor.prepareStorage()
 	}
 
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		navigationController?.setNavigationBarHidden(true, animated: animated)
+	}
+
 	// MARK: - LocationModuleInput
 	func didUpdateCity(with code: String) {
 		guard let city = interactor.getCity(code: code) else {
@@ -100,6 +105,7 @@ final class LocationViewController: UIViewController, LocationModuleInput {
 		viewModel.country = country
 		viewModel.city = nil
 		updateView()
+		moduleOutput?.userSelectChangeCity(for: country.codeIATA)
 	}
 
 	func retryPrepareStorage() {

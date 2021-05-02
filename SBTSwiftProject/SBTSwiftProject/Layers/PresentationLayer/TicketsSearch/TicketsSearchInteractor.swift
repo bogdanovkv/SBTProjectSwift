@@ -6,7 +6,7 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Inject
+import Foundation
 import DomainAbstraction
 import TicketsDomainAbstraction
 import LocationDomainAbstraction
@@ -64,17 +64,6 @@ final class TicketsSearchInteractor: TicketsSearchInteractorInput {
 		self.searchTicketsUseCase = searchTicketsUseCase
 		self.getCountryByCodeUseCase = getCountryByCodeUseCase
 		self.getCityByCodeUseCase = getCityByCodeUseCase
-	}
-
-	/// Инициализатор с DI
-	convenience init() {
-		
-		self.init(searchTicketsUseCase: Inject.domainLayer.create(closure: { $0.createSearchTicketsUseCase() },
-																  strategy: .new),
-				  getCountryByCodeUseCase: Inject.domainLayer.create(closure: { $0.createGetCountryByCodeUseCase() },
-																	 strategy: .new),
-				  getCityByCodeUseCase: Inject.domainLayer.create(closure: { $0.createGetCityByCodeUseCase() },
-																  strategy: .new))
 	}
 
 	func searchTickets(fromCity: City,

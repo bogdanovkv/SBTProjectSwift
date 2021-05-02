@@ -10,26 +10,36 @@ import UIKit
 
 final class TabBarCoordinator: Coordinator<(cityCode: String,
 											countryCode: String), Void> {
+	private let router: RouterProtocol
 	private let searchTicketsCoordinatorAssembly: () -> Coordinator<(cityCode: String,
 																										 countryCode: String), Void>
 
 	private let settingsCoordinatorAssembly: () -> Coordinator<Void, Void>
+	private let tabBarAssembly: () -> UIViewController
 	private var settingsCoordinator: Coordinator<Void, Void>?
 	private var searchTicketsCoordinator: Coordinator<(cityCode: String,
 													   countryCode: String), Void>?
+
 	/// Инициализатор
 	/// - Parameters:
 	///   - searchTicketsCoordinatorAssembly: сбощик координатора
 	///   - settingsCoordinatorAssembly: сборщик координатора настроке
-	init(searchTicketsCoordinatorAssembly: @escaping () -> Coordinator<(cityCode: String,
+	init(router: RouterProtocol,
+		 searchTicketsCoordinatorAssembly: @escaping () -> Coordinator<(cityCode: String,
 																			  countryCode: String), Void>,
-		 settingsCoordinatorAssembly: @escaping () -> Coordinator<Void, Void>) {
+		 settingsCoordinatorAssembly: @escaping () -> Coordinator<Void, Void>,
+		 tabBarAssembly: @escaping () -> UIViewController) {
+		self.router = router
 		self.searchTicketsCoordinatorAssembly = searchTicketsCoordinatorAssembly
 		self.settingsCoordinatorAssembly = settingsCoordinatorAssembly
+		self.tabBarAssembly = tabBarAssembly
 	}
 
 	override func start(parameter: (cityCode: String,
 									countryCode: String)) {
+		let module = tabBarAssembly()
+		module.modalPresentationStyle = .fullScreen
+		router.present(module, animated: false)
 		startSettings()
 		startSearchTickets(parameter: parameter)
 	}

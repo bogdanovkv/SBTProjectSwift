@@ -58,6 +58,11 @@ final class TicketViewController: UIViewController, TicketModuleInput {
 		setupView()
 	}
 
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		navigationController?.setNavigationBarHidden(true, animated: animated)
+	}
+
 	private func setupView() {
 		guard let fromCity = interactor.getCity(by: viewModel.ticket.fromCityCode) else {
 			moduleOutput?.cannotFindFromCityForCodeInTicker()

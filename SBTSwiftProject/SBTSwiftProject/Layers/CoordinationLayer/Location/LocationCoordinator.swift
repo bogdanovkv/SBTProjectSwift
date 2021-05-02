@@ -14,19 +14,19 @@ final class LocationCoordinator: Coordinator<Void, Void> {
 	private let locationModuleAssembly: LocationAssemblyProtocol
 	private let router: RouterProtocol
 	private let alertsAssembly: AlertControllerAssemblyProtocol
-	private let selectCityCoordinatorAssembly: (String) -> Coordinator<Void, Result<String, Error>>
+	private let selectCityCoordinatorAssembly: () -> Coordinator<String, Result<String, Error>>
 	private let selectCountryCoordinatorAssembly: () -> Coordinator<Void, Result<String, Error>>
 	private let tabBarCoordinatorAssembly: () -> Coordinator<(cityCode: String, countryCode: String), Void>
 
 	private var locationModule: LocationModuleInput?
-	private var selectCityCoordinator: Coordinator<Void, Result<String, Error>>?
+	private var selectCityCoordinator: Coordinator<String, Result<String, Error>>?
 	private var selectCountryCoordinator: Coordinator<Void, Result<String, Error>>?
 	private var tabBarCoordinator: Coordinator<(cityCode: String, countryCode: String), Void>?
 
 	init(locationModuleAssembly: LocationAssemblyProtocol,
 		 router: RouterProtocol,
 		 alertsAssembly: AlertControllerAssemblyProtocol,
-		 selectCityCoordinatorAssembly: @escaping (String) -> Coordinator<Void, Result<String, Error>>,
+		 selectCityCoordinatorAssembly: @escaping () -> Coordinator<String, Result<String, Error>>,
 		 selectCountryCoordinatorAssembly: @escaping () -> Coordinator<Void, Result<String, Error>>,
 		 tabBarCoordinatorAssembly: @escaping () -> Coordinator<(cityCode: String, countryCode: String), Void>) {
 		self.locationModuleAssembly = locationModuleAssembly
@@ -93,7 +93,7 @@ extension LocationCoordinator: LocationModuleOutput {
 	}
 
 	func userSelectChangeCity(for countryCode: String) {
-		let coordinator = selectCityCoordinatorAssembly(countryCode)
+		let coordinator = selectCityCoordinatorAssembly()
 		self.selectCityCoordinator = coordinator
 		coordinator.finishFlow = { [weak self] result in
 			self?.selectCityCoordinator = nil
@@ -105,7 +105,7 @@ extension LocationCoordinator: LocationModuleOutput {
 			break
 			}
 		}
-		coordinator.start()
+		coordinator.start(parameter: countryCode)
 	}
 
 	func userSelectLocation(with cityCode: String, countryCode: String) {
