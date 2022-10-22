@@ -6,8 +6,6 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Inject
-
 protocol LocationUseCaseProtocol {
 	func getLocation(_ completion: @escaping (Result<LocationModel, Error>) -> Void)
 	func getCity(named: String) -> CityModel?
@@ -19,13 +17,6 @@ final class LocationUseCase: LocationUseCaseProtocol {
 
 	init(repository: LocationRepositoryProtocol) {
 		self.repository = repository
-	}
-
-	convenience init() {
-		let factory = Inject<DataLayerDependencies>.dataLayer
-		let repository = factory.create(closure: { $0.createLocationRepository() },
-										strategy: .scope(key: 0))
-		self.init(repository: repository)
 	}
 
 	func getLocation(_ completion: @escaping (Result<LocationModel, Error>) -> Void) {

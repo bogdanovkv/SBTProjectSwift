@@ -6,7 +6,7 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Inject
+import Foundation
 
 protocol PrepareStorageUseCaseProtocol {
 	func prepareStorage(_ copmletion: @escaping (Result<Void, Error>) -> Void)
@@ -40,19 +40,6 @@ protocol PrepareStorageUseCaseProtocol {
 		citiesLoaded = false
 		countriesLoaded = false
 		airportsLoad = false
-	}
-
-	convenience init(prepareAirportsUseCase: UseCase<Void, Void>,
-					 prepareCountriesUseCase: UseCase<Void, Void>,
-					 prepareCitiesUseCase: UseCase<Void, Void>) {
-		let factory = Inject.dataLayer
-		self.init(settingsRepository: factory.create(closure: { $0.createSettingsRepository() },
-													 strategy: .new),
-				  locationRepository: factory.create(closure: { $0.createLocationRepository()},
-													 strategy: .scope(key: 0)),
-				  prepareAirportsUseCase: prepareAirportsUseCase,
-				  prepareCountriesUseCase: prepareCountriesUseCase,
-				  prepareCitiesUseCase: prepareCitiesUseCase)
 	}
 
 	func prepareStorage(_ copmletion: @escaping (Result<Void, Error>) -> Void) {

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Inject
+import Foundation
 
 /// Репозиторий работы с локациями
 protocol LocationRepositoryProtocol {
@@ -87,16 +87,6 @@ final class LocationRepository: LocationRepositoryProtocol {
 		 coreDataService: CoreDataServiceProtocol) {
 		self.networkService = networkService
 		self.coreDataService = coreDataService
-	}
-
-	convenience init() {
-		let factory = Inject<ServiceLayerDependecies>.serviceLayer
-		let networkService: NetworkServiceProtocol = factory.create(closure: { $0.createNetworkService() },
-											strategy: .scope(key: 0))
-		let coreDataService: CoreDataServiceProtocol = factory.create(closure: { $0.createCoreDataService() },
-											 strategy: .scope(key: 0))
-		self.init(networkService: networkService,
-				  coreDataService: coreDataService)
 	}
 
 	func loadLocation(_ completion: @escaping (Result<LocationModel, Error>) -> Void) {

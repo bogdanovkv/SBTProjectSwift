@@ -6,8 +6,6 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Inject
-
 /// Репозиторий настроек пользователя
 protocol UserSettingsRepositoryProtocol: AnyObject {
 
@@ -25,12 +23,6 @@ final class UserSettingsRepository: UserSettingsRepositoryProtocol {
 
 	init(userSettings: UserSettingsProtocol) {
 		self.userSettings = userSettings
-	}
-
-	convenience init() {
-		let settings = Inject<ServiceLayerDependecies>.serviceLayer.create(closure: { $0.createUserSettings() },
-												  strategy: .scope(key: 0))
-		self.init(userSettings: settings)
 	}
 
 	var didIntializeStorage: Bool {

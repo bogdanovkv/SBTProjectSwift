@@ -6,8 +6,6 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Inject
-
 /// Протокол интерактора экрана выбора страны
 protocol SelectCountryInteractorInput {
 	func getCountries() -> [CountryModel]
@@ -21,11 +19,6 @@ final class SelectCountryInteractor: SelectCountryInteractorInput {
 	/// - Parameter useCase: useCase
 	init(useCase: UseCaseSync<Void, [CountryModel]>) {
 		self.useCase = useCase
-	}
-
-	convenience init() {
-		self.init(useCase: Inject.domainLayer.create(closure: { $0.createGetCountriesUseCase() },
-													 strategy: .new))
 	}
 
 	func getCountries() -> [CountryModel] {

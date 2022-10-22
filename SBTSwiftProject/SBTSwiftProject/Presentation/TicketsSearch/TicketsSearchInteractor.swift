@@ -6,7 +6,7 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Inject
+import Foundation
 
 /// Ouptut интерактора поиска билетов
 protocol TicketsSearchInteractorOutput: AnyObject {
@@ -47,12 +47,6 @@ final class TicketsSearchInteractor: TicketsSearchInteractorInput {
 	/// - Parameter searchTicketsUseCase: кейс поиска билетов
 	init(searchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]> ) {
 		self.searchTicketsUseCase = searchTicketsUseCase
-	}
-
-	/// Инициализатор с DI
-	convenience init() {
-		self.init(searchTicketsUseCase: Inject.domainLayer.create(closure: { $0.createSearchTicketsUseCase() },
-																  strategy: .new))
 	}
 
 	func searchTickets(fromCity: CityModel,

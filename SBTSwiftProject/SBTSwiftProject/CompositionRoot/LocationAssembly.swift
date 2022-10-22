@@ -19,7 +19,7 @@ final class LocationAssembly {
 		let tabBarAssembly = TabBarAssembly(ticketsSearchAssembly: TicketsSearchAssembly(),
 											settingsAssembly: SettingsAssembly())
 		let router = LocationRouter(alertAssembly: AlertControllerAssembly(),
-									selectCountryAssembly: SelectCountryAssembly(),
+									selectCountryAssembly: SelectCountryAssembly(useCase: DomainLayerDependencies.createGetCountriesUseCase()),
 									selectCityAssembly: SelectCityAssembly(),
 									tabBarAssembly: tabBarAssembly)
 		let locationController = LocationViewController(interactor: interactor,

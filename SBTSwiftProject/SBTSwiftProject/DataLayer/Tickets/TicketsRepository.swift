@@ -6,7 +6,7 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Inject
+import Foundation
 
 protocol TicketsRepositoryProtocol {
 
@@ -50,11 +50,6 @@ final class TicketsRepository: TicketsRepositoryProtocol {
 
 	init(networkService: NetworkServiceProtocol) {
 		self.networkService = networkService
-	}
-
-	convenience init() {
-		self.init(networkService: Inject.serviceLayer.create(closure: { $0.createNetworkService() },
-															 strategy: .new))
 	}
 
 	func loadTickets(fromCity: CityModel,

@@ -6,8 +6,6 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Inject
-
 protocol SelectCityInteractorInput {
 	func getCities(for country: CountryModel) -> [CityModel]
 }
@@ -17,11 +15,6 @@ final class SelectCityInteractor: SelectCityInteractorInput {
 
 	init(useCase: UseCaseSync<CountryModel, [CityModel]>) {
 		self.useCase = useCase
-	}
-
-	convenience init() {
-		self.init(useCase: Inject.domainLayer.create(closure: { $0.createGetCitiesUseCase() },
-													 strategy: .new))
 	}
 
 	func getCities(for country: CountryModel) -> [CityModel] {

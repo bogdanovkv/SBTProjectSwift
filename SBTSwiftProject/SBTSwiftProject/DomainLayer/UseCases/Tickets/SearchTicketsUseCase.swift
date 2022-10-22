@@ -6,7 +6,7 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Inject
+import Foundation
 
 /// Кейс поиска билетов
 final class SearchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]> {
@@ -16,11 +16,6 @@ final class SearchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]> {
 	/// - Parameter ticketsRepository: репозиторий билетов
 	init(ticketsRepository: TicketsRepositoryProtocol) {
 		self.ticketsRepository = ticketsRepository
-	}
-
-	convenience override init() {
-		self.init(ticketsRepository: Inject.dataLayer.create(closure: { $0.createTicketsRepository() },
-															 strategy: .scope(key: 0)))
 	}
 
 	override func execute(parameter: TicketsSearchModel, _ completion: @escaping (Result<[Ticket], Error>) -> Void) {

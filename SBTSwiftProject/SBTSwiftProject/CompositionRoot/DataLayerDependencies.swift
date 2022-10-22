@@ -6,25 +6,17 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Inject
-
-extension Inject where FactoryType == DataLayerDependencies {
-	static var dataLayer: Inject<DataLayerDependencies> {
-		return .init(factory: DataLayerDependencies.self)
-	}
-}
-
-struct DataLayerDependencies: InjectFactoryProtocol {
-	static var scope = "dataLayer"
+struct DataLayerDependencies {
 	static func createLocationRepository() -> LocationRepositoryProtocol {
-		return LocationRepository()
+		return LocationRepository(networkService: ServiceLayerDependencies.createNetworkService(),
+								  coreDataService: ServiceLayerDependencies.createDatabaseService())
 	}
 
 	static func createSettingsRepository() -> UserSettingsRepository {
-		return UserSettingsRepository()
+		return UserSettingsRepository(userSettings: ServiceLayerDependencies.createSettingsService())
 	}
 
 	static func createTicketsRepository() -> TicketsRepositoryProtocol {
-		return TicketsRepository()
+		return TicketsRepository(networkService: ServiceLayerDependencies.createNetworkService())
 	}
 }

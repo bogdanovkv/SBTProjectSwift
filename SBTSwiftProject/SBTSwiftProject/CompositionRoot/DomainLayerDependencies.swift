@@ -6,33 +6,29 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import Inject
+struct DomainLayerDependencies {
 
-extension Inject where FactoryType == DomainLayerDependencies {
-	static var domainLayer: Inject<DomainLayerDependencies> = .init(factory: DomainLayerDependencies.self)
-}
-
-struct DomainLayerDependencies: InjectFactoryProtocol {
-	static var scope = "domainLayer"
 	static func createLocationUseCase() -> LocationUseCaseProtocol {
-		return LocationUseCase()
+		return LocationUseCase(repository: DataLayerDependencies.createLocationRepository())
 	}
 
 	static func createPrepareStorageUseCase() -> PrepareStorageUseCaseProtocol {
-		return PrepareStorageUseCase(prepareAirportsUseCase: PrepareAirportsUseCase(),
-									 prepareCountriesUseCase: PrepareCountriesUseCase(),
-									 prepareCitiesUseCase: PrepareCitiesUseCase())
+		return PrepareStorageUseCase(settingsRepository: DataLayerDependencies.createSettingsRepository(),
+									 locationRepository: DataLayerDependencies.createLocationRepository(),
+									 prepareAirportsUseCase: PrepareAirportsUseCase(locationRepository: DataLayerDependencies.createLocationRepository()),
+									 prepareCountriesUseCase: PrepareCountriesUseCase(locationRepository: DataLayerDependencies.createLocationRepository()),
+									 prepareCitiesUseCase: PrepareCitiesUseCase(locationRepository: DataLayerDependencies.createLocationRepository()))
 	}
 
 	static func createGetCountriesUseCase() -> UseCaseSync<Void, [CountryModel]> {
-		return GetCountriesUseCase()
+		return GetCountriesUseCase(repository: DataLayerDependencies.createLocationRepository())
 	}
 
 	static func createGetCitiesUseCase() -> UseCaseSync<CountryModel, [CityModel]> {
-		return GetCitiesUseCase()
+		return GetCitiesUseCase(repository: DataLayerDependencies.createLocationRepository())
 	}
 
 	static func createSearchTicketsUseCase() -> UseCase<TicketsSearchModel, [Ticket]> {
-		return SearchTicketsUseCase()
+		return SearchTicketsUseCase(ticketsRepository: DataLayerDependencies.createTicketsRepository())
 	}
 }

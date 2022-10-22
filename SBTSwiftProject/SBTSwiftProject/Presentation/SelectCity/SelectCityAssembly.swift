@@ -20,7 +20,7 @@ protocol SelectCityAssemblyProtocol {
 final class SelectCityAssembly: SelectCityAssemblyProtocol {
 
 	func createController(country: CountryModel) -> UIViewController & SelectCityViewControllerInput {
-		let interactor = SelectCityInteractor()
+		let interactor = SelectCityInteractor(useCase: DomainLayerDependencies.createGetCitiesUseCase())
 		let controller = SelectCityViewController(interactor: interactor, country: country)
 		return controller
 	}

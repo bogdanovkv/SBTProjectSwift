@@ -16,8 +16,14 @@ protocol SelectCountryAssemblyProtocol {
 /// Сборщик экрана выбора страны
 final class SelectCountryAssembly: SelectCountryAssemblyProtocol {
 
+	private let useCase: UseCaseSync<Void, [CountryModel]>
+
+	init(useCase: UseCaseSync<Void, [CountryModel]>) {
+		self.useCase = useCase
+	}
+
 	func createController() -> UIViewController & SelectCountryViewControllerInput {
-		let interactor = SelectCountryInteractor()
+		let interactor = SelectCountryInteractor(useCase: useCase)
 		let controller = SelectCountryViewController(interactor: interactor)
 		return controller
 	}
