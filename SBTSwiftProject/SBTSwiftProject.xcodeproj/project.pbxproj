@@ -65,8 +65,6 @@
 		14B236D3254DACF600BE822D /* AirportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B236D2254DACF600BE822D /* AirportModel.swift */; };
 		14B236D6254DB88A00BE822D /* AirportManaged+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B236D4254DB88A00BE822D /* AirportManaged+CoreDataClass.swift */; };
 		14B236D7254DB88A00BE822D /* AirportManaged+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B236D5254DB88A00BE822D /* AirportManaged+CoreDataProperties.swift */; };
-		14B4A5F62545934000BFC583 /* Inject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B4A5F52545933F00BFC583 /* Inject.framework */; };
-		14B4A5F72545934000BFC583 /* Inject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14B4A5F52545933F00BFC583 /* Inject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14B4A5FD2547508D00BFC583 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4A5FC2547508D00BFC583 /* UserSettings.swift */; };
 		14C60EBA25F62443007455BF /* LocationRepositorySpy_one.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C60EB925F62443007455BF /* LocationRepositorySpy_one.swift */; };
 		14CD8B7D2544241100134D82 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CD8B7C2544241100134D82 /* NetworkService.swift */; };
@@ -103,7 +101,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				14B4A5F72545934000BFC583 /* Inject.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,8 +169,6 @@
 		14B236D2254DACF600BE822D /* AirportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportModel.swift; sourceTree = "<group>"; };
 		14B236D4254DB88A00BE822D /* AirportManaged+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AirportManaged+CoreDataClass.swift"; sourceTree = "<group>"; };
 		14B236D5254DB88A00BE822D /* AirportManaged+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AirportManaged+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		14B4A5F12545923C00BFC583 /* Inject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Inject.framework; path = ../Carthage/Build/iOS/Inject.framework; sourceTree = "<group>"; };
-		14B4A5F52545933F00BFC583 /* Inject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Inject.framework; path = Carthage/Build/iOS/Inject.framework; sourceTree = "<group>"; };
 		14B4A5FC2547508D00BFC583 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		14C60EB925F62443007455BF /* LocationRepositorySpy_one.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepositorySpy_one.swift; sourceTree = "<group>"; };
 		14CD8B7C2544241100134D82 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -199,7 +194,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14B4A5F62545934000BFC583 /* Inject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				1438FF6E20F9FD29003CC7C2 /* AppDelegate.swift */,
+				14EAED0F28E9F94200A18BDE /* CompositionRoot */,
 				14CD8B7E2544241B00134D82 /* ServiceLayer */,
 				147D5A3A25442EBE00F90BA2 /* DataLayer */,
 				14AE5AE625447A3000548B1D /* DomainLayer */,
@@ -324,7 +319,6 @@
 		145191022569601A00A5593E /* Ticket */ = {
 			isa = PBXGroup;
 			children = (
-				1451910A2569684D00A5593E /* TiketViewControllerAssembly.swift */,
 				145191032569604800A5593E /* TicketViewController.swift */,
 				145191072569608A00A5593E /* TicketView.swift */,
 				1451910F25697E7100A5593E /* Models */,
@@ -344,7 +338,6 @@
 			isa = PBXGroup;
 			children = (
 				14AE5AE725447E4600548B1D /* LocationInteractor.swift */,
-				14AE5AEB2544899800548B1D /* LocationAssembly.swift */,
 				1438FF7020F9FD29003CC7C2 /* LocationViewController.swift */,
 				14D634C925506ADC00FF7D37 /* LocationRouter.swift */,
 				14F78D19254DFF7D0043C6DA /* LocationViewModel.swift */,
@@ -403,7 +396,6 @@
 		147D5A3A25442EBE00F90BA2 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
-				14AE5AEF25448AFC00548B1D /* DataLayerDependencies.swift */,
 				142865E92551E0DD003D1930 /* Tickets */,
 				146CB82F254E991F008A2EBE /* Decoding */,
 				14090F332547528B0028918F /* UserSettings */,
@@ -427,7 +419,6 @@
 		14AE5AE625447A3000548B1D /* DomainLayer */ = {
 			isa = PBXGroup;
 			children = (
-				14AE5AED25448A1F00548B1D /* DomainLayerDependencies.swift */,
 				14090F36254D53380028918F /* UseCases */,
 			);
 			path = DomainLayer;
@@ -459,8 +450,6 @@
 		14B4A5F02545923C00BFC583 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				14B4A5F52545933F00BFC583 /* Inject.framework */,
-				14B4A5F12545923C00BFC583 /* Inject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -521,7 +510,6 @@
 		14D634C62550695C00FF7D37 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
-				14D634C725506A1200FF7D37 /* AlertControllerAssembly.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -529,7 +517,6 @@
 		14D634CB255074A500FF7D37 /* SelectCountry */ = {
 			isa = PBXGroup;
 			children = (
-				142865CD25509648003D1930 /* SelectCountryAssembly.swift */,
 				14D634CC2550756900FF7D37 /* SelectCountryViewController.swift */,
 				14D634CE255075B300FF7D37 /* SelectCountryInteractor.swift */,
 			);
@@ -547,11 +534,18 @@
 			path = PrepareStorage;
 			sourceTree = "<group>";
 		};
-		14D8688625A8DF450080948B /* views */ = {
+		14EAED0F28E9F94200A18BDE /* CompositionRoot */ = {
 			isa = PBXGroup;
 			children = (
+				14AE5AEF25448AFC00548B1D /* DataLayerDependencies.swift */,
+				14AE5AED25448A1F00548B1D /* DomainLayerDependencies.swift */,
+				14D634C725506A1200FF7D37 /* AlertControllerAssembly.swift */,
+				142865CD25509648003D1930 /* SelectCountryAssembly.swift */,
+				1451910A2569684D00A5593E /* TiketViewControllerAssembly.swift */,
+				14AE5AEB2544899800548B1D /* LocationAssembly.swift */,
+				1478A0972552CF9500C3633C /* TicketsSearchAssembly.swift */,
 			);
-			path = views;
+			path = CompositionRoot;
 			sourceTree = "<group>";
 		};
 		14ECFD502555B53200FBFC62 /* TabBar */ = {
@@ -568,7 +562,6 @@
 				14ECFD592556918900FBFC62 /* SettingsAssembly.swift */,
 				14ECFD562556913E00FBFC62 /* SettingsViewController.swift */,
 				1485DD5B2599197B009FFF7C /* SettingsView.swift */,
-				14D8688625A8DF450080948B /* views */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -584,7 +577,6 @@
 		14F78D18254DFA090043C6DA /* TicketsSearch */ = {
 			isa = PBXGroup;
 			children = (
-				1478A0972552CF9500C3633C /* TicketsSearchAssembly.swift */,
 				142865E22551DB30003D1930 /* TicketsSearchViewController.swift */,
 				142865E42551DBD9003D1930 /* TicketsSearchInteractor.swift */,
 				1478A08F2552BEA100C3633C /* TicketsSearchView.swift */,
