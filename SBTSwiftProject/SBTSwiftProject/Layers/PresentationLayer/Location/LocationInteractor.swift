@@ -53,7 +53,7 @@ protocol LocationInteractorOutput: AnyObject {
 /// Интерактор экрана выбора метоположения
 final class LocationInteractor: LocationInteractorInput {
 
-	weak var output: LocationInteractorOutput?
+	var output: LocationInteractorOutput?
 
 	private let getLocationUseCase: any UseCaseAsync<Void, Result<Location, Error>>
 	private let prepareStorageUseCase: any UseCaseAsync<Void, Result<Void, Error>>
