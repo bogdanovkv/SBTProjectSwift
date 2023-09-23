@@ -107,38 +107,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "852A3272-D6D7-4AF9-A92F-C20A102FD075"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBTSwiftProject/Layers/CoordinationLayer/SelectCountryCoordinator/SelectCountryCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "userSelectCountry(with:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B3946277-D948-4E70-B997-006140259C11"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBTSwiftProject/Layers/CoordinationLayer/SelectCountryCoordinator/SelectCountryCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "userSelectCountry(with:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6EB2A06F-AA2C-4BF7-BCBB-074143C49DF6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -166,6 +134,53 @@
             endingLineNumber = "74"
             landmarkName = "searchTickets(fromCity:fromDate:toCity:returnDate:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "27AA045C-EBC2-4B50-9FB3-EEE40629DA50 - fba8b7011c912de5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SBTSwiftProject.TicketsSearchInteractor.searchTickets(fromCity: LocationDomainModels.City, fromDate: Swift.Optional&lt;Foundation.Date&gt;, toCity: LocationDomainModels.City, returnDate: Swift.Optional&lt;Foundation.Date&gt;) -&gt; ()"
+                  moduleName = "SBTSwiftProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konstantinbogdanov/Work/iOS%20Projects/SBTProjectSwift/SBTSwiftProject/SBTSwiftProject/Layers/PresentationLayer/TicketsSearch/TicketsSearchInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  uuid = "27AA045C-EBC2-4B50-9FB3-EEE40629DA50 - e2a814645be8c3bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () async -&gt; () in SBTSwiftProject.TicketsSearchInteractor.searchTickets(fromCity: LocationDomainModels.City, fromDate: Swift.Optional&lt;Foundation.Date&gt;, toCity: LocationDomainModels.City, returnDate: Swift.Optional&lt;Foundation.Date&gt;) -&gt; ()"
+                  moduleName = "SBTSwiftProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konstantinbogdanov/Work/iOS%20Projects/SBTProjectSwift/SBTSwiftProject/SBTSwiftProject/Layers/PresentationLayer/TicketsSearch/TicketsSearchInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "296">
+               </Location>
+               <Location
+                  uuid = "27AA045C-EBC2-4B50-9FB3-EEE40629DA50 - 78185055105e3794"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in SBTSwiftProject.TicketsSearchInteractor.searchTickets(fromCity: LocationDomainModels.City, fromDate: Swift.Optional&lt;Foundation.Date&gt;, toCity: LocationDomainModels.City, returnDate: Swift.Optional&lt;Foundation.Date&gt;) -&gt; ()"
+                  moduleName = "SBTSwiftProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konstantinbogdanov/Work/iOS%20Projects/SBTProjectSwift/SBTSwiftProject/SBTSwiftProject/Layers/PresentationLayer/TicketsSearch/TicketsSearchInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -181,6 +196,54 @@
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "perfom(request:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1D11CA6D-64B1-4226-8975-806608CA769A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SBTSwiftProject/Layers/CoordinationLayer/Abstractions/Router.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "present(_:animated:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2AE0E111-223F-46DE-9447-852AFBD6CC59"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SBTSwiftProject/Layers/CoordinationLayer/Abstractions/Router.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "present(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DC1E68FA-FE62-4C52-A7FE-CD3F4593BE3A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SBTSwiftProject/Layers/PresentationLayer/TicketsSearch/TicketsSearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "userSelectChangeDepartureLocation()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

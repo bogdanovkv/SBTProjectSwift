@@ -62,6 +62,8 @@
 		148AE35C2ABEFC55006E5411 /* UserSettingsRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE1782ABEDF28006E5411 /* UserSettingsRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		148AE35D2ABEFC64006E5411 /* TicketsRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE3492ABEEC76006E5411 /* TicketsRepository.framework */; };
 		148AE35E2ABEFC64006E5411 /* TicketsRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE3492ABEEC76006E5411 /* TicketsRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14977A8A2ABF67470051DF74 /* NetworkServiceWithLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14977A892ABF67470051DF74 /* NetworkServiceWithLogs.swift */; };
+		14977AA32ABF68F70051DF74 /* Logger+Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14977AA22ABF68F70051DF74 /* Logger+Categories.swift */; };
 		14AE5AE325443B7300548B1D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AE5AE225443B7300548B1D /* Launch Screen.storyboard */; };
 		14AE5AE825447E4600548B1D /* LocationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AE725447E4600548B1D /* LocationInteractor.swift */; };
 		14AE5AEA2544801D00548B1D /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AE92544801D00548B1D /* LocationView.swift */; };
@@ -332,6 +334,8 @@
 		148AE2E82ABEEA3F006E5411 /* DatabaseAbstraction.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DatabaseAbstraction.xcodeproj; path = Components/DatabaseAbstraction/DatabaseAbstraction.xcodeproj; sourceTree = "<group>"; };
 		148AE3082ABEEA9A006E5411 /* CoreDataService.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreDataService.xcodeproj; path = Components/CoreDataService/CoreDataService.xcodeproj; sourceTree = "<group>"; };
 		148AE3442ABEEC75006E5411 /* TicketsRepository.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TicketsRepository.xcodeproj; path = Components/TicketsRepository/TicketsRepository.xcodeproj; sourceTree = "<group>"; };
+		14977A892ABF67470051DF74 /* NetworkServiceWithLogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceWithLogs.swift; sourceTree = "<group>"; };
+		14977AA22ABF68F70051DF74 /* Logger+Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Categories.swift"; sourceTree = "<group>"; };
 		14AE5AE225443B7300548B1D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		14AE5AE725447E4600548B1D /* LocationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInteractor.swift; sourceTree = "<group>"; };
 		14AE5AE92544801D00548B1D /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
@@ -591,6 +595,7 @@
 			isa = PBXGroup;
 			children = (
 				147A2A562ABF16640056A2A3 /* Multithreading */,
+				14977AA12ABF67540051DF74 /* Logging */,
 			);
 			path = Instruments;
 			sourceTree = "<group>";
@@ -716,6 +721,15 @@
 				148AE3492ABEEC76006E5411 /* TicketsRepository.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		14977AA12ABF67540051DF74 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				14977A892ABF67470051DF74 /* NetworkServiceWithLogs.swift */,
+				14977AA22ABF68F70051DF74 /* Logger+Categories.swift */,
+			);
+			path = Logging;
 			sourceTree = "<group>";
 		};
 		14AE5AE625447A3000548B1D /* DomainLayer */ = {
@@ -1241,6 +1255,7 @@
 				142865E52551DBD9003D1930 /* TicketsSearchInteractor.swift in Sources */,
 				145191082569608A00A5593E /* TicketView.swift in Sources */,
 				142865E32551DB30003D1930 /* TicketsSearchViewController.swift in Sources */,
+				14977AA32ABF68F70051DF74 /* Logger+Categories.swift in Sources */,
 				1485DD5C2599197B009FFF7C /* SettingsView.swift in Sources */,
 				14AE5AEA2544801D00548B1D /* LocationView.swift in Sources */,
 				1478A0902552BEA100C3633C /* TicketsSearchView.swift in Sources */,
@@ -1276,6 +1291,7 @@
 				1421949B2ABF215A000A4F59 /* TicketsSearchInteractorOutputMainThreadProxy.swift in Sources */,
 				14ECFD612556A58100FBFC62 /* TicketTableViewCell.swift in Sources */,
 				14EA9E7D263EA9DE0037DFAE /* SettingsCoordinatorAssemby.swift in Sources */,
+				14977A8A2ABF67470051DF74 /* NetworkServiceWithLogs.swift in Sources */,
 				143AE7492639D98800D49F03 /* TicketsSearchViewModel.swift in Sources */,
 				143BA91D263DAC5C002011EC /* LocationCoordinator.swift in Sources */,
 				14EA9E73263EA4DD0037DFAE /* SelectCountryCoordinator.swift in Sources */,

@@ -32,7 +32,7 @@ final class ServiceLayerComposer: ServiceLayerComposerProtocol {
 	private lazy var coreData = CoreDataServiceAssembly.createCoreDataService()
 
 	func composeNetworkService() -> NetworkServiceProtocol {
-		return NetworkService()
+		return NetworkServiceWithLogs(service: NetworkService())
 	}
 
 	func composeDatabaseService() -> DatabaseServiceProtocol {
