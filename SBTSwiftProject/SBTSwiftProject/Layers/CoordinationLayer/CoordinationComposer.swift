@@ -27,13 +27,13 @@ final class CoordinationLayerComposer: CoordinationLayerComposerProtocol {
 								   settingsModuleAssemby: presentationComposer.composeSettingsAssembly())
 	}
 
-	func composeSelectCountryCoordinator() -> Coordinator<Void, Result<String, Error>> {
-		return SelectCountryCoordinator(router: mainRouter,
+	func composeSelectCountryCoordinator(router: RouterProtocol) -> Coordinator<Void, Result<String, Error>> {
+		return SelectCountryCoordinator(router: router,
 										selectCountryAssembly: presentationComposer.composeSelectCountryAssembly())
 	}
 
-	func composeSelectCityCoordinator() -> Coordinator<String, Result<String, Error>> {
-		return SelectCityCoordinator(router: mainRouter,
+	func composeSelectCityCoordinator(router: RouterProtocol) -> Coordinator<String, Result<String, Error>> {
+		return SelectCityCoordinator(router: router,
 									 selectCityAssembly: presentationComposer.composeSelectCityAssembly())
 	}
 
@@ -45,8 +45,8 @@ final class CoordinationLayerComposer: CoordinationLayerComposerProtocol {
 		return TicketsSearchCoordinator(router: router,
 										ticketsSearchAssembly: presentationComposer.composeTicketsSearchAssembly(),
 										ticketCoordinatorAssembly: composeTicketCoordinator,
-										selectCityCoordinatorAssembly: composeSelectCityCoordinator,
-										selectCountryCoordinatorAssembly: composeSelectCountryCoordinator,
+										selectCityCoordinatorAssembly: { self.composeSelectCityCoordinator(router: router) },
+										selectCountryCoordinatorAssembly: { self.composeSelectCountryCoordinator(router: router) },
 										alertsControllerAssembly: presentationComposer.composeAlertAssembly())
 	}
 
@@ -63,8 +63,8 @@ final class CoordinationLayerComposer: CoordinationLayerComposerProtocol {
 		return LocationCoordinator(locationModuleAssembly: presentationComposer.composeLocationAssembly(),
 								   router: mainRouter,
 								   alertsAssembly: presentationComposer.composeAlertAssembly(),
-								   selectCityCoordinatorAssembly: composeSelectCityCoordinator,
-								   selectCountryCoordinatorAssembly: composeSelectCountryCoordinator,
+								   selectCityCoordinatorAssembly: { self.composeSelectCityCoordinator(router: self.mainRouter)},
+								   selectCountryCoordinatorAssembly: { self.composeSelectCountryCoordinator(router: self.mainRouter) },
 								   tabBarCoordinatorAssembly: composeTabBarCoordinator)
 	}
 }
