@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -53,7 +53,6 @@
 		148AE3532ABEFC38006E5411 /* DomainAbstractions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14E8A9D42ABC359A00FA219D /* DomainAbstractions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		148AE3542ABEFC3D006E5411 /* LocationDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE2222ABEE36C006E5411 /* LocationDomain.framework */; };
 		148AE3552ABEFC3D006E5411 /* LocationDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE2222ABEE36C006E5411 /* LocationDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		148AE3562ABEFC42006E5411 /* LocationRespository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE1AE2ABEE1E5006E5411 /* LocationRespository.framework */; };
 		148AE3572ABEFC42006E5411 /* LocationRespository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE1AE2ABEE1E5006E5411 /* LocationRespository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		148AE3582ABEFC46006E5411 /* LocationRespository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE1AE2ABEE1E5006E5411 /* LocationRespository.framework */; };
 		148AE3592ABEFC4C006E5411 /* UserSettingsService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE1122ABEDCBC006E5411 /* UserSettingsService.framework */; };
@@ -377,7 +376,6 @@
 				148AE3542ABEFC3D006E5411 /* LocationDomain.framework in Frameworks */,
 				148AE35D2ABEFC64006E5411 /* TicketsRepository.framework in Frameworks */,
 				148AE3522ABEFC38006E5411 /* DomainAbstractions.framework in Frameworks */,
-				148AE3562ABEFC42006E5411 /* LocationRespository.framework in Frameworks */,
 				148AE3502ABEFC33006E5411 /* DatabaseAbstraction.framework in Frameworks */,
 				148AE35B2ABEFC55006E5411 /* UserSettingsRepository.framework in Frameworks */,
 				148AE34E2ABEFC2B006E5411 /* CoreDataService.framework in Frameworks */,
@@ -954,15 +952,18 @@
 		1438FF6320F9FD29003CC7C2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1500;
 				ORGANIZATIONNAME = "Константин Богданов";
 				TargetAttributes = {
 					1438FF6A20F9FD29003CC7C2 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = "";
 					};
 					1438FF8120F9FD2B003CC7C2 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = "";
 						TestTargetID = 1438FF6A20F9FD29003CC7C2;
 					};
 				};
@@ -1331,6 +1332,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1342,6 +1344,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1391,6 +1394,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1402,6 +1406,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
