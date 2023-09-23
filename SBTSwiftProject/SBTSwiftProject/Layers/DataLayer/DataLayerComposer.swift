@@ -6,13 +6,11 @@
 //  Copyright © 2021 Константин Богданов. All rights reserved.
 //
 
-import TicketsRepositoryAbstraction
 import TicketsRepository
-import LocationRepositoryAbstraction
-import LocationRepository
-import UserSettingsRepositoryAbstraction
+import LocationRespository
 import UserSettingsRepository
-
+import LocationDomain
+import TicketsDomain
 /// Сборщик слоя данных
 protocol DataLayerComposerProtocol {
 	func composeLocationRepository() -> LocationRepositoryProtocol

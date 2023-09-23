@@ -3,26 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		141563C025F621B000B96C6A /* LocationUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141563BF25F621B000B96C6A /* LocationUseCaseTests.swift */; };
-		141C37A7262B5FC000250A8F /* NetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = 141C37A6262B5FC000250A8F /* NetworkService */; };
-		1425EF1A262B730C00B532B7 /* UserSettingsAbstration in Frameworks */ = {isa = PBXBuildFile; productRef = 1425EF19262B730C00B532B7 /* UserSettingsAbstration */; };
-		1425EF1E262B733B00B532B7 /* UserSettingsService in Frameworks */ = {isa = PBXBuildFile; productRef = 1425EF1D262B733B00B532B7 /* UserSettingsService */; };
 		142865CE25509648003D1930 /* SelectCountryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865CD25509648003D1930 /* SelectCountryAssembly.swift */; };
 		142865DD25509C4E003D1930 /* SelectCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865DA25509C4E003D1930 /* SelectCityViewController.swift */; };
 		142865DE25509C4E003D1930 /* SelectCityAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865DB25509C4E003D1930 /* SelectCityAssembly.swift */; };
 		142865DF25509C4E003D1930 /* SelectCityInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865DC25509C4E003D1930 /* SelectCityInteractor.swift */; };
 		142865E32551DB30003D1930 /* TicketsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865E22551DB30003D1930 /* TicketsSearchViewController.swift */; };
 		142865E52551DBD9003D1930 /* TicketsSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865E42551DBD9003D1930 /* TicketsSearchInteractor.swift */; };
-		14321DB62622EEB30030116C /* DatabaseAbstraction in Frameworks */ = {isa = PBXBuildFile; productRef = 14321DB52622EEB30030116C /* DatabaseAbstraction */; };
-		14333F71263472A4000A10F0 /* LocationDomainAbstraction in Frameworks */ = {isa = PBXBuildFile; productRef = 14333F70263472A4000A10F0 /* LocationDomainAbstraction */; };
-		14333F75263472C8000A10F0 /* LocationDomainLogic in Frameworks */ = {isa = PBXBuildFile; productRef = 14333F74263472C8000A10F0 /* LocationDomainLogic */; };
-		14333F7926347326000A10F0 /* TicketsDomainAbstraction in Frameworks */ = {isa = PBXBuildFile; productRef = 14333F7826347326000A10F0 /* TicketsDomainAbstraction */; };
-		14333F7D2634738C000A10F0 /* DomainAbstraction in Frameworks */ = {isa = PBXBuildFile; productRef = 14333F7C2634738C000A10F0 /* DomainAbstraction */; };
-		14333F8626348635000A10F0 /* TicketsDomainLogic in Frameworks */ = {isa = PBXBuildFile; productRef = 14333F8526348635000A10F0 /* TicketsDomainLogic */; };
 		1438FF6F20F9FD29003CC7C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF6E20F9FD29003CC7C2 /* AppDelegate.swift */; };
 		1438FF7120F9FD29003CC7C2 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438FF7020F9FD29003CC7C2 /* LocationViewController.swift */; };
 		1438FF7920F9FD2B003CC7C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1438FF7820F9FD2B003CC7C2 /* Assets.xcassets */; };
@@ -41,18 +32,35 @@
 		145191082569608A00A5593E /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145191072569608A00A5593E /* TicketView.swift */; };
 		1451910B2569684D00A5593E /* TicketAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451910A2569684D00A5593E /* TicketAssembly.swift */; };
 		1451911125697E8500A5593E /* TicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1451911025697E8500A5593E /* TicketViewModel.swift */; };
-		145CB575262C4BC00050A21F /* TicketsRepositoryAbstraction in Frameworks */ = {isa = PBXBuildFile; productRef = 145CB574262C4BC00050A21F /* TicketsRepositoryAbstraction */; };
-		145CB579262C4BD20050A21F /* TicketsRepository in Frameworks */ = {isa = PBXBuildFile; productRef = 145CB578262C4BD20050A21F /* TicketsRepository */; };
-		145CB581262C98100050A21F /* LocationRepositoryAbstraction in Frameworks */ = {isa = PBXBuildFile; productRef = 145CB580262C98100050A21F /* LocationRepositoryAbstraction */; };
-		145CB585262C98510050A21F /* LocationRepository in Frameworks */ = {isa = PBXBuildFile; productRef = 145CB584262C98510050A21F /* LocationRepository */; };
-		146B7D17262B231B005B7FD4 /* CoreDataService in Frameworks */ = {isa = PBXBuildFile; productRef = 146B7D16262B231B005B7FD4 /* CoreDataService */; };
 		1478A0902552BEA100C3633C /* TicketsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478A08F2552BEA100C3633C /* TicketsSearchView.swift */; };
 		1478A0942552BF1C00C3633C /* TicketHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478A0932552BF1C00C3633C /* TicketHeaderView.swift */; };
 		1478A0982552CF9500C3633C /* TicketsSearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478A0972552CF9500C3633C /* TicketsSearchAssembly.swift */; };
 		1478A09E2552D9A900C3633C /* TicketsSearchDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478A09D2552D9A900C3633C /* TicketsSearchDatePicker.swift */; };
 		1478A0A52552F30B00C3633C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478A0A42552F30B00C3633C /* Date.swift */; };
 		147981AC254D9C1D00110A9B /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147981AB254D9C1D00110A9B /* AppErrors.swift */; };
+		147A2A362ABF068D0056A2A3 /* CoreDataServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147A2A352ABF068D0056A2A3 /* CoreDataServiceAssembly.swift */; };
+		147A2A4E2ABF0C2A0056A2A3 /* LocationRepositoriesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147A2A4D2ABF0C2A0056A2A3 /* LocationRepositoriesAssembly.swift */; };
+		147A2A4F2ABF0DCE0056A2A3 /* NetworkService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE1412ABEDDBB006E5411 /* NetworkService.framework */; };
+		147A2A502ABF0DCE0056A2A3 /* NetworkService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE1412ABEDDBB006E5411 /* NetworkService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		147A2A542ABF11F50056A2A3 /* TicketsRepository+TicketsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147A2A532ABF11F50056A2A3 /* TicketsRepository+TicketsRepositoryProtocol.swift */; };
 		1485DD5C2599197B009FFF7C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1485DD5B2599197B009FFF7C /* SettingsView.swift */; };
+		148AE34E2ABEFC2B006E5411 /* CoreDataService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE30D2ABEEA9B006E5411 /* CoreDataService.framework */; };
+		148AE34F2ABEFC2B006E5411 /* CoreDataService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE30D2ABEEA9B006E5411 /* CoreDataService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		148AE3502ABEFC33006E5411 /* DatabaseAbstraction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE2ED2ABEEA3F006E5411 /* DatabaseAbstraction.framework */; };
+		148AE3512ABEFC33006E5411 /* DatabaseAbstraction.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE2ED2ABEEA3F006E5411 /* DatabaseAbstraction.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		148AE3522ABEFC38006E5411 /* DomainAbstractions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E8A9D42ABC359A00FA219D /* DomainAbstractions.framework */; };
+		148AE3532ABEFC38006E5411 /* DomainAbstractions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14E8A9D42ABC359A00FA219D /* DomainAbstractions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		148AE3542ABEFC3D006E5411 /* LocationDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE2222ABEE36C006E5411 /* LocationDomain.framework */; };
+		148AE3552ABEFC3D006E5411 /* LocationDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE2222ABEE36C006E5411 /* LocationDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		148AE3562ABEFC42006E5411 /* LocationRespository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE1AE2ABEE1E5006E5411 /* LocationRespository.framework */; };
+		148AE3572ABEFC42006E5411 /* LocationRespository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE1AE2ABEE1E5006E5411 /* LocationRespository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		148AE3582ABEFC46006E5411 /* LocationRespository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE1AE2ABEE1E5006E5411 /* LocationRespository.framework */; };
+		148AE3592ABEFC4C006E5411 /* UserSettingsService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE1122ABEDCBC006E5411 /* UserSettingsService.framework */; };
+		148AE35A2ABEFC4C006E5411 /* UserSettingsService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE1122ABEDCBC006E5411 /* UserSettingsService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		148AE35B2ABEFC55006E5411 /* UserSettingsRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE1782ABEDF28006E5411 /* UserSettingsRepository.framework */; };
+		148AE35C2ABEFC55006E5411 /* UserSettingsRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE1782ABEDF28006E5411 /* UserSettingsRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		148AE35D2ABEFC64006E5411 /* TicketsRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE3492ABEEC76006E5411 /* TicketsRepository.framework */; };
+		148AE35E2ABEFC64006E5411 /* TicketsRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE3492ABEEC76006E5411 /* TicketsRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14AE5AE325443B7300548B1D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AE5AE225443B7300548B1D /* Launch Screen.storyboard */; };
 		14AE5AE825447E4600548B1D /* LocationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AE725447E4600548B1D /* LocationInteractor.swift */; };
 		14AE5AEA2544801D00548B1D /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE5AE92544801D00548B1D /* LocationView.swift */; };
@@ -65,8 +73,8 @@
 		14D634CD2550756900FF7D37 /* SelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634CC2550756900FF7D37 /* SelectCountryViewController.swift */; };
 		14D634CF255075B300FF7D37 /* SelectCountryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D634CE255075B300FF7D37 /* SelectCountryInteractor.swift */; };
 		14E2521625E25FF80073C50C /* LocationRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2521525E25FF80073C50C /* LocationRepositorySpy.swift */; };
-		14E6B4EF262CA47800D1A2B1 /* UserSettingsRepositoryAbstraction in Frameworks */ = {isa = PBXBuildFile; productRef = 14E6B4EE262CA47800D1A2B1 /* UserSettingsRepositoryAbstraction */; };
-		14E6B4F3262CA49600D1A2B1 /* UserSettingsRepository in Frameworks */ = {isa = PBXBuildFile; productRef = 14E6B4F2262CA49600D1A2B1 /* UserSettingsRepository */; };
+		14E8A9252ABC2B9500FA219D /* TicketsDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E8A9222ABC2B7200FA219D /* TicketsDomain.framework */; };
+		14E8A9262ABC2B9500FA219D /* TicketsDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14E8A9222ABC2B7200FA219D /* TicketsDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14EA9E66263DD94A0037DFAE /* LocationCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EA9E65263DD94A0037DFAE /* LocationCoordinatorAssembly.swift */; };
 		14EA9E6B263E9E1E0037DFAE /* SelectCityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EA9E6A263E9E1E0037DFAE /* SelectCityCoordinator.swift */; };
 		14EA9E70263EA21A0037DFAE /* SelectCityCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EA9E6F263EA21A0037DFAE /* SelectCityCoordinatorAssembly.swift */; };
@@ -92,7 +100,184 @@
 			remoteGlobalIDString = 1438FF6A20F9FD29003CC7C2;
 			remoteInfo = SBTSwiftProject;
 		};
+		148AE1112ABEDCBC006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE10C2ABEDCBC006E5411 /* UserSettingsService.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE0F22ABEDCBB006E5411;
+			remoteInfo = UserSettingsService;
+		};
+		148AE1132ABEDCBC006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE10C2ABEDCBC006E5411 /* UserSettingsService.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE0FC2ABEDCBC006E5411;
+			remoteInfo = UserSettingsServiceTests;
+		};
+		148AE1402ABEDDBB006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE13B2ABEDDBA006E5411 /* NetworkService.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE1212ABEDDBA006E5411;
+			remoteInfo = NetworkService;
+		};
+		148AE1422ABEDDBB006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE13B2ABEDDBA006E5411 /* NetworkService.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE12B2ABEDDBA006E5411;
+			remoteInfo = NetworkServiceTests;
+		};
+		148AE1772ABEDF28006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE1722ABEDF28006E5411 /* UserSettingsRepository.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE1582ABEDF28006E5411;
+			remoteInfo = UserSettingsRepository;
+		};
+		148AE1792ABEDF28006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE1722ABEDF28006E5411 /* UserSettingsRepository.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE1622ABEDF28006E5411;
+			remoteInfo = UserSettingsRepositoryTests;
+		};
+		148AE1AD2ABEE1E5006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE1A82ABEE1E5006E5411 /* LocationRespository.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE18E2ABEE1E5006E5411;
+			remoteInfo = LocationRespository;
+		};
+		148AE1AF2ABEE1E5006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE1A82ABEE1E5006E5411 /* LocationRespository.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE1982ABEE1E5006E5411;
+			remoteInfo = LocationRespositoryTests;
+		};
+		148AE1F42ABEE2CB006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE1EF2ABEE2CB006E5411 /* NetworkingAbstractions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE1BB2ABEE21F006E5411;
+			remoteInfo = NetworkingAbstractions;
+		};
+		148AE1F62ABEE2CB006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE1EF2ABEE2CB006E5411 /* NetworkingAbstractions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE1C52ABEE21F006E5411;
+			remoteInfo = NetworkingAbstractionsTests;
+		};
+		148AE2212ABEE36C006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE21C2ABEE36C006E5411 /* LocationDomain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE2022ABEE36C006E5411;
+			remoteInfo = LocationDomain;
+		};
+		148AE2232ABEE36C006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE21C2ABEE36C006E5411 /* LocationDomain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE20C2ABEE36C006E5411;
+			remoteInfo = LocationDomainTests;
+		};
+		148AE2AF2ABEE7CE006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE2AA2ABEE7CE006E5411 /* NetworkingAbstractions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE1BB2ABEE21F006E5411;
+			remoteInfo = NetworkingAbstractions;
+		};
+		148AE2B12ABEE7CE006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE2AA2ABEE7CE006E5411 /* NetworkingAbstractions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE1C52ABEE21F006E5411;
+			remoteInfo = NetworkingAbstractionsTests;
+		};
+		148AE2B82ABEE7E0006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE2B32ABEE7E0006E5411 /* LocationDomainModels.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE2902ABEE7B5006E5411;
+			remoteInfo = LocationDomainModels;
+		};
+		148AE2BA2ABEE7E0006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE2B32ABEE7E0006E5411 /* LocationDomainModels.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE29A2ABEE7B5006E5411;
+			remoteInfo = LocationDomainModelsTests;
+		};
+		148AE2EC2ABEEA3F006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE2E82ABEEA3F006E5411 /* DatabaseAbstraction.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE2DC2ABEEA3F006E5411;
+			remoteInfo = DatabaseAbstraction;
+		};
+		148AE30C2ABEEA9B006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE3082ABEEA9A006E5411 /* CoreDataService.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE2FC2ABEEA9A006E5411;
+			remoteInfo = CoreDataService;
+		};
+		148AE3482ABEEC76006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE3442ABEEC75006E5411 /* TicketsRepository.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 148AE3382ABEEC75006E5411;
+			remoteInfo = TicketsRepository;
+		};
+		14E8A9212ABC2B7200FA219D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14E8A91C2ABC2B7200FA219D /* TicketsDomain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 14E8A9022ABC2B7200FA219D;
+			remoteInfo = TicketsDomain;
+		};
+		14E8A9232ABC2B7200FA219D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14E8A91C2ABC2B7200FA219D /* TicketsDomain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 14E8A90C2ABC2B7200FA219D;
+			remoteInfo = TicketsDomainTests;
+		};
+		14E8A9D32ABC359A00FA219D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14E8A9CE2ABC359A00FA219D /* DomainAbstractions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 14E8A9B42ABC359A00FA219D;
+			remoteInfo = DomainAbstractions;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		14E8A9272ABC2B9500FA219D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				148AE35C2ABEFC55006E5411 /* UserSettingsRepository.framework in Embed Frameworks */,
+				14E8A9262ABC2B9500FA219D /* TicketsDomain.framework in Embed Frameworks */,
+				148AE35A2ABEFC4C006E5411 /* UserSettingsService.framework in Embed Frameworks */,
+				148AE3552ABEFC3D006E5411 /* LocationDomain.framework in Embed Frameworks */,
+				148AE3532ABEFC38006E5411 /* DomainAbstractions.framework in Embed Frameworks */,
+				148AE3572ABEFC42006E5411 /* LocationRespository.framework in Embed Frameworks */,
+				148AE3512ABEFC33006E5411 /* DatabaseAbstraction.framework in Embed Frameworks */,
+				147A2A502ABF0DCE0056A2A3 /* NetworkService.framework in Embed Frameworks */,
+				148AE34F2ABEFC2B006E5411 /* CoreDataService.framework in Embed Frameworks */,
+				148AE35E2ABEFC64006E5411 /* TicketsRepository.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		141563BF25F621B000B96C6A /* LocationUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUseCaseTests.swift; sourceTree = "<group>"; };
@@ -129,7 +314,21 @@
 		1478A09D2552D9A900C3633C /* TicketsSearchDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsSearchDatePicker.swift; sourceTree = "<group>"; };
 		1478A0A42552F30B00C3633C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		147981AB254D9C1D00110A9B /* AppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
+		147A2A352ABF068D0056A2A3 /* CoreDataServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceAssembly.swift; sourceTree = "<group>"; };
+		147A2A4D2ABF0C2A0056A2A3 /* LocationRepositoriesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepositoriesAssembly.swift; sourceTree = "<group>"; };
+		147A2A532ABF11F50056A2A3 /* TicketsRepository+TicketsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketsRepository+TicketsRepositoryProtocol.swift"; sourceTree = "<group>"; };
 		1485DD5B2599197B009FFF7C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		148AE10C2ABEDCBC006E5411 /* UserSettingsService.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UserSettingsService.xcodeproj; path = Components/UserSettingsService/UserSettingsService.xcodeproj; sourceTree = "<group>"; };
+		148AE13B2ABEDDBA006E5411 /* NetworkService.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetworkService.xcodeproj; path = Components/NetworkService/NetworkService.xcodeproj; sourceTree = "<group>"; };
+		148AE1722ABEDF28006E5411 /* UserSettingsRepository.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UserSettingsRepository.xcodeproj; path = Components/UserSettingsRepository/UserSettingsRepository.xcodeproj; sourceTree = "<group>"; };
+		148AE1A82ABEE1E5006E5411 /* LocationRespository.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LocationRespository.xcodeproj; path = Components/LocationRespository/LocationRespository.xcodeproj; sourceTree = "<group>"; };
+		148AE1EF2ABEE2CB006E5411 /* NetworkingAbstractions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetworkingAbstractions.xcodeproj; path = Components/LocationRespository/../NetworkingAbstractions/NetworkingAbstractions.xcodeproj; sourceTree = "<group>"; };
+		148AE21C2ABEE36C006E5411 /* LocationDomain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LocationDomain.xcodeproj; path = Components/LocationDomain/LocationDomain.xcodeproj; sourceTree = "<group>"; };
+		148AE2AA2ABEE7CE006E5411 /* NetworkingAbstractions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetworkingAbstractions.xcodeproj; path = Components/NetworkingAbstractions/NetworkingAbstractions.xcodeproj; sourceTree = "<group>"; };
+		148AE2B32ABEE7E0006E5411 /* LocationDomainModels.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LocationDomainModels.xcodeproj; path = Components/LocationDomainModels/LocationDomainModels.xcodeproj; sourceTree = "<group>"; };
+		148AE2E82ABEEA3F006E5411 /* DatabaseAbstraction.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DatabaseAbstraction.xcodeproj; path = Components/DatabaseAbstraction/DatabaseAbstraction.xcodeproj; sourceTree = "<group>"; };
+		148AE3082ABEEA9A006E5411 /* CoreDataService.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreDataService.xcodeproj; path = Components/CoreDataService/CoreDataService.xcodeproj; sourceTree = "<group>"; };
+		148AE3442ABEEC75006E5411 /* TicketsRepository.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TicketsRepository.xcodeproj; path = Components/TicketsRepository/TicketsRepository.xcodeproj; sourceTree = "<group>"; };
 		14AE5AE225443B7300548B1D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		14AE5AE725447E4600548B1D /* LocationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInteractor.swift; sourceTree = "<group>"; };
 		14AE5AE92544801D00548B1D /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
@@ -145,6 +344,8 @@
 		14D634CC2550756900FF7D37 /* SelectCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryViewController.swift; sourceTree = "<group>"; };
 		14D634CE255075B300FF7D37 /* SelectCountryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryInteractor.swift; sourceTree = "<group>"; };
 		14E2521525E25FF80073C50C /* LocationRepositorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepositorySpy.swift; sourceTree = "<group>"; };
+		14E8A91C2ABC2B7200FA219D /* TicketsDomain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TicketsDomain.xcodeproj; path = Components/TicketsDomain/TicketsDomain.xcodeproj; sourceTree = "<group>"; };
+		14E8A9CE2ABC359A00FA219D /* DomainAbstractions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DomainAbstractions.xcodeproj; path = Components/DomainAbstractions/DomainAbstractions.xcodeproj; sourceTree = "<group>"; };
 		14EA9E65263DD94A0037DFAE /* LocationCoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinatorAssembly.swift; sourceTree = "<group>"; };
 		14EA9E6A263E9E1E0037DFAE /* SelectCityCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityCoordinator.swift; sourceTree = "<group>"; };
 		14EA9E6F263EA21A0037DFAE /* SelectCityCoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityCoordinatorAssembly.swift; sourceTree = "<group>"; };
@@ -167,22 +368,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				145CB579262C4BD20050A21F /* TicketsRepository in Frameworks */,
-				1425EF1E262B733B00B532B7 /* UserSettingsService in Frameworks */,
-				14333F8626348635000A10F0 /* TicketsDomainLogic in Frameworks */,
-				145CB581262C98100050A21F /* LocationRepositoryAbstraction in Frameworks */,
-				14333F7D2634738C000A10F0 /* DomainAbstraction in Frameworks */,
-				14333F71263472A4000A10F0 /* LocationDomainAbstraction in Frameworks */,
-				14321DB62622EEB30030116C /* DatabaseAbstraction in Frameworks */,
-				14E6B4EF262CA47800D1A2B1 /* UserSettingsRepositoryAbstraction in Frameworks */,
-				145CB575262C4BC00050A21F /* TicketsRepositoryAbstraction in Frameworks */,
-				145CB585262C98510050A21F /* LocationRepository in Frameworks */,
-				141C37A7262B5FC000250A8F /* NetworkService in Frameworks */,
-				1425EF1A262B730C00B532B7 /* UserSettingsAbstration in Frameworks */,
-				14E6B4F3262CA49600D1A2B1 /* UserSettingsRepository in Frameworks */,
-				14333F75263472C8000A10F0 /* LocationDomainLogic in Frameworks */,
-				146B7D17262B231B005B7FD4 /* CoreDataService in Frameworks */,
-				14333F7926347326000A10F0 /* TicketsDomainAbstraction in Frameworks */,
+				147A2A4F2ABF0DCE0056A2A3 /* NetworkService.framework in Frameworks */,
+				14E8A9252ABC2B9500FA219D /* TicketsDomain.framework in Frameworks */,
+				148AE3582ABEFC46006E5411 /* LocationRespository.framework in Frameworks */,
+				148AE3592ABEFC4C006E5411 /* UserSettingsService.framework in Frameworks */,
+				148AE3542ABEFC3D006E5411 /* LocationDomain.framework in Frameworks */,
+				148AE35D2ABEFC64006E5411 /* TicketsRepository.framework in Frameworks */,
+				148AE3522ABEFC38006E5411 /* DomainAbstractions.framework in Frameworks */,
+				148AE3562ABEFC42006E5411 /* LocationRespository.framework in Frameworks */,
+				148AE3502ABEFC33006E5411 /* DatabaseAbstraction.framework in Frameworks */,
+				148AE35B2ABEFC55006E5411 /* UserSettingsRepository.framework in Frameworks */,
+				148AE34E2ABEFC2B006E5411 /* CoreDataService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +414,19 @@
 		1438FF6220F9FD29003CC7C2 = {
 			isa = PBXGroup;
 			children = (
+				148AE3082ABEEA9A006E5411 /* CoreDataService.xcodeproj */,
+				148AE13B2ABEDDBA006E5411 /* NetworkService.xcodeproj */,
+				148AE2E82ABEEA3F006E5411 /* DatabaseAbstraction.xcodeproj */,
+				148AE1EF2ABEE2CB006E5411 /* NetworkingAbstractions.xcodeproj */,
+				148AE1A82ABEE1E5006E5411 /* LocationRespository.xcodeproj */,
+				148AE3442ABEEC75006E5411 /* TicketsRepository.xcodeproj */,
+				148AE1722ABEDF28006E5411 /* UserSettingsRepository.xcodeproj */,
+				148AE10C2ABEDCBC006E5411 /* UserSettingsService.xcodeproj */,
+				148AE2AA2ABEE7CE006E5411 /* NetworkingAbstractions.xcodeproj */,
+				14E8A91C2ABC2B7200FA219D /* TicketsDomain.xcodeproj */,
+				148AE2B32ABEE7E0006E5411 /* LocationDomainModels.xcodeproj */,
+				148AE21C2ABEE36C006E5411 /* LocationDomain.xcodeproj */,
+				14E8A9CE2ABC359A00FA219D /* DomainAbstractions.xcodeproj */,
 				14AE5AE225443B7300548B1D /* Launch Screen.storyboard */,
 				1438FF6D20F9FD29003CC7C2 /* SBTSwiftProject */,
 				1438FF8520F9FD2B003CC7C2 /* SBTSwiftProjectTests */,
@@ -371,8 +580,106 @@
 			isa = PBXGroup;
 			children = (
 				14EA9E8A263EDAA30037DFAE /* DataLayerComposer.swift */,
+				147A2A532ABF11F50056A2A3 /* TicketsRepository+TicketsRepositoryProtocol.swift */,
+				147A2A4D2ABF0C2A0056A2A3 /* LocationRepositoriesAssembly.swift */,
 			);
 			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		148AE10D2ABEDCBC006E5411 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				148AE1122ABEDCBC006E5411 /* UserSettingsService.framework */,
+				148AE1142ABEDCBC006E5411 /* UserSettingsServiceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		148AE13C2ABEDDBA006E5411 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				148AE1412ABEDDBB006E5411 /* NetworkService.framework */,
+				148AE1432ABEDDBB006E5411 /* NetworkServiceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		148AE1732ABEDF28006E5411 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				148AE1782ABEDF28006E5411 /* UserSettingsRepository.framework */,
+				148AE17A2ABEDF28006E5411 /* UserSettingsRepositoryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		148AE1A92ABEE1E5006E5411 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				148AE1AE2ABEE1E5006E5411 /* LocationRespository.framework */,
+				148AE1B02ABEE1E5006E5411 /* LocationRespositoryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		148AE1F02ABEE2CB006E5411 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				148AE1F52ABEE2CB006E5411 /* NetworkingAbstractions.framework */,
+				148AE1F72ABEE2CB006E5411 /* NetworkingAbstractionsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		148AE21D2ABEE36C006E5411 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				148AE2222ABEE36C006E5411 /* LocationDomain.framework */,
+				148AE2242ABEE36C006E5411 /* LocationDomainTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		148AE2AB2ABEE7CE006E5411 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				148AE2B02ABEE7CE006E5411 /* NetworkingAbstractions.framework */,
+				148AE2B22ABEE7CE006E5411 /* NetworkingAbstractionsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		148AE2B42ABEE7E0006E5411 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				148AE2B92ABEE7E0006E5411 /* LocationDomainModels.framework */,
+				148AE2BB2ABEE7E0006E5411 /* LocationDomainModelsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		148AE2E92ABEEA3F006E5411 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				148AE2ED2ABEEA3F006E5411 /* DatabaseAbstraction.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		148AE3092ABEEA9A006E5411 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				148AE30D2ABEEA9B006E5411 /* CoreDataService.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		148AE3452ABEEC75006E5411 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				148AE3492ABEEC76006E5411 /* TicketsRepository.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		14AE5AE625447A3000548B1D /* DomainLayer */ = {
@@ -435,6 +742,7 @@
 			isa = PBXGroup;
 			children = (
 				14EA9E86263EDA040037DFAE /* ServiceLayerComposer.swift */,
+				147A2A352ABF068D0056A2A3 /* CoreDataServiceAssembly.swift */,
 				147981AB254D9C1D00110A9B /* AppErrors.swift */,
 			);
 			path = ServiceLayer;
@@ -468,11 +776,21 @@
 			path = SelectCountry;
 			sourceTree = "<group>";
 		};
-		14D8688625A8DF450080948B /* views */ = {
+		14E8A91D2ABC2B7200FA219D /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				14E8A9222ABC2B7200FA219D /* TicketsDomain.framework */,
+				14E8A9242ABC2B7200FA219D /* TicketsDomainTests.xctest */,
 			);
-			path = views;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		14E8A9CF2ABC359A00FA219D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14E8A9D42ABC359A00FA219D /* DomainAbstractions.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		14EA9E69263E9DEF0037DFAE /* SelectCityCoordinator */ = {
@@ -536,7 +854,6 @@
 				14ECFD592556918900FBFC62 /* SettingsAssembly.swift */,
 				14ECFD562556913E00FBFC62 /* SettingsViewController.swift */,
 				1485DD5B2599197B009FFF7C /* SettingsView.swift */,
-				14D8688625A8DF450080948B /* views */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -573,6 +890,7 @@
 				1438FF6720F9FD29003CC7C2 /* Sources */,
 				1438FF6820F9FD29003CC7C2 /* Frameworks */,
 				1438FF6920F9FD29003CC7C2 /* Resources */,
+				14E8A9272ABC2B9500FA219D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -580,22 +898,6 @@
 			);
 			name = SBTSwiftProject;
 			packageProductDependencies = (
-				14321DB52622EEB30030116C /* DatabaseAbstraction */,
-				146B7D16262B231B005B7FD4 /* CoreDataService */,
-				141C37A6262B5FC000250A8F /* NetworkService */,
-				1425EF19262B730C00B532B7 /* UserSettingsAbstration */,
-				1425EF1D262B733B00B532B7 /* UserSettingsService */,
-				145CB574262C4BC00050A21F /* TicketsRepositoryAbstraction */,
-				145CB578262C4BD20050A21F /* TicketsRepository */,
-				145CB580262C98100050A21F /* LocationRepositoryAbstraction */,
-				145CB584262C98510050A21F /* LocationRepository */,
-				14E6B4EE262CA47800D1A2B1 /* UserSettingsRepositoryAbstraction */,
-				14E6B4F2262CA49600D1A2B1 /* UserSettingsRepository */,
-				14333F70263472A4000A10F0 /* LocationDomainAbstraction */,
-				14333F74263472C8000A10F0 /* LocationDomainLogic */,
-				14333F7826347326000A10F0 /* TicketsDomainAbstraction */,
-				14333F7C2634738C000A10F0 /* DomainAbstraction */,
-				14333F8526348635000A10F0 /* TicketsDomainLogic */,
 			);
 			productName = SBTSwiftProject;
 			productReference = 1438FF6B20F9FD29003CC7C2 /* SBTSwiftProject.app */;
@@ -625,7 +927,7 @@
 		1438FF6320F9FD29003CC7C2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Константин Богданов";
 				TargetAttributes = {
@@ -648,25 +950,63 @@
 			);
 			mainGroup = 1438FF6220F9FD29003CC7C2;
 			packageReferences = (
-				14321DB42622EEB30030116C /* XCRemoteSwiftPackageReference "DatabaseAbstraction" */,
-				146B7D15262B231B005B7FD4 /* XCRemoteSwiftPackageReference "CoreDataService" */,
-				141C37A5262B5FC000250A8F /* XCRemoteSwiftPackageReference "NetworkService" */,
-				1425EF18262B730C00B532B7 /* XCRemoteSwiftPackageReference "UserSettingsAbstration" */,
-				1425EF1C262B733B00B532B7 /* XCRemoteSwiftPackageReference "UserSettingsService" */,
-				145CB573262C4BC00050A21F /* XCRemoteSwiftPackageReference "TicketsRepositoryAbstraction" */,
-				145CB577262C4BD20050A21F /* XCRemoteSwiftPackageReference "TicketsRepository" */,
-				145CB57F262C98100050A21F /* XCRemoteSwiftPackageReference "LocationRepositoryAbstraction" */,
-				145CB583262C98510050A21F /* XCRemoteSwiftPackageReference "LocationRepository" */,
-				14E6B4ED262CA47800D1A2B1 /* XCRemoteSwiftPackageReference "UserSettingsRepositoryAbstraction" */,
-				14E6B4F1262CA49600D1A2B1 /* XCRemoteSwiftPackageReference "UserSettingsRepository" */,
-				14333F6F263472A4000A10F0 /* XCRemoteSwiftPackageReference "LocationDomainAbstraction" */,
-				14333F73263472C8000A10F0 /* XCRemoteSwiftPackageReference "LocationDomainLogic" */,
-				14333F7726347326000A10F0 /* XCRemoteSwiftPackageReference "TicketsDomainAbstraction" */,
-				14333F7B2634738C000A10F0 /* XCRemoteSwiftPackageReference "DomainAbstraction" */,
-				14333F8426348635000A10F0 /* XCRemoteSwiftPackageReference "TicketsDomainLogic" */,
 			);
 			productRefGroup = 1438FF6C20F9FD29003CC7C2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 148AE3092ABEEA9A006E5411 /* Products */;
+					ProjectRef = 148AE3082ABEEA9A006E5411 /* CoreDataService.xcodeproj */;
+				},
+				{
+					ProductGroup = 148AE2E92ABEEA3F006E5411 /* Products */;
+					ProjectRef = 148AE2E82ABEEA3F006E5411 /* DatabaseAbstraction.xcodeproj */;
+				},
+				{
+					ProductGroup = 14E8A9CF2ABC359A00FA219D /* Products */;
+					ProjectRef = 14E8A9CE2ABC359A00FA219D /* DomainAbstractions.xcodeproj */;
+				},
+				{
+					ProductGroup = 148AE21D2ABEE36C006E5411 /* Products */;
+					ProjectRef = 148AE21C2ABEE36C006E5411 /* LocationDomain.xcodeproj */;
+				},
+				{
+					ProductGroup = 148AE2B42ABEE7E0006E5411 /* Products */;
+					ProjectRef = 148AE2B32ABEE7E0006E5411 /* LocationDomainModels.xcodeproj */;
+				},
+				{
+					ProductGroup = 148AE1A92ABEE1E5006E5411 /* Products */;
+					ProjectRef = 148AE1A82ABEE1E5006E5411 /* LocationRespository.xcodeproj */;
+				},
+				{
+					ProductGroup = 148AE1F02ABEE2CB006E5411 /* Products */;
+					ProjectRef = 148AE1EF2ABEE2CB006E5411 /* NetworkingAbstractions.xcodeproj */;
+				},
+				{
+					ProductGroup = 148AE2AB2ABEE7CE006E5411 /* Products */;
+					ProjectRef = 148AE2AA2ABEE7CE006E5411 /* NetworkingAbstractions.xcodeproj */;
+				},
+				{
+					ProductGroup = 148AE13C2ABEDDBA006E5411 /* Products */;
+					ProjectRef = 148AE13B2ABEDDBA006E5411 /* NetworkService.xcodeproj */;
+				},
+				{
+					ProductGroup = 14E8A91D2ABC2B7200FA219D /* Products */;
+					ProjectRef = 14E8A91C2ABC2B7200FA219D /* TicketsDomain.xcodeproj */;
+				},
+				{
+					ProductGroup = 148AE3452ABEEC75006E5411 /* Products */;
+					ProjectRef = 148AE3442ABEEC75006E5411 /* TicketsRepository.xcodeproj */;
+				},
+				{
+					ProductGroup = 148AE1732ABEDF28006E5411 /* Products */;
+					ProjectRef = 148AE1722ABEDF28006E5411 /* UserSettingsRepository.xcodeproj */;
+				},
+				{
+					ProductGroup = 148AE10D2ABEDCBC006E5411 /* Products */;
+					ProjectRef = 148AE10C2ABEDCBC006E5411 /* UserSettingsService.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1438FF6A20F9FD29003CC7C2 /* SBTSwiftProject */,
@@ -674,6 +1014,163 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		148AE1122ABEDCBC006E5411 /* UserSettingsService.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = UserSettingsService.framework;
+			remoteRef = 148AE1112ABEDCBC006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE1142ABEDCBC006E5411 /* UserSettingsServiceTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UserSettingsServiceTests.xctest;
+			remoteRef = 148AE1132ABEDCBC006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE1412ABEDDBB006E5411 /* NetworkService.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NetworkService.framework;
+			remoteRef = 148AE1402ABEDDBB006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE1432ABEDDBB006E5411 /* NetworkServiceTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NetworkServiceTests.xctest;
+			remoteRef = 148AE1422ABEDDBB006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE1782ABEDF28006E5411 /* UserSettingsRepository.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = UserSettingsRepository.framework;
+			remoteRef = 148AE1772ABEDF28006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE17A2ABEDF28006E5411 /* UserSettingsRepositoryTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UserSettingsRepositoryTests.xctest;
+			remoteRef = 148AE1792ABEDF28006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE1AE2ABEE1E5006E5411 /* LocationRespository.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LocationRespository.framework;
+			remoteRef = 148AE1AD2ABEE1E5006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE1B02ABEE1E5006E5411 /* LocationRespositoryTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LocationRespositoryTests.xctest;
+			remoteRef = 148AE1AF2ABEE1E5006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE1F52ABEE2CB006E5411 /* NetworkingAbstractions.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NetworkingAbstractions.framework;
+			remoteRef = 148AE1F42ABEE2CB006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE1F72ABEE2CB006E5411 /* NetworkingAbstractionsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NetworkingAbstractionsTests.xctest;
+			remoteRef = 148AE1F62ABEE2CB006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE2222ABEE36C006E5411 /* LocationDomain.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LocationDomain.framework;
+			remoteRef = 148AE2212ABEE36C006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE2242ABEE36C006E5411 /* LocationDomainTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LocationDomainTests.xctest;
+			remoteRef = 148AE2232ABEE36C006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE2B02ABEE7CE006E5411 /* NetworkingAbstractions.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NetworkingAbstractions.framework;
+			remoteRef = 148AE2AF2ABEE7CE006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE2B22ABEE7CE006E5411 /* NetworkingAbstractionsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NetworkingAbstractionsTests.xctest;
+			remoteRef = 148AE2B12ABEE7CE006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE2B92ABEE7E0006E5411 /* LocationDomainModels.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LocationDomainModels.framework;
+			remoteRef = 148AE2B82ABEE7E0006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE2BB2ABEE7E0006E5411 /* LocationDomainModelsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LocationDomainModelsTests.xctest;
+			remoteRef = 148AE2BA2ABEE7E0006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE2ED2ABEEA3F006E5411 /* DatabaseAbstraction.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DatabaseAbstraction.framework;
+			remoteRef = 148AE2EC2ABEEA3F006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE30D2ABEEA9B006E5411 /* CoreDataService.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CoreDataService.framework;
+			remoteRef = 148AE30C2ABEEA9B006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		148AE3492ABEEC76006E5411 /* TicketsRepository.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TicketsRepository.framework;
+			remoteRef = 148AE3482ABEEC76006E5411 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		14E8A9222ABC2B7200FA219D /* TicketsDomain.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TicketsDomain.framework;
+			remoteRef = 14E8A9212ABC2B7200FA219D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		14E8A9242ABC2B7200FA219D /* TicketsDomainTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TicketsDomainTests.xctest;
+			remoteRef = 14E8A9232ABC2B7200FA219D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		14E8A9D42ABC359A00FA219D /* DomainAbstractions.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DomainAbstractions.framework;
+			remoteRef = 14E8A9D32ABC359A00FA219D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1438FF6920F9FD29003CC7C2 /* Resources */ = {
@@ -709,9 +1206,11 @@
 				14AE5AEA2544801D00548B1D /* LocationView.swift in Sources */,
 				1478A0902552BEA100C3633C /* TicketsSearchView.swift in Sources */,
 				143BA91A263DA05E002011EC /* TicketInteractor.swift in Sources */,
+				147A2A4E2ABF0C2A0056A2A3 /* LocationRepositoriesAssembly.swift in Sources */,
 				147981AC254D9C1D00110A9B /* AppErrors.swift in Sources */,
 				143BA920263DAEF3002011EC /* Router.swift in Sources */,
 				14D634CF255075B300FF7D37 /* SelectCountryInteractor.swift in Sources */,
+				147A2A362ABF068D0056A2A3 /* CoreDataServiceAssembly.swift in Sources */,
 				14402E35263DC90900D53200 /* TabBarCoordinator.swift in Sources */,
 				14EA9E83263ECE840037DFAE /* AppComposer.swift in Sources */,
 				1438FF7120F9FD29003CC7C2 /* LocationViewController.swift in Sources */,
@@ -721,6 +1220,7 @@
 				14D634CD2550756900FF7D37 /* SelectCountryViewController.swift in Sources */,
 				142865DD25509C4E003D1930 /* SelectCityViewController.swift in Sources */,
 				14EA9E70263EA21A0037DFAE /* SelectCityCoordinatorAssembly.swift in Sources */,
+				147A2A542ABF11F50056A2A3 /* TicketsRepository+TicketsRepositoryProtocol.swift in Sources */,
 				14EA9E6B263E9E1E0037DFAE /* SelectCityCoordinator.swift in Sources */,
 				1478A0982552CF9500C3633C /* TicketsSearchAssembly.swift in Sources */,
 				145191042569604800A5593E /* TicketViewController.swift in Sources */,
@@ -828,7 +1328,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -882,7 +1382,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1008,220 +1508,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		141C37A5262B5FC000250A8F /* XCRemoteSwiftPackageReference "NetworkService" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/NetworkService.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		1425EF18262B730C00B532B7 /* XCRemoteSwiftPackageReference "UserSettingsAbstration" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/UserSettingsAbstration.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		1425EF1C262B733B00B532B7 /* XCRemoteSwiftPackageReference "UserSettingsService" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/UserSettingsService.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		14321DB42622EEB30030116C /* XCRemoteSwiftPackageReference "DatabaseAbstraction" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/DatabaseAbstraction";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
-			};
-		};
-		14333F6F263472A4000A10F0 /* XCRemoteSwiftPackageReference "LocationDomainAbstraction" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/LocationDomainAbstraction.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
-			};
-		};
-		14333F73263472C8000A10F0 /* XCRemoteSwiftPackageReference "LocationDomainLogic" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/LocationDomainLogic.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		14333F7726347326000A10F0 /* XCRemoteSwiftPackageReference "TicketsDomainAbstraction" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/TicketsDomainAbstraction.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
-			};
-		};
-		14333F7B2634738C000A10F0 /* XCRemoteSwiftPackageReference "DomainAbstraction" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/DomainAbstraction.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
-			};
-		};
-		14333F8426348635000A10F0 /* XCRemoteSwiftPackageReference "TicketsDomainLogic" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/TicketsDomainLogic.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		145CB573262C4BC00050A21F /* XCRemoteSwiftPackageReference "TicketsRepositoryAbstraction" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/TicketsRepositoryAbstraction.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
-			};
-		};
-		145CB577262C4BD20050A21F /* XCRemoteSwiftPackageReference "TicketsRepository" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/TicketsRepository.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		145CB57F262C98100050A21F /* XCRemoteSwiftPackageReference "LocationRepositoryAbstraction" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/LocationRepositoryAbstraction.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.2;
-			};
-		};
-		145CB583262C98510050A21F /* XCRemoteSwiftPackageReference "LocationRepository" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/LocationRepository.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		146B7D15262B231B005B7FD4 /* XCRemoteSwiftPackageReference "CoreDataService" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/CoreDataService.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
-			};
-		};
-		14E6B4ED262CA47800D1A2B1 /* XCRemoteSwiftPackageReference "UserSettingsRepositoryAbstraction" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/UserSettingsRepositoryAbstraction.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		14E6B4F1262CA49600D1A2B1 /* XCRemoteSwiftPackageReference "UserSettingsRepository" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bogdanovkv/UserSettingsRepository.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		141C37A6262B5FC000250A8F /* NetworkService */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 141C37A5262B5FC000250A8F /* XCRemoteSwiftPackageReference "NetworkService" */;
-			productName = NetworkService;
-		};
-		1425EF19262B730C00B532B7 /* UserSettingsAbstration */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1425EF18262B730C00B532B7 /* XCRemoteSwiftPackageReference "UserSettingsAbstration" */;
-			productName = UserSettingsAbstration;
-		};
-		1425EF1D262B733B00B532B7 /* UserSettingsService */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1425EF1C262B733B00B532B7 /* XCRemoteSwiftPackageReference "UserSettingsService" */;
-			productName = UserSettingsService;
-		};
-		14321DB52622EEB30030116C /* DatabaseAbstraction */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 14321DB42622EEB30030116C /* XCRemoteSwiftPackageReference "DatabaseAbstraction" */;
-			productName = DatabaseAbstraction;
-		};
-		14333F70263472A4000A10F0 /* LocationDomainAbstraction */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 14333F6F263472A4000A10F0 /* XCRemoteSwiftPackageReference "LocationDomainAbstraction" */;
-			productName = LocationDomainAbstraction;
-		};
-		14333F74263472C8000A10F0 /* LocationDomainLogic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 14333F73263472C8000A10F0 /* XCRemoteSwiftPackageReference "LocationDomainLogic" */;
-			productName = LocationDomainLogic;
-		};
-		14333F7826347326000A10F0 /* TicketsDomainAbstraction */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 14333F7726347326000A10F0 /* XCRemoteSwiftPackageReference "TicketsDomainAbstraction" */;
-			productName = TicketsDomainAbstraction;
-		};
-		14333F7C2634738C000A10F0 /* DomainAbstraction */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 14333F7B2634738C000A10F0 /* XCRemoteSwiftPackageReference "DomainAbstraction" */;
-			productName = DomainAbstraction;
-		};
-		14333F8526348635000A10F0 /* TicketsDomainLogic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 14333F8426348635000A10F0 /* XCRemoteSwiftPackageReference "TicketsDomainLogic" */;
-			productName = TicketsDomainLogic;
-		};
-		145CB574262C4BC00050A21F /* TicketsRepositoryAbstraction */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 145CB573262C4BC00050A21F /* XCRemoteSwiftPackageReference "TicketsRepositoryAbstraction" */;
-			productName = TicketsRepositoryAbstraction;
-		};
-		145CB578262C4BD20050A21F /* TicketsRepository */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 145CB577262C4BD20050A21F /* XCRemoteSwiftPackageReference "TicketsRepository" */;
-			productName = TicketsRepository;
-		};
-		145CB580262C98100050A21F /* LocationRepositoryAbstraction */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 145CB57F262C98100050A21F /* XCRemoteSwiftPackageReference "LocationRepositoryAbstraction" */;
-			productName = LocationRepositoryAbstraction;
-		};
-		145CB584262C98510050A21F /* LocationRepository */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 145CB583262C98510050A21F /* XCRemoteSwiftPackageReference "LocationRepository" */;
-			productName = LocationRepository;
-		};
-		146B7D16262B231B005B7FD4 /* CoreDataService */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 146B7D15262B231B005B7FD4 /* XCRemoteSwiftPackageReference "CoreDataService" */;
-			productName = CoreDataService;
-		};
-		14E6B4EE262CA47800D1A2B1 /* UserSettingsRepositoryAbstraction */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 14E6B4ED262CA47800D1A2B1 /* XCRemoteSwiftPackageReference "UserSettingsRepositoryAbstraction" */;
-			productName = UserSettingsRepositoryAbstraction;
-		};
-		14E6B4F2262CA49600D1A2B1 /* UserSettingsRepository */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 14E6B4F1262CA49600D1A2B1 /* XCRemoteSwiftPackageReference "UserSettingsRepository" */;
-			productName = UserSettingsRepository;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1438FF6320F9FD29003CC7C2 /* Project object */;
 }

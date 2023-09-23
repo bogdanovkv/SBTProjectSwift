@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import LocationRepositoryAbstraction
+import LocationDomainModels
+import LocationDomain
 
 /// Обработчик событий от вью выбора местоположения
 protocol LocationViewOutput: AnyObject {

@@ -7,9 +7,10 @@
 //
 
 import Foundation
-import DomainAbstraction
-import TicketsDomainAbstraction
-import LocationDomainAbstraction
+import DomainAbstractions
+import TicketsDomain
+import LocationDomain
+import LocationDomainModels
 
 /// Ouptut интерактора поиска билетов
 protocol TicketsSearchInteractorOutput: AnyObject {
@@ -52,15 +53,15 @@ final class TicketsSearchInteractor: TicketsSearchInteractorInput {
 	/// Обработчик событий от интерактора
 	weak var output: TicketsSearchInteractorOutput?
 
-	private let searchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]>
-	private let getCountryByCodeUseCase: UseCaseSync<String, Country?>
-	private let getCityByCodeUseCase: UseCaseSync<String, City?>
+	private let searchTicketsUseCase: any UseCaseAsync<TicketsSearchModel, Result<[Ticket], Error>>
+	private let getCountryByCodeUseCase: any UseCase<String, Country?>
+	private let getCityByCodeUseCase: any UseCase<String, City?>
 
 	/// Инициализатор
 	/// - Parameter searchTicketsUseCase: кейс поиска билетов
-	init(searchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]>,
-		 getCountryByCodeUseCase: UseCaseSync<String, Country?>,
-		 getCityByCodeUseCase: UseCaseSync<String, City?>) {
+	init(searchTicketsUseCase: any UseCaseAsync<TicketsSearchModel, Result<[Ticket], Error>>,
+		 getCountryByCodeUseCase: any UseCase<String, Country?>,
+		 getCityByCodeUseCase: any UseCase<String, City?>) {
 		self.searchTicketsUseCase = searchTicketsUseCase
 		self.getCountryByCodeUseCase = getCountryByCodeUseCase
 		self.getCityByCodeUseCase = getCityByCodeUseCase
@@ -70,28 +71,24 @@ final class TicketsSearchInteractor: TicketsSearchInteractorInput {
 					   fromDate: Date?,
 					   toCity: City,
 					   returnDate: Date?) {
-		searchTicketsUseCase.execute(parameter: .init(fromCityCodeIATA: fromCity.codeIATA,
-													  fromDate: fromDate,
-													  toCityCodeIATA: toCity.codeIATA,
-													  returnDate: returnDate)) { [weak self] result in
+		Task {
 			do {
-				let result = try result.get()
-				DispatchQueue.main.async {
-					self?.output?.didRecieve(tickets: result)
-				}
+				let result = try await searchTicketsUseCase.execute(input: .init(fromCityCodeIATA: fromCity.codeIATA,
+																				 fromDate: fromDate,
+																				 toCityCodeIATA: toCity.codeIATA,
+																				 returnDate: returnDate)).get()
+				self.output?.didRecieve(tickets: result)
 			} catch {
-				DispatchQueue.main.async {
-					self?.output?.didRecieve(error: error)
-				}
+				self.output?.didRecieve(error: error)
 			}
 		}
 	}
 
 	func getCountry(with codeIATA: String) -> Country? {
-		return getCountryByCodeUseCase.execute(parameter: codeIATA)
+		return getCountryByCodeUseCase.execute(input: codeIATA)
 	}
 
 	func getCity(with codeIATA: String) -> City? {
-		return getCityByCodeUseCase.execute(parameter: codeIATA)
+		return getCityByCodeUseCase.execute(input: codeIATA)
 	}
 }

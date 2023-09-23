@@ -8,10 +8,10 @@
 
 import DatabaseAbstraction
 import CoreDataService
-import NetworkAbstraction
+import NetworkingAbstractions
 import NetworkService
-import UserSettingsAbstration
 import UserSettingsService
+import UserSettingsRepository
 import Foundation
 
 /// Сборщик сервисного слоя
@@ -29,15 +29,14 @@ protocol ServiceLayerComposerProtocol {
 
 final class ServiceLayerComposer: ServiceLayerComposerProtocol {
 
-	private lazy var coreDataAssembly = CoreDataServiceAssembly()
+	private lazy var coreData = CoreDataServiceAssembly.createCoreDataService()
 
 	func composeNetworkService() -> NetworkServiceProtocol {
 		return NetworkService()
 	}
 
 	func composeDatabaseService() -> DatabaseServiceProtocol {
-		let service = coreDataAssembly.createCoreDataService()
-		return service
+		return coreData
 	}
 
 	func composeUserSettings() -> UserSettingsServiceProtocol {

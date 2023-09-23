@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import LocationDomainAbstraction
-import DomainAbstraction
-import TicketsDomainAbstraction
+import LocationDomain
+import DomainAbstractions
+import TicketsDomain
+import LocationDomainModels
 
 /// Протокол сборщика экрана поиска билетов
 protocol TicketsSearchAssemblyProtocol {
@@ -23,15 +24,15 @@ protocol TicketsSearchAssemblyProtocol {
 
 /// Сборщик экрана поиска билетов
 final class TicketsSearchAssembly: TicketsSearchAssemblyProtocol {
-	private let searchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]>
-	private let getCountryByCodeUseCase: UseCaseSync<String, Country?>
-	private let getCityByCodeUseCase: UseCaseSync<String, City?>
+	private let searchTicketsUseCase: any UseCaseAsync<TicketsSearchModel, Result<[Ticket], Error>>
+	private let getCountryByCodeUseCase: any UseCase<String, Country?>
+	private let getCityByCodeUseCase: any UseCase<String, City?>
 
 	/// Инициализатор
 	/// - Parameter searchTicketsUseCase: кейс поиска билетов
-	init(searchTicketsUseCase: UseCase<TicketsSearchModel, [Ticket]>,
-		 getCountryByCodeUseCase: UseCaseSync<String, Country?>,
-		 getCityByCodeUseCase: UseCaseSync<String, City?>) {
+	init(searchTicketsUseCase: any UseCaseAsync<TicketsSearchModel, Result<[Ticket], Error>>,
+		 getCountryByCodeUseCase: any UseCase<String, Country?>,
+		 getCityByCodeUseCase: any UseCase<String, City?>) {
 		self.searchTicketsUseCase = searchTicketsUseCase
 		self.getCountryByCodeUseCase = getCountryByCodeUseCase
 		self.getCityByCodeUseCase = getCityByCodeUseCase

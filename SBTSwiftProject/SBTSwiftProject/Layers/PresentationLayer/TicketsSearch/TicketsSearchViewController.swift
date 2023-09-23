@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import LocationDomainAbstraction
-import TicketsDomainAbstraction
+import LocationDomain
+import TicketsDomain
 
 protocol TicketsSearchModuleOutput {
 

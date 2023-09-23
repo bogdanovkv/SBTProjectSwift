@@ -6,22 +6,23 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import DomainAbstraction
-import LocationDomainAbstraction
+import DomainAbstractions
+import LocationDomain
+import LocationDomainModels
 
 protocol SelectCityInteractorInput {
 	func getCities(for countryCode: String) -> [City]
 }
 
 final class SelectCityInteractor: SelectCityInteractorInput {
-	private let getCitiesByCountryCodeUseCase: UseCaseSync<String, [City]>
-	
-	init(getCitiesByCountryCodeUseCase: UseCaseSync<String, [City]>) {
+	private let getCitiesByCountryCodeUseCase: any UseCase<String, [City]>
+
+	init(getCitiesByCountryCodeUseCase: any UseCase<String, [City]>) {
 		self.getCitiesByCountryCodeUseCase = getCitiesByCountryCodeUseCase
 	}
 
 	func getCities(for countryCode: String) -> [City] {
-		let cities = getCitiesByCountryCodeUseCase.execute(parameter: countryCode)
+		let cities = getCitiesByCountryCodeUseCase.execute(input: countryCode)
 		return cities.sorted(by: { first, second in
 			guard let firstName = first.nameRu, let secondName = second.nameRu else {
 				return first.name < second.name

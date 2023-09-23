@@ -6,37 +6,34 @@
 //  Copyright © 2021 Константин Богданов. All rights reserved.
 //
 
-import DomainAbstraction
+import DomainAbstractions
 
-import LocationRepositoryAbstraction
-import LocationDomainAbstraction
-import LocationDomainLogic
+import LocationDomainModels
+import LocationDomain
 
-import TicketsDomainAbstraction
-import TicketsDomainLogic
-import TicketsRepositoryAbstraction
+import TicketsDomain
 import TicketsRepository
 
 /// Сбощик слоя логики
 protocol DomainLayerComposerProtocol {
 
-	func composeLocationUseCase() -> UseCase<Void, Location>
+	func composeLocationUseCase() -> any UseCaseAsync<Void, Result<Location, Error>>
 
-	func composePrepareStorageUseCase() -> UseCase<Void, Void>
+	func composePrepareStorageUseCase() -> any UseCaseAsync<Void, Result<Void, Error>>
 
-	func composeGetCountriesUseCase() -> UseCaseSync<Void, [Country]>
+	func composeGetCountriesUseCase() -> any UseCase<Void, [Country]>
 
-	func composeGetCitiesByCountryCodeUseCase() -> UseCaseSync<String, [City]>
+	func composeGetCitiesByCountryCodeUseCase() -> any UseCase<String, [City]>
 
-	func composeGetCityByNameUseCase() -> UseCaseSync<String, City?>
+	func composeGetCityByNameUseCase() -> any UseCase<String, City?>
 
-	func composeGetCityByCodeUseCase() -> UseCaseSync<String, City?>
+	func composeGetCityByCodeUseCase() -> any UseCase<String, City?>
 
-	func composeGetCountryByNameUseCase() -> UseCaseSync<String, Country?>
+	func composeGetCountryByNameUseCase() -> any UseCase<String, Country?>
 
-	func composeGetCountryByCodeUseCase() -> UseCaseSync<String, Country?>
+	func composeGetCountryByCodeUseCase() -> any UseCase<String, Country?>
 
-	func composeSearchTicketsUseCase() -> UseCase<TicketsSearchModel, [Ticket]>
+	func composeSearchTicketsUseCase() -> any UseCaseAsync<TicketsSearchModel, Result<[Ticket], Error>>
 }
 
 /// Сбощик слоя логики
@@ -49,13 +46,13 @@ final class DomainLayerComposer: DomainLayerComposerProtocol {
 		self.dataLayerComposer = dataLayerComposer
 	}
 
-	func composeLocationUseCase() -> UseCase<Void, Location> {
+	func composeLocationUseCase() -> any UseCaseAsync<Void, Result<Location, Error>> {
 		let repository = dataLayerComposer.composeLocationRepository()
 		let assembly = LocationLogicAsembly()
 		return assembly.createGetLocationusCase(locationRepository: repository)
 	}
 
-	func composePrepareStorageUseCase() -> UseCase<Void, Void> {
+	func composePrepareStorageUseCase() -> any UseCaseAsync<Void, Result<Void, Error>> {
 		let citiesRepository = dataLayerComposer.composeCitiesRepository()
 		let countriesRepository = dataLayerComposer.composeCountriesRepository()
 		let airportsRepository = dataLayerComposer.composeAirportsRepository()
@@ -67,43 +64,43 @@ final class DomainLayerComposer: DomainLayerComposerProtocol {
 													settingsRepository: settingsRepository)
 	}
 
-	func composeGetCountriesUseCase() -> UseCaseSync<Void, [Country]> {
+	func composeGetCountriesUseCase() -> any UseCase<Void, [Country]> {
 		let repository = dataLayerComposer.composeCountriesRepository()
 		let assembly = LocationLogicAsembly()
 		return assembly.createGetCountriesUseCase(countriesRepository: repository)
 	}
 
-	func composeGetCitiesByCountryCodeUseCase() -> UseCaseSync<String, [City]> {
+	func composeGetCitiesByCountryCodeUseCase() -> any UseCase<String, [City]> {
 		let repository = dataLayerComposer.composeCitiesRepository()
 		let assembly = LocationLogicAsembly()
 		return assembly.createGetCitiesByCountryCodeSyncUseCase(citiesRepository: repository)
 	}
 
-	func composeGetCityByNameUseCase() -> UseCaseSync<String, City?> {
+	func composeGetCityByNameUseCase() -> any UseCase<String, City?> {
 		let repository = dataLayerComposer.composeCitiesRepository()
 		let assembly = LocationLogicAsembly()
 		return assembly.createGetCitySyncUseCase(citiesRepository: repository)
 	}
 
-	func composeGetCityByCodeUseCase() -> UseCaseSync<String, City?> {
+	func composeGetCityByCodeUseCase() -> any UseCase<String, City?> {
 		let repository = dataLayerComposer.composeCitiesRepository()
 		let assembly = LocationLogicAsembly()
 		return assembly.createGetCityByCodeSyncUseCase(citiesRepository: repository)
 	}
 
-	func composeGetCountryByNameUseCase() -> UseCaseSync<String, Country?> {
+	func composeGetCountryByNameUseCase() -> any UseCase<String, Country?> {
 		let repository = dataLayerComposer.composeCountriesRepository()
 		let assembly = LocationLogicAsembly()
 		return assembly.createGetCountryByNameSyncUseCase(countriesRepository: repository)
 	}
 
-	func composeGetCountryByCodeUseCase() -> UseCaseSync<String, Country?> {
+	func composeGetCountryByCodeUseCase() -> any UseCase<String, Country?> {
 		let repository = dataLayerComposer.composeCountriesRepository()
 		let assembly = LocationLogicAsembly()
 		return assembly.createGetCountryByCodeSyncUseCase(countriesRepository: repository)
 	}
 
-	func composeSearchTicketsUseCase() -> UseCase<TicketsSearchModel, [Ticket]> {
+	func composeSearchTicketsUseCase() -> any UseCaseAsync<TicketsSearchModel, Result<[Ticket], Error>> {
 		let repository = dataLayerComposer.composeTicketsRepository()
 		let assembly = TicketsDomainLogicAssembly()
 		return assembly.createSearchTicketsUseCase(repository: repository)

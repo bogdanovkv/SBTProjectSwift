@@ -6,8 +6,9 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import DomainAbstraction
-import LocationDomainAbstraction
+import DomainAbstractions
+import LocationDomain
+import LocationDomainModels
 import UIKit
 
 /// Сборщик экрана выбора местоположения пользоателя
@@ -20,12 +21,12 @@ protocol LocationAssemblyProtocol {
 /// Сборщик экрана выбора местоположения пользоателя
 final class LocationAssembly: LocationAssemblyProtocol {
 
-	private let getLocationUseCase: UseCase<Void, Location>
-	private let prepareStorageUseCase: UseCase<Void, Void>
-	private let getCountryUseCase: UseCaseSync<String, Country?>
-	private let getCityUseCase: UseCaseSync<String, City?>
-	private let getCityByCodeUseCase: UseCaseSync<String, City?>
-	private let getCountryByCodeUseCase: UseCaseSync<String, Country?>
+	private let getLocationUseCase: any UseCaseAsync<Void, Result<Location, Error>>
+	private let prepareStorageUseCase: any UseCaseAsync<Void, Result<Void, Error>>
+	private let getCountryUseCase: any UseCase<String, Country?>
+	private let getCityUseCase: any UseCase<String, City?>
+	private let getCityByCodeUseCase: any UseCase<String, City?>
+	private let getCountryByCodeUseCase: any UseCase<String, Country?>
 
 	/// Инициализатор
 	/// - Parameters:
@@ -33,12 +34,12 @@ final class LocationAssembly: LocationAssemblyProtocol {
 	///   - getCountryUseCase: кейс получения страны
 	///   - getCityUseCase: кейст получения города
 	///   - prepareStorageUseCase: кейс подготовки хранилища
-	init(getLocationUseCase: UseCase<Void, Location>,
-		 getCountryUseCase: UseCaseSync<String, Country?>,
-		 getCityUseCase: UseCaseSync<String, City?>,
-		 prepareStorageUseCase: UseCase<Void, Void>,
-		 getCityByCodeUseCase: UseCaseSync<String, City?>,
-		 getCountryByCodeUseCase: UseCaseSync<String, Country?>) {
+	init(getLocationUseCase: any UseCaseAsync<Void, Result<Location, Error>>,
+		 getCountryUseCase: any UseCase<String, Country?>,
+		 getCityUseCase: any UseCase<String, City?>,
+		 prepareStorageUseCase: any UseCaseAsync<Void, Result<Void, Error>>,
+		 getCityByCodeUseCase: any UseCase<String, City?>,
+		 getCountryByCodeUseCase: any UseCase<String, Country?>) {
 		self.getLocationUseCase = getLocationUseCase
 		self.getCountryUseCase = getCountryUseCase
 		self.getCityUseCase = getCityUseCase
@@ -55,7 +56,7 @@ final class LocationAssembly: LocationAssemblyProtocol {
 											getCityByCodeUseCase: getCityByCodeUseCase,
 											getCountryByCodeUseCase: getCountryByCodeUseCase)
 		let locationController = LocationViewController(interactor: interactor)
-		interactor.ouptput = locationController
+		interactor.output = locationController
 		return locationController
 	}
 }

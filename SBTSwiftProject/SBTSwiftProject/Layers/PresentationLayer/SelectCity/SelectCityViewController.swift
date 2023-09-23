@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import LocationDomainAbstraction
+import LocationDomain
+import LocationDomainModels
 
 protocol SelectCityModuleInput: AnyObject {
 	var moduleOutput: SelectCityModuleOutput? { get set }

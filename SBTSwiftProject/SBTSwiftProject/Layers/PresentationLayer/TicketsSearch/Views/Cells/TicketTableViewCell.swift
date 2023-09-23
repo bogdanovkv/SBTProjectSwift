@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import TicketsDomainAbstraction
+import TicketsDomain
 
 /// Ячейка для отображения билета
 final class TicketTableViewCell: UITableViewCell {

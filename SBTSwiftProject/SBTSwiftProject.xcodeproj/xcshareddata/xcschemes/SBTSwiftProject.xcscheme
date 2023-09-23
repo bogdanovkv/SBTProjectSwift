@@ -38,6 +38,17 @@
                ReferencedContainer = "container:SBTSwiftProject.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "14E8A9712ABC344B00FA219D"
+               BuildableName = "DomainAbstractionsTests.xctest"
+               BlueprintName = "DomainAbstractionsTests"
+               ReferencedContainer = "container:SBTSwiftProject.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

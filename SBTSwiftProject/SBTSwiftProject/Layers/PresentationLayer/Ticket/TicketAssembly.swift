@@ -7,16 +7,16 @@
 //
 
 import UIKit
-import LocationDomainAbstraction
-import DomainAbstraction
-import TicketsDomainAbstraction
+import DomainAbstractions
+import TicketsDomain
+import LocationDomainModels
 
 final class TicketAssembly: TicketAssemblyProtocol {
-	private let getCityByCodeUseCase: UseCaseSync<String, City?>
-	private let getCountryByCodeUseCase: UseCaseSync<String, Country?>
+	private let getCityByCodeUseCase: any UseCase<String, City?>
+	private let getCountryByCodeUseCase: any UseCase<String, Country?>
 
-	init(getCityByCodeUseCase: UseCaseSync<String, City?>,
-		 getCountryByCodeUseCase: UseCaseSync<String, Country?>) {
+	init(getCityByCodeUseCase: any UseCase<String, City?>,
+		 getCountryByCodeUseCase: any UseCase<String, Country?>) {
 		self.getCityByCodeUseCase = getCityByCodeUseCase
 		self.getCountryByCodeUseCase = getCountryByCodeUseCase
 	}

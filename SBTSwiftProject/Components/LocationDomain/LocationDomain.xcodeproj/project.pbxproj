@@ -1,0 +1,682 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		148AE20D2ABEE36C006E5411 /* LocationDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE2022ABEE36C006E5411 /* LocationDomain.framework */; };
+		148AE2122ABEE36C006E5411 /* LocationDomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2112ABEE36C006E5411 /* LocationDomainTests.swift */; };
+		148AE2132ABEE36C006E5411 /* LocationDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = 148AE2052ABEE36C006E5411 /* LocationDomain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		148AE23D2ABEE3B9006E5411 /* LocationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2272ABEE3B9006E5411 /* LocationUseCase.swift */; };
+		148AE23E2ABEE3B9006E5411 /* GetCitiesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2292ABEE3B9006E5411 /* GetCitiesUseCase.swift */; };
+		148AE23F2ABEE3B9006E5411 /* GetCityByCodeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE22A2ABEE3B9006E5411 /* GetCityByCodeUseCase.swift */; };
+		148AE2402ABEE3B9006E5411 /* GetCityByNameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE22B2ABEE3B9006E5411 /* GetCityByNameUseCase.swift */; };
+		148AE2412ABEE3B9006E5411 /* GetCountryByCodeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE22D2ABEE3B9006E5411 /* GetCountryByCodeUseCase.swift */; };
+		148AE2422ABEE3B9006E5411 /* GetAllCountriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE22E2ABEE3B9006E5411 /* GetAllCountriesUseCase.swift */; };
+		148AE2432ABEE3B9006E5411 /* GetCountryByNameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE22F2ABEE3B9006E5411 /* GetCountryByNameUseCase.swift */; };
+		148AE2442ABEE3B9006E5411 /* CountryModel+Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2312ABEE3B9006E5411 /* CountryModel+Country.swift */; };
+		148AE2452ABEE3B9006E5411 /* CityModel+City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2322ABEE3B9006E5411 /* CityModel+City.swift */; };
+		148AE2462ABEE3B9006E5411 /* AirportModel+Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2332ABEE3B9006E5411 /* AirportModel+Airport.swift */; };
+		148AE2472ABEE3B9006E5411 /* LocationModel+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2342ABEE3B9006E5411 /* LocationModel+Location.swift */; };
+		148AE2482ABEE3B9006E5411 /* PrepareStorageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2362ABEE3B9006E5411 /* PrepareStorageUseCase.swift */; };
+		148AE2492ABEE3B9006E5411 /* PrepareCountriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2372ABEE3B9006E5411 /* PrepareCountriesUseCase.swift */; };
+		148AE24A2ABEE3B9006E5411 /* PrepareCitiesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2382ABEE3B9006E5411 /* PrepareCitiesUseCase.swift */; };
+		148AE24B2ABEE3B9006E5411 /* ClearStorageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2392ABEE3B9006E5411 /* ClearStorageUseCase.swift */; };
+		148AE24C2ABEE3B9006E5411 /* PrepareAirportsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE23A2ABEE3B9006E5411 /* PrepareAirportsUseCase.swift */; };
+		148AE24D2ABEE3B9006E5411 /* LocationLogicAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE23C2ABEE3B9006E5411 /* LocationLogicAssembly.swift */; };
+		148AE2602ABEE4B8006E5411 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2572ABEE4B8006E5411 /* CountryModel.swift */; };
+		148AE2612ABEE4B8006E5411 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2582ABEE4B8006E5411 /* CityModel.swift */; };
+		148AE2622ABEE4B8006E5411 /* AirportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2592ABEE4B8006E5411 /* AirportModel.swift */; };
+		148AE2632ABEE4B8006E5411 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE25A2ABEE4B8006E5411 /* LocationModel.swift */; };
+		148AE2642ABEE4B8006E5411 /* CountriesRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE25B2ABEE4B8006E5411 /* CountriesRepositoryProtocol.swift */; };
+		148AE2652ABEE4B8006E5411 /* AirportsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE25C2ABEE4B8006E5411 /* AirportsRepositoryProtocol.swift */; };
+		148AE2662ABEE4B8006E5411 /* LocationRepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE25D2ABEE4B8006E5411 /* LocationRepositoryError.swift */; };
+		148AE2672ABEE4B8006E5411 /* CitiesRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE25E2ABEE4B8006E5411 /* CitiesRepositoryProtocol.swift */; };
+		148AE2682ABEE4B8006E5411 /* LocationRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE25F2ABEE4B8006E5411 /* LocationRepositoryProtocol.swift */; };
+		148AE2832ABEE6A4006E5411 /* DomainAbstractions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE2822ABEE6A4006E5411 /* DomainAbstractions.framework */; };
+		148AE2842ABEE6A4006E5411 /* DomainAbstractions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE2822ABEE6A4006E5411 /* DomainAbstractions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		148AE2C92ABEE85F006E5411 /* LocationDomainModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE2C82ABEE85F006E5411 /* LocationDomainModels.framework */; };
+		148AE2CA2ABEE85F006E5411 /* LocationDomainModels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148AE2C82ABEE85F006E5411 /* LocationDomainModels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		148AE2CC2ABEE9C9006E5411 /* UserSettingsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148AE2CB2ABEE9C9006E5411 /* UserSettingsRepositoryProtocol.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		148AE20E2ABEE36C006E5411 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 148AE1F92ABEE36C006E5411 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 148AE2012ABEE36C006E5411;
+			remoteInfo = LocationDomain;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		148AE2852ABEE6A4006E5411 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				148AE2842ABEE6A4006E5411 /* DomainAbstractions.framework in Embed Frameworks */,
+				148AE2CA2ABEE85F006E5411 /* LocationDomainModels.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		148AE2022ABEE36C006E5411 /* LocationDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LocationDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		148AE2052ABEE36C006E5411 /* LocationDomain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationDomain.h; sourceTree = "<group>"; };
+		148AE20C2ABEE36C006E5411 /* LocationDomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationDomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		148AE2112ABEE36C006E5411 /* LocationDomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDomainTests.swift; sourceTree = "<group>"; };
+		148AE2272ABEE3B9006E5411 /* LocationUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUseCase.swift; sourceTree = "<group>"; };
+		148AE2292ABEE3B9006E5411 /* GetCitiesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCitiesUseCase.swift; sourceTree = "<group>"; };
+		148AE22A2ABEE3B9006E5411 /* GetCityByCodeUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCityByCodeUseCase.swift; sourceTree = "<group>"; };
+		148AE22B2ABEE3B9006E5411 /* GetCityByNameUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCityByNameUseCase.swift; sourceTree = "<group>"; };
+		148AE22D2ABEE3B9006E5411 /* GetCountryByCodeUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCountryByCodeUseCase.swift; sourceTree = "<group>"; };
+		148AE22E2ABEE3B9006E5411 /* GetAllCountriesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllCountriesUseCase.swift; sourceTree = "<group>"; };
+		148AE22F2ABEE3B9006E5411 /* GetCountryByNameUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCountryByNameUseCase.swift; sourceTree = "<group>"; };
+		148AE2312ABEE3B9006E5411 /* CountryModel+Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CountryModel+Country.swift"; sourceTree = "<group>"; };
+		148AE2322ABEE3B9006E5411 /* CityModel+City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CityModel+City.swift"; sourceTree = "<group>"; };
+		148AE2332ABEE3B9006E5411 /* AirportModel+Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AirportModel+Airport.swift"; sourceTree = "<group>"; };
+		148AE2342ABEE3B9006E5411 /* LocationModel+Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocationModel+Location.swift"; sourceTree = "<group>"; };
+		148AE2362ABEE3B9006E5411 /* PrepareStorageUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepareStorageUseCase.swift; sourceTree = "<group>"; };
+		148AE2372ABEE3B9006E5411 /* PrepareCountriesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepareCountriesUseCase.swift; sourceTree = "<group>"; };
+		148AE2382ABEE3B9006E5411 /* PrepareCitiesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepareCitiesUseCase.swift; sourceTree = "<group>"; };
+		148AE2392ABEE3B9006E5411 /* ClearStorageUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearStorageUseCase.swift; sourceTree = "<group>"; };
+		148AE23A2ABEE3B9006E5411 /* PrepareAirportsUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepareAirportsUseCase.swift; sourceTree = "<group>"; };
+		148AE23C2ABEE3B9006E5411 /* LocationLogicAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationLogicAssembly.swift; sourceTree = "<group>"; };
+		148AE24F2ABEE3EA006E5411 /* DomainAbstractions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DomainAbstractions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		148AE2572ABEE4B8006E5411 /* CountryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
+		148AE2582ABEE4B8006E5411 /* CityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		148AE2592ABEE4B8006E5411 /* AirportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportModel.swift; sourceTree = "<group>"; };
+		148AE25A2ABEE4B8006E5411 /* LocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		148AE25B2ABEE4B8006E5411 /* CountriesRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesRepositoryProtocol.swift; sourceTree = "<group>"; };
+		148AE25C2ABEE4B8006E5411 /* AirportsRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportsRepositoryProtocol.swift; sourceTree = "<group>"; };
+		148AE25D2ABEE4B8006E5411 /* LocationRepositoryError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationRepositoryError.swift; sourceTree = "<group>"; };
+		148AE25E2ABEE4B8006E5411 /* CitiesRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesRepositoryProtocol.swift; sourceTree = "<group>"; };
+		148AE25F2ABEE4B8006E5411 /* LocationRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationRepositoryProtocol.swift; sourceTree = "<group>"; };
+		148AE2822ABEE6A4006E5411 /* DomainAbstractions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DomainAbstractions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		148AE2C82ABEE85F006E5411 /* LocationDomainModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LocationDomainModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		148AE2CB2ABEE9C9006E5411 /* UserSettingsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsRepositoryProtocol.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		148AE1FF2ABEE36C006E5411 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148AE2832ABEE6A4006E5411 /* DomainAbstractions.framework in Frameworks */,
+				148AE2C92ABEE85F006E5411 /* LocationDomainModels.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148AE2092ABEE36C006E5411 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148AE20D2ABEE36C006E5411 /* LocationDomain.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		148AE1F82ABEE36C006E5411 = {
+			isa = PBXGroup;
+			children = (
+				148AE2042ABEE36C006E5411 /* LocationDomain */,
+				148AE2102ABEE36C006E5411 /* LocationDomainTests */,
+				148AE2032ABEE36C006E5411 /* Products */,
+				148AE24E2ABEE3EA006E5411 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		148AE2032ABEE36C006E5411 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				148AE2022ABEE36C006E5411 /* LocationDomain.framework */,
+				148AE20C2ABEE36C006E5411 /* LocationDomainTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		148AE2042ABEE36C006E5411 /* LocationDomain */ = {
+			isa = PBXGroup;
+			children = (
+				148AE2532ABEE45C006E5411 /* Abstractions */,
+				148AE23B2ABEE3B9006E5411 /* Assembly */,
+				148AE2302ABEE3B9006E5411 /* ModelsExtentions */,
+				148AE2352ABEE3B9006E5411 /* PrepareStorage */,
+				148AE2252ABEE3B9006E5411 /* UseCases */,
+				148AE2052ABEE36C006E5411 /* LocationDomain.h */,
+			);
+			path = LocationDomain;
+			sourceTree = "<group>";
+		};
+		148AE2102ABEE36C006E5411 /* LocationDomainTests */ = {
+			isa = PBXGroup;
+			children = (
+				148AE2112ABEE36C006E5411 /* LocationDomainTests.swift */,
+			);
+			path = LocationDomainTests;
+			sourceTree = "<group>";
+		};
+		148AE2252ABEE3B9006E5411 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				148AE2262ABEE3B9006E5411 /* Location */,
+				148AE2282ABEE3B9006E5411 /* Cities */,
+				148AE22C2ABEE3B9006E5411 /* Countries */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		148AE2262ABEE3B9006E5411 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				148AE2272ABEE3B9006E5411 /* LocationUseCase.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		148AE2282ABEE3B9006E5411 /* Cities */ = {
+			isa = PBXGroup;
+			children = (
+				148AE2292ABEE3B9006E5411 /* GetCitiesUseCase.swift */,
+				148AE22A2ABEE3B9006E5411 /* GetCityByCodeUseCase.swift */,
+				148AE22B2ABEE3B9006E5411 /* GetCityByNameUseCase.swift */,
+			);
+			path = Cities;
+			sourceTree = "<group>";
+		};
+		148AE22C2ABEE3B9006E5411 /* Countries */ = {
+			isa = PBXGroup;
+			children = (
+				148AE22D2ABEE3B9006E5411 /* GetCountryByCodeUseCase.swift */,
+				148AE22E2ABEE3B9006E5411 /* GetAllCountriesUseCase.swift */,
+				148AE22F2ABEE3B9006E5411 /* GetCountryByNameUseCase.swift */,
+			);
+			path = Countries;
+			sourceTree = "<group>";
+		};
+		148AE2302ABEE3B9006E5411 /* ModelsExtentions */ = {
+			isa = PBXGroup;
+			children = (
+				148AE2312ABEE3B9006E5411 /* CountryModel+Country.swift */,
+				148AE2322ABEE3B9006E5411 /* CityModel+City.swift */,
+				148AE2332ABEE3B9006E5411 /* AirportModel+Airport.swift */,
+				148AE2342ABEE3B9006E5411 /* LocationModel+Location.swift */,
+			);
+			path = ModelsExtentions;
+			sourceTree = "<group>";
+		};
+		148AE2352ABEE3B9006E5411 /* PrepareStorage */ = {
+			isa = PBXGroup;
+			children = (
+				148AE2362ABEE3B9006E5411 /* PrepareStorageUseCase.swift */,
+				148AE2372ABEE3B9006E5411 /* PrepareCountriesUseCase.swift */,
+				148AE2382ABEE3B9006E5411 /* PrepareCitiesUseCase.swift */,
+				148AE2392ABEE3B9006E5411 /* ClearStorageUseCase.swift */,
+				148AE23A2ABEE3B9006E5411 /* PrepareAirportsUseCase.swift */,
+			);
+			path = PrepareStorage;
+			sourceTree = "<group>";
+		};
+		148AE23B2ABEE3B9006E5411 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				148AE23C2ABEE3B9006E5411 /* LocationLogicAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		148AE24E2ABEE3EA006E5411 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				148AE2C82ABEE85F006E5411 /* LocationDomainModels.framework */,
+				148AE2822ABEE6A4006E5411 /* DomainAbstractions.framework */,
+				148AE24F2ABEE3EA006E5411 /* DomainAbstractions.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		148AE2532ABEE45C006E5411 /* Abstractions */ = {
+			isa = PBXGroup;
+			children = (
+				148AE25C2ABEE4B8006E5411 /* AirportsRepositoryProtocol.swift */,
+				148AE25E2ABEE4B8006E5411 /* CitiesRepositoryProtocol.swift */,
+				148AE25B2ABEE4B8006E5411 /* CountriesRepositoryProtocol.swift */,
+				148AE25D2ABEE4B8006E5411 /* LocationRepositoryError.swift */,
+				148AE25F2ABEE4B8006E5411 /* LocationRepositoryProtocol.swift */,
+				148AE2CB2ABEE9C9006E5411 /* UserSettingsRepositoryProtocol.swift */,
+				148AE2562ABEE4B8006E5411 /* Models */,
+			);
+			path = Abstractions;
+			sourceTree = "<group>";
+		};
+		148AE2562ABEE4B8006E5411 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				148AE2572ABEE4B8006E5411 /* CountryModel.swift */,
+				148AE2582ABEE4B8006E5411 /* CityModel.swift */,
+				148AE2592ABEE4B8006E5411 /* AirportModel.swift */,
+				148AE25A2ABEE4B8006E5411 /* LocationModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		148AE1FD2ABEE36C006E5411 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148AE2132ABEE36C006E5411 /* LocationDomain.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		148AE2012ABEE36C006E5411 /* LocationDomain */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 148AE2162ABEE36C006E5411 /* Build configuration list for PBXNativeTarget "LocationDomain" */;
+			buildPhases = (
+				148AE1FD2ABEE36C006E5411 /* Headers */,
+				148AE1FE2ABEE36C006E5411 /* Sources */,
+				148AE1FF2ABEE36C006E5411 /* Frameworks */,
+				148AE2002ABEE36C006E5411 /* Resources */,
+				148AE2852ABEE6A4006E5411 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocationDomain;
+			productName = LocationDomain;
+			productReference = 148AE2022ABEE36C006E5411 /* LocationDomain.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		148AE20B2ABEE36C006E5411 /* LocationDomainTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 148AE2192ABEE36C006E5411 /* Build configuration list for PBXNativeTarget "LocationDomainTests" */;
+			buildPhases = (
+				148AE2082ABEE36C006E5411 /* Sources */,
+				148AE2092ABEE36C006E5411 /* Frameworks */,
+				148AE20A2ABEE36C006E5411 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				148AE20F2ABEE36C006E5411 /* PBXTargetDependency */,
+			);
+			name = LocationDomainTests;
+			productName = LocationDomainTests;
+			productReference = 148AE20C2ABEE36C006E5411 /* LocationDomainTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		148AE1F92ABEE36C006E5411 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					148AE2012ABEE36C006E5411 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					148AE20B2ABEE36C006E5411 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 148AE1FC2ABEE36C006E5411 /* Build configuration list for PBXProject "LocationDomain" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 148AE1F82ABEE36C006E5411;
+			productRefGroup = 148AE2032ABEE36C006E5411 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				148AE2012ABEE36C006E5411 /* LocationDomain */,
+				148AE20B2ABEE36C006E5411 /* LocationDomainTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		148AE2002ABEE36C006E5411 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148AE20A2ABEE36C006E5411 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		148AE1FE2ABEE36C006E5411 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148AE24A2ABEE3B9006E5411 /* PrepareCitiesUseCase.swift in Sources */,
+				148AE2CC2ABEE9C9006E5411 /* UserSettingsRepositoryProtocol.swift in Sources */,
+				148AE2612ABEE4B8006E5411 /* CityModel.swift in Sources */,
+				148AE2412ABEE3B9006E5411 /* GetCountryByCodeUseCase.swift in Sources */,
+				148AE2602ABEE4B8006E5411 /* CountryModel.swift in Sources */,
+				148AE24B2ABEE3B9006E5411 /* ClearStorageUseCase.swift in Sources */,
+				148AE24D2ABEE3B9006E5411 /* LocationLogicAssembly.swift in Sources */,
+				148AE2642ABEE4B8006E5411 /* CountriesRepositoryProtocol.swift in Sources */,
+				148AE24C2ABEE3B9006E5411 /* PrepareAirportsUseCase.swift in Sources */,
+				148AE2672ABEE4B8006E5411 /* CitiesRepositoryProtocol.swift in Sources */,
+				148AE2622ABEE4B8006E5411 /* AirportModel.swift in Sources */,
+				148AE2682ABEE4B8006E5411 /* LocationRepositoryProtocol.swift in Sources */,
+				148AE2442ABEE3B9006E5411 /* CountryModel+Country.swift in Sources */,
+				148AE2432ABEE3B9006E5411 /* GetCountryByNameUseCase.swift in Sources */,
+				148AE2662ABEE4B8006E5411 /* LocationRepositoryError.swift in Sources */,
+				148AE2492ABEE3B9006E5411 /* PrepareCountriesUseCase.swift in Sources */,
+				148AE23F2ABEE3B9006E5411 /* GetCityByCodeUseCase.swift in Sources */,
+				148AE23D2ABEE3B9006E5411 /* LocationUseCase.swift in Sources */,
+				148AE23E2ABEE3B9006E5411 /* GetCitiesUseCase.swift in Sources */,
+				148AE2402ABEE3B9006E5411 /* GetCityByNameUseCase.swift in Sources */,
+				148AE2482ABEE3B9006E5411 /* PrepareStorageUseCase.swift in Sources */,
+				148AE2472ABEE3B9006E5411 /* LocationModel+Location.swift in Sources */,
+				148AE2462ABEE3B9006E5411 /* AirportModel+Airport.swift in Sources */,
+				148AE2422ABEE3B9006E5411 /* GetAllCountriesUseCase.swift in Sources */,
+				148AE2632ABEE4B8006E5411 /* LocationModel.swift in Sources */,
+				148AE2452ABEE3B9006E5411 /* CityModel+City.swift in Sources */,
+				148AE2652ABEE4B8006E5411 /* AirportsRepositoryProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		148AE2082ABEE36C006E5411 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148AE2122ABEE36C006E5411 /* LocationDomainTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		148AE20F2ABEE36C006E5411 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 148AE2012ABEE36C006E5411 /* LocationDomain */;
+			targetProxy = 148AE20E2ABEE36C006E5411 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		148AE2142ABEE36C006E5411 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		148AE2152ABEE36C006E5411 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		148AE2172ABEE36C006E5411 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bogdanov.kv.LocationDomain;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		148AE2182ABEE36C006E5411 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bogdanov.kv.LocationDomain;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		148AE21A2ABEE36C006E5411 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bogdanov.kv.LocationDomainTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		148AE21B2ABEE36C006E5411 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bogdanov.kv.LocationDomainTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		148AE1FC2ABEE36C006E5411 /* Build configuration list for PBXProject "LocationDomain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				148AE2142ABEE36C006E5411 /* Debug */,
+				148AE2152ABEE36C006E5411 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		148AE2162ABEE36C006E5411 /* Build configuration list for PBXNativeTarget "LocationDomain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				148AE2172ABEE36C006E5411 /* Debug */,
+				148AE2182ABEE36C006E5411 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		148AE2192ABEE36C006E5411 /* Build configuration list for PBXNativeTarget "LocationDomainTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				148AE21A2ABEE36C006E5411 /* Debug */,
+				148AE21B2ABEE36C006E5411 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 148AE1F92ABEE36C006E5411 /* Project object */;
+}

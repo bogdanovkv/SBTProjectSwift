@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import LocationDomainAbstraction
-import DomainAbstraction
+import LocationDomain
+import DomainAbstractions
+import LocationDomainModels
 
 /// Сборщик экрана выбра города
 protocol SelectCityAssemblyProtocol {
@@ -21,9 +22,9 @@ protocol SelectCityAssemblyProtocol {
 /// Сборщик экрана города
 final class SelectCityAssembly: SelectCityAssemblyProtocol {
 
-	private let getCitiesByCountryCodeUseCase: UseCaseSync<String, [City]>
+	private let getCitiesByCountryCodeUseCase: any UseCase<String, [City]>
 
-	init(getCitiesByCountryCodeUseCase: UseCaseSync<String, [City]>) {
+	init(getCitiesByCountryCodeUseCase: any UseCase<String, [City]>) {
 		self.getCitiesByCountryCodeUseCase = getCitiesByCountryCodeUseCase
 	}
 

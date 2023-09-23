@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import LocationDomainAbstraction
+import LocationDomain
+import LocationDomainModels
 
 /// Обработчик событий от вью отображения билетов
 protocol TicketViewOutput: AnyObject {

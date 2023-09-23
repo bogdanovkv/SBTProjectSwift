@@ -6,7 +6,7 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import LocationDomainAbstraction
+import LocationDomainModels
 
 /// Модель данных для экрана выбора местоположения
 final class LocationViewModel {

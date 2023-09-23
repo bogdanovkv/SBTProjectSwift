@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import LocationDomainAbstraction
+import LocationDomain
+import LocationDomainModels
 
 /// Протокол контроллера выбора страны
 protocol SelectCountryModuleInput: AnyObject {

@@ -6,8 +6,9 @@
 //  Copyright © 2021 Константин Богданов. All rights reserved.
 //
 
-import DomainAbstraction
-import LocationDomainAbstraction
+import DomainAbstractions
+import LocationDomain
+import LocationDomainModels
 
 /// Интерактор экрана отображения информации о билете
 protocol TicketInteractorInput {
@@ -23,20 +24,20 @@ protocol TicketInteractorInput {
 
 final class TicketInteractor: TicketInteractorInput {
 
-	private let getCityByCodeUseCase: UseCaseSync<String, City?>
-	private let getCountryByCodeUseCase: UseCaseSync<String, Country?>
+	private let getCityByCodeUseCase: any UseCase<String, City?>
+	private let getCountryByCodeUseCase: any UseCase<String, Country?>
 
-	init(getCityByCodeUseCase: UseCaseSync<String, City?>,
-		 getCountryByCodeUseCase: UseCaseSync<String, Country?>) {
+	init(getCityByCodeUseCase: any UseCase<String, City?>,
+		 getCountryByCodeUseCase: any UseCase<String, Country?>) {
 		self.getCityByCodeUseCase = getCityByCodeUseCase
 		self.getCountryByCodeUseCase = getCountryByCodeUseCase
 	}
 
 	func getCity(by code: String) -> City? {
-		return getCityByCodeUseCase.execute(parameter: code)
+		return getCityByCodeUseCase.execute(input: code)
 	}
 
 	func getCountry(by code: String) -> Country? {
-		return getCountryByCodeUseCase.execute(parameter: code)
+		return getCountryByCodeUseCase.execute(input: code)
 	}
 }

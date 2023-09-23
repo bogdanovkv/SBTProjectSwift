@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import LocationDomainAbstraction
-import TicketsDomainAbstraction
+import LocationDomain
+import TicketsDomain
+import LocationDomainModels
 
 /// Модель для view экрана отображения информации о билете
 final class TicketViewModel {

@@ -6,8 +6,9 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 
-import DomainAbstraction
-import LocationDomainAbstraction
+import DomainAbstractions
+import LocationDomain
+import LocationDomainModels
 import UIKit
 
 /// Протокол сборщика экрана выбора страны
@@ -17,11 +18,11 @@ protocol SelectCountryAssemblyProtocol {
 
 /// Сборщик экрана выбора страны
 final class SelectCountryAssembly: SelectCountryAssemblyProtocol {
-	private let getCountriesUseCase: UseCaseSync<Void, [Country]>
+	private let getCountriesUseCase: any UseCase<Void, [Country]>
 
 	/// Инициализатор
 	/// - Parameter useCase: useCase
-	init(getCountriesUseCase: UseCaseSync<Void, [Country]>) {
+	init(getCountriesUseCase: any UseCase<Void, [Country]>) {
 		self.getCountriesUseCase = getCountriesUseCase
 	}
 	func createController() -> UIViewController & SelectCountryModuleInput {

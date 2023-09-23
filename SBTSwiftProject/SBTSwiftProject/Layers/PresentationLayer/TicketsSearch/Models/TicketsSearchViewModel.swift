@@ -6,9 +6,9 @@
 //  Copyright © 2020 Константин Богданов. All rights reserved.
 //
 import Foundation
-import LocationRepositoryAbstraction
-import TicketsDomainAbstraction
-import LocationDomainAbstraction
+import TicketsDomain
+import LocationDomain
+import LocationDomainModels
 
 /// Вью модель для экрана поиска билетов
 final class TicketsSearchViewModel {

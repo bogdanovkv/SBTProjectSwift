@@ -7,8 +7,9 @@
 //
 
 import Foundation
-import LocationDomainAbstraction
-import DomainAbstraction
+import LocationDomain
+import DomainAbstractions
+import LocationDomainModels
 
 /// Протокол интерактор экрана выбора метоположения
 protocol LocationInteractorInput: AnyObject {
@@ -52,14 +53,14 @@ protocol LocationInteractorOutput: AnyObject {
 /// Интерактор экрана выбора метоположения
 final class LocationInteractor: LocationInteractorInput {
 
-	weak var ouptput: LocationInteractorOutput?
+	weak var output: LocationInteractorOutput?
 
-	private let getLocationUseCase: UseCase<Void, Location>
-	private let prepareStorageUseCase: UseCase<Void, Void>
-	private let getCountryUseCase: UseCaseSync<String, Country?>
-	private let getCityUseCase: UseCaseSync<String, City?>
-	private let getCityByCodeUseCase: UseCaseSync<String, City?>
-	private let getCountryByCodeUseCase: UseCaseSync<String, Country?>
+	private let getLocationUseCase: any UseCaseAsync<Void, Result<Location, Error>>
+	private let prepareStorageUseCase: any UseCaseAsync<Void, Result<Void, Error>>
+	private let getCountryUseCase: any UseCase<String, Country?>
+	private let getCityUseCase: any UseCase<String, City?>
+	private let getCityByCodeUseCase: any UseCase<String, City?>
+	private let getCountryByCodeUseCase: any UseCase<String, Country?>
 
 	/// Инициализатор
 	/// - Parameters:
@@ -67,12 +68,12 @@ final class LocationInteractor: LocationInteractorInput {
 	///   - getCountryUseCase: кейс получения страны
 	///   - getCityUseCase: кейст получения города
 	///   - prepareStorageUseCase: кейс подготовки хранилища
-	init(getLocationUseCase: UseCase<Void, Location>,
-		 getCountryUseCase: UseCaseSync<String, Country?>,
-		 getCityUseCase: UseCaseSync<String, City?>,
-		 prepareStorageUseCase: UseCase<Void, Void>,
-		 getCityByCodeUseCase: UseCaseSync<String, City?>,
-		 getCountryByCodeUseCase: UseCaseSync<String, Country?>) {
+	init(getLocationUseCase: any UseCaseAsync<Void, Result<Location, Error>>,
+		 getCountryUseCase: any UseCase<String, Country?>,
+		 getCityUseCase: any UseCase<String, City?>,
+		 prepareStorageUseCase: any UseCaseAsync<Void, Result<Void, Error>>,
+		 getCityByCodeUseCase: any UseCase<String, City?>,
+		 getCountryByCodeUseCase: any UseCase<String, Country?>) {
 		self.getLocationUseCase = getLocationUseCase
 		self.getCountryUseCase = getCountryUseCase
 		self.getCityUseCase = getCityUseCase
@@ -82,62 +83,50 @@ final class LocationInteractor: LocationInteractorInput {
 	}
 
 	func getLocation() {
-		getLocationUseCase.execute(parameter: ()) { [weak self] result in
-			guard let location = try? result.get() else {
-				DispatchQueue.main.async {
-					self?.ouptput?.didRecieveLocationError()
-				}
+		Task {
+			guard let location = try? await getLocationUseCase.execute(input: ()).get() else {
+				self.output?.didRecieveLocationError()
 				return
 			}
-			self?.getCity(wint: location.city)
-			self?.getCountry(with: location.country)
+			self.getCity(wint: location.city)
+			self.getCountry(with: location.country)
 		}
 	}
 
 	func prepareStorage() {
-		prepareStorageUseCase.execute(parameter: ()) { [weak self] result in
+		Task {
 			do {
-				_ = try result.get()
-				DispatchQueue.main.async {
-					self?.ouptput?.didPrepareStorage()
-				}
+				_ = try await prepareStorageUseCase.execute(input: ()).get()
+				self.output?.didPrepareStorage()
 			} catch {
 				DispatchQueue.main.async {
-					self?.ouptput?.didRecievePrepareStorageError()
+					self.output?.didRecievePrepareStorageError()
 				}
 			}
 		}
 	}
 
 	func getCity(wint name: String) {
-		if let city = getCityUseCase.execute(parameter: name) {
-			DispatchQueue.main.async { [weak self] in
-				self?.ouptput?.didRecieve(city: city)
-			}
+		if let city = getCityUseCase.execute(input: name) {
+				self.output?.didRecieve(city: city)
 			return
 		}
-		DispatchQueue.main.async { [weak self] in
-			self?.ouptput?.didRecieveLocationError()
-		}
+		self.output?.didRecieveLocationError()
 	}
 
 	func getCountry(with name: String) {
-		if let country = getCountryUseCase.execute(parameter: name) {
-			DispatchQueue.main.async { [weak self] in
-				self?.ouptput?.didRecieve(country: country)
-			}
+		if let country = getCountryUseCase.execute(input: name) {
+			output?.didRecieve(country: country)
 			return
 		}
-		DispatchQueue.main.async { [weak self] in
-			self?.ouptput?.didRecieveLocationError()
-		}
+		output?.didRecieveLocationError()
 	}
 
 	func getCity(code: String) -> City? {
-		return getCityByCodeUseCase.execute(parameter: code)
+		return getCityByCodeUseCase.execute(input: code)
 	}
 
 	func getCountry(code: String) -> Country? {
-		return getCountryByCodeUseCase.execute(parameter: code)
+		return getCountryByCodeUseCase.execute(input: code)
 	}
 }
