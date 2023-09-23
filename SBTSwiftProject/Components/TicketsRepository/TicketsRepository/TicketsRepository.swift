@@ -40,12 +40,12 @@ public final class TicketsRepository {
 	public init(networkService: NetworkServiceProtocol) {
 		self.networkService = networkService
 	}
-
+	
 	public func loadTickets(fromCityCodeIATA: String,
-					 fromDate: Date?,
-					 toCityCodeIATA: String,
-					 returnDate: Date?,
-					 _ completion: @escaping (Result<[TicketModel], Error>) -> Void) {
+							fromDate: Date?,
+							toCityCodeIATA: String,
+							returnDate: Date?,
+							_ completion: @escaping (Result<[TicketModel], Error>) -> Void) {
 		var parameters: [NetworkRequest.Parameter] = []
 		parameters.append(.init(key: "token", value: token))
 		parameters.append(.init(key: "origin", value: fromCityCodeIATA))
@@ -54,7 +54,7 @@ public final class TicketsRepository {
 			parameters.append(.init(key: "return_date", value: string(from: returnDate)))
 		}
 		if let fromDate = fromDate {
-				parameters.append(.init(key: "depart_date", value: string(from: fromDate)))
+			parameters.append(.init(key: "depart_date", value: string(from: fromDate)))
 		}
 
 		let request = NetworkRequest(url: Endpoint.search.rawValue,

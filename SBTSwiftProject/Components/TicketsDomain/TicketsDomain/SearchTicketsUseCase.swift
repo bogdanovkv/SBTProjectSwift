@@ -25,7 +25,7 @@ final class SearchTicketsUseCase: UseCaseAsync {
 														toCityCodeIATA: input.toCityCodeIATA,
 														returnDate: input.returnDate)
 			let dateFormatter = DateFormatter()
-			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 			let tickets: [Ticket] = models.compactMap({ model in
 				guard let departureDate = dateFormatter.date(from: model.departureDate),
 					  let arrivalDate = dateFormatter.date(from: model.arrivalDate),
