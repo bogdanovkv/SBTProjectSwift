@@ -38,21 +38,19 @@ public final class CitiesRepository: CitiesRepositoryProtocol {
 	}
 
 	public func loadCities(_ completion: @escaping (Result<[CityModel], Error>) -> Void) {
-		let onComplete: (Result<NetworkResponse<[CityDataModel]>, Error>) -> Void = { result in
+		let request = NetworkRequest(url: Endoint.allCities.rawValue,
+									 method: .GET,
+									 parameters: [])
+		networkService.download(request: request) { result in
 			do {
-				let response = try result.get()
-				guard let models = response.data else {
-					return completion(.failure(LocationRepositoryError.nilData))
-				}
-				completion(.success(models.map { $0.cityValue() }))
+				let url = try result.get()
+				let data = try Data(contentsOf: url)
+				let models = try JSONDecoder().decode([Throwable<CityDataModel>].self, from: data)
+				completion(.success(models.compactMap({ $0.value?.cityValue() })))
 			} catch {
 				completion(.failure(error))
 			}
 		}
-		let request = NetworkRequest(url: Endoint.allCities.rawValue,
-									 method: .GET,
-									 parameters: [])
-		networkService.perfom(request: request, onComplete)
 	}
 	
 	public func save(cities: [CityModel], completion: @escaping () -> Void) {
