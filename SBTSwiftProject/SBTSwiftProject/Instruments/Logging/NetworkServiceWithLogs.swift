@@ -34,7 +34,16 @@ final class NetworkServiceWithLogs: NetworkServiceProtocol {
 	}
 
 	func download(request: NetworkingAbstractions.NetworkRequest, _ completion: @escaping (Result<URL, Error>) -> Void) {
-
+		let onComplete: (Result<URL, Error>) -> Void = { result in
+			switch result {
+			case let .success(url):
+				Logger.network.log("Download request: \(request.url) \n Type: \(request.method.rawValue)\n Response: saved at path = \(url)")
+			case let .failure(error):
+				Logger.network.error("Download response: \(request.url) \n Type: \(request.method.rawValue)\n Error: \(error)")
+			}
+			completion(result)
+		}
+		service.download(request: request, onComplete)
 	}
 }
 

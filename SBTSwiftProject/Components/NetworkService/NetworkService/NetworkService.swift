@@ -13,6 +13,7 @@ public final class NetworkService: NSObject, NetworkServiceProtocol {
 	private var session: URLSession!
 	private let queue: OperationQueue
 	private var downloadCompletions: [String: (Result<URL, Error>) -> Void]
+	private let serialQueue = DispatchQueue(label: "com.network")
 
 	public override init() {
 		queue = .init()
@@ -21,7 +22,7 @@ public final class NetworkService: NSObject, NetworkServiceProtocol {
 		super.init()
 		self.session = .init(configuration: .default,
 							 delegate: self,
-							 delegateQueue: queue)
+							 delegateQueue: nil)
 	}
 
 	public func perfom<Model: Decodable>(request: NetworkRequest,
@@ -80,17 +81,21 @@ public final class NetworkService: NSObject, NetworkServiceProtocol {
 		urlRequest.httpMethod = request.method.rawValue
 
 		let task = session.downloadTask(with: urlRequest)
-		downloadCompletions[url.absoluteString] = completion
+		serialQueue.sync {
+			downloadCompletions[url.absoluteString] = completion
+		}
 		task.resume()
 	}
 }
 
 extension NetworkService: URLSessionDownloadDelegate {
 	public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-		if let url = downloadTask.currentRequest?.url?.absoluteString,
-			let completion = downloadCompletions[url] {
-			completion(.success(location))
-			downloadCompletions[url] = nil
+		serialQueue.sync {
+			if let url = downloadTask.currentRequest?.url?.absoluteString,
+			   let completion = downloadCompletions[url] {
+				completion(.success(location))
+				downloadCompletions[url] = nil
+			}
 		}
 	}
 
@@ -104,14 +109,16 @@ extension NetworkService: URLSessionDownloadDelegate {
 	public func urlSession(_ session: URLSession,
 					task: URLSessionTask,
 					didCompleteWithError error: Error?) {
-		if let url = task.currentRequest?.url?.absoluteString,
-			let completion = downloadCompletions[url] {
-			if let error = error {
-				completion(.failure(error))
-			} else {
-				completion(.failure(NetworkServiceError.undefined))
+		serialQueue.sync {
+			if let url = task.currentRequest?.url?.absoluteString,
+				let completion = downloadCompletions[url] {
+				if let error = error {
+					completion(.failure(error))
+				} else {
+					completion(.failure(NetworkServiceError.undefined))
+				}
+				downloadCompletions[url] = nil
 			}
-			downloadCompletions[url] = nil
 		}
 	}
 }
