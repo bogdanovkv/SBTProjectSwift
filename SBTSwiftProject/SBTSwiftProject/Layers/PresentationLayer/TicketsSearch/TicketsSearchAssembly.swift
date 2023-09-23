@@ -45,7 +45,7 @@ final class TicketsSearchAssembly: TicketsSearchAssemblyProtocol {
 		let controller = TicketsSearchViewController(departureCityCode: cityCode,
 													 departureCountryCode: coutryCode,
 													 interactor: interactor)
-		interactor.output = controller
+		interactor.output = TicketsSearchInteractorOutputMainThreadProxy(output: controller)
 		return controller
 	}
 }

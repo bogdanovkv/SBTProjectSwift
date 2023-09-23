@@ -51,7 +51,7 @@ protocol TicketsSearchInteractorInput {
 final class TicketsSearchInteractor: TicketsSearchInteractorInput {
 
 	/// Обработчик событий от интерактора
-	weak var output: TicketsSearchInteractorOutput?
+	var output: TicketsSearchInteractorOutput?
 
 	private let searchTicketsUseCase: any UseCaseAsync<TicketsSearchModel, Result<[Ticket], Error>>
 	private let getCountryByCodeUseCase: any UseCase<String, Country?>
