@@ -55,7 +55,12 @@ final class LocationAssembly: LocationAssemblyProtocol {
 											prepareStorageUseCase: prepareStorageUseCase,
 											getCityByCodeUseCase: getCityByCodeUseCase,
 											getCountryByCodeUseCase: getCountryByCodeUseCase)
-		let locationController = LocationViewController(interactor: interactor)
+		let locationController = LocationViewController(interactor: interactor, 
+														locationViewAssembly: { output in
+			let view = LocationView()
+			view.output = LocationViewOutputProxyWithMetrics(output: output)
+			return view
+		})
 		interactor.output = LocationInteractorOutputMainThreadProxy(output: locationController)
 		return locationController
 	}

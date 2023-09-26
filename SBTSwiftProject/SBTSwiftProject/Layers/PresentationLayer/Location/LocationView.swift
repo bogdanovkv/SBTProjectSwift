@@ -52,7 +52,7 @@ protocol LocationViewInput: UIView {
 
 final class LocationView: UIView {
 
-	weak var output: LocationViewOutput?
+	var output: LocationViewOutput?
 
 	private let titleLabel: UILabel
 	private let countryLabel: UILabel

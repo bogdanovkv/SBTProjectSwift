@@ -54,7 +54,14 @@ final class LocationViewController: UIViewController, LocationModuleInput {
 
 	var moduleOutput: LocationModuleOutput?
 
-	private lazy var locationView: LocationViewInput = LocationView()
+	deinit {
+		print("released")
+	}
+	private lazy var locationView: LocationViewInput = {
+		return locationViewAssembly(self)
+	}()
+
+	private let locationViewAssembly: (LocationViewOutput) -> LocationViewInput
 	private let interactor: LocationInteractorInput
 	private let viewModel: LocationViewModel
 
@@ -62,8 +69,10 @@ final class LocationViewController: UIViewController, LocationModuleInput {
 	/// - Parameters:
 	///   - interactor: интерактор
 	///   - router: роутер
-	init(interactor: LocationInteractorInput) {
+	init(interactor: LocationInteractorInput,
+		 locationViewAssembly: @escaping (LocationViewOutput) -> LocationViewInput) {
 		self.interactor = interactor
+		self.locationViewAssembly = locationViewAssembly
 		viewModel = .init()
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -74,7 +83,6 @@ final class LocationViewController: UIViewController, LocationModuleInput {
 
 	override func loadView() {
 		view = locationView
-		locationView.output = self
 	}
 
     override func viewDidLoad() {

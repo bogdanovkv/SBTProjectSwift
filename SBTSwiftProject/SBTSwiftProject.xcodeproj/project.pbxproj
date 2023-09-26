@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		141563C025F621B000B96C6A /* LocationUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141563BF25F621B000B96C6A /* LocationUseCaseTests.swift */; };
+		1417C3AC2AC330D600AB086B /* LocationViewOutputProxyWithMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417C3AB2AC330D600AB086B /* LocationViewOutputProxyWithMetrics.swift */; };
 		1421949B2ABF215A000A4F59 /* TicketsSearchInteractorOutputMainThreadProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421949A2ABF215A000A4F59 /* TicketsSearchInteractorOutputMainThreadProxy.swift */; };
 		142865CE25509648003D1930 /* SelectCountryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865CD25509648003D1930 /* SelectCountryAssembly.swift */; };
 		142865DD25509C4E003D1930 /* SelectCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142865DA25509C4E003D1930 /* SelectCityViewController.swift */; };
@@ -284,6 +285,7 @@
 
 /* Begin PBXFileReference section */
 		141563BF25F621B000B96C6A /* LocationUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUseCaseTests.swift; sourceTree = "<group>"; };
+		1417C3AB2AC330D600AB086B /* LocationViewOutputProxyWithMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewOutputProxyWithMetrics.swift; sourceTree = "<group>"; };
 		1421949A2ABF215A000A4F59 /* TicketsSearchInteractorOutputMainThreadProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsSearchInteractorOutputMainThreadProxy.swift; sourceTree = "<group>"; };
 		142865CD25509648003D1930 /* SelectCountryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryAssembly.swift; sourceTree = "<group>"; };
 		142865DA25509C4E003D1930 /* SelectCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityViewController.swift; sourceTree = "<group>"; };
@@ -405,6 +407,14 @@
 				14C60EB825F623DE007455BF /* Mock */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		1417C3942AC3306B00AB086B /* Metrics */ = {
+			isa = PBXGroup;
+			children = (
+				1417C3AB2AC330D600AB086B /* LocationViewOutputProxyWithMetrics.swift */,
+			);
+			path = Metrics;
 			sourceTree = "<group>";
 		};
 		142194992ABF214A000A4F59 /* Tickets */ = {
@@ -594,6 +604,7 @@
 		147A2A552ABF16530056A2A3 /* Instruments */ = {
 			isa = PBXGroup;
 			children = (
+				1417C3942AC3306B00AB086B /* Metrics */,
 				147A2A562ABF16640056A2A3 /* Multithreading */,
 				14977AA12ABF67540051DF74 /* Logging */,
 			);
@@ -1286,6 +1297,7 @@
 				143AE750263A9AA100D49F03 /* FlowCoordnator.swift in Sources */,
 				14D634C825506A1200FF7D37 /* AlertControllerAssembly.swift in Sources */,
 				14F78D1A254DFF7D0043C6DA /* LocationViewModel.swift in Sources */,
+				1417C3AC2AC330D600AB086B /* LocationViewOutputProxyWithMetrics.swift in Sources */,
 				14AE5AEC2544899800548B1D /* LocationAssembly.swift in Sources */,
 				1438FF6F20F9FD29003CC7C2 /* AppDelegate.swift in Sources */,
 				1421949B2ABF215A000A4F59 /* TicketsSearchInteractorOutputMainThreadProxy.swift in Sources */,
